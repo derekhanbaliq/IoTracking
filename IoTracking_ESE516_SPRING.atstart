@@ -1,5 +1,5 @@
 format_version: '2'
-name: IoTracking
+name: My Project
 versions:
   api: '1.0'
   backend: 1.8.580
@@ -17,17 +17,7 @@ board:
   identifier: SAMW25XplainedPro
   device: SAMD21G18A-MU
 details: null
-application:
-  definition: 'Atmel:WIFI_WINC1500:1.0.0::Application:Get_Weather_WINC1500:'
-  configuration:
-    app_ip_address_1: 192
-    app_ip_address_2: 168
-    app_ip_address_3: 1
-    app_ip_address_4: 1
-    app_main_m2m_ap_key: '1234567890'
-    app_main_m2m_ap_sec: Wi-Fi network is not secured
-    app_main_m2m_ap_ssid_mode: SSID is visible to others
-    app_main_m2m_device_name: WINC1500_00:00
+application: null
 middlewares:
   WIFI_0:
     user_label: WIFI_0
@@ -421,36 +411,32 @@ drivers:
         configuration:
           core_gclk_selection: Generic clock generator 0
           slow_gclk_selection: Generic clock generator 3
-  SPI_1:
-    user_label: SPI_1
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-MU::SERCOM3::driver_config_definition::SPI.Master::HAL:Driver:SPI.Master.Sync
-    functionality: SPI
-    api: HAL:Driver:SPI_Master_Sync
+  I2C_1:
+    user_label: I2C_1
+    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-MU::SERCOM3::driver_config_definition::I2C.Master.Standard~2FFast-mode::HAL:Driver:I2C.Master.Sync
+    functionality: I2C
+    api: HAL:Driver:I2C_Master_Sync
     configuration:
-      spi_master_advanced: false
-      spi_master_arch_cpha: Sample input on leading edge
-      spi_master_arch_cpol: SCK is low when idle
-      spi_master_arch_dbgstop: Keep running
-      spi_master_arch_dord: MSB first
-      spi_master_arch_ibon: In data stream
-      spi_master_arch_runstdby: false
-      spi_master_baud_rate: 50000
-      spi_master_character_size: 8 bits
-      spi_master_dummybyte: 511
-      spi_master_rx_enable: true
+      i2c_master_advanced: false
+      i2c_master_arch_dbgstop: Keep running
+      i2c_master_arch_inactout: Disabled
+      i2c_master_arch_lowtout: false
+      i2c_master_arch_mexttoen: false
+      i2c_master_arch_runstdby: false
+      i2c_master_arch_sdahold: 300-600ns hold time
+      i2c_master_arch_sexttoen: false
+      i2c_master_arch_trise: 215
+      i2c_master_baud_rate: 100000
     optional_signals: []
     variant:
-      specification: TXPO=0, RXPO=2
+      specification: SDA=0, SCL=1
       required_signals:
       - name: SERCOM3/PAD/0
         pad: PA22
-        label: MOSI
+        label: SDA
       - name: SERCOM3/PAD/1
         pad: PA17
-        label: SCK
-      - name: SERCOM3/PAD/2
-        pad: PA20
-        label: MISO
+        label: SCL
     clocks:
       domain_group:
         nodes:
@@ -822,7 +808,7 @@ drivers:
       RESERVED_InputFreq_id: Generic clock generator 3
       _$freq_output_8MHz Internal Oscillator (OSC8M): 8000000
       _$freq_output_Digital Frequency Locked Loop (DFLL48M): 48005120
-      _$freq_output_External Crystal Oscillator 0.4-32MHz (XOSC): '400000'
+      _$freq_output_External Crystal Oscillator 0.4-32MHz (XOSC): 400000
       _$freq_output_Fractional Digital Phase Locked Loop (FDPLL96M): 11718500000
       dfll48m_arch_bplckc: false
       dfll48m_arch_calibration: true
@@ -960,7 +946,7 @@ pads:
   PA17:
     name: PA17
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-MU::pad::PA17
-    mode: Digital output
+    mode: I2C
     user_label: PA17
     configuration: null
   PA18:
@@ -975,16 +961,10 @@ pads:
     mode: Digital output
     user_label: PA19
     configuration: null
-  PA20:
-    name: PA20
-    definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-MU::pad::PA20
-    mode: Digital input
-    user_label: PA20
-    configuration: null
   PA22:
     name: PA22
     definition: Atmel:SAMD21_Drivers:0.0.1::SAMD21G18A-MU::pad::PA22
-    mode: Digital output
+    mode: I2C
     user_label: PA22
     configuration: null
   WINC_PIN_RESET:
