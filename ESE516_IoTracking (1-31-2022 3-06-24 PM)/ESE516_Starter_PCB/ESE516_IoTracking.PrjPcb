@@ -539,23 +539,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document30]
-DocumentPath=..\ese516_team\Lib Derek\Header 2x1 Battery.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document31]
 DocumentPath=..\ese516_team\Lib Derek\Header 4x1 OLED.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -572,24 +555,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
-DocumentPath=..\ese516_team\Lib Derek\Header 4x1 OLED.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document33]
+[Document31]
 DocumentPath=..\ese516_team\Lib Derek\LSM6DSO.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -606,7 +572,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HAIQETHH
 
-[Document34]
+[Document32]
 DocumentPath=..\ese516_team\Lib Derek\LSM6DSO.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -623,7 +589,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MQHTPKLV
 
-[Document35]
+[Document33]
 DocumentPath=..\ese516_team\GPS Module\GPS13740.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -640,7 +606,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document36]
+[Document34]
 DocumentPath=..\ese516_team\GPS Module\GPS13740.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -657,7 +623,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JCCDKCMX
 
-[Document37]
+[Document35]
 DocumentPath=..\ese516_team\BuckConverter\TPS62082DSGR\SON50P200X200X80-9N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -674,7 +640,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document38]
+[Document36]
 DocumentPath=..\ese516_team\BuckConverter\TPS62082DSGR\TPS62082DSGR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -691,7 +657,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QHOLVXKE
 
-[Document39]
+[Document37]
 DocumentPath=GPS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -708,24 +674,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JQEDCGMJ
 
-[Document40]
-DocumentPath=OLED.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=HGOXONQG
-
-[Document41]
+[Document38]
 DocumentPath=Accelerometer.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
