@@ -171,23 +171,6 @@ GenerateClassCluster=0
 DocumentUniqueId=ATYVJZAP
 
 [Document8]
-DocumentPath=CommonComponents.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=9
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=ANTAGUIF
-
-[Document9]
 DocumentPath=LiPo_Charger.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -204,7 +187,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HEKAQEZL
 
-[Document10]
+[Document9]
 DocumentPath=ESE516_ExampleProject.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -221,7 +204,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document10]
 DocumentPath=ESE516_PCB.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -238,7 +221,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VXRXSFCV
 
-[Document12]
+[Document11]
 DocumentPath=StarterBoardJob.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -255,7 +238,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document12]
 DocumentPath=StarterBoardFabrication.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -272,7 +255,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document13]
 DocumentPath=StarterBoardAssembly.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -289,7 +272,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document14]
 DocumentPath=Library\Components - 12.02.20 - 18.05.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -306,7 +289,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CTQXCVAW
 
-[Document16]
+[Document15]
 DocumentPath=Library\Components - 12.02.20 - 18.05.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -323,7 +306,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MUNFSHZH
 
-[Document17]
+[Document16]
 DocumentPath=Library\2020-02-13_00-03-41.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -340,7 +323,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NJIVECKF
 
-[Document18]
+[Document17]
 DocumentPath=Library\2020-02-13_00-03-41.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -357,7 +340,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PZOJPGKL
 
-[Document19]
+[Document18]
 DocumentPath=Library\Components - 12.02.20 - 19.48.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -374,7 +357,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document19]
 DocumentPath=Library\Components - 12.02.20 - 19.48.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -391,7 +374,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RJKPEEGE
 
-[Document21]
+[Document20]
 DocumentPath=Library\Components - 12.02.20 - 19.52.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -406,9 +389,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=NCMHHAMB
 
-[Document22]
+[Document21]
 DocumentPath=Library\Components - 12.02.20 - 19.52.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -425,7 +408,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OUHHOMFR
 
-[Document23]
+[Document22]
 DocumentPath=Library\Components - 01.02.21 - 21.11.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -440,9 +423,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=KKIGBAYA
 
-[Document24]
+[Document23]
 DocumentPath=Library\Components - 01.02.21 - 21.11.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -459,7 +442,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EOSDNEIM
 
-[Document25]
+[Document24]
 DocumentPath=Library\S4B-PH-SM4-TB_LF_SN.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -476,7 +459,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TIRAXPIQ
 
-[Document26]
+[Document25]
 DocumentPath=Library\S4B-PH-SM4-TB(LF)(SN).PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -493,7 +476,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QCRMYUWA
 
-[Document27]
+[Document26]
 DocumentPath=SnapDocs\TPS55332QPWPRQ1.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -510,7 +493,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document27]
 DocumentPath=SnapDocs\TPS55332QPWPRQ1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -525,9 +508,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=GMIVLSFD
 
-[Document29]
+[Document28]
 DocumentPath=..\ese516_team\Lib Derek\Header 2x1 Battery.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -544,7 +527,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document29]
 DocumentPath=..\ese516_team\Lib Derek\Header 4x1 OLED.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -559,9 +542,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=MLLYOXAE
 
-[Document31]
+[Document30]
 DocumentPath=..\ese516_team\Lib Derek\LSM6DSO.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -578,7 +561,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HAIQETHH
 
-[Document32]
+[Document31]
 DocumentPath=..\ese516_team\Lib Derek\LSM6DSO.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -595,7 +578,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MQHTPKLV
 
-[Document33]
+[Document32]
 DocumentPath=..\ese516_team\GPS Module\GPS13740.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -610,9 +593,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=QLTSGQNH
 
-[Document34]
+[Document33]
 DocumentPath=..\ese516_team\GPS Module\GPS13740.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -629,7 +612,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JCCDKCMX
 
-[Document35]
+[Document34]
 DocumentPath=..\ese516_team\BuckConverter\TPS62082DSGR\SON50P200X200X80-9N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -644,9 +627,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=FXOANFIE
 
-[Document36]
+[Document35]
 DocumentPath=..\ese516_team\BuckConverter\TPS62082DSGR\TPS62082DSGR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -663,7 +646,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QHOLVXKE
 
-[Document37]
+[Document36]
 DocumentPath=Accelerometer.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
