@@ -1,0 +1,45 @@
+Removed Parameter Colour:Red from Part D1
+Removed Parameter ComponentLink1Description:Manufacturer URL from Part D1
+Removed Parameter ComponentLink1URL:http://www.us.liteon.com/ from Part D1
+Removed Parameter ComponentLink2Description:Datasheet from Part D1
+Removed Parameter ComponentLink2URL:http://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C170CKT.pdf from Part D1
+Removed Parameter DatasheetVersion:03/2003 from Part D1
+Removed Parameter Manufacturer:Lite-On from Part D1
+Removed Parameter Mounting Technology:Surface Mount from Part D1
+Removed Parameter PackageDescription:2-Pin Surface Mount Device, Body 2 x 1.25 mm from Part D1
+Removed Parameter PackageReference:C170CKT from Part D1
+Removed Parameter Pins:2 from Part D1
+Removed Parameter RoHSCompliant:true from Part D1
+Change Value of Parameter Height in Part D1 Old=1.1 mm New=1.1mm
+Change Value of Parameter Length in Part D1 Old=2 mm New=2mm
+Change Value of Parameter Max Operating Temperature in Part D1 Old=85 degC New=85°C
+Change Value of Parameter Min Operating Temperature in Part D1 Old=-55 degC New=-55°C
+Change Value of Parameter Package Quantity in Part D1 Old=3000 New=1
+Added Parameter Case/Package=0805 to Part D1
+Added Parameter Case Code (Imperial)=0805 to Part D1
+Added Parameter Case Code (Metric)=2012 to Part D1
+Added Parameter Color=Red to Part D1
+Added Parameter Depth=1.25mm to Part D1
+Added Parameter Dominant Wavelength=638nm to Part D1
+Added Parameter Forward Current=40mA to Part D1
+Added Parameter Forward Voltage=1.8V to Part D1
+Added Parameter Illumination Color=Red to Part D1
+Added Parameter Lead Free=Lead Free to Part D1
+Added Parameter Lens Color=Colorless to Part D1
+Added Parameter Lens Style=Diffused to Part D1
+Added Parameter Lens Transparency=Clear to Part D1
+Added Parameter Luminous Intensity=10mcd to Part D1
+Added Parameter Max Power Dissipation=100mW to Part D1
+Added Parameter Number of Elements=1 to Part D1
+Added Parameter Number of LEDs=1 to Part D1
+Added Parameter Number of Pins=2 to Part D1
+Added Parameter Power Dissipation=100mW to Part D1
+Added Parameter Power Rating=100mW to Part D1
+Added Parameter Radiation Hardening=No to Part D1
+Added Parameter Reverse Voltage=5V to Part D1
+Added Parameter Test Current=10mA to Part D1
+Added Parameter Viewing Angle=130° to Part D1
+Added Parameter Voltage=5V to Part D1
+Added Parameter Wavelength=660nm to Part D1
+Added Parameter Width=1.25mm to Part D1
+Update Managed Component D1 From CMP-1674-00001-6[LTST-C170CKT] To CMP-1674-00001-6[LTST-C170CKT] in FTDI.SchDoc
