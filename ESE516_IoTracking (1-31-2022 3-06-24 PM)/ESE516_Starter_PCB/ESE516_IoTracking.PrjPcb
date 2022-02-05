@@ -662,7 +662,7 @@ UniqueID=BC0CE679-049C-4B69-94F9-44606582BF8E
 Description=Build_Alt
 AllowFabrication=0
 ParameterCount=0
-VariationCount=22
+VariationCount=28
 Variation1=Designator=TP1|UniqueId=\NJVBXXVZ|Kind=1|AlternatePart= 
 Variation2=Designator=TP3|UniqueId=\MFGVQVPB|Kind=1|AlternatePart= 
 Variation3=Designator=TP2|UniqueId=\CTJKUFZO|Kind=1|AlternatePart= 
@@ -685,6 +685,12 @@ Variation19=Designator=TP_ACC_1|UniqueId=\JQMANLPO|Kind=1|AlternatePart=
 Variation20=Designator=TP_ACC_2|UniqueId=\QAWXVKJS|Kind=1|AlternatePart= 
 Variation21=Designator=TP_BUCK_1|UniqueId=\AVPURDRD|Kind=1|AlternatePart= 
 Variation22=Designator=TP_BUCK_2|UniqueId=\EQCFBTLL|Kind=1|AlternatePart= 
+Variation23=Designator=TP6|UniqueId=\AELIRYWP\QMDQUKEB|Kind=1|AlternatePart= 
+Variation24=Designator=TP7|UniqueId=\AELIRYWP\WIZSCYYN|Kind=1|AlternatePart= 
+Variation25=Designator=TP9|UniqueId=\AELIRYWP\BMLFJXMJ|Kind=1|AlternatePart= 
+Variation26=Designator=TP8|UniqueId=\AELIRYWP\UYORGEPY|Kind=1|AlternatePart= 
+Variation27=Designator=TP10|UniqueId=\AELIRYWP\AICWKVGQ|Kind=1|AlternatePart= 
+Variation28=Designator=X1|UniqueId=\AELIRYWP\QJGNTUFF|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [Configuration1]
