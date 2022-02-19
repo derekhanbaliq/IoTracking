@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\DeeDum\Desktop\Private Data\Masters 2 Penn\ESE516\ese516_team\ESE516_IoTracking (1-31-2022 3-06-24 PM)\ESE516_Starter_PCB\IoTracking_PCB_new.PcbDoc
-Date     : 2/19/2022
-Time     : 2:45:56 PM
+PCB File : E:\ESE 516\ese516_team\ESE516_IoTracking (1-31-2022 3-06-24 PM)\ESE516_Starter_PCB\IoTracking_PCB_new.PcbDoc
+Date     : 2022/2/19
+Time     : 15:13:56
 
 Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
    Violation between Clearance Constraint: (Collision < 10mil) Between Pad U_Buck1-9(1670mil,1790mil) on Top Layer And Pad U_Buck1-9_1(1648.347mil,1790mil) on Multi-Layer 
@@ -53,7 +53,7 @@ Processing Rule : Un-Routed Net Constraint ( (All) )
    Violation between Un-Routed Net Constraint: Net VBAT Between Pad P1-3(1150mil,2610mil) on Multi-Layer And Pad C16-1(1165.433mil,2400mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net VBAT Between Pad C16-1(1165.433mil,2400mil) on Top Layer And Pad U4-2(1169.843mil,2258.071mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad C16-2(1094.567mil,2400mil) on Top Layer And Pad R7-2(1270mil,2402.638mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C16-2(1094.567mil,2400mil) on Top Layer And Pad U4-5(1101.929mil,2229.528mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C16-2(1094.567mil,2400mil) on Top Layer And Pad U4-4(1130.473mil,2258.071mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad C3-1(170mil,2326.378mil) on Top Layer And Pad C2-1(380mil,2396.575mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad C5-1(380mil,2188.504mil) on Top Layer And Pad C2-1(380mil,2396.575mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad J1-11(347.953mil,2515.138mil) on Top Layer And Pad C2-1(380mil,2396.575mil) on Top Layer 
@@ -195,8 +195,8 @@ Processing Rule : Un-Routed Net Constraint ( (All) )
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(1113.169mil,942.898mil) on Top Layer And Pad U3-0(1113.169mil,1058.016mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(1113.169mil,942.898mil) on Top Layer And Pad U3-17(1113.72mil,761.221mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(518.248mil,980.221mil) on Top Layer And Pad U3-0(518.248mil,1066.126mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(518.248mil,1066.126mil) on Top Layer And Pad U3-0(605.571mil,1066.126mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-51(357.815mil,1288.78mil) on Top Layer And Pad U3-0(518.248mil,1066.126mil) on Top Layer 
-   Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(518.248mil,980.221mil) on Top Layer And Pad U3-0(605.571mil,980.221mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-1(357.815mil,761.221mil) on Top Layer And Pad U3-0(518.248mil,980.221mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(605.571mil,980.221mil) on Top Layer And Pad U3-0(605.571mil,1066.126mil) on Top Layer 
    Violation between Un-Routed Net Constraint: Net GND Between Pad U3-0(605.571mil,1066.126mil) on Top Layer And Pad U3-42(783.012mil,1288.78mil) on Top Layer 
@@ -399,4 +399,4 @@ Rule Violations :0
 
 Violations Detected : 354
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
