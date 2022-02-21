@@ -1,0 +1,61 @@
+Net Status Report
+Filename     : C:\Users\DeeDum\Desktop\Private Data\Masters 2 Penn\ESE516\ese516_team\ESE516_IoTracking (1-31-2022 3-06-24 PM)\ESE516_Starter_PCB\IoTracking_PCB_new.PcbDoc
+Date         : 2/21/2022
+Time         : 2:43:35 PM
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    1.8 Vout, Signal Layers Only, 412.181mils
+    3V3, Signal Layers Only, 3563.595mils
+    BQ_BAT_TS, Signal Layers Only, 299.581mils
+    BQ_ILIM, Signal Layers Only, 113.932mils
+    BQ_ISET, Signal Layers Only, 70.629mils
+    Buck_Vin, Signal Layers Only, 524.427mils
+    CBUS0, Signal Layers Only, 235.359mils
+    EP1, Signal Layers Only, 1811.586mils
+    EP2, Signal Layers Only, 1642.669mils
+    EP3, Signal Layers Only, 1410.554mils
+    EP4, Signal Layers Only, 1625.492mils
+    FLASH_MEM_SPI_SS, Signal Layers Only, 2188.896mils
+    GND, Signal Layers Only, 9956.662mils
+    MCU_LED, Signal Layers Only, 201.217mils
+    MCU_RESET, Signal Layers Only, 1184.186mils
+    MCU_RX_UART_CLI, Signal Layers Only, 803.118mils
+    MCU_TX_UART_CLI, Signal Layers Only, 879.338mils
+    MEM_SPI_CLK, Signal Layers Only, 597.5mils
+    MEM_SPI_MISO, Signal Layers Only, 630.61mils
+    MEM_SPI_MOSI, Signal Layers Only, 594.642mils
+    NetB1_1, Signal Layers Only, 305.268mils
+    NetD1_2, Signal Layers Only, 176.556mils
+    NetD3_1, Signal Layers Only, 102.906mils
+    NetD4_1, Signal Layers Only, 97.917mils
+    NetDS1_2, Signal Layers Only, 76.483mils
+    NetL_B1_1, Signal Layers Only, 5.1mils
+    NetR16_1, Signal Layers Only, 138.325mils
+    NetR17_1, Signal Layers Only, 69.357mils
+    RS, Signal Layers Only, 291.621mils
+    SD_CARD_DETECT, Signal Layers Only, 168.774mils
+    SERCOM0_I2C_SCL, Signal Layers Only, 2353.834mils
+    SERCOM0_I2C_SDA, Signal Layers Only, 2182.088mils
+    SERCOM1_PAD2_SPI_MISO, Signal Layers Only, 3656.844mils
+    SERCOM1_PAD2_SPI_MOSI, Signal Layers Only, 3198.097mils
+    SERCOM1_PAD3_SPI_SCK, Signal Layers Only, 3277.422mils
+    SERCOM2_UART_RX, Signal Layers Only, 1573.163mils
+    SERCOM2_UART_TX, Signal Layers Only, 1484.004mils
+    SERCOM3_I2C_SCL, Signal Layers Only, 840.091mils
+    SERCOM3_I2C_SDA, Signal Layers Only, 1063.428mils
+    SWCLK, Signal Layers Only, 757.841mils
+    SWDIO, Signal Layers Only, 417.1mils
+    USB_DATA_N, Signal Layers Only, 350.425mils
+    USB_DATA_P, Signal Layers Only, 436.788mils
+    USB_FTDI_DATA_N, Signal Layers Only, 122.962mils
+    USB_FTDI_DATA_P, Signal Layers Only, 105.717mils
+    VBAT, Signal Layers Only, 400.674mils
+    VBUS, Signal Layers Only, 381.583mils
+    VCCIO, Signal Layers Only, 881.052mils
+    VOUT, Signal Layers Only, 619.03mils
+    VUSB, Signal Layers Only, 3081.767mils
+    Vout_BQ, Signal Layers Only, 992.703mils
+    XIN_32, Signal Layers Only, 245.426mils
+    XOUT_32, Signal Layers Only, 253.506mils
+count : 53

@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\DeeDum\Desktop\Private Data\Masters 2 Penn\ESE516\ese516_team\ESE516_IoTracking (1-31-2022 3-06-24 PM)\ESE516_Starter_PCB\IoTracking_PCB_new.PcbDoc
 Date     : 2/21/2022
-Time     : 2:21:46 PM
+Time     : 2:54:34 PM
 
 Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
 Rule Violations :0
@@ -28,11 +28,7 @@ Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Minimum Solder Mask Sliver (Gap=2mil) (All),(All)
-   Violation between Minimum Solder Mask Sliver Constraint: (0.154mil < 2mil) Between Via (1140.315mil,2180.315mil) from Top Layer to Bottom Layer And Via (1160mil,2200mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.154mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.154mil < 2mil) Between Via (1140.315mil,2219.685mil) from Top Layer to Bottom Layer And Via (1160mil,2200mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.154mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.154mil < 2mil) Between Via (1160mil,2200mil) from Top Layer to Bottom Layer And Via (1179.685mil,2180.315mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.154mil]
-   Violation between Minimum Solder Mask Sliver Constraint: (0.154mil < 2mil) Between Via (1160mil,2200mil) from Top Layer to Bottom Layer And Via (1179.685mil,2219.685mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [0.154mil]
-Rule Violations :4
+Rule Violations :0
 
 Processing Rule : Silk To Solder Mask (Clearance=2mil) (IsPad),(All)
 Rule Violations :0
@@ -47,6 +43,6 @@ Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (
 Rule Violations :0
 
 
-Violations Detected : 4
+Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
