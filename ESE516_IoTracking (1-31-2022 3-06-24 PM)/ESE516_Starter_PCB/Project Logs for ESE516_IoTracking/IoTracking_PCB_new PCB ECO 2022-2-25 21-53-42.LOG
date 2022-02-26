@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=GND Pin=U_Buck1-9_1
+Removed Pin From Net: NetName=GND Pin=U_Buck1-9_2
+Removed Pin From Net: NetName=GND Pin=U_Buck1-9
+Change Component Description : Designator=L_B1 Old Description=744311100 SMD Flat Wire High Current Inductor WE-HCI, L=1.00 ¦ÌH New Description=744311100 SMD Flat Wire High Current Inductor WE-HCI, L=1.00 ¦ÌH
+Added Component: Designator=TP6(PCBComponent)
+Added Pin To Net: NetName=3V3 Pin=TP6-1
+Added Member To Class: ClassName=U_MCU Member=Component TP6 0.1" Pad
+Added Member To Class: ClassName=U_MCU Member=Component TP8 0.1" Pad
+Added Room: Name=MAIN
+Added Room: Name=U_Accelerometer
+Added Room: Name=U_BuckConverter
+Added Room: Name=U_FTDI
+Added Room: Name=U_LiPo_Charger
+Added Room: Name=U_MCU
+Added Room: Name=U_Memory
