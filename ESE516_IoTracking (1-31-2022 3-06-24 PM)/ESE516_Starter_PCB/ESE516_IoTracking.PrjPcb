@@ -216,7 +216,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document11]
-DocumentPath=StarterBoardFabrication.PCBDwf
+DocumentPath=IoTracking_Board_Fabrication.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -233,7 +233,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document12]
-DocumentPath=StarterBoardAssembly.PCBDwf
+DocumentPath=IoTracking_Board_Assembly.PCBDwf
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -694,15 +694,91 @@ Variation28=Designator=X1|UniqueId=\AELIRYWP\QJGNTUFF|Kind=1|AlternatePart=
 ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for ESE516_IoTracking\Design Rule Check - IoTracking_PCB_new.html
+DocumentPath=Project Outputs for ESE516_IoTracking\BOM\Bill of Materials-ESE516_ExampleProject(Build_Alt).xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for ESE516_IoTracking\ESE516_IoTracking_AltiumBOM.xlsx
+DocumentPath=Project Outputs for ESE516_IoTracking\Design Rule Check - IoTracking_PCB_new.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
+DocumentPath=Project Outputs for ESE516_IoTracking\ESE516_IoTracking_AltiumBOM.xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G1
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G2
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GM3
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.REP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument21]
 DocumentPath=Project Outputs for ESE516_IoTracking\Net Status - IoTracking_PCB_new.html
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB_new(Build_Alt).txt
 DItemRevisionGUID=
 
 [Configuration1]

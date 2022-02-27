@@ -1,0 +1,10 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [Build_Alt] of Project [ESE516_IoTracking.PrjPcb]
+   Generated File[Bill of Materials-ESE516_ExampleProject(Build_Alt).xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 8:45:02 PM On 2/26/2022
