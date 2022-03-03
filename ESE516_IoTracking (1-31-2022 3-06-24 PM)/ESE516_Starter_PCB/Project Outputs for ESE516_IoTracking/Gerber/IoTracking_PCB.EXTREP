@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: IoTracking_PCB.GBR   3/2/2022  7:30:51 PM
+Gerber File Extension Report For: IoTracking_PCB.GBR   3/2/2022  11:12:13 PM
 ------------------------------------------------------------------------------------------
 
 
@@ -16,5 +16,5 @@ Layer Extension     Layer Description
 .GBS                Bottom Solder                           
 .GBP                Bottom Paste                            
 .GBO                Bottom Overlay                          
-.GM3                Board Layer                             
+.GM16               Board Shape                             
 ------------------------------------------------------------------------------------------

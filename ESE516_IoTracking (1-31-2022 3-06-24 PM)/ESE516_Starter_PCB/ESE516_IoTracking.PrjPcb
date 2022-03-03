@@ -690,7 +690,7 @@ Variation24=Designator=TP7|UniqueId=\AELIRYWP\WIZSCYYN|Kind=1|AlternatePart=
 Variation25=Designator=TP9|UniqueId=\AELIRYWP\BMLFJXMJ|Kind=1|AlternatePart= 
 Variation26=Designator=TP8|UniqueId=\AELIRYWP\UYORGEPY|Kind=1|AlternatePart= 
 Variation27=Designator=TP10|UniqueId=\AELIRYWP\AICWKVGQ|Kind=1|AlternatePart= 
-Variation28=Designator=X1|UniqueId=\AELIRYWP\QJGNTUFF|Kind=1|AlternatePart= 
+Variation28=Designator=X1|UniqueId=\AELIRYWP\QJGNTUFF|Kind=0|AlternatePart= 
 ParamVariationCount=0
 
 [GeneratedDocument1]
@@ -698,159 +698,279 @@ DocumentPath=Project Outputs for ESE516_IoTracking\BOM\Bill of Materials-ESE516_
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for ESE516_IoTracking\Design Rule Check - IoTracking_PCB_new.html
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\comp_+_top\components
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for ESE516_IoTracking\ESE516_IoTracking_AltiumBOM.xlsx
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\eda\data
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.DRR
+DocumentPath=Project Outputs for ESE516_IoTracking\Design Rule Check - IoTracking_PCB.html
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.EXTREP
+DocumentPath=Project Outputs for ESE516_IoTracking\Design Rule Check - IoTracking_PCB_new.html
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.G1
+DocumentPath=Project Outputs for ESE516_IoTracking\ESE516_IoTracking_AltiumBOM.xlsx
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.G2
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\bottom_layer\features
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBL
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\bottom_overlay\features
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBO
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\bottom_paste\features
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBP
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\bottom_solder\features
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBS
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\comp_+_top\features
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GM3
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\dielectric_1\features
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTL
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\dielectric_2\features
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTO
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\dielectric_3\features
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTP
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\drill_drawing_top-bottom\features
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTS
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\drill_guide_top-bottom\features
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.LDP
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\drill_plated_bottom-top\features
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.REP
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\groundplane\features
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.RUL
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\keep-out_layer\features
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.TXT
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\powerplane\features
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.DRR
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\top_layer\features
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.EXTREP
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\top_overlay\features
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G1
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\top_paste\features
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G2
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\top_solder\features
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBL
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBO
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBP
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.G1
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBS
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.G2
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GM3
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTL
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument31]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTO
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument32]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTP
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument33]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTS
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GM3
 DItemRevisionGUID=
 
 [GeneratedDocument34]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.LDP
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GM16
 DItemRevisionGUID=
 
 [GeneratedDocument35]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.REP
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument36]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.RUL
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument37]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.TXT
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument38]
-DocumentPath=Project Outputs for ESE516_IoTracking\Net Status - IoTracking_PCB_new.html
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument39]
-DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB(Build_Alt).txt
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument40]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.REP
+DItemRevisionGUID=
+
+[GeneratedDocument41]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\IoTracking_PCB.REP
+DItemRevisionGUID=
+
+[GeneratedDocument42]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument43]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument44]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument45]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument46]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G1
+DItemRevisionGUID=
+
+[GeneratedDocument47]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G2
+DItemRevisionGUID=
+
+[GeneratedDocument48]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument49]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument50]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument51]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument52]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GM3
+DItemRevisionGUID=
+
+[GeneratedDocument53]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument54]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument55]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument56]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument57]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument58]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.REP
+DItemRevisionGUID=
+
+[GeneratedDocument59]
+DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument60]
+DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument61]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\matrix\matrix
+DItemRevisionGUID=
+
+[GeneratedDocument62]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\netlists\cadnet\netlist
+DItemRevisionGUID=
+
+[GeneratedDocument63]
+DocumentPath=Project Outputs for ESE516_IoTracking\Net Status - IoTracking_PCB_new.html
+DItemRevisionGUID=
+
+[GeneratedDocument64]
+DocumentPath=Project Outputs for ESE516_IoTracking\BOM\PCBNG_BOM-ESE516_ExampleProject(Build_Alt).xlsx
+DItemRevisionGUID=
+
+[GeneratedDocument65]
+DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB(Build_Alt).csv
+DItemRevisionGUID=
+
+[GeneratedDocument66]
+DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB(Build_Alt).txt
+DItemRevisionGUID=
+
+[GeneratedDocument67]
 DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB_new(Build_Alt).txt
+DItemRevisionGUID=
+
+[GeneratedDocument68]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\profile
+DItemRevisionGUID=
+
+[GeneratedDocument69]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\stephdr
+DItemRevisionGUID=
+
+[GeneratedDocument70]
+DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\drill_plated_bottom-top\tools
 DItemRevisionGUID=
 
 [Configuration1]
