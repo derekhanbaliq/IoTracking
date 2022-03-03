@@ -31,7 +31,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=1
-OutputPath=Project Outputs for ESE516_IoTracking
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -866,110 +866,38 @@ DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument44]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument45]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument46]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G1
-DItemRevisionGUID=
-
-[GeneratedDocument47]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.G2
-DItemRevisionGUID=
-
-[GeneratedDocument48]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBL
-DItemRevisionGUID=
-
-[GeneratedDocument49]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBO
-DItemRevisionGUID=
-
-[GeneratedDocument50]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument51]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GBS
-DItemRevisionGUID=
-
-[GeneratedDocument52]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GM3
-DItemRevisionGUID=
-
-[GeneratedDocument53]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTL
-DItemRevisionGUID=
-
-[GeneratedDocument54]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTO
-DItemRevisionGUID=
-
-[GeneratedDocument55]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument56]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument57]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument58]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.REP
-DItemRevisionGUID=
-
-[GeneratedDocument59]
-DocumentPath=Project Outputs for ESE516_IoTracking\Gerber\IoTracking_PCB_new.RUL
-DItemRevisionGUID=
-
-[GeneratedDocument60]
-DocumentPath=Project Outputs for ESE516_IoTracking\NC Drill\IoTracking_PCB_new.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument61]
 DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\matrix\matrix
 DItemRevisionGUID=
 
-[GeneratedDocument62]
+[GeneratedDocument45]
 DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\netlists\cadnet\netlist
 DItemRevisionGUID=
 
-[GeneratedDocument63]
+[GeneratedDocument46]
 DocumentPath=Project Outputs for ESE516_IoTracking\Net Status - IoTracking_PCB_new.html
 DItemRevisionGUID=
 
-[GeneratedDocument64]
+[GeneratedDocument47]
 DocumentPath=Project Outputs for ESE516_IoTracking\BOM\PCBNG_BOM-ESE516_ExampleProject(Build_Alt).xlsx
 DItemRevisionGUID=
 
-[GeneratedDocument65]
+[GeneratedDocument48]
 DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB(Build_Alt).csv
 DItemRevisionGUID=
 
-[GeneratedDocument66]
+[GeneratedDocument49]
 DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB(Build_Alt).txt
 DItemRevisionGUID=
 
-[GeneratedDocument67]
-DocumentPath=Project Outputs for ESE516_IoTracking\Pick Place\Pick Place for IoTracking_PCB_new(Build_Alt).txt
-DItemRevisionGUID=
-
-[GeneratedDocument68]
+[GeneratedDocument50]
 DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\profile
 DItemRevisionGUID=
 
-[GeneratedDocument69]
+[GeneratedDocument51]
 DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\stephdr
 DItemRevisionGUID=
 
-[GeneratedDocument70]
+[GeneratedDocument52]
 DocumentPath=Project Outputs for ESE516_IoTracking\ODB\odb\steps\pcb\layers\drill_plated_bottom-top\tools
 DItemRevisionGUID=
 
@@ -1014,7 +942,7 @@ ContentTypeGUID=0D12F8DC-E60C-11DF-B822-12313F0024A2
 ConfigurationType=Assembly
 
 [Generic_EDE]
-OutputDir=Project Outputs for ESE516_IoTracking
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs
