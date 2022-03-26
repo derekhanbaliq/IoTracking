@@ -233,21 +233,21 @@ static void FreeRTOS_read(char* character)
 		//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
 		
 		//check if the given character is empty:
-		//if ((character != NULL) && (character[0] == '\0'))
-		//{
-			////if empty, we add a semaphore to block the task
+		if ((character != NULL) && (character[0] == '\0'))
+		{
+			//if empty, we add a semaphore to block the task
 			//SerialConsoleWriteString("did not read anything \r \n");
-			////take the semaphore to start waiting
-			//xSemaphoreTake(xSemaphoreREAD, (TickType_t) 500);
-		//}
-		//else {
-			////if the character is not empty, release the semaphore
-			////SerialConsoleWriteString("not empty, the character is: \r\n");
+			//take the semaphore to start waiting
+			xSemaphoreTake(xSemaphoreREAD, (TickType_t) 500);
+		}
+		else {
+			//if the character is not empty, release the semaphore
+			//SerialConsoleWriteString("not empty, the character is: \r\n");
 			//SerialConsoleWriteString("Printing out character: \r\n");
 			//SerialConsoleWriteString(character);
 			//SerialConsoleWriteString("\r\n");
-			//xSemaphoreGive(xSemaphoreREAD);
-		//}
+			xSemaphoreGive(xSemaphoreREAD);
+		}
 		
 		//if (character == NULL)
 		//{
@@ -263,7 +263,7 @@ static void FreeRTOS_read(char* character)
 			//SerialConsoleWriteString(*character); //wtf??
 		//}
 		
-		xSemaphoreGive(xSemaphoreREAD);
+		//xSemaphoreGive(xSemaphoreREAD);
 }
 
 
