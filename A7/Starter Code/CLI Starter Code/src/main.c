@@ -6,7 +6,7 @@
  */
 
 /**
- * \mainpage User Application template doxygen documentation
+ * \main page User Application template doxygen documentation
  *
  * \par Empty user application template
  *
@@ -81,7 +81,7 @@ int main (void)
 	setLogLevel(LOG_INFO_LVL); 
 	LogMessage(LOG_INFO_LVL , "%s", string); //Test
 	setLogLevel(LOG_ERROR_LVL); //Sets the Debug Logger to only allow messages with LOG_ERROR_LVL or higher to be printed
-	LogMessage(LOG_INFO_LVL, "Performing Temperature Test…\r\n"); //This should NOT print
+	LogMessage(LOG_INFO_LVL, "Performing Temperature Test\r\n"); //This should NOT print
 	LogMessage(LOG_FATAL_LVL,"Error! Temperature over %d Degrees!\r\n", 55); //This should print
 	LogMessage(LOG_ERROR_LVL,"System error!\r\n"); //This should print , since they are the same level	
     LogMessage(LOG_INFO_LVL , "ESE516 CLI STARTER PROJECT STARTED\r\n"); //this should not print since it is error level now

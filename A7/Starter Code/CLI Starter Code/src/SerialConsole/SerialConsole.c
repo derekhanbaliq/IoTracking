@@ -270,20 +270,29 @@ static void configure_usart_callbacks(void)
 void usart_read_callback(struct usart_module *const usart_module)
 {
 	//Order Echo
-	SerialConsoleWriteString(&latestRx);
-	circular_buf_put(cbufRx, (uint8_t) latestRx); //Add the latest read character into the RX circular Buffer
-	usart_read_buffer_job(&usart_instance, (uint8_t*) &latestRx, 1);	//Order the MCU to keep reading
-
-	char *rx1;
-	SerialConsoleReadCharacter(&rx1);
-
+	//SerialConsoleWriteString(&latestRx);
+	//circular_buf_put(cbufRx, (uint8_t) latestRx); //Add the latest read character into the RX circular Buffer
+	//usart_read_buffer_job(&usart_instance, (uint8_t*) &latestRx, 1);	//Order the MCU to keep reading
+//
+	//char *rx1;
+	//SerialConsoleReadCharacter(&rx1);
+//
 	//Add latest character again, just to try getting it out again
-	circular_buf_put(cbufRx, (uint8_t) latestRx); //Add the latest read character into the RX circular Buffer
-
+	//circular_buf_put(cbufRx, (uint8_t) latestRx); //Add the latest read character into the RX circular Buffer
+//
 	//Try method 2
-	char rx2;
-	SerialConsoleReadCharacter(&rx2);
+	//char rx2;
+	//SerialConsoleReadCharacter(&rx2);
 	
+	if( latestRx != NULL) //Only continue if there are more characters to receive
+	{
+		usart_read_buffer_job(&usart_instance, (uint8_t*) &latestRx, 1);
+		SerialConsoleWriteString(&latestRx);
+		circular_buf_put(cbufRx, (uint8_t) latestRx);
+		SerialConsoleWriteString("ffffff you!");
+	}
+
+	SerialConsoleWriteString("got you!");
 }
 
 
