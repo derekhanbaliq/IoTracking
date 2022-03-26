@@ -57,19 +57,21 @@ static void FreeRTOS_read(char* character);
 /******************************************************************************
 * CLI Thread
 ******************************************************************************/
-
-SemaphoreHandle_t xSemaphoreREAD = NULL; //initializing the semaphore
-
+SemaphoreHandle_t xSemaphoreREAD; //initializing the semaphore	
 void vCommandConsoleTask( void *pvParameters )
 {
+xSemaphoreREAD = xSemaphoreCreateMutex();
+if(xSemaphoreREAD != NULL )
+{
+	/* The semaphore was created successfully and
+	can be used. */
+}
+
+
 //REGISTER COMMANDS HERE
 
 FreeRTOS_CLIRegisterCommand( &xClearScreen );
 FreeRTOS_CLIRegisterCommand( &xResetCommand );
-xSemaphoreREAD = xSemaphoreCreateMutex();
-
-
-//createSemaphoreMutex();
 
 uint8_t cRxedChar[2], cInputIndex = 0;
 BaseType_t xMoreDataToFollow;
@@ -225,38 +227,25 @@ static uint8_t pcEscapeCodePos = 0;
 * @details		STUDENTS TO COMPLETE.
 * @note
 *****************************************************************************/
-//SemaphoreHandle_t xSemaphoreREAD = NULL; //initializing the semaphore
-//
-//void createSemaphoreMutex(void) {
-	//xSemaphoreREAD = xSemaphoreCreateMutex();
-	//if(xSemaphoreREAD != NULL )
-   //{
-       ///* The semaphore was created successfully and
-       //can be used. */
-   //}
-   //else
-   //{
-	   //
-   //}
-//}
-//createSemaphoreMutex();
+
 static void FreeRTOS_read(char* character)
 {
 		//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
 		
 		//check if the given character is empty:
-		if (character[0] == "\0")
+		if ((character != NULL) && (character[0] == '\0'))
 		{
 			//if empty, we add a semaphore to block the task
-			printf("did not read anything \r \n");
+			SerialConsoleWriteString("did not read anything \r \n");
 			//take the semaphore to start waiting
-			xSemaphoreTake(xSemaphoreREAD, (TickType_t) 10);
+			xSemaphoreTake(xSemaphoreREAD, (TickType_t) 500);
 		}
 		else {
 			//if the character is not empty, release the semaphore
-			printf("not empty, the character is: \r \n");
-			printf(character);
-			printf("\r\n");
+			//SerialConsoleWriteString("not empty, the character is: \r\n");
+			SerialConsoleWriteString("Printing out character: \r\n");
+			SerialConsoleWriteString(character);
+			SerialConsoleWriteString("\r\n");
 			xSemaphoreGive(xSemaphoreREAD);
 		}
 }
