@@ -48,3 +48,8 @@ BaseType_t CLI_NeotrellProcessButtonBuffer( int8_t *pcWriteBuffer,size_t xWriteB
 BaseType_t CLI_DistanceSensorGetDistance( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString );
 BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString );
 BaseType_t CLI_SendDummyGameData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString );
+
+#define VERSION "0.0.1"
+
+void UartSemaphoreGive(void);
+BaseType_t CLI_DeviceVersion( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString );

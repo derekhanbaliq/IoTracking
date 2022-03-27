@@ -161,7 +161,9 @@ src/SerialConsole/SerialConsole.d src/SerialConsole/SerialConsole.o: \
  d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\string.h \
  d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocale.h \
  d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h \
- ../src/SerialConsole/circular_buffer.h
+ ../src/SerialConsole/circular_buffer.h ../src/CliThread/CliThread.h \
+ ../src/SerialConsole/SerialConsole.h \
+ ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h
 
 ../src/SerialConsole/SerialConsole.h:
 
@@ -492,3 +494,9 @@ d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\xlocal
 d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\string.h:
 
 ../src/SerialConsole/circular_buffer.h:
+
+../src/CliThread/CliThread.h:
+
+../src/SerialConsole/SerialConsole.h:
+
+../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h:

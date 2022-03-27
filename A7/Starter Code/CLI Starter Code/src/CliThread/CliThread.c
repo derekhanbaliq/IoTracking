@@ -17,14 +17,13 @@
 * Defines
 ******************************************************************************/
 
-
 /******************************************************************************
 * Variables
 ******************************************************************************/
 static  int8_t * const pcWelcomeMessage =
 "FreeRTOS CLI.\r\nType Help to view a list of registered commands.\r\n";
 
-
+SemaphoreHandle_t SemaUartRead; //initializing the semaphore
 
 //Clear screen command
 const CLI_Command_Definition_t xClearScreen =
@@ -43,7 +42,13 @@ static const CLI_Command_Definition_t xResetCommand =
 	0
 };
 
-
+static const CLI_Command_Definition_t xVersionCommand = 
+{
+	"version",
+	"version: Firmware version is..." ,
+	(const pdCOMMAND_LINE_CALLBACK)CLI_DeviceVersion,
+	0
+};
 
 /******************************************************************************
 * Forward Declarations
@@ -57,21 +62,14 @@ static void FreeRTOS_read(char* character);
 /******************************************************************************
 * CLI Thread
 ******************************************************************************/
-SemaphoreHandle_t xSemaphoreREAD; //initializing the semaphore	
 void vCommandConsoleTask( void *pvParameters )
 {
-xSemaphoreREAD = xSemaphoreCreateMutex();
-if(xSemaphoreREAD != NULL )
-{
-	/* The semaphore was created successfully and
-	can be used. */
-}
-
 
 //REGISTER COMMANDS HERE
 
 FreeRTOS_CLIRegisterCommand( &xClearScreen );
 FreeRTOS_CLIRegisterCommand( &xResetCommand );
+FreeRTOS_CLIRegisterCommand( &xVersionCommand );
 
 uint8_t cRxedChar[2], cInputIndex = 0;
 BaseType_t xMoreDataToFollow;
@@ -83,9 +81,7 @@ static char pcEscapeCodes [4];
 static uint8_t pcEscapeCodePos = 0;
 
 //Any semaphores/mutexes/etc you needed to be initialized, you can do them here
-
-
-
+SemaUartRead = xSemaphoreCreateBinary();
 
     /* This code assumes the peripheral being used as the console has already
     been opened and configured, and is passed into the task as the task
@@ -230,43 +226,18 @@ static uint8_t pcEscapeCodePos = 0;
 
 static void FreeRTOS_read(char* character)
 {
-		//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
+	//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
 		
-		//check if the given character is empty:
-		if ((character != NULL) && (character[0] == '\0'))
-		{
-			//if empty, we add a semaphore to block the task
-			//SerialConsoleWriteString("did not read anything \r \n");
-			//take the semaphore to start waiting
-			xSemaphoreTake(xSemaphoreREAD, (TickType_t) 500);
-		}
-		else {
-			//if the character is not empty, release the semaphore
-			//SerialConsoleWriteString("not empty, the character is: \r\n");
-			//SerialConsoleWriteString("Printing out character: \r\n");
-			//SerialConsoleWriteString(character);
-			//SerialConsoleWriteString("\r\n");
-			xSemaphoreGive(xSemaphoreREAD);
-		}
-		
-		//if (character == NULL)
-		//{
-			//SerialConsoleWriteString("111");
-		//}
-		//else if (character[0] == '\0')
-		//{
-			//SerialConsoleWriteString("222");
-		//}
-		//else
-		//{
-			//SerialConsoleWriteString("333");
-			//SerialConsoleWriteString(*character); //wtf??
-		//}
-		
-		//xSemaphoreGive(xSemaphoreREAD);
+	if(xSemaphoreTake(SemaUartRead, portMAX_DELAY) == pdTRUE)
+	{
+		SerialConsoleReadCharacter(character);
+	}
 }
 
-
+void UartSemaphoreGive(void)
+{
+	xSemaphoreGive(SemaUartRead);
+}
 
 
 /******************************************************************************
@@ -293,4 +264,10 @@ BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const i
 	return pdFALSE;
 }
 
-
+BaseType_t CLI_DeviceVersion( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
+{
+	char* s = VERSION;
+	snprintf(bufCli, CLI_MSG_LEN - 1, "%s\r\n", s);
+	snprintf(pcWriteBuffer, xWriteBufferLen, bufCli);
+	return pdFALSE;
+}
