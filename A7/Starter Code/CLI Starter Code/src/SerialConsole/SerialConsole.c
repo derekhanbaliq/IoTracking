@@ -180,22 +180,24 @@ currentDebugLevel = debugLevel;
 
 /**************************************************************************//**
 * @fn			LogMessage (Students to fill out this)
-* @brief
-* @note
-*****************************************************************************/	
+* @brief	    Outputs the input message from LogMessage after comparing whether
+* @note			the debug log level is higher or equal to the current debug level
+*****************************************************************************/
+//initiate the message char array	
 char bufferMsg[80];
 void LogMessage(enum eDebugLogLevels level, const char *format, ...)
 {
 	if (level >= currentDebugLevel) {
-	va_list aptr;
-	uint8_t ret;
-	va_start(aptr, format);
-	ret = vsprintf(bufferMsg, format, aptr);
-	va_end(aptr);
-	
-	SerialConsoleWriteString(bufferMsg);
+		//extracting the ... var arguments
+		va_list aptr;
+		uint8_t ret;
+		va_start(aptr, format);
+		ret = vsprintf(bufferMsg, format, aptr);
+		va_end(aptr);
+		//write the message into the console with SerialConsoleWriteString(string)
+		SerialConsoleWriteString(bufferMsg);
 	}
-};
+}
 
 /*
 COMMAND LINE INTERFACE COMMANDS

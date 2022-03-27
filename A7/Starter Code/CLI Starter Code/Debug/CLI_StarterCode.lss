@@ -15,23 +15,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .comment      00000059  00000000  00000000  0002020c  2**0
                   CONTENTS, READONLY
-  6 .debug_info   0002b721  00000000  00000000  00020265  2**0
+  6 .debug_info   0002b722  00000000  00000000  00020265  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000041d0  00000000  00000000  0004b986  2**0
+  7 .debug_abbrev 000041df  00000000  00000000  0004b987  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00003f78  00000000  00000000  0004fb56  2**0
+  8 .debug_loc    00003f78  00000000  00000000  0004fb66  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00000bc0  00000000  00000000  00053ace  2**0
+  9 .debug_aranges 00000bc0  00000000  00000000  00053ade  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000a40  00000000  00000000  0005468e  2**0
+ 10 .debug_ranges 00000a40  00000000  00000000  0005469e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  0001d04f  00000000  00000000  000550ce  2**0
+ 11 .debug_macro  0001d04f  00000000  00000000  000550de  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   00011072  00000000  00000000  0007211d  2**0
+ 12 .debug_line   000116d2  00000000  00000000  0007212d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    0009355b  00000000  00000000  0008318f  2**0
+ 13 .debug_str    00093560  00000000  00000000  000837ff  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00002c58  00000000  00000000  001166ec  2**2
+ 14 .debug_frame  00002c58  00000000  00000000  00116d60  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -9959,11 +9959,11 @@ uint8_t cRxedChar[2], cInputIndex = 0;
     3372:	18fb      	adds	r3, r7, r3
     3374:	2200      	movs	r2, #0
     3376:	701a      	strb	r2, [r3, #0]
-static bool isEscapeCode = false;
-static char pcEscapeCodes [4];
 static uint8_t pcEscapeCodePos = 0;
 
 //Any semaphores/mutexes/etc you needed to be initialized, you can do them here
+
+///initializing the semaphore by using the createbinary type of semaphore
 SemaUartRead = xSemaphoreCreateBinary();
     3378:	2203      	movs	r2, #3
     337a:	2100      	movs	r1, #0
@@ -10374,13 +10374,12 @@ SemaUartRead = xSemaphoreCreateBinary();
 *****************************************************************************/
 
 static void FreeRTOS_read(char* character)
-{
+{	
     35e4:	b580      	push	{r7, lr}
     35e6:	b082      	sub	sp, #8
     35e8:	af00      	add	r7, sp, #0
     35ea:	6078      	str	r0, [r7, #4]
-	//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
-		
+	///the semaphore if condition to read the character in
 	if(xSemaphoreTake(SemaUartRead, portMAX_DELAY) == pdTRUE)
     35ec:	4b09      	ldr	r3, [pc, #36]	; (3614 <FreeRTOS_read+0x30>)
     35ee:	681a      	ldr	r2, [r3, #0]
@@ -10394,7 +10393,7 @@ static void FreeRTOS_read(char* character)
     35fe:	2b01      	cmp	r3, #1
     3600:	d103      	bne.n	360a <FreeRTOS_read+0x26>
 	{
-		SerialConsoleReadCharacter(character);
+		SerialConsoleReadCharacter(character); //use serialconsolereadcharacter to read what the character is
     3602:	687b      	ldr	r3, [r7, #4]
     3604:	0018      	movs	r0, r3
     3606:	4b05      	ldr	r3, [pc, #20]	; (361c <FreeRTOS_read+0x38>)
@@ -10411,12 +10410,15 @@ static void FreeRTOS_read(char* character)
     361c:	00003c35 	.word	0x00003c35
 
 00003620 <UartSemaphoreGive>:
-
+/**************************************************************************//**
+* @fn			void UartSemaphoreGive(void)
+* @brief		used to release, or give, the semaphore back to unblock the task
+*****************************************************************************/
 void UartSemaphoreGive(void)
 {
     3620:	b5b0      	push	{r4, r5, r7, lr}
     3622:	af00      	add	r7, sp, #0
-	xSemaphoreGive(SemaUartRead);
+	xSemaphoreGive(SemaUartRead); //use default xSemaphoreGive command to release dask of SemaUartRead
     3624:	4b04      	ldr	r3, [pc, #16]	; (3638 <UartSemaphoreGive+0x18>)
     3626:	6818      	ldr	r0, [r3, #0]
     3628:	2300      	movs	r3, #0
@@ -10502,7 +10504,7 @@ BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const i
     36a4:	00003345 	.word	0x00003345
 
 000036a8 <CLI_DeviceVersion>:
-
+//CLI command to output the version of the device, which is updated from the VERSION defined in the beginning from CliThread.h header file
 BaseType_t CLI_DeviceVersion( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
     36a8:	b590      	push	{r4, r7, lr}
@@ -11562,9 +11564,9 @@ currentDebugLevel = debugLevel;
     3c8c:	200038b4 	.word	0x200038b4
 
 00003c90 <LogMessage>:
-* @brief
-* @note
-*****************************************************************************/	
+* @note			the debug log level is higher or equal to the current debug level
+*****************************************************************************/
+//initiate the message char array	
 char bufferMsg[80];
 void LogMessage(enum eDebugLogLevels level, const char *format, ...)
 {
@@ -11582,13 +11584,14 @@ void LogMessage(enum eDebugLogLevels level, const char *format, ...)
     3ca4:	7812      	ldrb	r2, [r2, #0]
     3ca6:	429a      	cmp	r2, r3
     3ca8:	d310      	bcc.n	3ccc <LogMessage+0x3c>
-	va_list aptr;
-	uint8_t ret;
-	va_start(aptr, format);
+		//extracting the ... var arguments
+		va_list aptr;
+		uint8_t ret;
+		va_start(aptr, format);
     3caa:	2320      	movs	r3, #32
     3cac:	18fb      	adds	r3, r7, r3
     3cae:	60bb      	str	r3, [r7, #8]
-	ret = vsprintf(bufferMsg, format, aptr);
+		ret = vsprintf(bufferMsg, format, aptr);
     3cb0:	68ba      	ldr	r2, [r7, #8]
     3cb2:	69f9      	ldr	r1, [r7, #28]
     3cb4:	4b0a      	ldr	r3, [pc, #40]	; (3ce0 <LogMessage+0x50>)
@@ -11599,15 +11602,15 @@ void LogMessage(enum eDebugLogLevels level, const char *format, ...)
     3cbe:	230f      	movs	r3, #15
     3cc0:	18fb      	adds	r3, r7, r3
     3cc2:	701a      	strb	r2, [r3, #0]
-	va_end(aptr);
-	
-	SerialConsoleWriteString(bufferMsg);
+		va_end(aptr);
+		//write the message into the console with SerialConsoleWriteString(string)
+		SerialConsoleWriteString(bufferMsg);
     3cc4:	4b06      	ldr	r3, [pc, #24]	; (3ce0 <LogMessage+0x50>)
     3cc6:	0018      	movs	r0, r3
     3cc8:	4b07      	ldr	r3, [pc, #28]	; (3ce8 <LogMessage+0x58>)
     3cca:	4798      	blx	r3
 	}
-};
+}
     3ccc:	46c0      	nop			; (mov r8, r8)
     3cce:	46bd      	mov	sp, r7
     3cd0:	b005      	add	sp, #20
@@ -16322,7 +16325,6 @@ void vApplicationDaemonTaskStartupHook (void *ucParameterToPass) //vApplicationD
     562e:	6078      	str	r0, [r7, #4]
 	
 	//CODE HERE: Initialize any HW here
-	//SerialConsoleWriteString("hi\r\n");
 	
 	//Initialize tasks
 	StartTasks();	

@@ -16,14 +16,13 @@
 /******************************************************************************
 * Defines
 ******************************************************************************/
-
 /******************************************************************************
 * Variables
 ******************************************************************************/
 static  int8_t * const pcWelcomeMessage =
 "FreeRTOS CLI.\r\nType Help to view a list of registered commands.\r\n";
-
-SemaphoreHandle_t SemaUartRead; //initializing the semaphore
+///initializing the semaphore object
+SemaphoreHandle_t SemaUartRead; 
 
 //Clear screen command
 const CLI_Command_Definition_t xClearScreen =
@@ -81,6 +80,8 @@ static char pcEscapeCodes [4];
 static uint8_t pcEscapeCodePos = 0;
 
 //Any semaphores/mutexes/etc you needed to be initialized, you can do them here
+
+///initializing the semaphore by using the createbinary type of semaphore
 SemaUartRead = xSemaphoreCreateBinary();
 
     /* This code assumes the peripheral being used as the console has already
@@ -225,18 +226,20 @@ SemaUartRead = xSemaphoreCreateBinary();
 *****************************************************************************/
 
 static void FreeRTOS_read(char* character)
-{
-	//vTaskSuspend( NULL );//We suspend ourselves. Please remove this when doing your code
-		
+{	
+	///the semaphore if condition to read the character in
 	if(xSemaphoreTake(SemaUartRead, portMAX_DELAY) == pdTRUE)
 	{
-		SerialConsoleReadCharacter(character);
+		SerialConsoleReadCharacter(character); //use serialconsolereadcharacter to read what the character is
 	}
 }
-
+/**************************************************************************//**
+* @fn			void UartSemaphoreGive(void)
+* @brief		used to release, or give, the semaphore back to unblock the task
+*****************************************************************************/
 void UartSemaphoreGive(void)
 {
-	xSemaphoreGive(SemaUartRead);
+	xSemaphoreGive(SemaUartRead); //use default xSemaphoreGive command to release dask of SemaUartRead
 }
 
 
@@ -263,7 +266,7 @@ BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const i
 	system_reset();
 	return pdFALSE;
 }
-
+//CLI command to output the version of the device, which is updated from the VERSION defined in the beginning from CliThread.h header file
 BaseType_t CLI_DeviceVersion( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
 	char* s = VERSION;

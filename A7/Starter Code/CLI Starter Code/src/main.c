@@ -135,7 +135,6 @@ void vApplicationDaemonTaskStartupHook (void *ucParameterToPass) //vApplicationD
 {
 	
 	//CODE HERE: Initialize any HW here
-	//SerialConsoleWriteString("hi\r\n");
 	
 	//Initialize tasks
 	StartTasks();	
