@@ -219,9 +219,9 @@ SemaUartRead = xSemaphoreCreateBinary();
 
 /**************************************************************************//**
 * @fn			void FreeRTOS_read(char* character)
-* @brief		STUDENTS TO COMPLETE. This function block the thread unless we received a character. How can we do this?
-				There are multiple solutions! Check all the inter-thread communications available! See https://www.freertos.org/a00113.html 
-* @details		STUDENTS TO COMPLETE.
+* @brief		Uses RTOS to read the terminal and react on it.
+* @details		Takes the sempahore on max delay to consider if the cbufRx is empty
+                then use SerialConsoleReadCharacter to read and handle the character
 * @note
 *****************************************************************************/
 

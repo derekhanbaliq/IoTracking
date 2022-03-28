@@ -267,7 +267,7 @@ static void configure_usart_callbacks(void)
 /**************************************************************************//**
 * @fn			void usart_read_callback(struct usart_module *const usart_module)
 * @brief		Callback called when the system finishes receives all the bytes requested from a UART read job
-		Students to fill out. Please note that the code here is dummy code. It is only used to show you how some functions work.
+			
 * @note
 *****************************************************************************/
 void usart_read_callback(struct usart_module *const usart_module)
@@ -286,7 +286,8 @@ void usart_read_callback(struct usart_module *const usart_module)
 	//Try method 2
 	//char rx2;
 	//SerialConsoleReadCharacter(&rx2);
-	UartSemaphoreGive();
+	
+	UartSemaphoreGive(); //at the end of every callback, give the semaphore back to unblock task and keep things going
 }
 
 /**************************************************************************//**
