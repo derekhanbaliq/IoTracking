@@ -181,7 +181,12 @@ currentDebugLevel = debugLevel;
 /**************************************************************************//**
 * @fn			LogMessage (Students to fill out this)
 * @brief	    Outputs the input message from LogMessage after comparing whether
-* @note			the debug log level is higher or equal to the current debug level
+				the debug log level is higher or equal to the current debug level
+* @param[in]    level The debug level to be set for the debug logger
+* @param[in]    format The way the ... parameters are structured
+* @param[in]    ... the rest of the argument, includes String.
+* @note			
+
 *****************************************************************************/
 //initiate the message char array	
 char bufferMsg[80];
@@ -267,7 +272,7 @@ static void configure_usart_callbacks(void)
 /**************************************************************************//**
 * @fn			void usart_read_callback(struct usart_module *const usart_module)
 * @brief		Callback called when the system finishes receives all the bytes requested from a UART read job
-			
+* @param[in]    usart_module The UART module we are reading from.			
 * @note
 *****************************************************************************/
 void usart_read_callback(struct usart_module *const usart_module)

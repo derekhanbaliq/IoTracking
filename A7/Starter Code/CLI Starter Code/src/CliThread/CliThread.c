@@ -222,6 +222,7 @@ SemaUartRead = xSemaphoreCreateBinary();
 * @brief		Uses RTOS to read the terminal and react on it.
 * @details		Takes the sempahore on max delay to consider if the cbufRx is empty
                 then use SerialConsoleReadCharacter to read and handle the character
+* @param[in]    character The character being read right now
 * @note
 *****************************************************************************/
 
