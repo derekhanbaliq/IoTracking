@@ -376,7 +376,7 @@ SemaphoreHandle_t semHandle = NULL;
 
 
 //---0. Get Mutex
-error = 0; //Students to fill out
+error = I2cGetMutex(xMaxBlockTime); //Students to fill out
 if(ERROR_NONE != error) goto exit;
 
 
@@ -441,26 +441,55 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	int32_t error = ERROR_NONE;
 	SemaphoreHandle_t semHandle = NULL;
 	
-
-	//---0. Get Mutex
 	//STUDENTS FILL
 
+	//---0. Get Mutex
+	error = I2cGetMutex(xMaxBlockTime);
+	if(ERROR_NONE != error)
+	{
+		goto exit;
+	}
+
 	//---1. Get Semaphore Handle
-
-
+	error = 0;
+	I2cGetSemaphoreHandle(&semHandle);
+	if(ERROR_NONE != error) 
+	{
+		goto exit;
+	}
+	
 	//---2. Initiate sending data
-
-
+	error = I2cReadData(data);
+	if (ERROR_NONE != error)
+	{
+		goto exitError0;
+	}
 
 	//---2. Wait for binary semaphore to tell us that we are done!
-
+	if( xSemaphoreTake( semHandle, xMaxBlockTime ) == pdTRUE ){
+		/* The transmission ended as expected. We now delay until the I2C sensor is finished */
+		if(I2cGetTaskErrorStatus()){
+			I2cSetTaskErrorStatus(false);
+			if(error != ERROR_NONE){
+				error = ERROR_I2C_HANG_RESET;
+				}else{
+				error = ERROR_ABORTED;
+			}
+			goto exitError0;
+		}
+		}else{
+		/* The call to ulTaskNotifyTake() timed out. */
+		error = ERR_TIMEOUT;
+		goto exitError0;
+	}
 	
 	//---6. Initiate Read data //TIP: SEE "I2cReadData", which is analogous to "I2cWriteData"
+	error = I2cReadData(&data);
 
 	//---7. Wait for notification
-
 	
 	//---8. Release Mutex
+	error |= I2cFreeMutex();
 
 	exit:
 	return error;
