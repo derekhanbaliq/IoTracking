@@ -13162,14 +13162,16 @@ static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 	int32_t error = ERROR_NONE;
 	
 	msgOutImu[0] = reg;
-	error = I2cWriteDataWait(msgOutImu[0], portMAX_DELAY);
+	
 	
 	for(int i = 0; i < len; i++)
 	{
 		msgOutImu[i+1] = bufp[i];
-		error = I2cWriteDataWait(bufp[i], portMAX_DELAY);
 	}
-	
+	imuData.address = reg;
+	imuData.lenOut = 1+len;
+	imuData.msgOut = msgOutImu;
+	error = I2cWriteDataWait(&imuData, portMAX_DELAY);
 	return error;
 }
 
@@ -13194,25 +13196,18 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 	
 	imuData.address = reg;
 	imuData.lenIn = len;
-	imuData.msgOut[0] = reg;
 	
 	imuData.msgIn = *bufp;
 	imuData.lenOut = 1 + len;
-
+	
+	msgOutImu[0] = reg;
 	for(int i = 0; i < len; i++)
 	{
-		error = I2cWriteDataWait(bufp[i], portMAX_DELAY);
-		if(ERROR_NONE != error)
-		{
-			goto exit;
-		}
-		imuData.msgOut[i+1] = bufp[i];
+		msgOutImu[i+1] = bufp[i];
 	}
-	
-	I2cReadDataWait(imuData, 50, portMAX_DELAY);
-	
-	exit:
-	error = ERROR_INVALID_DATA;
+	imuData.msgOut = msgOutImu;
+
+	error = I2cReadDataWait(&imuData, 50, portMAX_DELAY);
 	
 	return error;
 }
