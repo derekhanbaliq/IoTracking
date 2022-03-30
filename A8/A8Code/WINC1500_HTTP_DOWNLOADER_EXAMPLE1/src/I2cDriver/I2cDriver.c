@@ -286,6 +286,16 @@ int32_t I2cFreeMutex(void){
 	int32_t error = ERROR_NONE;
 	
 	//students to fill out. Check what the function has to return
+	
+	if(I2cSensorBusState.i2cState == I2C_BUS_READY)
+	{
+		xSemaphoreGive(sensorI2cMutexHandle);
+	}
+	else
+	{
+		error = ERROR_NOT_INITIALIZED;
+	}
+	
 	return error;
 }
 
@@ -301,7 +311,16 @@ int32_t I2cFreeMutex(void){
 int32_t I2cGetMutex(TickType_t waitTime){
 	
 	int32_t error = ERROR_NONE;
+	
 	//students to fill out. Check what the function has to return
+	
+	xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY);
+	
+	if(xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY) != pdTRUE)
+	{
+		error = ERROR_NOT_READY;
+	}
+	
 	return error;
 }
 
