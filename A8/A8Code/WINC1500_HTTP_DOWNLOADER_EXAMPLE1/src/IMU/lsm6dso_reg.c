@@ -13153,13 +13153,24 @@ I2C_Data imuData; ///<Use me as a structure to communicate with the IMU on platf
  * @return      Returns what the function "I2cWriteDataWait" returns
  * @note        STUDENTS TO FILL  
 *****************************************************************************/
-static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t len)
+static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len)
 {
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Use the array "msgOutImu" to copy the data to be sent. Remember that the position [0] of the array you send must be the register, and
 	//starting from position [1] you can copy the data to be sent. Remember to adjust the length accordingly
-return 0;
-
+	
+	int32_t error = ERROR_NONE;
+	
+	msgOutImu[0] = reg;
+	error = I2cWriteDataWait(msgOutImu[0], portMAX_DELAY);
+	
+	for(int i = 0; i < len; i++)
+	{
+		msgOutImu[i+1] = bufp[i];
+		error = I2cWriteDataWait(bufp[i], portMAX_DELAY);
+	}
+	
+	return error;
 }
 
 /**************************************************************************//**
@@ -13168,7 +13179,7 @@ return 0;
  * @details     Function to read data (bufp) from a register (reg)
 				
  * @param[in]   handle IGNORE
- * @param[in]   reg Reister to read from. In an I2C transaction, this gets sent first
+ * @param[in]   reg Register to read from. In an I2C transaction, this gets sent first
  * @param[out]   bufp Pointer to the data to write to (write what was read)
  * @param[in]   len Length of the data to be read
  * @return      Returns what the function "I2cWriteDataWait" returns
@@ -13178,9 +13189,32 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 {
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Check the structure "imuData" and notice that it has a msgOut and msgIn parameter. How do we fill this to our advantage?
-return 0;
 
+	int32_t error = ERROR_NONE;
+	
+	imuData.address = reg;
+	imuData.lenIn = len;
+	imuData.msgOut[0] = reg;
+	
+	imuData.msgIn = *bufp;
+	imuData.lenOut = 1 + len;
 
+	for(int i = 0; i < len; i++)
+	{
+		error = I2cWriteDataWait(bufp[i], portMAX_DELAY);
+		if(ERROR_NONE != error)
+		{
+			goto exit;
+		}
+		imuData.msgOut[i+1] = bufp[i];
+	}
+	
+	I2cReadDataWait(imuData, 50, portMAX_DELAY);
+	
+	exit:
+	error = ERROR_INVALID_DATA;
+	
+	return error;
 }
 
 
