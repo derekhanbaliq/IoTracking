@@ -13161,15 +13161,16 @@ static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t 
 	int32_t error = ERROR_NONE;
 	
 	msgOutImu[0] = reg;
-
+	//loop through bufp to get message
  	for(int i = 0; i < len; i++)
  	{
  		msgOutImu[i+1] = bufp[i];
  	}
-	//memcpy(msgOutImu+1,bufp, len);
+	//save individual data as part of the IMU_DATA struct
 	imuData.address = LSM6DSO_I2C_ADD_H;
 	imuData.lenOut = 1+len;
 	imuData.msgOut = &msgOutImu;
+	//write the imudata struct object
 	error = I2cWriteDataWait(&imuData, 100);
 	return error;
 
@@ -13192,16 +13193,16 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Check the structure "imuData" and notice that it has a msgOut and msgIn parameter. How do we fill this to our advantage?
 	int32_t error = ERROR_NONE;
-	
+	//asssemble the message being read
 	imuData.address = LSM6DSO_I2C_ADD_H;
 	imuData.lenIn = len;
 	imuData.msgIn = bufp;
-	
+	//clear our outwards message
 	imuData.lenOut = 1;
 	msgOutImu[0] = reg;
 	msgOutImu[1] = 0;
 	imuData.msgOut = &msgOutImu;
-
+	//read the imudata struct
 	error = I2cReadDataWait(&imuData, 5, 100);
 	
 	return error;

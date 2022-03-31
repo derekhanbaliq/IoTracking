@@ -285,32 +285,13 @@ int32_t I2cReadData(I2C_Data *data){
  *****************************************************************************/
 int32_t I2cFreeMutex(void){
 	int32_t error = ERROR_NONE;
-
+	//give semaphore back
 	if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
 		{
 			error = ERROR_NOT_INITIALIZED;
 		}
 	return error;
-	/*//students to fill out. Check what the function has to return
-	
-	if(I2cSensorBusState.i2cState == I2C_BUS_READY)
-	{
-		if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
-		{
-			error = ERROR_FAILURE; //whatever - Derek
-			//snprintf(checkerPrint, 64, "semaphore cannot give: %d\r\n", error);
-			//SerialConsoleWriteString(checkerPrint);
-		}
-	}
-	else
-	{
-		error = ERROR_NOT_INITIALIZED;
-		//snprintf(checkerPrint, 64, "semaphore did not get initialized is: %d\r\n", error);
-		//SerialConsoleWriteString(checkerPrint);
-	}
-	//snprintf(checkerPrint, 64, "Our error inside I2cFreeMutex is: %d\r\n", error);
-	//SerialConsoleWriteString(checkerPrint);
-	return error;*/
+
 }
 
 
@@ -325,19 +306,12 @@ int32_t I2cFreeMutex(void){
 int32_t I2cGetMutex(TickType_t waitTime){
 	
 	int32_t error = ERROR_NONE;
+	//use semaphoreTake to get sensorI2c
 	if(xSemaphoreTake(sensorI2cMutexHandle, waitTime) != pdTRUE)
 		{
 			error = ERROR_NOT_READY;
 		}
 	return error;
-	/*//students to fill out. Check what the function has to return
-	
-	if(xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY) != pdTRUE)
-	{
-		error = ERROR_NOT_READY;
-	}
-	
-	return error;*/
 	
 }
 
@@ -459,7 +433,7 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	int32_t error = ERROR_NONE;
 	SemaphoreHandle_t semHandle = NULL;
 
-
+	//first WRITE the incoming data
 	//---0. Get Mutex
 	error = I2cGetMutex(xMaxBlockTime); //Students to fill out
 	if(ERROR_NONE != error) goto exit;
@@ -493,7 +467,7 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		error = ERR_TIMEOUT;
 		goto exitError0;
 	}
-
+	//then read the data to handle it properly
 	error = I2cReadData(data);
 	if( xSemaphoreTake( semHandle, xMaxBlockTime ) == pdTRUE ){
 		/* The transmission ended as expected. We now delay until the I2C sensor is finished */
@@ -511,10 +485,8 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		error = ERR_TIMEOUT;
 		goto exitError0;
 	}
-	//---8. Release Mutex
+	//---8. Release Mutex once done
 	error |= I2cFreeMutex();
-	
-	
 	
 	exit:
 	return error;

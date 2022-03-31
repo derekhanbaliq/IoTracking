@@ -296,12 +296,15 @@ stmdev_ctx_t *dev_ctx = GetImuStruct();
 
 
 /* Read output only if new xl value is available */
-lsm6dso_xl_flag_data_ready_get(dev_ctx, &reg);
+lsm6dso_xl_flag_data_ready_get(GetImuStruct(), &reg);
 
 if(reg){
-	memset(data_raw_angular_rate, 0x00, 3 * sizeof(int16_t));
-      lsm6dso_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
-      acceleration_mg[0] =
+	//original used raw_angular_rate, which is wrong. changed to data_raw_acceleration
+	memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
+      //lsm6dso_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
+      lsm6dso_acceleration_raw_get(GetImuStruct(), data_raw_acceleration);
+      
+	  acceleration_mg[0] =
       lsm6dso_from_fs2_to_mg(data_raw_acceleration[0]);
       acceleration_mg[1] =
       lsm6dso_from_fs2_to_mg(data_raw_acceleration[1]);
