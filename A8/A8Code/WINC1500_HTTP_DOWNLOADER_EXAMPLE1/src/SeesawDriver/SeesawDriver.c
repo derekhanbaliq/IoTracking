@@ -65,21 +65,23 @@ int InitializeSeesaw(void)
 	//Check if device is on the line - it should answer with its HW ID
 
 	int error = I2cReadDataWait(&seesawData, 0, 100);
+	SerialConsoleWriteString("what?\r\n"); //log - Derek
 
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Error initializing Seesaw!\r\n"); //here, error - Derek
+		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
+		SerialConsoleWriteString("I2cReadDataWait failed!\r\n"); //log - Derek
 	}
 	else
 	{
 		if(readData[0] != SEESAW_HW_ID_CODE )
 		{
-			SerialConsoleWriteString("Error/r/n");
+			SerialConsoleWriteString("Error/r/n"); //gg here - Derek
 			return 1;
 		}
 		else
 		{
-		SerialConsoleWriteString("Found Seesaw!/r/n");
+			SerialConsoleWriteString("Found Seesaw!/r/n");
 		}
 	}
 

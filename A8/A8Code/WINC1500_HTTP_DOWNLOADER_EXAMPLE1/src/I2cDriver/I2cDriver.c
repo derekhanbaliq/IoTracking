@@ -491,11 +491,9 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		goto exitError0;
 	}
 	
-	SerialConsoleWriteString("previous is good\r\n");
-	
 	//---8. Release Mutex
 	error |= I2cFreeMutex();
-	SerialConsoleWriteString("what's the deuce?\r\n");
+	//SerialConsoleWriteString("Previous is good\r\n");
 
 	exit:
 	return error;
