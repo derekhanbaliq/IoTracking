@@ -76,12 +76,20 @@ int InitializeSeesaw(void)
 	{
 		if(readData[0] != SEESAW_HW_ID_CODE )
 		{
+<<<<<<< Updated upstream
 			SerialConsoleWriteString("Error/r/n"); //gg here - Derek
+=======
+			SerialConsoleWriteString("Error\r\n");
+>>>>>>> Stashed changes
 			return 1;
 		}
 		else
 		{
+<<<<<<< Updated upstream
 			SerialConsoleWriteString("Found Seesaw!/r/n");
+=======
+		SerialConsoleWriteString("Found Seesaw!\r\n");
+>>>>>>> Stashed changes
 		}
 	}
 
@@ -92,7 +100,7 @@ int InitializeSeesaw(void)
 	error = I2cWriteDataWait(&seesawData, 100);
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Could not write Seesaw pin!/r/n");
+		SerialConsoleWriteString("Could not write Seesaw pin!\r\n");
 	}
 
 	//Set seesaw Neopixel speed
@@ -102,7 +110,7 @@ int InitializeSeesaw(void)
 	error = I2cWriteDataWait(&seesawData, 100);
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Could not set seesaw Neopixel speed!/r/n");
+		SerialConsoleWriteString("Could not set seesaw Neopixel speed!\r\n");
 	}
 
 	//Set seesaw Neopixel number of devices
@@ -112,7 +120,7 @@ int InitializeSeesaw(void)
 	error = I2cWriteDataWait(&seesawData, 100);
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Could not set seesaw Neopixel number of devices/r/n");
+		SerialConsoleWriteString("Could not set seesaw Neopixel number of devices\r\n");
 	}
 
 	SeesawTurnOnLedTest();
@@ -143,7 +151,7 @@ uint8_t SeesawGetKeypadCount(void) {
 
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Error reading Seesaw counts!/r/n");
+		SerialConsoleWriteString("Error reading Seesaw counts!\r\n");
 	}
 	return count;
 }
@@ -170,7 +178,7 @@ int32_t SeesawReadKeypad(uint8_t *buffer, uint8_t count)
 
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Error reading Seesaw counts!/r/n");
+		SerialConsoleWriteString("Error reading Seesaw counts!\r\n");
 	}
 	return error;
 }

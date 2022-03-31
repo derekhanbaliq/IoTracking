@@ -293,13 +293,16 @@ int32_t I2cFreeMutex(void){
 		if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
 		{
 			error = ERROR_FAILURE; //whatever - Derek
+			SerialConsoleWriteString("failed in semaphoregive");
+			SerialConsoleWriteString(error);
 		}
 	}
 	else
 	{
 		error = ERROR_NOT_INITIALIZED;
 	}
-	
+	//SerialConsoleWriteString("hello");
+	//SerialConsoleWriteString(error);
 	return error;
 }
 
@@ -439,6 +442,7 @@ return error;
  * @note        THIS IS THE FREERTOS VERSION! DO NOT Declare #define USE_FREERTOS if you wish to use the baremetal version!      
 				students to fill!
  *****************************************************************************/
+char checker[64];
 int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t xMaxBlockTime){
 	int32_t error = ERROR_NONE;
 	SemaphoreHandle_t semHandle = NULL;
@@ -447,6 +451,9 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 
 	//---0. Get Mutex
 	error = I2cGetMutex(xMaxBlockTime);
+	snprintf(checker, 64, "Our error in I2cReadDataWrite is: %d\r\n", error);
+	SerialConsoleWriteString(checker);
+
 	if(ERROR_NONE != error)
 	{
 		goto exit;
@@ -491,9 +498,18 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		goto exitError0;
 	}
 	
+<<<<<<< Updated upstream
 	//---8. Release Mutex
 	error |= I2cFreeMutex();
 	//SerialConsoleWriteString("Previous is good\r\n");
+=======
+	//SerialConsoleWriteString("previous is good\r\n");
+	
+	//---8. Release Mutex
+	error |= I2cFreeMutex();
+	
+	//SerialConsoleWriteString("what's the deuce?\r\n");
+>>>>>>> Stashed changes
 
 	exit:
 	return error;
