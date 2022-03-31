@@ -11,6 +11,7 @@
 * Includes
 ******************************************************************************/
 #include "I2cDriver.h"
+#include "SerialConsole.h"
 
 /******************************************************************************
 * Defines
@@ -286,6 +287,19 @@ int32_t I2cFreeMutex(void){
 	int32_t error = ERROR_NONE;
 	
 	//students to fill out. Check what the function has to return
+	
+	if(I2cSensorBusState.i2cState == I2C_BUS_READY)
+	{
+		if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
+		{
+			error = ERROR_FAILURE; //whatever - Derek
+		}
+	}
+	else
+	{
+		error = ERROR_NOT_INITIALIZED;
+	}
+	
 	return error;
 }
 
@@ -301,7 +315,14 @@ int32_t I2cFreeMutex(void){
 int32_t I2cGetMutex(TickType_t waitTime){
 	
 	int32_t error = ERROR_NONE;
+	
 	//students to fill out. Check what the function has to return
+	
+	if(xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY) != pdTRUE)
+	{
+		error = ERROR_NOT_READY;
+	}
+	
 	return error;
 }
 
@@ -357,7 +378,7 @@ SemaphoreHandle_t semHandle = NULL;
 
 
 //---0. Get Mutex
-error = 0; //Students to fill out
+error = I2cGetMutex(xMaxBlockTime); //Students to fill out
 if(ERROR_NONE != error) goto exit;
 
 
@@ -418,39 +439,72 @@ return error;
  * @note        THIS IS THE FREERTOS VERSION! DO NOT Declare #define USE_FREERTOS if you wish to use the baremetal version!      
 				students to fill!
  *****************************************************************************/
+char checkerPrint[64];
 int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t xMaxBlockTime){
 	int32_t error = ERROR_NONE;
 	SemaphoreHandle_t semHandle = NULL;
 	
-
-	//---0. Get Mutex
 	//STUDENTS FILL
 
+	//---0. Get Mutex
+	error = I2cGetMutex(xMaxBlockTime);
+	snprintf(checkerPrint, 64, "Our error in I2cReadDataWrite is: %d\r\n", error);
+	SerialConsoleWriteString(checkerPrint);
+	if(ERROR_NONE != error)
+	{
+		goto exit;
+	}
+
 	//---1. Get Semaphore Handle
-
-
+	error = 0;
+	I2cGetSemaphoreHandle(&semHandle);
+	if(ERROR_NONE != error) 
+	{
+		goto exit;
+	}
+	
 	//---2. Initiate sending data
-
-
+	//I think the comment here is just copying directly from I2cWrite, useless
 
 	//---2. Wait for binary semaphore to tell us that we are done!
-
+	//I think the comment here is just copying directly from I2cWrite, useless
 	
 	//---6. Initiate Read data //TIP: SEE "I2cReadData", which is analogous to "I2cWriteData"
+	error = I2cReadData(data);
+	if (ERROR_NONE != error)
+	{
+		goto exitError0;
+	}
 
 	//---7. Wait for notification
-
+	if( xSemaphoreTake( semHandle, xMaxBlockTime ) == pdTRUE ){
+		/* The transmission ended as expected. We now delay until the I2C sensor is finished */
+		if(I2cGetTaskErrorStatus()){
+			I2cSetTaskErrorStatus(false);
+			if(error != ERROR_NONE){
+				error = ERROR_I2C_HANG_RESET;
+				}else{
+				error = ERROR_ABORTED;
+			}
+			goto exitError0;
+		}
+		}else{
+		/* The call to ulTaskNotifyTake() timed out. */
+		error = ERR_TIMEOUT;
+		goto exitError0;
+	}
+	
+	SerialConsoleWriteString("previous is good\r\n");
 	
 	//---8. Release Mutex
+	error |= I2cFreeMutex();
+	SerialConsoleWriteString("what's the deuce?\r\n");
 
 	exit:
 	return error;
 
 	exitError0:
 	error = I2cFreeMutex();
-
 	return error;
-
-	
 }
 

@@ -13158,7 +13158,20 @@ static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t 
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Use the array "msgOutImu" to copy the data to be sent. Remember that the position [0] of the array you send must be the register, and
 	//starting from position [1] you can copy the data to be sent. Remember to adjust the length accordingly
-return 0;
+	int32_t error = ERROR_NONE;
+	
+	msgOutImu[0] = reg;
+	
+	
+	for(int i = 0; i < len; i++)
+	{
+		msgOutImu[i+1] = bufp[i];
+	}
+	imuData.address = reg;
+	imuData.lenOut = 1+len;
+	imuData.msgOut = msgOutImu;
+	error = I2cWriteDataWait(&imuData, portMAX_DELAY);
+	return error;
 
 }
 
@@ -13178,8 +13191,24 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 {
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Check the structure "imuData" and notice that it has a msgOut and msgIn parameter. How do we fill this to our advantage?
-return 0;
+	int32_t error = ERROR_NONE;
+	
+	imuData.address = reg;
+	imuData.lenIn = len;
+	
+	imuData.msgIn = *bufp;
+	imuData.lenOut = 1 + len;
+	
+	msgOutImu[0] = reg;
+	for(int i = 0; i < len; i++)
+	{
+		msgOutImu[i+1] = bufp[i];
+	}
+	imuData.msgOut = msgOutImu;
 
+	error = I2cReadDataWait(&imuData, 50, portMAX_DELAY);
+	
+	return error;
 
 }
 
