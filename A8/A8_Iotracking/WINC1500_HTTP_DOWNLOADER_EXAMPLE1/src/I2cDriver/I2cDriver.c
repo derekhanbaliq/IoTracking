@@ -29,6 +29,7 @@ struct i2c_master_module i2cSensorBusInstance;
 static I2C_Bus_State I2cSensorBusState;   ///<Structure that defines the I2C Bus used for the sensors.
 
 struct i2c_master_packet sensorPacketWrite;
+char checkerPrint[64]; //<variable to hold print statements
 /******************************************************************************
 * Forward Declarations
 ******************************************************************************/
@@ -293,13 +294,18 @@ int32_t I2cFreeMutex(void){
 		if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
 		{
 			error = ERROR_FAILURE; //whatever - Derek
+			snprintf(checkerPrint, 64, "semaphore cannot give: %d\r\n", error);
+			SerialConsoleWriteString(checkerPrint);
 		}
 	}
 	else
 	{
 		error = ERROR_NOT_INITIALIZED;
+		snprintf(checkerPrint, 64, "semaphore did not get initialized is: %d\r\n", error);
+		SerialConsoleWriteString(checkerPrint);
 	}
-	
+	snprintf(checkerPrint, 64, "Our error inside I2cFreeMutex is: %d\r\n", error);
+	SerialConsoleWriteString(checkerPrint);
 	return error;
 }
 
@@ -439,7 +445,7 @@ return error;
  * @note        THIS IS THE FREERTOS VERSION! DO NOT Declare #define USE_FREERTOS if you wish to use the baremetal version!      
 				students to fill!
  *****************************************************************************/
-char checkerPrint[64];
+
 int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t xMaxBlockTime){
 	int32_t error = ERROR_NONE;
 	SemaphoreHandle_t semHandle = NULL;
@@ -471,6 +477,8 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	
 	//---6. Initiate Read data //TIP: SEE "I2cReadData", which is analogous to "I2cWriteData"
 	error = I2cReadData(data);
+	snprintf(checkerPrint, 64, "error after I2cReadData(data) inside I2creaddatawait: %d\r\n", error);
+	SerialConsoleWriteString(checkerPrint);
 	if (ERROR_NONE != error)
 	{
 		goto exitError0;
@@ -494,11 +502,11 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		goto exitError0;
 	}
 	
-	SerialConsoleWriteString("previous is good\r\n");
+	//SerialConsoleWriteString("previous is good\r\n");
 	
 	//---8. Release Mutex
 	error |= I2cFreeMutex();
-	SerialConsoleWriteString("what's the deuce?\r\n");
+	//SerialConsoleWriteString("what's the deuce?\r\n");
 
 	exit:
 	return error;
