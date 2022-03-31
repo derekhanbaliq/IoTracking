@@ -13147,7 +13147,7 @@ I2C_Data imuData; ///<Use me as a structure to communicate with the IMU on platf
  * @details     Function to write data (bufp) to a register (reg)
 				
  * @param[in]   handle IGNORE
- * @param[in]   reg Reister to write to. In an I2C transaction, this gets sent first
+ * @param[in]   reg Register to write to. In an I2C transaction, this gets sent first
  * @param[in]   bufp Pointer to the data to be sent
  * @param[in]   len Length of the data sent
  * @return      Returns what the function "I2cWriteDataWait" returns
@@ -13161,16 +13161,16 @@ static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t 
 	int32_t error = ERROR_NONE;
 	
 	msgOutImu[0] = reg;
-	
-	
-	for(int i = 0; i < len; i++)
-	{
-		msgOutImu[i+1] = bufp[i];
-	}
-	imuData.address = reg;
+
+ 	for(int i = 0; i < len; i++)
+ 	{
+ 		msgOutImu[i+1] = bufp[i];
+ 	}
+	//memcpy(msgOutImu+1,bufp, len);
+	imuData.address = LSM6DSO_I2C_ADD_H;
 	imuData.lenOut = 1+len;
-	imuData.msgOut = msgOutImu;
-	error = I2cWriteDataWait(&imuData, portMAX_DELAY);
+	imuData.msgOut = &msgOutImu;
+	error = I2cWriteDataWait(&imuData, 100);
 	return error;
 
 }
@@ -13181,7 +13181,7 @@ static int32_t platform_write(void *handle, uint8_t reg, uint8_t *bufp,uint16_t 
  * @details     Function to read data (bufp) from a register (reg)
 				
  * @param[in]   handle IGNORE
- * @param[in]   reg Reister to read from. In an I2C transaction, this gets sent first
+ * @param[in]   reg Register to read from. In an I2C transaction, this gets sent first
  * @param[out]   bufp Pointer to the data to write to (write what was read)
  * @param[in]   len Length of the data to be read
  * @return      Returns what the function "I2cWriteDataWait" returns
@@ -13193,20 +13193,16 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 	//TIP: Check the structure "imuData" and notice that it has a msgOut and msgIn parameter. How do we fill this to our advantage?
 	int32_t error = ERROR_NONE;
 	
-	imuData.address = reg;
+	imuData.address = LSM6DSO_I2C_ADD_H;
 	imuData.lenIn = len;
+	imuData.msgIn = bufp;
 	
-	imuData.msgIn = *bufp;
-	imuData.lenOut = 1 + len;
-	
+	imuData.lenOut = 1;
 	msgOutImu[0] = reg;
-	for(int i = 0; i < len; i++)
-	{
-		msgOutImu[i+1] = bufp[i];
-	}
-	imuData.msgOut = msgOutImu;
+	msgOutImu[1] = 0;
+	imuData.msgOut = &msgOutImu;
 
-	error = I2cReadDataWait(&imuData, 50, portMAX_DELAY);
+	error = I2cReadDataWait(&imuData, 50, 100);
 	
 	return error;
 

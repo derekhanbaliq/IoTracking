@@ -110,6 +110,9 @@ SerialConsoleWriteString("\r\n\r\nInitialize HW...\r\n");
 	uint8_t whoamI = 0;
 	(lsm6dso_device_id_get(GetImuStruct(), &whoamI));
 	
+	snprintf(bufferPrint, 64, "the IMU ID is: %d\r\n", whoamI);
+	SerialConsoleWriteString(bufferPrint);
+	
 	if (whoamI != LSM6DSO_ID){
 		SerialConsoleWriteString("Cannot find IMU!\r\n");
 	}
