@@ -498,6 +498,7 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		goto exitError0;
 	}
 	
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 	//---8. Release Mutex
 	error |= I2cFreeMutex();
@@ -510,6 +511,13 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	
 	//SerialConsoleWriteString("what's the deuce?\r\n");
 >>>>>>> Stashed changes
+=======
+	SerialConsoleWriteString("previous is good\r\n");
+	
+	//---8. Release Mutex
+	error |= I2cFreeMutex();
+	SerialConsoleWriteString("what's the deuce?\r\n");
+>>>>>>> parent of 79ffb95 (comment)
 
 	exit:
 	return error;

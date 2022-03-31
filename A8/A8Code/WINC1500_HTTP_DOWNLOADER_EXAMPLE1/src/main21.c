@@ -100,7 +100,7 @@ SerialConsoleWriteString("\r\n\r\nInitialize HW...\r\n");
 
 	if(0 != InitializeSeesaw())
 	{
-		SerialConsoleWriteString("Error initializing Seesaw!\r\n"); //we have this error - Derek
+		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
 	}	
 	else
 	{

@@ -3,13 +3,18 @@ ESE516 MAIN FW.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   0 .text         0000ac74  00000000  00000000  00010000  2**4
+=======
+  0 .text         0000ac78  00000000  00000000  00010000  2**4
+>>>>>>> parent of 79ffb95 (comment)
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .relocate     00000200  20000000  0000ac74  00020000  2**2
+  1 .relocate     00000200  20000000  0000ac78  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00004d44  20000200  0000ae74  00020200  2**2
+  2 .bss          00004d44  20000200  0000ae78  00020200  2**2
                   ALLOC
+<<<<<<< HEAD
   3 .stack        00002004  20004f44  0000fbb8  00020200  2**0
 =======
   0 .text         0000aca4  00000000  00000000  00010000  2**4
@@ -20,28 +25,36 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   3 .stack        00002004  20004f84  0000fc28  00020200  2**0
 >>>>>>> Stashed changes
+=======
+  3 .stack        00002004  20004f44  0000fbbc  00020200  2**0
+>>>>>>> parent of 79ffb95 (comment)
                   ALLOC
   4 .ARM.attributes 00000028  00000000  00000000  00020200  2**0
                   CONTENTS, READONLY
   5 .comment      00000059  00000000  00000000  00020228  2**0
                   CONTENTS, READONLY
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   6 .debug_info   0006d559  00000000  00000000  00020281  2**0
+=======
+  6 .debug_info   0006d54b  00000000  00000000  00020281  2**0
+>>>>>>> parent of 79ffb95 (comment)
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000088f3  00000000  00000000  0008d7da  2**0
+  7 .debug_abbrev 000088f3  00000000  00000000  0008d7cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00023489  00000000  00000000  000960cd  2**0
+  8 .debug_loc    000234ad  00000000  00000000  000960bf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_aranges 00001b10  00000000  00000000  000b9556  2**0
+  9 .debug_aranges 00001b10  00000000  00000000  000b956c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00001ef0  00000000  00000000  000bb066  2**0
+ 10 .debug_ranges 00001ef0  00000000  00000000  000bb07c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_macro  00012e6e  00000000  00000000  000bcf56  2**0
+ 11 .debug_macro  00012e6e  00000000  00000000  000bcf6c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0002372c  00000000  00000000  000cfdc4  2**0
+ 12 .debug_line   0002372b  00000000  00000000  000cfdda  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000ae005  00000000  00000000  000f34f0  2**0
+ 13 .debug_str    000ae005  00000000  00000000  000f3505  2**0
                   CONTENTS, READONLY, DEBUGGING
+<<<<<<< HEAD
  14 .debug_frame  00005b4c  00000000  00000000  001a14f8  2**2
 =======
   6 .debug_info   0006d5c1  00000000  00000000  00020281  2**0
@@ -62,6 +75,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_frame  00005b54  00000000  00000000  001a2234  2**2
 >>>>>>> Stashed changes
+=======
+ 14 .debug_frame  00005b4c  00000000  00000000  001a150c  2**2
+>>>>>>> parent of 79ffb95 (comment)
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -141,11 +157,15 @@ void rtc_calendar_swap_time_mode(struct rtc_module *const module)
       d0:	20000200 	.word	0x20000200
       d4:	00000000 	.word	0x00000000
 			time.hour = 0;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       d8:	0000ac74 	.word	0x0000ac74
 =======
       d8:	0000aca4 	.word	0x0000aca4
 >>>>>>> Stashed changes
+=======
+      d8:	0000ac78 	.word	0x0000ac78
+>>>>>>> parent of 79ffb95 (comment)
 
 000000dc <frame_dummy>:
       dc:	4b08      	ldr	r3, [pc, #32]	; (100 <frame_dummy+0x24>)
@@ -173,6 +193,7 @@ void rtc_calendar_swap_time_mode(struct rtc_module *const module)
       fe:	e7f9      	b.n	f4 <frame_dummy+0x18>
      100:	00000000 	.word	0x00000000
      104:	20000204 	.word	0x20000204
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      108:	0000ac74 	.word	0x0000ac74
      10c:	0000ac74 	.word	0x0000ac74
@@ -180,6 +201,10 @@ void rtc_calendar_swap_time_mode(struct rtc_module *const module)
      108:	0000aca4 	.word	0x0000aca4
      10c:	0000aca4 	.word	0x0000aca4
 >>>>>>> Stashed changes
+=======
+     108:	0000ac78 	.word	0x0000ac78
+     10c:	0000ac78 	.word	0x0000ac78
+>>>>>>> parent of 79ffb95 (comment)
      110:	00000000 	.word	0x00000000
 
 00000114 <_i2c_master_wait_for_sync>:
@@ -1184,13 +1209,19 @@ return pdFALSE;
      5fa:	47a0      	blx	r4
      5fc:	e7d2      	b.n	5a4 <CLI_GetImuData+0x2c>
      5fe:	46c0      	nop			; (mov r8, r8)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      600:	000012fd 	.word	0x000012fd
      604:	00000e49 	.word	0x00000e49
+=======
+     600:	00001319 	.word	0x00001319
+     604:	00000e65 	.word	0x00000e65
+>>>>>>> parent of 79ffb95 (comment)
      608:	0000973c 	.word	0x0000973c
      60c:	00008e99 	.word	0x00008e99
      610:	00008d13 	.word	0x00008d13
      614:	20000238 	.word	0x20000238
+<<<<<<< HEAD
      618:	00000e6d 	.word	0x00000e6d
      61c:	00000d2d 	.word	0x00000d2d
 =======
@@ -1203,6 +1234,10 @@ return pdFALSE;
      618:	00000eb1 	.word	0x00000eb1
      61c:	00000d71 	.word	0x00000d71
 >>>>>>> Stashed changes
+=======
+     618:	00000e89 	.word	0x00000e89
+     61c:	00000d49 	.word	0x00000d49
+>>>>>>> parent of 79ffb95 (comment)
      620:	2000021c 	.word	0x2000021c
      624:	0000731d 	.word	0x0000731d
      628:	00009738 	.word	0x00009738
@@ -1544,6 +1579,7 @@ if(ret == -1)
      83c:	00004aa9 	.word	0x00004aa9
      840:	000057b1 	.word	0x000057b1
      844:	00003e2d 	.word	0x00003e2d
+<<<<<<< HEAD
      848:	0000aa50 	.word	0x0000aa50
 =======
      834:	0000988c 	.word	0x0000988c
@@ -1553,6 +1589,9 @@ if(ret == -1)
      844:	00003e4d 	.word	0x00003e4d
      848:	0000aa80 	.word	0x0000aa80
 >>>>>>> Stashed changes
+=======
+     848:	0000aa54 	.word	0x0000aa54
+>>>>>>> parent of 79ffb95 (comment)
      84c:	2000023e 	.word	0x2000023e
      850:	2000023f 	.word	0x2000023f
      854:	20000278 	.word	0x20000278
@@ -2333,6 +2372,7 @@ char checker[64];
 int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t xMaxBlockTime){
 <<<<<<< Updated upstream
      c28:	b570      	push	{r4, r5, r6, lr}
+<<<<<<< HEAD
      c2a:	0005      	movs	r5, r0
      c2c:	0014      	movs	r4, r2
 =======
@@ -2341,6 +2381,10 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
      c40:	9001      	str	r0, [sp, #4]
      c42:	0016      	movs	r6, r2
 >>>>>>> Stashed changes
+=======
+     c2a:	0006      	movs	r6, r0
+     c2c:	0015      	movs	r5, r2
+>>>>>>> parent of 79ffb95 (comment)
 	SemaphoreHandle_t semHandle = NULL;
 	
 	//STUDENTS FILL
@@ -2349,9 +2393,11 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	error = I2cGetMutex(xMaxBlockTime);
 <<<<<<< Updated upstream
      c2e:	0010      	movs	r0, r2
-     c30:	4b0f      	ldr	r3, [pc, #60]	; (c70 <I2cReadDataWait+0x48>)
+     c30:	4b13      	ldr	r3, [pc, #76]	; (c80 <I2cReadDataWait+0x58>)
      c32:	4798      	blx	r3
+     c34:	1e04      	subs	r4, r0, #0
 	if(ERROR_NONE != error)
+<<<<<<< HEAD
      c34:	2800      	cmp	r0, #0
      c36:	d000      	beq.n	c3a <I2cReadDataWait+0x12>
 =======
@@ -2376,48 +2422,62 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
      c60:	2c00      	cmp	r4, #0
      c62:	d002      	beq.n	c6a <I2cReadDataWait+0x2e>
 >>>>>>> Stashed changes
+=======
+     c36:	d001      	beq.n	c3c <I2cReadDataWait+0x14>
+>>>>>>> parent of 79ffb95 (comment)
 	return error;
 
 	exitError0:
 	error = I2cFreeMutex();
 	return error;
 }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      c38:	bd70      	pop	{r4, r5, r6, pc}
+=======
+     c38:	0020      	movs	r0, r4
+     c3a:	bd70      	pop	{r4, r5, r6, pc}
+>>>>>>> parent of 79ffb95 (comment)
 	*handle = sensorI2cSemaphoreHandle;
-     c3a:	4b0e      	ldr	r3, [pc, #56]	; (c74 <I2cReadDataWait+0x4c>)
-     c3c:	681e      	ldr	r6, [r3, #0]
+     c3c:	4b11      	ldr	r3, [pc, #68]	; (c84 <I2cReadDataWait+0x5c>)
+     c3e:	681c      	ldr	r4, [r3, #0]
 	error = I2cReadData(data);
-     c3e:	0028      	movs	r0, r5
-     c40:	4b0d      	ldr	r3, [pc, #52]	; (c78 <I2cReadDataWait+0x50>)
-     c42:	4798      	blx	r3
+     c40:	0030      	movs	r0, r6
+     c42:	4b11      	ldr	r3, [pc, #68]	; (c88 <I2cReadDataWait+0x60>)
+     c44:	4798      	blx	r3
 	if (ERROR_NONE != error)
-     c44:	2800      	cmp	r0, #0
-     c46:	d105      	bne.n	c54 <I2cReadDataWait+0x2c>
+     c46:	2800      	cmp	r0, #0
+     c48:	d105      	bne.n	c56 <I2cReadDataWait+0x2e>
 	if( xSemaphoreTake( semHandle, xMaxBlockTime ) == pdTRUE ){
-     c48:	0021      	movs	r1, r4
-     c4a:	0030      	movs	r0, r6
-     c4c:	4b0b      	ldr	r3, [pc, #44]	; (c7c <I2cReadDataWait+0x54>)
-     c4e:	4798      	blx	r3
-     c50:	2801      	cmp	r0, #1
-     c52:	d002      	beq.n	c5a <I2cReadDataWait+0x32>
+     c4a:	0029      	movs	r1, r5
+     c4c:	0020      	movs	r0, r4
+     c4e:	4b0f      	ldr	r3, [pc, #60]	; (c8c <I2cReadDataWait+0x64>)
+     c50:	4798      	blx	r3
+     c52:	2801      	cmp	r0, #1
+     c54:	d003      	beq.n	c5e <I2cReadDataWait+0x36>
 	error = I2cFreeMutex();
-     c54:	4b0a      	ldr	r3, [pc, #40]	; (c80 <I2cReadDataWait+0x58>)
-     c56:	4798      	blx	r3
+     c56:	4b0e      	ldr	r3, [pc, #56]	; (c90 <I2cReadDataWait+0x68>)
+     c58:	4798      	blx	r3
+     c5a:	0004      	movs	r4, r0
 	return error;
-     c58:	e7ee      	b.n	c38 <I2cReadDataWait+0x10>
+     c5c:	e7ec      	b.n	c38 <I2cReadDataWait+0x10>
 	 return sensorTransmitError;
-     c5a:	4b0a      	ldr	r3, [pc, #40]	; (c84 <I2cReadDataWait+0x5c>)
+     c5e:	4b0d      	ldr	r3, [pc, #52]	; (c94 <I2cReadDataWait+0x6c>)
 		if(I2cGetTaskErrorStatus()){
-     c5c:	781b      	ldrb	r3, [r3, #0]
-     c5e:	2b00      	cmp	r3, #0
-     c60:	d003      	beq.n	c6a <I2cReadDataWait+0x42>
+     c60:	781b      	ldrb	r3, [r3, #0]
+     c62:	2b00      	cmp	r3, #0
+     c64:	d003      	beq.n	c6e <I2cReadDataWait+0x46>
 	sensorTransmitError = value;
-     c62:	2200      	movs	r2, #0
-     c64:	4b07      	ldr	r3, [pc, #28]	; (c84 <I2cReadDataWait+0x5c>)
-     c66:	701a      	strb	r2, [r3, #0]
-     c68:	e7f4      	b.n	c54 <I2cReadDataWait+0x2c>
+     c66:	2200      	movs	r2, #0
+     c68:	4b0a      	ldr	r3, [pc, #40]	; (c94 <I2cReadDataWait+0x6c>)
+     c6a:	701a      	strb	r2, [r3, #0]
+     c6c:	e7f3      	b.n	c56 <I2cReadDataWait+0x2e>
+	SerialConsoleWriteString("previous is good\r\n");
+     c6e:	480a      	ldr	r0, [pc, #40]	; (c98 <I2cReadDataWait+0x70>)
+     c70:	4d0a      	ldr	r5, [pc, #40]	; (c9c <I2cReadDataWait+0x74>)
+     c72:	47a8      	blx	r5
 	error |= I2cFreeMutex();
+<<<<<<< HEAD
      c6a:	4b05      	ldr	r3, [pc, #20]	; (c80 <I2cReadDataWait+0x58>)
      c6c:	4798      	blx	r3
      c6e:	e7e3      	b.n	c38 <I2cReadDataWait+0x10>
@@ -2485,1057 +2545,1087 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 
 00000ccc <platform_read>:
 >>>>>>> Stashed changes
+=======
+     c74:	4b06      	ldr	r3, [pc, #24]	; (c90 <I2cReadDataWait+0x68>)
+     c76:	4798      	blx	r3
+     c78:	0004      	movs	r4, r0
+	SerialConsoleWriteString("what's the deuce?\r\n");
+     c7a:	4809      	ldr	r0, [pc, #36]	; (ca0 <I2cReadDataWait+0x78>)
+     c7c:	47a8      	blx	r5
+     c7e:	e7db      	b.n	c38 <I2cReadDataWait+0x10>
+     c80:	00000ba5 	.word	0x00000ba5
+     c84:	20003894 	.word	0x20003894
+     c88:	00000b25 	.word	0x00000b25
+     c8c:	00003e2d 	.word	0x00003e2d
+     c90:	00000b6d 	.word	0x00000b6d
+     c94:	20000328 	.word	0x20000328
+     c98:	000098e0 	.word	0x000098e0
+     c9c:	0000572d 	.word	0x0000572d
+     ca0:	000098f4 	.word	0x000098f4
+
+00000ca4 <platform_read>:
+>>>>>>> parent of 79ffb95 (comment)
  * @param[in]   len Length of the data to be read
  * @return      Returns what the function "I2cWriteDataWait" returns
  * @note        STUDENTS TO FILL  
 *****************************************************************************/
 static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len)
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      c88:	b510      	push	{r4, lr}
 =======
      ccc:	b510      	push	{r4, lr}
 >>>>>>> Stashed changes
+=======
+     ca4:	b510      	push	{r4, lr}
+>>>>>>> parent of 79ffb95 (comment)
 	//YOUR JOB: Fill out the structure "imuData" to send to the device
 	//TIP: Check the structure "imuData" and notice that it has a msgOut and msgIn parameter. How do we fill this to our advantage?
 
 	int32_t error = ERROR_NONE;
 	
 	imuData.address = reg;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
      c8a:	480e      	ldr	r0, [pc, #56]	; (cc4 <platform_read+0x3c>)
      c8c:	7001      	strb	r1, [r0, #0]
+=======
+     ca6:	480e      	ldr	r0, [pc, #56]	; (ce0 <platform_read+0x3c>)
+     ca8:	7001      	strb	r1, [r0, #0]
+>>>>>>> parent of 79ffb95 (comment)
 	imuData.lenIn = len;
-     c8e:	8183      	strh	r3, [r0, #12]
+     caa:	8183      	strh	r3, [r0, #12]
 	
 	imuData.msgIn = *bufp;
-     c90:	7814      	ldrb	r4, [r2, #0]
-     c92:	6084      	str	r4, [r0, #8]
+     cac:	7814      	ldrb	r4, [r2, #0]
+     cae:	6084      	str	r4, [r0, #8]
 	imuData.lenOut = 1 + len;
-     c94:	1c5c      	adds	r4, r3, #1
-     c96:	81c4      	strh	r4, [r0, #14]
+     cb0:	1c5c      	adds	r4, r3, #1
+     cb2:	81c4      	strh	r4, [r0, #14]
 	
 	msgOutImu[0] = reg;
-     c98:	480b      	ldr	r0, [pc, #44]	; (cc8 <platform_read+0x40>)
-     c9a:	7001      	strb	r1, [r0, #0]
+     cb4:	480b      	ldr	r0, [pc, #44]	; (ce4 <platform_read+0x40>)
+     cb6:	7001      	strb	r1, [r0, #0]
 	for(int i = 0; i < len; i++)
-     c9c:	2b00      	cmp	r3, #0
-     c9e:	dd07      	ble.n	cb0 <platform_read+0x28>
-     ca0:	490a      	ldr	r1, [pc, #40]	; (ccc <platform_read+0x44>)
-     ca2:	18cb      	adds	r3, r1, r3
+     cb8:	2b00      	cmp	r3, #0
+     cba:	dd07      	ble.n	ccc <platform_read+0x28>
+     cbc:	490a      	ldr	r1, [pc, #40]	; (ce8 <platform_read+0x44>)
+     cbe:	18cb      	adds	r3, r1, r3
 	{
 		msgOutImu[i+1] = bufp[i];
-     ca4:	7810      	ldrb	r0, [r2, #0]
-     ca6:	7008      	strb	r0, [r1, #0]
-     ca8:	3201      	adds	r2, #1
-     caa:	3101      	adds	r1, #1
+     cc0:	7810      	ldrb	r0, [r2, #0]
+     cc2:	7008      	strb	r0, [r1, #0]
+     cc4:	3201      	adds	r2, #1
+     cc6:	3101      	adds	r1, #1
 	for(int i = 0; i < len; i++)
-     cac:	4299      	cmp	r1, r3
-     cae:	d1f9      	bne.n	ca4 <platform_read+0x1c>
+     cc8:	4299      	cmp	r1, r3
+     cca:	d1f9      	bne.n	cc0 <platform_read+0x1c>
 	}
 	imuData.msgOut = msgOutImu;
-     cb0:	4804      	ldr	r0, [pc, #16]	; (cc4 <platform_read+0x3c>)
-     cb2:	4b05      	ldr	r3, [pc, #20]	; (cc8 <platform_read+0x40>)
-     cb4:	6043      	str	r3, [r0, #4]
+     ccc:	4804      	ldr	r0, [pc, #16]	; (ce0 <platform_read+0x3c>)
+     cce:	4b05      	ldr	r3, [pc, #20]	; (ce4 <platform_read+0x40>)
+     cd0:	6043      	str	r3, [r0, #4]
 
 	error = I2cReadDataWait(&imuData, 50, portMAX_DELAY);
-     cb6:	2201      	movs	r2, #1
-     cb8:	4252      	negs	r2, r2
-     cba:	2132      	movs	r1, #50	; 0x32
-     cbc:	4b04      	ldr	r3, [pc, #16]	; (cd0 <platform_read+0x48>)
-     cbe:	4798      	blx	r3
+     cd2:	2201      	movs	r2, #1
+     cd4:	4252      	negs	r2, r2
+     cd6:	2132      	movs	r1, #50	; 0x32
+     cd8:	4b04      	ldr	r3, [pc, #16]	; (cec <platform_read+0x48>)
+     cda:	4798      	blx	r3
 	
 	return error;
 }
-     cc0:	bd10      	pop	{r4, pc}
-     cc2:	46c0      	nop			; (mov r8, r8)
-     cc4:	200038e4 	.word	0x200038e4
-     cc8:	200038a4 	.word	0x200038a4
-     ccc:	200038a5 	.word	0x200038a5
-     cd0:	00000c29 	.word	0x00000c29
+     cdc:	bd10      	pop	{r4, pc}
+     cde:	46c0      	nop			; (mov r8, r8)
+     ce0:	200038e4 	.word	0x200038e4
+     ce4:	200038a4 	.word	0x200038a4
+     ce8:	200038a5 	.word	0x200038a5
+     cec:	00000c29 	.word	0x00000c29
 
-00000cd4 <platform_write>:
+00000cf0 <platform_write>:
 {
-     cd4:	b570      	push	{r4, r5, r6, lr}
+     cf0:	b570      	push	{r4, r5, r6, lr}
 	msgOutImu[0] = reg;
-     cd6:	480b      	ldr	r0, [pc, #44]	; (d04 <platform_write+0x30>)
-     cd8:	7001      	strb	r1, [r0, #0]
+     cf2:	480b      	ldr	r0, [pc, #44]	; (d20 <platform_write+0x30>)
+     cf4:	7001      	strb	r1, [r0, #0]
 	for(int i = 0; i < len; i++)
-     cda:	2b00      	cmp	r3, #0
-     cdc:	dd07      	ble.n	cee <platform_write+0x1a>
-     cde:	480a      	ldr	r0, [pc, #40]	; (d08 <platform_write+0x34>)
-     ce0:	18c5      	adds	r5, r0, r3
+     cf6:	2b00      	cmp	r3, #0
+     cf8:	dd07      	ble.n	d0a <platform_write+0x1a>
+     cfa:	480a      	ldr	r0, [pc, #40]	; (d24 <platform_write+0x34>)
+     cfc:	18c5      	adds	r5, r0, r3
 		msgOutImu[i+1] = bufp[i];
-     ce2:	7814      	ldrb	r4, [r2, #0]
-     ce4:	7004      	strb	r4, [r0, #0]
-     ce6:	3201      	adds	r2, #1
-     ce8:	3001      	adds	r0, #1
+     cfe:	7814      	ldrb	r4, [r2, #0]
+     d00:	7004      	strb	r4, [r0, #0]
+     d02:	3201      	adds	r2, #1
+     d04:	3001      	adds	r0, #1
 	for(int i = 0; i < len; i++)
-     cea:	42a8      	cmp	r0, r5
-     cec:	d1f9      	bne.n	ce2 <platform_write+0xe>
+     d06:	42a8      	cmp	r0, r5
+     d08:	d1f9      	bne.n	cfe <platform_write+0xe>
 	imuData.address = reg;
-     cee:	4807      	ldr	r0, [pc, #28]	; (d0c <platform_write+0x38>)
-     cf0:	7001      	strb	r1, [r0, #0]
+     d0a:	4807      	ldr	r0, [pc, #28]	; (d28 <platform_write+0x38>)
+     d0c:	7001      	strb	r1, [r0, #0]
 	imuData.lenOut = 1+len;
-     cf2:	3301      	adds	r3, #1
-     cf4:	81c3      	strh	r3, [r0, #14]
+     d0e:	3301      	adds	r3, #1
+     d10:	81c3      	strh	r3, [r0, #14]
 	imuData.msgOut = msgOutImu;
-     cf6:	4b03      	ldr	r3, [pc, #12]	; (d04 <platform_write+0x30>)
-     cf8:	6043      	str	r3, [r0, #4]
+     d12:	4b03      	ldr	r3, [pc, #12]	; (d20 <platform_write+0x30>)
+     d14:	6043      	str	r3, [r0, #4]
 	error = I2cWriteDataWait(&imuData, portMAX_DELAY);
-     cfa:	2101      	movs	r1, #1
-     cfc:	4249      	negs	r1, r1
-     cfe:	4b04      	ldr	r3, [pc, #16]	; (d10 <platform_write+0x3c>)
-     d00:	4798      	blx	r3
-}
-     d02:	bd70      	pop	{r4, r5, r6, pc}
-     d04:	200038a4 	.word	0x200038a4
-     d08:	200038a5 	.word	0x200038a5
-     d0c:	200038e4 	.word	0x200038e4
-     d10:	00000bc9 	.word	0x00000bc9
-
-00000d14 <lsm6dso_read_reg>:
-{
-     d14:	b570      	push	{r4, r5, r6, lr}
-  ret = ctx->read_reg(ctx->handle, reg, data, len);
-     d16:	6885      	ldr	r5, [r0, #8]
-     d18:	6844      	ldr	r4, [r0, #4]
-     d1a:	0028      	movs	r0, r5
-     d1c:	47a0      	blx	r4
+     d16:	2101      	movs	r1, #1
+     d18:	4249      	negs	r1, r1
+     d1a:	4b04      	ldr	r3, [pc, #16]	; (d2c <platform_write+0x3c>)
+     d1c:	4798      	blx	r3
 }
      d1e:	bd70      	pop	{r4, r5, r6, pc}
+     d20:	200038a4 	.word	0x200038a4
+     d24:	200038a5 	.word	0x200038a5
+     d28:	200038e4 	.word	0x200038e4
+     d2c:	00000bc9 	.word	0x00000bc9
 
-00000d20 <lsm6dso_write_reg>:
+00000d30 <lsm6dso_read_reg>:
 {
-     d20:	b570      	push	{r4, r5, r6, lr}
+     d30:	b570      	push	{r4, r5, r6, lr}
+  ret = ctx->read_reg(ctx->handle, reg, data, len);
+     d32:	6885      	ldr	r5, [r0, #8]
+     d34:	6844      	ldr	r4, [r0, #4]
+     d36:	0028      	movs	r0, r5
+     d38:	47a0      	blx	r4
+}
+     d3a:	bd70      	pop	{r4, r5, r6, pc}
+
+00000d3c <lsm6dso_write_reg>:
+{
+     d3c:	b570      	push	{r4, r5, r6, lr}
   ret = ctx->write_reg(ctx->handle, reg, data, len);
-     d22:	6885      	ldr	r5, [r0, #8]
-     d24:	6804      	ldr	r4, [r0, #0]
-     d26:	0028      	movs	r0, r5
-     d28:	47a0      	blx	r4
+     d3e:	6885      	ldr	r5, [r0, #8]
+     d40:	6804      	ldr	r4, [r0, #0]
+     d42:	0028      	movs	r0, r5
+     d44:	47a0      	blx	r4
 }
-     d2a:	bd70      	pop	{r4, r5, r6, pc}
+     d46:	bd70      	pop	{r4, r5, r6, pc}
 
-00000d2c <lsm6dso_from_fs2_to_mg>:
+00000d48 <lsm6dso_from_fs2_to_mg>:
 {
-     d2c:	b510      	push	{r4, lr}
+     d48:	b510      	push	{r4, lr}
   return ((float_t)lsb) * 0.061f;
-     d2e:	4b03      	ldr	r3, [pc, #12]	; (d3c <lsm6dso_from_fs2_to_mg+0x10>)
-     d30:	4798      	blx	r3
-     d32:	4903      	ldr	r1, [pc, #12]	; (d40 <lsm6dso_from_fs2_to_mg+0x14>)
-     d34:	4b03      	ldr	r3, [pc, #12]	; (d44 <lsm6dso_from_fs2_to_mg+0x18>)
-     d36:	4798      	blx	r3
+     d4a:	4b03      	ldr	r3, [pc, #12]	; (d58 <lsm6dso_from_fs2_to_mg+0x10>)
+     d4c:	4798      	blx	r3
+     d4e:	4903      	ldr	r1, [pc, #12]	; (d5c <lsm6dso_from_fs2_to_mg+0x14>)
+     d50:	4b03      	ldr	r3, [pc, #12]	; (d60 <lsm6dso_from_fs2_to_mg+0x18>)
+     d52:	4798      	blx	r3
 }
-     d38:	bd10      	pop	{r4, pc}
-     d3a:	46c0      	nop			; (mov r8, r8)
-     d3c:	0000733d 	.word	0x0000733d
-     d40:	3d79db23 	.word	0x3d79db23
-     d44:	000070bd 	.word	0x000070bd
+     d54:	bd10      	pop	{r4, pc}
+     d56:	46c0      	nop			; (mov r8, r8)
+     d58:	0000733d 	.word	0x0000733d
+     d5c:	3d79db23 	.word	0x3d79db23
+     d60:	000070bd 	.word	0x000070bd
 
-00000d48 <lsm6dso_xl_full_scale_set>:
+00000d64 <lsm6dso_xl_full_scale_set>:
 {
-     d48:	b570      	push	{r4, r5, r6, lr}
-     d4a:	b082      	sub	sp, #8
-     d4c:	0004      	movs	r4, r0
-     d4e:	000d      	movs	r5, r1
+     d64:	b570      	push	{r4, r5, r6, lr}
+     d66:	b082      	sub	sp, #8
+     d68:	0004      	movs	r4, r0
+     d6a:	000d      	movs	r5, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-     d50:	2301      	movs	r3, #1
-     d52:	aa01      	add	r2, sp, #4
-     d54:	2110      	movs	r1, #16
-     d56:	4e0a      	ldr	r6, [pc, #40]	; (d80 <lsm6dso_xl_full_scale_set+0x38>)
-     d58:	47b0      	blx	r6
+     d6c:	2301      	movs	r3, #1
+     d6e:	aa01      	add	r2, sp, #4
+     d70:	2110      	movs	r1, #16
+     d72:	4e0a      	ldr	r6, [pc, #40]	; (d9c <lsm6dso_xl_full_scale_set+0x38>)
+     d74:	47b0      	blx	r6
   if (ret == 0)
-     d5a:	2800      	cmp	r0, #0
-     d5c:	d001      	beq.n	d62 <lsm6dso_xl_full_scale_set+0x1a>
+     d76:	2800      	cmp	r0, #0
+     d78:	d001      	beq.n	d7e <lsm6dso_xl_full_scale_set+0x1a>
 }
-     d5e:	b002      	add	sp, #8
-     d60:	bd70      	pop	{r4, r5, r6, pc}
+     d7a:	b002      	add	sp, #8
+     d7c:	bd70      	pop	{r4, r5, r6, pc}
     reg.fs_xl = (uint8_t) val;
-     d62:	aa01      	add	r2, sp, #4
-     d64:	2103      	movs	r1, #3
-     d66:	4029      	ands	r1, r5
-     d68:	008b      	lsls	r3, r1, #2
-     d6a:	7811      	ldrb	r1, [r2, #0]
-     d6c:	300c      	adds	r0, #12
-     d6e:	4381      	bics	r1, r0
-     d70:	4319      	orrs	r1, r3
-     d72:	7011      	strb	r1, [r2, #0]
+     d7e:	aa01      	add	r2, sp, #4
+     d80:	2103      	movs	r1, #3
+     d82:	4029      	ands	r1, r5
+     d84:	008b      	lsls	r3, r1, #2
+     d86:	7811      	ldrb	r1, [r2, #0]
+     d88:	300c      	adds	r0, #12
+     d8a:	4381      	bics	r1, r0
+     d8c:	4319      	orrs	r1, r3
+     d8e:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-     d74:	2301      	movs	r3, #1
-     d76:	2110      	movs	r1, #16
-     d78:	0020      	movs	r0, r4
-     d7a:	4c02      	ldr	r4, [pc, #8]	; (d84 <lsm6dso_xl_full_scale_set+0x3c>)
-     d7c:	47a0      	blx	r4
-  return ret;
-     d7e:	e7ee      	b.n	d5e <lsm6dso_xl_full_scale_set+0x16>
-     d80:	00000d15 	.word	0x00000d15
-     d84:	00000d21 	.word	0x00000d21
-
-00000d88 <lsm6dso_gy_full_scale_set>:
-{
-     d88:	b570      	push	{r4, r5, r6, lr}
-     d8a:	b082      	sub	sp, #8
-     d8c:	0004      	movs	r4, r0
-     d8e:	000d      	movs	r5, r1
-  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL2_G, (uint8_t *)&reg, 1);
      d90:	2301      	movs	r3, #1
-     d92:	aa01      	add	r2, sp, #4
-     d94:	2111      	movs	r1, #17
-     d96:	4e0a      	ldr	r6, [pc, #40]	; (dc0 <lsm6dso_gy_full_scale_set+0x38>)
-     d98:	47b0      	blx	r6
+     d92:	2110      	movs	r1, #16
+     d94:	0020      	movs	r0, r4
+     d96:	4c02      	ldr	r4, [pc, #8]	; (da0 <lsm6dso_xl_full_scale_set+0x3c>)
+     d98:	47a0      	blx	r4
+  return ret;
+     d9a:	e7ee      	b.n	d7a <lsm6dso_xl_full_scale_set+0x16>
+     d9c:	00000d31 	.word	0x00000d31
+     da0:	00000d3d 	.word	0x00000d3d
+
+00000da4 <lsm6dso_gy_full_scale_set>:
+{
+     da4:	b570      	push	{r4, r5, r6, lr}
+     da6:	b082      	sub	sp, #8
+     da8:	0004      	movs	r4, r0
+     daa:	000d      	movs	r5, r1
+  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL2_G, (uint8_t *)&reg, 1);
+     dac:	2301      	movs	r3, #1
+     dae:	aa01      	add	r2, sp, #4
+     db0:	2111      	movs	r1, #17
+     db2:	4e0a      	ldr	r6, [pc, #40]	; (ddc <lsm6dso_gy_full_scale_set+0x38>)
+     db4:	47b0      	blx	r6
   if (ret == 0)
-     d9a:	2800      	cmp	r0, #0
-     d9c:	d001      	beq.n	da2 <lsm6dso_gy_full_scale_set+0x1a>
+     db6:	2800      	cmp	r0, #0
+     db8:	d001      	beq.n	dbe <lsm6dso_gy_full_scale_set+0x1a>
 }
-     d9e:	b002      	add	sp, #8
-     da0:	bd70      	pop	{r4, r5, r6, pc}
+     dba:	b002      	add	sp, #8
+     dbc:	bd70      	pop	{r4, r5, r6, pc}
     reg.fs_g = (uint8_t) val;
-     da2:	aa01      	add	r2, sp, #4
-     da4:	2107      	movs	r1, #7
-     da6:	4029      	ands	r1, r5
-     da8:	004b      	lsls	r3, r1, #1
-     daa:	7811      	ldrb	r1, [r2, #0]
-     dac:	300e      	adds	r0, #14
-     dae:	4381      	bics	r1, r0
-     db0:	4319      	orrs	r1, r3
-     db2:	7011      	strb	r1, [r2, #0]
+     dbe:	aa01      	add	r2, sp, #4
+     dc0:	2107      	movs	r1, #7
+     dc2:	4029      	ands	r1, r5
+     dc4:	004b      	lsls	r3, r1, #1
+     dc6:	7811      	ldrb	r1, [r2, #0]
+     dc8:	300e      	adds	r0, #14
+     dca:	4381      	bics	r1, r0
+     dcc:	4319      	orrs	r1, r3
+     dce:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL2_G, (uint8_t *)&reg, 1);
-     db4:	2301      	movs	r3, #1
-     db6:	2111      	movs	r1, #17
-     db8:	0020      	movs	r0, r4
-     dba:	4c02      	ldr	r4, [pc, #8]	; (dc4 <lsm6dso_gy_full_scale_set+0x3c>)
-     dbc:	47a0      	blx	r4
-  return ret;
-     dbe:	e7ee      	b.n	d9e <lsm6dso_gy_full_scale_set+0x16>
-     dc0:	00000d15 	.word	0x00000d15
-     dc4:	00000d21 	.word	0x00000d21
-
-00000dc8 <lsm6dso_block_data_update_set>:
-{
-     dc8:	b570      	push	{r4, r5, r6, lr}
-     dca:	b082      	sub	sp, #8
-     dcc:	0004      	movs	r4, r0
-     dce:	000d      	movs	r5, r1
-  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
      dd0:	2301      	movs	r3, #1
-     dd2:	aa01      	add	r2, sp, #4
-     dd4:	2112      	movs	r1, #18
-     dd6:	4e0a      	ldr	r6, [pc, #40]	; (e00 <lsm6dso_block_data_update_set+0x38>)
-     dd8:	47b0      	blx	r6
+     dd2:	2111      	movs	r1, #17
+     dd4:	0020      	movs	r0, r4
+     dd6:	4c02      	ldr	r4, [pc, #8]	; (de0 <lsm6dso_gy_full_scale_set+0x3c>)
+     dd8:	47a0      	blx	r4
+  return ret;
+     dda:	e7ee      	b.n	dba <lsm6dso_gy_full_scale_set+0x16>
+     ddc:	00000d31 	.word	0x00000d31
+     de0:	00000d3d 	.word	0x00000d3d
+
+00000de4 <lsm6dso_block_data_update_set>:
+{
+     de4:	b570      	push	{r4, r5, r6, lr}
+     de6:	b082      	sub	sp, #8
+     de8:	0004      	movs	r4, r0
+     dea:	000d      	movs	r5, r1
+  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
+     dec:	2301      	movs	r3, #1
+     dee:	aa01      	add	r2, sp, #4
+     df0:	2112      	movs	r1, #18
+     df2:	4e0a      	ldr	r6, [pc, #40]	; (e1c <lsm6dso_block_data_update_set+0x38>)
+     df4:	47b0      	blx	r6
   if (ret == 0)
-     dda:	2800      	cmp	r0, #0
-     ddc:	d001      	beq.n	de2 <lsm6dso_block_data_update_set+0x1a>
+     df6:	2800      	cmp	r0, #0
+     df8:	d001      	beq.n	dfe <lsm6dso_block_data_update_set+0x1a>
 }
-     dde:	b002      	add	sp, #8
-     de0:	bd70      	pop	{r4, r5, r6, pc}
+     dfa:	b002      	add	sp, #8
+     dfc:	bd70      	pop	{r4, r5, r6, pc}
     reg.bdu = val;
-     de2:	aa01      	add	r2, sp, #4
-     de4:	2101      	movs	r1, #1
-     de6:	4029      	ands	r1, r5
-     de8:	018b      	lsls	r3, r1, #6
-     dea:	7811      	ldrb	r1, [r2, #0]
-     dec:	3040      	adds	r0, #64	; 0x40
-     dee:	4381      	bics	r1, r0
-     df0:	4319      	orrs	r1, r3
-     df2:	7011      	strb	r1, [r2, #0]
+     dfe:	aa01      	add	r2, sp, #4
+     e00:	2101      	movs	r1, #1
+     e02:	4029      	ands	r1, r5
+     e04:	018b      	lsls	r3, r1, #6
+     e06:	7811      	ldrb	r1, [r2, #0]
+     e08:	3040      	adds	r0, #64	; 0x40
+     e0a:	4381      	bics	r1, r0
+     e0c:	4319      	orrs	r1, r3
+     e0e:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
-     df4:	2301      	movs	r3, #1
-     df6:	2112      	movs	r1, #18
-     df8:	0020      	movs	r0, r4
-     dfa:	4c02      	ldr	r4, [pc, #8]	; (e04 <lsm6dso_block_data_update_set+0x3c>)
-     dfc:	47a0      	blx	r4
-  return ret;
-     dfe:	e7ee      	b.n	dde <lsm6dso_block_data_update_set+0x16>
-     e00:	00000d15 	.word	0x00000d15
-     e04:	00000d21 	.word	0x00000d21
-
-00000e08 <lsm6dso_xl_offset_weight_set>:
-{
-     e08:	b570      	push	{r4, r5, r6, lr}
-     e0a:	b082      	sub	sp, #8
-     e0c:	0004      	movs	r4, r0
-     e0e:	000d      	movs	r5, r1
-  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL6_C, (uint8_t *)&reg, 1);
      e10:	2301      	movs	r3, #1
-     e12:	aa01      	add	r2, sp, #4
-     e14:	2115      	movs	r1, #21
-     e16:	4e0a      	ldr	r6, [pc, #40]	; (e40 <lsm6dso_xl_offset_weight_set+0x38>)
-     e18:	47b0      	blx	r6
+     e12:	2112      	movs	r1, #18
+     e14:	0020      	movs	r0, r4
+     e16:	4c02      	ldr	r4, [pc, #8]	; (e20 <lsm6dso_block_data_update_set+0x3c>)
+     e18:	47a0      	blx	r4
+  return ret;
+     e1a:	e7ee      	b.n	dfa <lsm6dso_block_data_update_set+0x16>
+     e1c:	00000d31 	.word	0x00000d31
+     e20:	00000d3d 	.word	0x00000d3d
+
+00000e24 <lsm6dso_xl_offset_weight_set>:
+{
+     e24:	b570      	push	{r4, r5, r6, lr}
+     e26:	b082      	sub	sp, #8
+     e28:	0004      	movs	r4, r0
+     e2a:	000d      	movs	r5, r1
+  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL6_C, (uint8_t *)&reg, 1);
+     e2c:	2301      	movs	r3, #1
+     e2e:	aa01      	add	r2, sp, #4
+     e30:	2115      	movs	r1, #21
+     e32:	4e0a      	ldr	r6, [pc, #40]	; (e5c <lsm6dso_xl_offset_weight_set+0x38>)
+     e34:	47b0      	blx	r6
   if (ret == 0)
-     e1a:	2800      	cmp	r0, #0
-     e1c:	d001      	beq.n	e22 <lsm6dso_xl_offset_weight_set+0x1a>
+     e36:	2800      	cmp	r0, #0
+     e38:	d001      	beq.n	e3e <lsm6dso_xl_offset_weight_set+0x1a>
 }
-     e1e:	b002      	add	sp, #8
-     e20:	bd70      	pop	{r4, r5, r6, pc}
+     e3a:	b002      	add	sp, #8
+     e3c:	bd70      	pop	{r4, r5, r6, pc}
     reg.usr_off_w = (uint8_t)val;
-     e22:	aa01      	add	r2, sp, #4
-     e24:	2101      	movs	r1, #1
-     e26:	4029      	ands	r1, r5
-     e28:	00cb      	lsls	r3, r1, #3
-     e2a:	7811      	ldrb	r1, [r2, #0]
-     e2c:	3008      	adds	r0, #8
-     e2e:	4381      	bics	r1, r0
-     e30:	4319      	orrs	r1, r3
-     e32:	7011      	strb	r1, [r2, #0]
+     e3e:	aa01      	add	r2, sp, #4
+     e40:	2101      	movs	r1, #1
+     e42:	4029      	ands	r1, r5
+     e44:	00cb      	lsls	r3, r1, #3
+     e46:	7811      	ldrb	r1, [r2, #0]
+     e48:	3008      	adds	r0, #8
+     e4a:	4381      	bics	r1, r0
+     e4c:	4319      	orrs	r1, r3
+     e4e:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL6_C, (uint8_t *)&reg, 1);
-     e34:	2301      	movs	r3, #1
-     e36:	2115      	movs	r1, #21
-     e38:	0020      	movs	r0, r4
-     e3a:	4c02      	ldr	r4, [pc, #8]	; (e44 <lsm6dso_xl_offset_weight_set+0x3c>)
-     e3c:	47a0      	blx	r4
-  return ret;
-     e3e:	e7ee      	b.n	e1e <lsm6dso_xl_offset_weight_set+0x16>
-     e40:	00000d15 	.word	0x00000d15
-     e44:	00000d21 	.word	0x00000d21
-
-00000e48 <lsm6dso_xl_flag_data_ready_get>:
-{
-     e48:	b570      	push	{r4, r5, r6, lr}
-     e4a:	b082      	sub	sp, #8
-     e4c:	000d      	movs	r5, r1
-  ret = lsm6dso_read_reg(ctx, LSM6DSO_STATUS_REG, (uint8_t *)&reg, 1);
-     e4e:	ac01      	add	r4, sp, #4
      e50:	2301      	movs	r3, #1
-     e52:	0022      	movs	r2, r4
-     e54:	211e      	movs	r1, #30
-     e56:	4e04      	ldr	r6, [pc, #16]	; (e68 <lsm6dso_xl_flag_data_ready_get+0x20>)
-     e58:	47b0      	blx	r6
+     e52:	2115      	movs	r1, #21
+     e54:	0020      	movs	r0, r4
+     e56:	4c02      	ldr	r4, [pc, #8]	; (e60 <lsm6dso_xl_offset_weight_set+0x3c>)
+     e58:	47a0      	blx	r4
+  return ret;
+     e5a:	e7ee      	b.n	e3a <lsm6dso_xl_offset_weight_set+0x16>
+     e5c:	00000d31 	.word	0x00000d31
+     e60:	00000d3d 	.word	0x00000d3d
+
+00000e64 <lsm6dso_xl_flag_data_ready_get>:
+{
+     e64:	b570      	push	{r4, r5, r6, lr}
+     e66:	b082      	sub	sp, #8
+     e68:	000d      	movs	r5, r1
+  ret = lsm6dso_read_reg(ctx, LSM6DSO_STATUS_REG, (uint8_t *)&reg, 1);
+     e6a:	ac01      	add	r4, sp, #4
+     e6c:	2301      	movs	r3, #1
+     e6e:	0022      	movs	r2, r4
+     e70:	211e      	movs	r1, #30
+     e72:	4e04      	ldr	r6, [pc, #16]	; (e84 <lsm6dso_xl_flag_data_ready_get+0x20>)
+     e74:	47b0      	blx	r6
   *val = reg.xlda;
-     e5a:	7823      	ldrb	r3, [r4, #0]
-     e5c:	07db      	lsls	r3, r3, #31
-     e5e:	0fdb      	lsrs	r3, r3, #31
-     e60:	702b      	strb	r3, [r5, #0]
+     e76:	7823      	ldrb	r3, [r4, #0]
+     e78:	07db      	lsls	r3, r3, #31
+     e7a:	0fdb      	lsrs	r3, r3, #31
+     e7c:	702b      	strb	r3, [r5, #0]
 }
-     e62:	b002      	add	sp, #8
-     e64:	bd70      	pop	{r4, r5, r6, pc}
-     e66:	46c0      	nop			; (mov r8, r8)
-     e68:	00000d15 	.word	0x00000d15
+     e7e:	b002      	add	sp, #8
+     e80:	bd70      	pop	{r4, r5, r6, pc}
+     e82:	46c0      	nop			; (mov r8, r8)
+     e84:	00000d31 	.word	0x00000d31
 
-00000e6c <lsm6dso_acceleration_raw_get>:
+00000e88 <lsm6dso_acceleration_raw_get>:
 {
-     e6c:	b530      	push	{r4, r5, lr}
-     e6e:	b083      	sub	sp, #12
-     e70:	000c      	movs	r4, r1
+     e88:	b530      	push	{r4, r5, lr}
+     e8a:	b083      	sub	sp, #12
+     e8c:	000c      	movs	r4, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_OUTX_L_A, buff, 6);
-     e72:	2306      	movs	r3, #6
-     e74:	466a      	mov	r2, sp
-     e76:	2128      	movs	r1, #40	; 0x28
-     e78:	4d0a      	ldr	r5, [pc, #40]	; (ea4 <lsm6dso_acceleration_raw_get+0x38>)
-     e7a:	47a8      	blx	r5
+     e8e:	2306      	movs	r3, #6
+     e90:	466a      	mov	r2, sp
+     e92:	2128      	movs	r1, #40	; 0x28
+     e94:	4d0a      	ldr	r5, [pc, #40]	; (ec0 <lsm6dso_acceleration_raw_get+0x38>)
+     e96:	47a8      	blx	r5
   val[0] = (val[0] * 256) + (int16_t)buff[0];
-     e7c:	466b      	mov	r3, sp
-     e7e:	785a      	ldrb	r2, [r3, #1]
-     e80:	0212      	lsls	r2, r2, #8
-     e82:	781b      	ldrb	r3, [r3, #0]
-     e84:	189b      	adds	r3, r3, r2
-     e86:	8023      	strh	r3, [r4, #0]
+     e98:	466b      	mov	r3, sp
+     e9a:	785a      	ldrb	r2, [r3, #1]
+     e9c:	0212      	lsls	r2, r2, #8
+     e9e:	781b      	ldrb	r3, [r3, #0]
+     ea0:	189b      	adds	r3, r3, r2
+     ea2:	8023      	strh	r3, [r4, #0]
   val[1] = (val[1] * 256) + (int16_t)buff[2];
-     e88:	466b      	mov	r3, sp
-     e8a:	78da      	ldrb	r2, [r3, #3]
-     e8c:	0212      	lsls	r2, r2, #8
-     e8e:	789b      	ldrb	r3, [r3, #2]
-     e90:	189b      	adds	r3, r3, r2
-     e92:	8063      	strh	r3, [r4, #2]
+     ea4:	466b      	mov	r3, sp
+     ea6:	78da      	ldrb	r2, [r3, #3]
+     ea8:	0212      	lsls	r2, r2, #8
+     eaa:	789b      	ldrb	r3, [r3, #2]
+     eac:	189b      	adds	r3, r3, r2
+     eae:	8063      	strh	r3, [r4, #2]
   val[2] = (val[2] * 256) + (int16_t)buff[4];
-     e94:	466b      	mov	r3, sp
-     e96:	795a      	ldrb	r2, [r3, #5]
-     e98:	0212      	lsls	r2, r2, #8
-     e9a:	791b      	ldrb	r3, [r3, #4]
-     e9c:	189b      	adds	r3, r3, r2
-     e9e:	80a3      	strh	r3, [r4, #4]
+     eb0:	466b      	mov	r3, sp
+     eb2:	795a      	ldrb	r2, [r3, #5]
+     eb4:	0212      	lsls	r2, r2, #8
+     eb6:	791b      	ldrb	r3, [r3, #4]
+     eb8:	189b      	adds	r3, r3, r2
+     eba:	80a3      	strh	r3, [r4, #4]
 }
-     ea0:	b003      	add	sp, #12
-     ea2:	bd30      	pop	{r4, r5, pc}
-     ea4:	00000d15 	.word	0x00000d15
+     ebc:	b003      	add	sp, #12
+     ebe:	bd30      	pop	{r4, r5, pc}
+     ec0:	00000d31 	.word	0x00000d31
 
-00000ea8 <lsm6dso_mem_bank_set>:
+00000ec4 <lsm6dso_mem_bank_set>:
 {
-     ea8:	b570      	push	{r4, r5, r6, lr}
-     eaa:	b082      	sub	sp, #8
-     eac:	0004      	movs	r4, r0
-     eae:	000d      	movs	r5, r1
+     ec4:	b570      	push	{r4, r5, r6, lr}
+     ec6:	b082      	sub	sp, #8
+     ec8:	0004      	movs	r4, r0
+     eca:	000d      	movs	r5, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_FUNC_CFG_ACCESS, (uint8_t *)&reg, 1);
-     eb0:	2301      	movs	r3, #1
-     eb2:	aa01      	add	r2, sp, #4
-     eb4:	2101      	movs	r1, #1
-     eb6:	4e09      	ldr	r6, [pc, #36]	; (edc <lsm6dso_mem_bank_set+0x34>)
-     eb8:	47b0      	blx	r6
+     ecc:	2301      	movs	r3, #1
+     ece:	aa01      	add	r2, sp, #4
+     ed0:	2101      	movs	r1, #1
+     ed2:	4e09      	ldr	r6, [pc, #36]	; (ef8 <lsm6dso_mem_bank_set+0x34>)
+     ed4:	47b0      	blx	r6
   if (ret == 0)
-     eba:	2800      	cmp	r0, #0
-     ebc:	d001      	beq.n	ec2 <lsm6dso_mem_bank_set+0x1a>
+     ed6:	2800      	cmp	r0, #0
+     ed8:	d001      	beq.n	ede <lsm6dso_mem_bank_set+0x1a>
 }
-     ebe:	b002      	add	sp, #8
-     ec0:	bd70      	pop	{r4, r5, r6, pc}
+     eda:	b002      	add	sp, #8
+     edc:	bd70      	pop	{r4, r5, r6, pc}
     reg.reg_access = (uint8_t)val;
-     ec2:	aa01      	add	r2, sp, #4
-     ec4:	01ad      	lsls	r5, r5, #6
-     ec6:	7813      	ldrb	r3, [r2, #0]
-     ec8:	213f      	movs	r1, #63	; 0x3f
-     eca:	4019      	ands	r1, r3
-     ecc:	4329      	orrs	r1, r5
-     ece:	7011      	strb	r1, [r2, #0]
+     ede:	aa01      	add	r2, sp, #4
+     ee0:	01ad      	lsls	r5, r5, #6
+     ee2:	7813      	ldrb	r3, [r2, #0]
+     ee4:	213f      	movs	r1, #63	; 0x3f
+     ee6:	4019      	ands	r1, r3
+     ee8:	4329      	orrs	r1, r5
+     eea:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_FUNC_CFG_ACCESS, (uint8_t *)&reg, 1);
-     ed0:	2301      	movs	r3, #1
-     ed2:	2101      	movs	r1, #1
-     ed4:	0020      	movs	r0, r4
-     ed6:	4c02      	ldr	r4, [pc, #8]	; (ee0 <lsm6dso_mem_bank_set+0x38>)
-     ed8:	47a0      	blx	r4
+     eec:	2301      	movs	r3, #1
+     eee:	2101      	movs	r1, #1
+     ef0:	0020      	movs	r0, r4
+     ef2:	4c02      	ldr	r4, [pc, #8]	; (efc <lsm6dso_mem_bank_set+0x38>)
+     ef4:	47a0      	blx	r4
   return ret;
-     eda:	e7f0      	b.n	ebe <lsm6dso_mem_bank_set+0x16>
-     edc:	00000d15 	.word	0x00000d15
-     ee0:	00000d21 	.word	0x00000d21
+     ef6:	e7f0      	b.n	eda <lsm6dso_mem_bank_set+0x16>
+     ef8:	00000d31 	.word	0x00000d31
+     efc:	00000d3d 	.word	0x00000d3d
 
-00000ee4 <lsm6dso_device_id_get>:
+00000f00 <lsm6dso_device_id_get>:
 {
-     ee4:	b510      	push	{r4, lr}
-     ee6:	000a      	movs	r2, r1
+     f00:	b510      	push	{r4, lr}
+     f02:	000a      	movs	r2, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_WHO_AM_I, buff, 1);
-     ee8:	2301      	movs	r3, #1
-     eea:	210f      	movs	r1, #15
-     eec:	4c01      	ldr	r4, [pc, #4]	; (ef4 <lsm6dso_device_id_get+0x10>)
-     eee:	47a0      	blx	r4
+     f04:	2301      	movs	r3, #1
+     f06:	210f      	movs	r1, #15
+     f08:	4c01      	ldr	r4, [pc, #4]	; (f10 <lsm6dso_device_id_get+0x10>)
+     f0a:	47a0      	blx	r4
 }
-     ef0:	bd10      	pop	{r4, pc}
-     ef2:	46c0      	nop			; (mov r8, r8)
-     ef4:	00000d15 	.word	0x00000d15
+     f0c:	bd10      	pop	{r4, pc}
+     f0e:	46c0      	nop			; (mov r8, r8)
+     f10:	00000d31 	.word	0x00000d31
 
-00000ef8 <lsm6dso_reset_set>:
+00000f14 <lsm6dso_reset_set>:
 {
-     ef8:	b570      	push	{r4, r5, r6, lr}
-     efa:	b082      	sub	sp, #8
-     efc:	0004      	movs	r4, r0
-     efe:	000e      	movs	r6, r1
+     f14:	b570      	push	{r4, r5, r6, lr}
+     f16:	b082      	sub	sp, #8
+     f18:	0004      	movs	r4, r0
+     f1a:	000e      	movs	r6, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
-     f00:	2301      	movs	r3, #1
-     f02:	aa01      	add	r2, sp, #4
-     f04:	2112      	movs	r1, #18
-     f06:	4d09      	ldr	r5, [pc, #36]	; (f2c <lsm6dso_reset_set+0x34>)
-     f08:	47a8      	blx	r5
+     f1c:	2301      	movs	r3, #1
+     f1e:	aa01      	add	r2, sp, #4
+     f20:	2112      	movs	r1, #18
+     f22:	4d09      	ldr	r5, [pc, #36]	; (f48 <lsm6dso_reset_set+0x34>)
+     f24:	47a8      	blx	r5
   if (ret == 0)
-     f0a:	2800      	cmp	r0, #0
-     f0c:	d001      	beq.n	f12 <lsm6dso_reset_set+0x1a>
+     f26:	2800      	cmp	r0, #0
+     f28:	d001      	beq.n	f2e <lsm6dso_reset_set+0x1a>
 }
-     f0e:	b002      	add	sp, #8
-     f10:	bd70      	pop	{r4, r5, r6, pc}
+     f2a:	b002      	add	sp, #8
+     f2c:	bd70      	pop	{r4, r5, r6, pc}
     reg.sw_reset = val;
-     f12:	aa01      	add	r2, sp, #4
-     f14:	2101      	movs	r1, #1
-     f16:	400e      	ands	r6, r1
-     f18:	7811      	ldrb	r1, [r2, #0]
-     f1a:	2301      	movs	r3, #1
-     f1c:	4399      	bics	r1, r3
-     f1e:	4331      	orrs	r1, r6
-     f20:	7011      	strb	r1, [r2, #0]
+     f2e:	aa01      	add	r2, sp, #4
+     f30:	2101      	movs	r1, #1
+     f32:	400e      	ands	r6, r1
+     f34:	7811      	ldrb	r1, [r2, #0]
+     f36:	2301      	movs	r3, #1
+     f38:	4399      	bics	r1, r3
+     f3a:	4331      	orrs	r1, r6
+     f3c:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
-     f22:	2112      	movs	r1, #18
-     f24:	0020      	movs	r0, r4
-     f26:	4c02      	ldr	r4, [pc, #8]	; (f30 <lsm6dso_reset_set+0x38>)
-     f28:	47a0      	blx	r4
+     f3e:	2112      	movs	r1, #18
+     f40:	0020      	movs	r0, r4
+     f42:	4c02      	ldr	r4, [pc, #8]	; (f4c <lsm6dso_reset_set+0x38>)
+     f44:	47a0      	blx	r4
   return ret;
-     f2a:	e7f0      	b.n	f0e <lsm6dso_reset_set+0x16>
-     f2c:	00000d15 	.word	0x00000d15
-     f30:	00000d21 	.word	0x00000d21
+     f46:	e7f0      	b.n	f2a <lsm6dso_reset_set+0x16>
+     f48:	00000d31 	.word	0x00000d31
+     f4c:	00000d3d 	.word	0x00000d3d
 
-00000f34 <lsm6dso_reset_get>:
+00000f50 <lsm6dso_reset_get>:
 {
-     f34:	b570      	push	{r4, r5, r6, lr}
-     f36:	b082      	sub	sp, #8
-     f38:	000d      	movs	r5, r1
+     f50:	b570      	push	{r4, r5, r6, lr}
+     f52:	b082      	sub	sp, #8
+     f54:	000d      	movs	r5, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL3_C, (uint8_t *)&reg, 1);
-     f3a:	ac01      	add	r4, sp, #4
-     f3c:	2301      	movs	r3, #1
-     f3e:	0022      	movs	r2, r4
-     f40:	2112      	movs	r1, #18
-     f42:	4e04      	ldr	r6, [pc, #16]	; (f54 <lsm6dso_reset_get+0x20>)
-     f44:	47b0      	blx	r6
+     f56:	ac01      	add	r4, sp, #4
+     f58:	2301      	movs	r3, #1
+     f5a:	0022      	movs	r2, r4
+     f5c:	2112      	movs	r1, #18
+     f5e:	4e04      	ldr	r6, [pc, #16]	; (f70 <lsm6dso_reset_get+0x20>)
+     f60:	47b0      	blx	r6
   *val = reg.sw_reset;
-     f46:	7823      	ldrb	r3, [r4, #0]
-     f48:	07db      	lsls	r3, r3, #31
-     f4a:	0fdb      	lsrs	r3, r3, #31
-     f4c:	702b      	strb	r3, [r5, #0]
+     f62:	7823      	ldrb	r3, [r4, #0]
+     f64:	07db      	lsls	r3, r3, #31
+     f66:	0fdb      	lsrs	r3, r3, #31
+     f68:	702b      	strb	r3, [r5, #0]
 }
-     f4e:	b002      	add	sp, #8
-     f50:	bd70      	pop	{r4, r5, r6, pc}
-     f52:	46c0      	nop			; (mov r8, r8)
-     f54:	00000d15 	.word	0x00000d15
+     f6a:	b002      	add	sp, #8
+     f6c:	bd70      	pop	{r4, r5, r6, pc}
+     f6e:	46c0      	nop			; (mov r8, r8)
+     f70:	00000d31 	.word	0x00000d31
 
-00000f58 <lsm6dso_xl_filter_lp2_set>:
+00000f74 <lsm6dso_xl_filter_lp2_set>:
 {
-     f58:	b570      	push	{r4, r5, r6, lr}
-     f5a:	b082      	sub	sp, #8
-     f5c:	0004      	movs	r4, r0
-     f5e:	000d      	movs	r5, r1
+     f74:	b570      	push	{r4, r5, r6, lr}
+     f76:	b082      	sub	sp, #8
+     f78:	0004      	movs	r4, r0
+     f7a:	000d      	movs	r5, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-     f60:	2301      	movs	r3, #1
-     f62:	aa01      	add	r2, sp, #4
-     f64:	2110      	movs	r1, #16
-     f66:	4e0a      	ldr	r6, [pc, #40]	; (f90 <lsm6dso_xl_filter_lp2_set+0x38>)
-     f68:	47b0      	blx	r6
+     f7c:	2301      	movs	r3, #1
+     f7e:	aa01      	add	r2, sp, #4
+     f80:	2110      	movs	r1, #16
+     f82:	4e0a      	ldr	r6, [pc, #40]	; (fac <lsm6dso_xl_filter_lp2_set+0x38>)
+     f84:	47b0      	blx	r6
   if (ret == 0)
-     f6a:	2800      	cmp	r0, #0
-     f6c:	d001      	beq.n	f72 <lsm6dso_xl_filter_lp2_set+0x1a>
+     f86:	2800      	cmp	r0, #0
+     f88:	d001      	beq.n	f8e <lsm6dso_xl_filter_lp2_set+0x1a>
 }
-     f6e:	b002      	add	sp, #8
-     f70:	bd70      	pop	{r4, r5, r6, pc}
+     f8a:	b002      	add	sp, #8
+     f8c:	bd70      	pop	{r4, r5, r6, pc}
     reg.lpf2_xl_en = val;
-     f72:	aa01      	add	r2, sp, #4
-     f74:	2101      	movs	r1, #1
-     f76:	4029      	ands	r1, r5
-     f78:	004b      	lsls	r3, r1, #1
-     f7a:	7811      	ldrb	r1, [r2, #0]
-     f7c:	3002      	adds	r0, #2
-     f7e:	4381      	bics	r1, r0
-     f80:	4319      	orrs	r1, r3
-     f82:	7011      	strb	r1, [r2, #0]
+     f8e:	aa01      	add	r2, sp, #4
+     f90:	2101      	movs	r1, #1
+     f92:	4029      	ands	r1, r5
+     f94:	004b      	lsls	r3, r1, #1
+     f96:	7811      	ldrb	r1, [r2, #0]
+     f98:	3002      	adds	r0, #2
+     f9a:	4381      	bics	r1, r0
+     f9c:	4319      	orrs	r1, r3
+     f9e:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-     f84:	2301      	movs	r3, #1
-     f86:	2110      	movs	r1, #16
-     f88:	0020      	movs	r0, r4
-     f8a:	4c02      	ldr	r4, [pc, #8]	; (f94 <lsm6dso_xl_filter_lp2_set+0x3c>)
-     f8c:	47a0      	blx	r4
-  return ret;
-     f8e:	e7ee      	b.n	f6e <lsm6dso_xl_filter_lp2_set+0x16>
-     f90:	00000d15 	.word	0x00000d15
-     f94:	00000d21 	.word	0x00000d21
-
-00000f98 <lsm6dso_xl_hp_path_on_out_set>:
-{
-     f98:	b570      	push	{r4, r5, r6, lr}
-     f9a:	b082      	sub	sp, #8
-     f9c:	0004      	movs	r4, r0
-     f9e:	000d      	movs	r5, r1
-  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL8_XL, (uint8_t *)&reg, 1);
      fa0:	2301      	movs	r3, #1
-     fa2:	aa01      	add	r2, sp, #4
-     fa4:	2117      	movs	r1, #23
-     fa6:	4e10      	ldr	r6, [pc, #64]	; (fe8 <lsm6dso_xl_hp_path_on_out_set+0x50>)
-     fa8:	47b0      	blx	r6
+     fa2:	2110      	movs	r1, #16
+     fa4:	0020      	movs	r0, r4
+     fa6:	4c02      	ldr	r4, [pc, #8]	; (fb0 <lsm6dso_xl_filter_lp2_set+0x3c>)
+     fa8:	47a0      	blx	r4
+  return ret;
+     faa:	e7ee      	b.n	f8a <lsm6dso_xl_filter_lp2_set+0x16>
+     fac:	00000d31 	.word	0x00000d31
+     fb0:	00000d3d 	.word	0x00000d3d
+
+00000fb4 <lsm6dso_xl_hp_path_on_out_set>:
+{
+     fb4:	b570      	push	{r4, r5, r6, lr}
+     fb6:	b082      	sub	sp, #8
+     fb8:	0004      	movs	r4, r0
+     fba:	000d      	movs	r5, r1
+  ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL8_XL, (uint8_t *)&reg, 1);
+     fbc:	2301      	movs	r3, #1
+     fbe:	aa01      	add	r2, sp, #4
+     fc0:	2117      	movs	r1, #23
+     fc2:	4e10      	ldr	r6, [pc, #64]	; (1004 <lsm6dso_xl_hp_path_on_out_set+0x50>)
+     fc4:	47b0      	blx	r6
   if (ret == 0)
-     faa:	2800      	cmp	r0, #0
-     fac:	d001      	beq.n	fb2 <lsm6dso_xl_hp_path_on_out_set+0x1a>
+     fc6:	2800      	cmp	r0, #0
+     fc8:	d001      	beq.n	fce <lsm6dso_xl_hp_path_on_out_set+0x1a>
 }
-     fae:	b002      	add	sp, #8
-     fb0:	bd70      	pop	{r4, r5, r6, pc}
+     fca:	b002      	add	sp, #8
+     fcc:	bd70      	pop	{r4, r5, r6, pc}
     reg.hp_slope_xl_en = ((uint8_t)val & 0x10U) >> 4;
-     fb2:	aa01      	add	r2, sp, #4
-     fb4:	092b      	lsrs	r3, r5, #4
-     fb6:	2101      	movs	r1, #1
-     fb8:	400b      	ands	r3, r1
-     fba:	0098      	lsls	r0, r3, #2
-     fbc:	7813      	ldrb	r3, [r2, #0]
-     fbe:	2604      	movs	r6, #4
-     fc0:	43b3      	bics	r3, r6
-    reg.hp_ref_mode_xl = ((uint8_t)val & 0x20U) >> 5;
-     fc2:	096e      	lsrs	r6, r5, #5
-     fc4:	4031      	ands	r1, r6
-     fc6:	0109      	lsls	r1, r1, #4
-     fc8:	4303      	orrs	r3, r0
-     fca:	2010      	movs	r0, #16
-     fcc:	4383      	bics	r3, r0
-    reg.hpcf_xl = (uint8_t)val & 0x07U;
-     fce:	016d      	lsls	r5, r5, #5
-     fd0:	430b      	orrs	r3, r1
-     fd2:	211f      	movs	r1, #31
+     fce:	aa01      	add	r2, sp, #4
+     fd0:	092b      	lsrs	r3, r5, #4
+     fd2:	2101      	movs	r1, #1
      fd4:	400b      	ands	r3, r1
-     fd6:	431d      	orrs	r5, r3
-     fd8:	7015      	strb	r5, [r2, #0]
+     fd6:	0098      	lsls	r0, r3, #2
+     fd8:	7813      	ldrb	r3, [r2, #0]
+     fda:	2604      	movs	r6, #4
+     fdc:	43b3      	bics	r3, r6
+    reg.hp_ref_mode_xl = ((uint8_t)val & 0x20U) >> 5;
+     fde:	096e      	lsrs	r6, r5, #5
+     fe0:	4031      	ands	r1, r6
+     fe2:	0109      	lsls	r1, r1, #4
+     fe4:	4303      	orrs	r3, r0
+     fe6:	2010      	movs	r0, #16
+     fe8:	4383      	bics	r3, r0
+    reg.hpcf_xl = (uint8_t)val & 0x07U;
+     fea:	016d      	lsls	r5, r5, #5
+     fec:	430b      	orrs	r3, r1
+     fee:	211f      	movs	r1, #31
+     ff0:	400b      	ands	r3, r1
+     ff2:	431d      	orrs	r5, r3
+     ff4:	7015      	strb	r5, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL8_XL, (uint8_t *)&reg, 1);
-     fda:	2301      	movs	r3, #1
-     fdc:	3908      	subs	r1, #8
-     fde:	0020      	movs	r0, r4
-     fe0:	4c02      	ldr	r4, [pc, #8]	; (fec <lsm6dso_xl_hp_path_on_out_set+0x54>)
-     fe2:	47a0      	blx	r4
+     ff6:	2301      	movs	r3, #1
+     ff8:	3908      	subs	r1, #8
+     ffa:	0020      	movs	r0, r4
+     ffc:	4c02      	ldr	r4, [pc, #8]	; (1008 <lsm6dso_xl_hp_path_on_out_set+0x54>)
+     ffe:	47a0      	blx	r4
   return ret;
-     fe4:	e7e3      	b.n	fae <lsm6dso_xl_hp_path_on_out_set+0x16>
-     fe6:	46c0      	nop			; (mov r8, r8)
-     fe8:	00000d15 	.word	0x00000d15
-     fec:	00000d21 	.word	0x00000d21
+    1000:	e7e3      	b.n	fca <lsm6dso_xl_hp_path_on_out_set+0x16>
+    1002:	46c0      	nop			; (mov r8, r8)
+    1004:	00000d31 	.word	0x00000d31
+    1008:	00000d3d 	.word	0x00000d3d
 
-00000ff0 <lsm6dso_i3c_disable_set>:
+0000100c <lsm6dso_i3c_disable_set>:
 {
-     ff0:	b570      	push	{r4, r5, r6, lr}
-     ff2:	b082      	sub	sp, #8
-     ff4:	0004      	movs	r4, r0
-     ff6:	000d      	movs	r5, r1
+    100c:	b570      	push	{r4, r5, r6, lr}
+    100e:	b082      	sub	sp, #8
+    1010:	0004      	movs	r4, r0
+    1012:	000d      	movs	r5, r1
   ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL9_XL, (uint8_t *)&ctrl9_xl, 1);
-     ff8:	2301      	movs	r3, #1
-     ffa:	466a      	mov	r2, sp
-     ffc:	2118      	movs	r1, #24
-     ffe:	4e16      	ldr	r6, [pc, #88]	; (1058 <lsm6dso_i3c_disable_set+0x68>)
-    1000:	47b0      	blx	r6
+    1014:	2301      	movs	r3, #1
+    1016:	466a      	mov	r2, sp
+    1018:	2118      	movs	r1, #24
+    101a:	4e16      	ldr	r6, [pc, #88]	; (1074 <lsm6dso_i3c_disable_set+0x68>)
+    101c:	47b0      	blx	r6
   if (ret == 0)
-    1002:	2800      	cmp	r0, #0
-    1004:	d001      	beq.n	100a <lsm6dso_i3c_disable_set+0x1a>
+    101e:	2800      	cmp	r0, #0
+    1020:	d001      	beq.n	1026 <lsm6dso_i3c_disable_set+0x1a>
 }
-    1006:	b002      	add	sp, #8
-    1008:	bd70      	pop	{r4, r5, r6, pc}
+    1022:	b002      	add	sp, #8
+    1024:	bd70      	pop	{r4, r5, r6, pc}
     ctrl9_xl.i3c_disable = ((uint8_t)val & 0x80U) >> 7;
-    100a:	09ea      	lsrs	r2, r5, #7
-    100c:	0052      	lsls	r2, r2, #1
-    100e:	466b      	mov	r3, sp
-    1010:	781b      	ldrb	r3, [r3, #0]
-    1012:	2102      	movs	r1, #2
-    1014:	438b      	bics	r3, r1
-    1016:	4313      	orrs	r3, r2
-    1018:	466a      	mov	r2, sp
-    101a:	7013      	strb	r3, [r2, #0]
+    1026:	09ea      	lsrs	r2, r5, #7
+    1028:	0052      	lsls	r2, r2, #1
+    102a:	466b      	mov	r3, sp
+    102c:	781b      	ldrb	r3, [r3, #0]
+    102e:	2102      	movs	r1, #2
+    1030:	438b      	bics	r3, r1
+    1032:	4313      	orrs	r3, r2
+    1034:	466a      	mov	r2, sp
+    1036:	7013      	strb	r3, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL9_XL, (uint8_t *)&ctrl9_xl, 1);
-    101c:	2301      	movs	r3, #1
-    101e:	3116      	adds	r1, #22
-    1020:	0020      	movs	r0, r4
-    1022:	4e0e      	ldr	r6, [pc, #56]	; (105c <lsm6dso_i3c_disable_set+0x6c>)
-    1024:	47b0      	blx	r6
+    1038:	2301      	movs	r3, #1
+    103a:	3116      	adds	r1, #22
+    103c:	0020      	movs	r0, r4
+    103e:	4e0e      	ldr	r6, [pc, #56]	; (1078 <lsm6dso_i3c_disable_set+0x6c>)
+    1040:	47b0      	blx	r6
   if (ret == 0)
-    1026:	2800      	cmp	r0, #0
-    1028:	d1ed      	bne.n	1006 <lsm6dso_i3c_disable_set+0x16>
+    1042:	2800      	cmp	r0, #0
+    1044:	d1ed      	bne.n	1022 <lsm6dso_i3c_disable_set+0x16>
     ret = lsm6dso_read_reg(ctx, LSM6DSO_I3C_BUS_AVB,
-    102a:	2301      	movs	r3, #1
-    102c:	aa01      	add	r2, sp, #4
-    102e:	2162      	movs	r1, #98	; 0x62
-    1030:	0020      	movs	r0, r4
-    1032:	4e09      	ldr	r6, [pc, #36]	; (1058 <lsm6dso_i3c_disable_set+0x68>)
-    1034:	47b0      	blx	r6
+    1046:	2301      	movs	r3, #1
+    1048:	aa01      	add	r2, sp, #4
+    104a:	2162      	movs	r1, #98	; 0x62
+    104c:	0020      	movs	r0, r4
+    104e:	4e09      	ldr	r6, [pc, #36]	; (1074 <lsm6dso_i3c_disable_set+0x68>)
+    1050:	47b0      	blx	r6
   if (ret == 0)
-    1036:	2800      	cmp	r0, #0
-    1038:	d1e5      	bne.n	1006 <lsm6dso_i3c_disable_set+0x16>
+    1052:	2800      	cmp	r0, #0
+    1054:	d1e5      	bne.n	1022 <lsm6dso_i3c_disable_set+0x16>
     i3c_bus_avb.i3c_bus_avb_sel = (uint8_t)val & 0x03U;
-    103a:	aa01      	add	r2, sp, #4
-    103c:	2103      	movs	r1, #3
-    103e:	4029      	ands	r1, r5
-    1040:	00cb      	lsls	r3, r1, #3
-    1042:	7811      	ldrb	r1, [r2, #0]
-    1044:	3018      	adds	r0, #24
-    1046:	4381      	bics	r1, r0
-    1048:	4319      	orrs	r1, r3
-    104a:	7011      	strb	r1, [r2, #0]
+    1056:	aa01      	add	r2, sp, #4
+    1058:	2103      	movs	r1, #3
+    105a:	4029      	ands	r1, r5
+    105c:	00cb      	lsls	r3, r1, #3
+    105e:	7811      	ldrb	r1, [r2, #0]
+    1060:	3018      	adds	r0, #24
+    1062:	4381      	bics	r1, r0
+    1064:	4319      	orrs	r1, r3
+    1066:	7011      	strb	r1, [r2, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_I3C_BUS_AVB,
-    104c:	2301      	movs	r3, #1
-    104e:	2162      	movs	r1, #98	; 0x62
-    1050:	0020      	movs	r0, r4
-    1052:	4c02      	ldr	r4, [pc, #8]	; (105c <lsm6dso_i3c_disable_set+0x6c>)
-    1054:	47a0      	blx	r4
+    1068:	2301      	movs	r3, #1
+    106a:	2162      	movs	r1, #98	; 0x62
+    106c:	0020      	movs	r0, r4
+    106e:	4c02      	ldr	r4, [pc, #8]	; (1078 <lsm6dso_i3c_disable_set+0x6c>)
+    1070:	47a0      	blx	r4
   return ret;
-    1056:	e7d6      	b.n	1006 <lsm6dso_i3c_disable_set+0x16>
-    1058:	00000d15 	.word	0x00000d15
-    105c:	00000d21 	.word	0x00000d21
+    1072:	e7d6      	b.n	1022 <lsm6dso_i3c_disable_set+0x16>
+    1074:	00000d31 	.word	0x00000d31
+    1078:	00000d3d 	.word	0x00000d3d
 
-00001060 <lsm6dso_fsm_enable_get>:
+0000107c <lsm6dso_fsm_enable_get>:
 {
-    1060:	b570      	push	{r4, r5, r6, lr}
-    1062:	0004      	movs	r4, r0
-    1064:	000d      	movs	r5, r1
+    107c:	b570      	push	{r4, r5, r6, lr}
+    107e:	0004      	movs	r4, r0
+    1080:	000d      	movs	r5, r1
   ret = lsm6dso_mem_bank_set(ctx, LSM6DSO_EMBEDDED_FUNC_BANK);
-    1066:	2102      	movs	r1, #2
-    1068:	4b08      	ldr	r3, [pc, #32]	; (108c <lsm6dso_fsm_enable_get+0x2c>)
-    106a:	4798      	blx	r3
+    1082:	2102      	movs	r1, #2
+    1084:	4b08      	ldr	r3, [pc, #32]	; (10a8 <lsm6dso_fsm_enable_get+0x2c>)
+    1086:	4798      	blx	r3
   if (ret == 0)
-    106c:	2800      	cmp	r0, #0
-    106e:	d000      	beq.n	1072 <lsm6dso_fsm_enable_get+0x12>
+    1088:	2800      	cmp	r0, #0
+    108a:	d000      	beq.n	108e <lsm6dso_fsm_enable_get+0x12>
 }
-    1070:	bd70      	pop	{r4, r5, r6, pc}
+    108c:	bd70      	pop	{r4, r5, r6, pc}
     ret = lsm6dso_read_reg(ctx, LSM6DSO_FSM_ENABLE_A, (uint8_t *) val, 2);
-    1072:	2302      	movs	r3, #2
-    1074:	002a      	movs	r2, r5
-    1076:	2146      	movs	r1, #70	; 0x46
-    1078:	0020      	movs	r0, r4
-    107a:	4d05      	ldr	r5, [pc, #20]	; (1090 <lsm6dso_fsm_enable_get+0x30>)
-    107c:	47a8      	blx	r5
+    108e:	2302      	movs	r3, #2
+    1090:	002a      	movs	r2, r5
+    1092:	2146      	movs	r1, #70	; 0x46
+    1094:	0020      	movs	r0, r4
+    1096:	4d05      	ldr	r5, [pc, #20]	; (10ac <lsm6dso_fsm_enable_get+0x30>)
+    1098:	47a8      	blx	r5
   if (ret == 0)
-    107e:	2800      	cmp	r0, #0
-    1080:	d1f6      	bne.n	1070 <lsm6dso_fsm_enable_get+0x10>
+    109a:	2800      	cmp	r0, #0
+    109c:	d1f6      	bne.n	108c <lsm6dso_fsm_enable_get+0x10>
     ret = lsm6dso_mem_bank_set(ctx, LSM6DSO_USER_BANK);
-    1082:	2100      	movs	r1, #0
-    1084:	0020      	movs	r0, r4
-    1086:	4b01      	ldr	r3, [pc, #4]	; (108c <lsm6dso_fsm_enable_get+0x2c>)
-    1088:	4798      	blx	r3
+    109e:	2100      	movs	r1, #0
+    10a0:	0020      	movs	r0, r4
+    10a2:	4b01      	ldr	r3, [pc, #4]	; (10a8 <lsm6dso_fsm_enable_get+0x2c>)
+    10a4:	4798      	blx	r3
   return ret;
-    108a:	e7f1      	b.n	1070 <lsm6dso_fsm_enable_get+0x10>
-    108c:	00000ea9 	.word	0x00000ea9
-    1090:	00000d15 	.word	0x00000d15
+    10a6:	e7f1      	b.n	108c <lsm6dso_fsm_enable_get+0x10>
+    10a8:	00000ec5 	.word	0x00000ec5
+    10ac:	00000d31 	.word	0x00000d31
 
-00001094 <lsm6dso_fsm_data_rate_get>:
+000010b0 <lsm6dso_fsm_data_rate_get>:
 {
-    1094:	b570      	push	{r4, r5, r6, lr}
-    1096:	b082      	sub	sp, #8
-    1098:	0004      	movs	r4, r0
-    109a:	000d      	movs	r5, r1
+    10b0:	b570      	push	{r4, r5, r6, lr}
+    10b2:	b082      	sub	sp, #8
+    10b4:	0004      	movs	r4, r0
+    10b6:	000d      	movs	r5, r1
   ret = lsm6dso_mem_bank_set(ctx, LSM6DSO_EMBEDDED_FUNC_BANK);
-    109c:	2102      	movs	r1, #2
-    109e:	4b17      	ldr	r3, [pc, #92]	; (10fc <lsm6dso_fsm_data_rate_get+0x68>)
-    10a0:	4798      	blx	r3
+    10b8:	2102      	movs	r1, #2
+    10ba:	4b17      	ldr	r3, [pc, #92]	; (1118 <lsm6dso_fsm_data_rate_get+0x68>)
+    10bc:	4798      	blx	r3
   if (ret == 0)
-    10a2:	2800      	cmp	r0, #0
-    10a4:	d001      	beq.n	10aa <lsm6dso_fsm_data_rate_get+0x16>
+    10be:	2800      	cmp	r0, #0
+    10c0:	d001      	beq.n	10c6 <lsm6dso_fsm_data_rate_get+0x16>
 }
-    10a6:	b002      	add	sp, #8
-    10a8:	bd70      	pop	{r4, r5, r6, pc}
+    10c2:	b002      	add	sp, #8
+    10c4:	bd70      	pop	{r4, r5, r6, pc}
     ret = lsm6dso_read_reg(ctx, LSM6DSO_EMB_FUNC_ODR_CFG_B,
-    10aa:	2301      	movs	r3, #1
-    10ac:	aa01      	add	r2, sp, #4
-    10ae:	215f      	movs	r1, #95	; 0x5f
-    10b0:	0020      	movs	r0, r4
-    10b2:	4e13      	ldr	r6, [pc, #76]	; (1100 <lsm6dso_fsm_data_rate_get+0x6c>)
-    10b4:	47b0      	blx	r6
+    10c6:	2301      	movs	r3, #1
+    10c8:	aa01      	add	r2, sp, #4
+    10ca:	215f      	movs	r1, #95	; 0x5f
+    10cc:	0020      	movs	r0, r4
+    10ce:	4e13      	ldr	r6, [pc, #76]	; (111c <lsm6dso_fsm_data_rate_get+0x6c>)
+    10d0:	47b0      	blx	r6
   if (ret == 0)
-    10b6:	2800      	cmp	r0, #0
-    10b8:	d1f5      	bne.n	10a6 <lsm6dso_fsm_data_rate_get+0x12>
+    10d2:	2800      	cmp	r0, #0
+    10d4:	d1f5      	bne.n	10c2 <lsm6dso_fsm_data_rate_get+0x12>
     switch (reg.fsm_odr)
-    10ba:	ab01      	add	r3, sp, #4
-    10bc:	781b      	ldrb	r3, [r3, #0]
-    10be:	06db      	lsls	r3, r3, #27
-    10c0:	0f9b      	lsrs	r3, r3, #30
-    10c2:	b2da      	uxtb	r2, r3
-    10c4:	2a01      	cmp	r2, #1
-    10c6:	d00f      	beq.n	10e8 <lsm6dso_fsm_data_rate_get+0x54>
-    10c8:	2a00      	cmp	r2, #0
-    10ca:	d006      	beq.n	10da <lsm6dso_fsm_data_rate_get+0x46>
-    10cc:	2a02      	cmp	r2, #2
-    10ce:	d00e      	beq.n	10ee <lsm6dso_fsm_data_rate_get+0x5a>
-    10d0:	2a03      	cmp	r2, #3
-    10d2:	d00f      	beq.n	10f4 <lsm6dso_fsm_data_rate_get+0x60>
+    10d6:	ab01      	add	r3, sp, #4
+    10d8:	781b      	ldrb	r3, [r3, #0]
+    10da:	06db      	lsls	r3, r3, #27
+    10dc:	0f9b      	lsrs	r3, r3, #30
+    10de:	b2da      	uxtb	r2, r3
+    10e0:	2a01      	cmp	r2, #1
+    10e2:	d00f      	beq.n	1104 <lsm6dso_fsm_data_rate_get+0x54>
+    10e4:	2a00      	cmp	r2, #0
+    10e6:	d006      	beq.n	10f6 <lsm6dso_fsm_data_rate_get+0x46>
+    10e8:	2a02      	cmp	r2, #2
+    10ea:	d00e      	beq.n	110a <lsm6dso_fsm_data_rate_get+0x5a>
+    10ec:	2a03      	cmp	r2, #3
+    10ee:	d00f      	beq.n	1110 <lsm6dso_fsm_data_rate_get+0x60>
         *val = LSM6DSO_ODR_FSM_12Hz5;
-    10d4:	2300      	movs	r3, #0
-    10d6:	702b      	strb	r3, [r5, #0]
+    10f0:	2300      	movs	r3, #0
+    10f2:	702b      	strb	r3, [r5, #0]
         break;
-    10d8:	e001      	b.n	10de <lsm6dso_fsm_data_rate_get+0x4a>
+    10f4:	e001      	b.n	10fa <lsm6dso_fsm_data_rate_get+0x4a>
         *val = LSM6DSO_ODR_FSM_12Hz5;
-    10da:	2300      	movs	r3, #0
-    10dc:	702b      	strb	r3, [r5, #0]
+    10f6:	2300      	movs	r3, #0
+    10f8:	702b      	strb	r3, [r5, #0]
     ret = lsm6dso_mem_bank_set(ctx, LSM6DSO_USER_BANK);
-    10de:	2100      	movs	r1, #0
-    10e0:	0020      	movs	r0, r4
-    10e2:	4b06      	ldr	r3, [pc, #24]	; (10fc <lsm6dso_fsm_data_rate_get+0x68>)
-    10e4:	4798      	blx	r3
+    10fa:	2100      	movs	r1, #0
+    10fc:	0020      	movs	r0, r4
+    10fe:	4b06      	ldr	r3, [pc, #24]	; (1118 <lsm6dso_fsm_data_rate_get+0x68>)
+    1100:	4798      	blx	r3
   return ret;
-    10e6:	e7de      	b.n	10a6 <lsm6dso_fsm_data_rate_get+0x12>
+    1102:	e7de      	b.n	10c2 <lsm6dso_fsm_data_rate_get+0x12>
         *val = LSM6DSO_ODR_FSM_26Hz;
-    10e8:	2301      	movs	r3, #1
-    10ea:	702b      	strb	r3, [r5, #0]
+    1104:	2301      	movs	r3, #1
+    1106:	702b      	strb	r3, [r5, #0]
         break;
-    10ec:	e7f7      	b.n	10de <lsm6dso_fsm_data_rate_get+0x4a>
+    1108:	e7f7      	b.n	10fa <lsm6dso_fsm_data_rate_get+0x4a>
         *val = LSM6DSO_ODR_FSM_52Hz;
-    10ee:	2302      	movs	r3, #2
-    10f0:	702b      	strb	r3, [r5, #0]
+    110a:	2302      	movs	r3, #2
+    110c:	702b      	strb	r3, [r5, #0]
         break;
-    10f2:	e7f4      	b.n	10de <lsm6dso_fsm_data_rate_get+0x4a>
+    110e:	e7f4      	b.n	10fa <lsm6dso_fsm_data_rate_get+0x4a>
         *val = LSM6DSO_ODR_FSM_104Hz;
-    10f4:	2303      	movs	r3, #3
-    10f6:	702b      	strb	r3, [r5, #0]
+    1110:	2303      	movs	r3, #3
+    1112:	702b      	strb	r3, [r5, #0]
         break;
-    10f8:	e7f1      	b.n	10de <lsm6dso_fsm_data_rate_get+0x4a>
-    10fa:	46c0      	nop			; (mov r8, r8)
-    10fc:	00000ea9 	.word	0x00000ea9
-    1100:	00000d15 	.word	0x00000d15
+    1114:	e7f1      	b.n	10fa <lsm6dso_fsm_data_rate_get+0x4a>
+    1116:	46c0      	nop			; (mov r8, r8)
+    1118:	00000ec5 	.word	0x00000ec5
+    111c:	00000d31 	.word	0x00000d31
 
-00001104 <lsm6dso_xl_data_rate_set>:
+00001120 <lsm6dso_xl_data_rate_set>:
 {
-    1104:	b570      	push	{r4, r5, r6, lr}
-    1106:	b082      	sub	sp, #8
-    1108:	0004      	movs	r4, r0
-    110a:	000d      	movs	r5, r1
+    1120:	b570      	push	{r4, r5, r6, lr}
+    1122:	b082      	sub	sp, #8
+    1124:	0004      	movs	r4, r0
+    1126:	000d      	movs	r5, r1
   ret =  lsm6dso_fsm_enable_get(ctx, &fsm_enable);
-    110c:	a901      	add	r1, sp, #4
-    110e:	4b38      	ldr	r3, [pc, #224]	; (11f0 <lsm6dso_xl_data_rate_set+0xec>)
-    1110:	4798      	blx	r3
+    1128:	a901      	add	r1, sp, #4
+    112a:	4b38      	ldr	r3, [pc, #224]	; (120c <lsm6dso_xl_data_rate_set+0xec>)
+    112c:	4798      	blx	r3
   if (ret == 0)
-    1112:	2800      	cmp	r0, #0
-    1114:	d142      	bne.n	119c <lsm6dso_xl_data_rate_set+0x98>
+    112e:	2800      	cmp	r0, #0
+    1130:	d142      	bne.n	11b8 <lsm6dso_xl_data_rate_set+0x98>
     if ((fsm_enable.fsm_enable_a.fsm1_en  |
-    1116:	a901      	add	r1, sp, #4
-    1118:	780a      	ldrb	r2, [r1, #0]
-    111a:	07d0      	lsls	r0, r2, #31
+    1132:	a901      	add	r1, sp, #4
+    1134:	780a      	ldrb	r2, [r1, #0]
+    1136:	07d0      	lsls	r0, r2, #31
          fsm_enable.fsm_enable_a.fsm2_en  |
-    111c:	0793      	lsls	r3, r2, #30
-    111e:	4318      	orrs	r0, r3
+    1138:	0793      	lsls	r3, r2, #30
+    113a:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm3_en  |
-    1120:	0753      	lsls	r3, r2, #29
-    1122:	4303      	orrs	r3, r0
+    113c:	0753      	lsls	r3, r2, #29
+    113e:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm4_en  |
-    1124:	0710      	lsls	r0, r2, #28
-    1126:	4303      	orrs	r3, r0
+    1140:	0710      	lsls	r0, r2, #28
+    1142:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm5_en  |
-    1128:	06d0      	lsls	r0, r2, #27
-    112a:	4318      	orrs	r0, r3
+    1144:	06d0      	lsls	r0, r2, #27
+    1146:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm6_en  |
-    112c:	0693      	lsls	r3, r2, #26
-    112e:	4318      	orrs	r0, r3
+    1148:	0693      	lsls	r3, r2, #26
+    114a:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm7_en  |
-    1130:	0653      	lsls	r3, r2, #25
-    1132:	4303      	orrs	r3, r0
+    114c:	0653      	lsls	r3, r2, #25
+    114e:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm6_en  |
-    1134:	0fdb      	lsrs	r3, r3, #31
+    1150:	0fdb      	lsrs	r3, r3, #31
          fsm_enable.fsm_enable_a.fsm8_en  |
-    1136:	09d2      	lsrs	r2, r2, #7
+    1152:	09d2      	lsrs	r2, r2, #7
          fsm_enable.fsm_enable_a.fsm7_en  |
-    1138:	4313      	orrs	r3, r2
+    1154:	4313      	orrs	r3, r2
          fsm_enable.fsm_enable_b.fsm9_en  |
-    113a:	784a      	ldrb	r2, [r1, #1]
-    113c:	07d1      	lsls	r1, r2, #31
-    113e:	0fc9      	lsrs	r1, r1, #31
+    1156:	784a      	ldrb	r2, [r1, #1]
+    1158:	07d1      	lsls	r1, r2, #31
+    115a:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_a.fsm8_en  |
-    1140:	430b      	orrs	r3, r1
+    115c:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm10_en |
-    1142:	0791      	lsls	r1, r2, #30
-    1144:	0fc9      	lsrs	r1, r1, #31
+    115e:	0791      	lsls	r1, r2, #30
+    1160:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm9_en  |
-    1146:	430b      	orrs	r3, r1
+    1162:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm11_en |
-    1148:	0751      	lsls	r1, r2, #29
-    114a:	0fc9      	lsrs	r1, r1, #31
+    1164:	0751      	lsls	r1, r2, #29
+    1166:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm10_en |
-    114c:	430b      	orrs	r3, r1
+    1168:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm12_en |
-    114e:	0711      	lsls	r1, r2, #28
-    1150:	0fc9      	lsrs	r1, r1, #31
+    116a:	0711      	lsls	r1, r2, #28
+    116c:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm11_en |
-    1152:	430b      	orrs	r3, r1
+    116e:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm13_en |
-    1154:	06d1      	lsls	r1, r2, #27
-    1156:	0fc9      	lsrs	r1, r1, #31
+    1170:	06d1      	lsls	r1, r2, #27
+    1172:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm12_en |
-    1158:	430b      	orrs	r3, r1
+    1174:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm14_en |
-    115a:	0691      	lsls	r1, r2, #26
-    115c:	0fc9      	lsrs	r1, r1, #31
+    1176:	0691      	lsls	r1, r2, #26
+    1178:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm13_en |
-    115e:	430b      	orrs	r3, r1
+    117a:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm15_en |
-    1160:	0651      	lsls	r1, r2, #25
-    1162:	0fc9      	lsrs	r1, r1, #31
+    117c:	0651      	lsls	r1, r2, #25
+    117e:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm14_en |
-    1164:	430b      	orrs	r3, r1
+    1180:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm16_en) == PROPERTY_ENABLE)
-    1166:	09d2      	lsrs	r2, r2, #7
+    1182:	09d2      	lsrs	r2, r2, #7
          fsm_enable.fsm_enable_b.fsm15_en |
-    1168:	4313      	orrs	r3, r2
+    1184:	4313      	orrs	r3, r2
     if ((fsm_enable.fsm_enable_a.fsm1_en  |
-    116a:	b2db      	uxtb	r3, r3
-    116c:	2b01      	cmp	r3, #1
-    116e:	d017      	beq.n	11a0 <lsm6dso_xl_data_rate_set+0x9c>
+    1186:	b2db      	uxtb	r3, r3
+    1188:	2b01      	cmp	r3, #1
+    118a:	d017      	beq.n	11bc <lsm6dso_xl_data_rate_set+0x9c>
     ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-    1170:	2301      	movs	r3, #1
-    1172:	466a      	mov	r2, sp
-    1174:	2110      	movs	r1, #16
-    1176:	0020      	movs	r0, r4
-    1178:	4e1e      	ldr	r6, [pc, #120]	; (11f4 <lsm6dso_xl_data_rate_set+0xf0>)
-    117a:	47b0      	blx	r6
+    118c:	2301      	movs	r3, #1
+    118e:	466a      	mov	r2, sp
+    1190:	2110      	movs	r1, #16
+    1192:	0020      	movs	r0, r4
+    1194:	4e1e      	ldr	r6, [pc, #120]	; (1210 <lsm6dso_xl_data_rate_set+0xf0>)
+    1196:	47b0      	blx	r6
   if (ret == 0)
-    117c:	2800      	cmp	r0, #0
-    117e:	d10d      	bne.n	119c <lsm6dso_xl_data_rate_set+0x98>
+    1198:	2800      	cmp	r0, #0
+    119a:	d10d      	bne.n	11b8 <lsm6dso_xl_data_rate_set+0x98>
     reg.odr_xl = (uint8_t) odr_xl;
-    1180:	012b      	lsls	r3, r5, #4
-    1182:	466a      	mov	r2, sp
-    1184:	7812      	ldrb	r2, [r2, #0]
-    1186:	250f      	movs	r5, #15
-    1188:	4015      	ands	r5, r2
-    118a:	431d      	orrs	r5, r3
-    118c:	466b      	mov	r3, sp
-    118e:	701d      	strb	r5, [r3, #0]
+    119c:	012b      	lsls	r3, r5, #4
+    119e:	466a      	mov	r2, sp
+    11a0:	7812      	ldrb	r2, [r2, #0]
+    11a2:	250f      	movs	r5, #15
+    11a4:	4015      	ands	r5, r2
+    11a6:	431d      	orrs	r5, r3
+    11a8:	466b      	mov	r3, sp
+    11aa:	701d      	strb	r5, [r3, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL1_XL, (uint8_t *)&reg, 1);
-    1190:	2301      	movs	r3, #1
-    1192:	466a      	mov	r2, sp
-    1194:	2110      	movs	r1, #16
-    1196:	0020      	movs	r0, r4
-    1198:	4c17      	ldr	r4, [pc, #92]	; (11f8 <lsm6dso_xl_data_rate_set+0xf4>)
-    119a:	47a0      	blx	r4
+    11ac:	2301      	movs	r3, #1
+    11ae:	466a      	mov	r2, sp
+    11b0:	2110      	movs	r1, #16
+    11b2:	0020      	movs	r0, r4
+    11b4:	4c17      	ldr	r4, [pc, #92]	; (1214 <lsm6dso_xl_data_rate_set+0xf4>)
+    11b6:	47a0      	blx	r4
 }
-    119c:	b002      	add	sp, #8
-    119e:	bd70      	pop	{r4, r5, r6, pc}
+    11b8:	b002      	add	sp, #8
+    11ba:	bd70      	pop	{r4, r5, r6, pc}
       ret =  lsm6dso_fsm_data_rate_get(ctx, &fsm_odr);
-    11a0:	466b      	mov	r3, sp
-    11a2:	1cd9      	adds	r1, r3, #3
-    11a4:	0020      	movs	r0, r4
-    11a6:	4b15      	ldr	r3, [pc, #84]	; (11fc <lsm6dso_xl_data_rate_set+0xf8>)
-    11a8:	4798      	blx	r3
+    11bc:	466b      	mov	r3, sp
+    11be:	1cd9      	adds	r1, r3, #3
+    11c0:	0020      	movs	r0, r4
+    11c2:	4b15      	ldr	r3, [pc, #84]	; (1218 <lsm6dso_xl_data_rate_set+0xf8>)
+    11c4:	4798      	blx	r3
       if (ret == 0)
-    11aa:	2800      	cmp	r0, #0
-    11ac:	d1f6      	bne.n	119c <lsm6dso_xl_data_rate_set+0x98>
+    11c6:	2800      	cmp	r0, #0
+    11c8:	d1f6      	bne.n	11b8 <lsm6dso_xl_data_rate_set+0x98>
         switch (fsm_odr)
-    11ae:	466b      	mov	r3, sp
-    11b0:	3303      	adds	r3, #3
-    11b2:	781b      	ldrb	r3, [r3, #0]
-    11b4:	2b01      	cmp	r3, #1
-    11b6:	d00f      	beq.n	11d8 <lsm6dso_xl_data_rate_set+0xd4>
-    11b8:	2b00      	cmp	r3, #0
-    11ba:	d009      	beq.n	11d0 <lsm6dso_xl_data_rate_set+0xcc>
-    11bc:	2b02      	cmp	r3, #2
-    11be:	d011      	beq.n	11e4 <lsm6dso_xl_data_rate_set+0xe0>
-    11c0:	2b03      	cmp	r3, #3
-    11c2:	d1d5      	bne.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
-    11c4:	1c2b      	adds	r3, r5, #0
-    11c6:	2d03      	cmp	r5, #3
-    11c8:	d800      	bhi.n	11cc <lsm6dso_xl_data_rate_set+0xc8>
-    11ca:	2304      	movs	r3, #4
-    11cc:	b2dd      	uxtb	r5, r3
-    11ce:	e7cf      	b.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
+    11ca:	466b      	mov	r3, sp
+    11cc:	3303      	adds	r3, #3
+    11ce:	781b      	ldrb	r3, [r3, #0]
+    11d0:	2b01      	cmp	r3, #1
+    11d2:	d00f      	beq.n	11f4 <lsm6dso_xl_data_rate_set+0xd4>
+    11d4:	2b00      	cmp	r3, #0
+    11d6:	d009      	beq.n	11ec <lsm6dso_xl_data_rate_set+0xcc>
+    11d8:	2b02      	cmp	r3, #2
+    11da:	d011      	beq.n	1200 <lsm6dso_xl_data_rate_set+0xe0>
+    11dc:	2b03      	cmp	r3, #3
+    11de:	d1d5      	bne.n	118c <lsm6dso_xl_data_rate_set+0x6c>
+    11e0:	1c2b      	adds	r3, r5, #0
+    11e2:	2d03      	cmp	r5, #3
+    11e4:	d800      	bhi.n	11e8 <lsm6dso_xl_data_rate_set+0xc8>
+    11e6:	2304      	movs	r3, #4
+    11e8:	b2dd      	uxtb	r5, r3
+    11ea:	e7cf      	b.n	118c <lsm6dso_xl_data_rate_set+0x6c>
             if (val == LSM6DSO_XL_ODR_OFF)
-    11d0:	2d00      	cmp	r5, #0
-    11d2:	d1cd      	bne.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
+    11ec:	2d00      	cmp	r5, #0
+    11ee:	d1cd      	bne.n	118c <lsm6dso_xl_data_rate_set+0x6c>
               odr_xl = LSM6DSO_XL_ODR_12Hz5;
-    11d4:	2501      	movs	r5, #1
-    11d6:	e7cb      	b.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
-    11d8:	1c2b      	adds	r3, r5, #0
-    11da:	2d01      	cmp	r5, #1
-    11dc:	d800      	bhi.n	11e0 <lsm6dso_xl_data_rate_set+0xdc>
-    11de:	2302      	movs	r3, #2
-    11e0:	b2dd      	uxtb	r5, r3
-    11e2:	e7c5      	b.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
-    11e4:	1c2b      	adds	r3, r5, #0
-    11e6:	2d02      	cmp	r5, #2
-    11e8:	d800      	bhi.n	11ec <lsm6dso_xl_data_rate_set+0xe8>
-    11ea:	2303      	movs	r3, #3
-    11ec:	b2dd      	uxtb	r5, r3
-    11ee:	e7bf      	b.n	1170 <lsm6dso_xl_data_rate_set+0x6c>
-    11f0:	00001061 	.word	0x00001061
-    11f4:	00000d15 	.word	0x00000d15
-    11f8:	00000d21 	.word	0x00000d21
-    11fc:	00001095 	.word	0x00001095
+    11f0:	2501      	movs	r5, #1
+    11f2:	e7cb      	b.n	118c <lsm6dso_xl_data_rate_set+0x6c>
+    11f4:	1c2b      	adds	r3, r5, #0
+    11f6:	2d01      	cmp	r5, #1
+    11f8:	d800      	bhi.n	11fc <lsm6dso_xl_data_rate_set+0xdc>
+    11fa:	2302      	movs	r3, #2
+    11fc:	b2dd      	uxtb	r5, r3
+    11fe:	e7c5      	b.n	118c <lsm6dso_xl_data_rate_set+0x6c>
+    1200:	1c2b      	adds	r3, r5, #0
+    1202:	2d02      	cmp	r5, #2
+    1204:	d800      	bhi.n	1208 <lsm6dso_xl_data_rate_set+0xe8>
+    1206:	2303      	movs	r3, #3
+    1208:	b2dd      	uxtb	r5, r3
+    120a:	e7bf      	b.n	118c <lsm6dso_xl_data_rate_set+0x6c>
+    120c:	0000107d 	.word	0x0000107d
+    1210:	00000d31 	.word	0x00000d31
+    1214:	00000d3d 	.word	0x00000d3d
+    1218:	000010b1 	.word	0x000010b1
 
-00001200 <lsm6dso_gy_data_rate_set>:
+0000121c <lsm6dso_gy_data_rate_set>:
 {
-    1200:	b570      	push	{r4, r5, r6, lr}
-    1202:	b082      	sub	sp, #8
-    1204:	0004      	movs	r4, r0
-    1206:	000d      	movs	r5, r1
+    121c:	b570      	push	{r4, r5, r6, lr}
+    121e:	b082      	sub	sp, #8
+    1220:	0004      	movs	r4, r0
+    1222:	000d      	movs	r5, r1
   ret =  lsm6dso_fsm_enable_get(ctx, &fsm_enable);
-    1208:	a901      	add	r1, sp, #4
-    120a:	4b38      	ldr	r3, [pc, #224]	; (12ec <lsm6dso_gy_data_rate_set+0xec>)
-    120c:	4798      	blx	r3
+    1224:	a901      	add	r1, sp, #4
+    1226:	4b38      	ldr	r3, [pc, #224]	; (1308 <lsm6dso_gy_data_rate_set+0xec>)
+    1228:	4798      	blx	r3
   if (ret == 0)
-    120e:	2800      	cmp	r0, #0
-    1210:	d142      	bne.n	1298 <lsm6dso_gy_data_rate_set+0x98>
+    122a:	2800      	cmp	r0, #0
+    122c:	d142      	bne.n	12b4 <lsm6dso_gy_data_rate_set+0x98>
     if ((fsm_enable.fsm_enable_a.fsm1_en  |
-    1212:	a901      	add	r1, sp, #4
-    1214:	780a      	ldrb	r2, [r1, #0]
-    1216:	07d0      	lsls	r0, r2, #31
+    122e:	a901      	add	r1, sp, #4
+    1230:	780a      	ldrb	r2, [r1, #0]
+    1232:	07d0      	lsls	r0, r2, #31
          fsm_enable.fsm_enable_a.fsm2_en  |
-    1218:	0793      	lsls	r3, r2, #30
-    121a:	4318      	orrs	r0, r3
+    1234:	0793      	lsls	r3, r2, #30
+    1236:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm3_en  |
-    121c:	0753      	lsls	r3, r2, #29
-    121e:	4303      	orrs	r3, r0
+    1238:	0753      	lsls	r3, r2, #29
+    123a:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm4_en  |
-    1220:	0710      	lsls	r0, r2, #28
-    1222:	4303      	orrs	r3, r0
+    123c:	0710      	lsls	r0, r2, #28
+    123e:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm5_en  |
-    1224:	06d0      	lsls	r0, r2, #27
-    1226:	4318      	orrs	r0, r3
+    1240:	06d0      	lsls	r0, r2, #27
+    1242:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm6_en  |
-    1228:	0693      	lsls	r3, r2, #26
-    122a:	4318      	orrs	r0, r3
+    1244:	0693      	lsls	r3, r2, #26
+    1246:	4318      	orrs	r0, r3
          fsm_enable.fsm_enable_a.fsm7_en  |
-    122c:	0653      	lsls	r3, r2, #25
-    122e:	4303      	orrs	r3, r0
+    1248:	0653      	lsls	r3, r2, #25
+    124a:	4303      	orrs	r3, r0
          fsm_enable.fsm_enable_a.fsm6_en  |
-    1230:	0fdb      	lsrs	r3, r3, #31
+    124c:	0fdb      	lsrs	r3, r3, #31
          fsm_enable.fsm_enable_a.fsm8_en  |
-    1232:	09d2      	lsrs	r2, r2, #7
+    124e:	09d2      	lsrs	r2, r2, #7
          fsm_enable.fsm_enable_a.fsm7_en  |
-    1234:	4313      	orrs	r3, r2
+    1250:	4313      	orrs	r3, r2
          fsm_enable.fsm_enable_b.fsm9_en  |
-    1236:	784a      	ldrb	r2, [r1, #1]
-    1238:	07d1      	lsls	r1, r2, #31
-    123a:	0fc9      	lsrs	r1, r1, #31
+    1252:	784a      	ldrb	r2, [r1, #1]
+    1254:	07d1      	lsls	r1, r2, #31
+    1256:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_a.fsm8_en  |
-    123c:	430b      	orrs	r3, r1
+    1258:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm10_en |
-    123e:	0791      	lsls	r1, r2, #30
-    1240:	0fc9      	lsrs	r1, r1, #31
+    125a:	0791      	lsls	r1, r2, #30
+    125c:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm9_en  |
-    1242:	430b      	orrs	r3, r1
+    125e:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm11_en |
-    1244:	0751      	lsls	r1, r2, #29
-    1246:	0fc9      	lsrs	r1, r1, #31
+    1260:	0751      	lsls	r1, r2, #29
+    1262:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm10_en |
-    1248:	430b      	orrs	r3, r1
+    1264:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm12_en |
-    124a:	0711      	lsls	r1, r2, #28
-    124c:	0fc9      	lsrs	r1, r1, #31
+    1266:	0711      	lsls	r1, r2, #28
+    1268:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm11_en |
-    124e:	430b      	orrs	r3, r1
+    126a:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm13_en |
-    1250:	06d1      	lsls	r1, r2, #27
-    1252:	0fc9      	lsrs	r1, r1, #31
+    126c:	06d1      	lsls	r1, r2, #27
+    126e:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm12_en |
-    1254:	430b      	orrs	r3, r1
+    1270:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm14_en |
-    1256:	0691      	lsls	r1, r2, #26
-    1258:	0fc9      	lsrs	r1, r1, #31
+    1272:	0691      	lsls	r1, r2, #26
+    1274:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm13_en |
-    125a:	430b      	orrs	r3, r1
+    1276:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm15_en |
-    125c:	0651      	lsls	r1, r2, #25
-    125e:	0fc9      	lsrs	r1, r1, #31
+    1278:	0651      	lsls	r1, r2, #25
+    127a:	0fc9      	lsrs	r1, r1, #31
          fsm_enable.fsm_enable_b.fsm14_en |
-    1260:	430b      	orrs	r3, r1
+    127c:	430b      	orrs	r3, r1
          fsm_enable.fsm_enable_b.fsm16_en) == PROPERTY_ENABLE)
-    1262:	09d2      	lsrs	r2, r2, #7
+    127e:	09d2      	lsrs	r2, r2, #7
          fsm_enable.fsm_enable_b.fsm15_en |
-    1264:	4313      	orrs	r3, r2
+    1280:	4313      	orrs	r3, r2
     if ((fsm_enable.fsm_enable_a.fsm1_en  |
-    1266:	b2db      	uxtb	r3, r3
-    1268:	2b01      	cmp	r3, #1
-    126a:	d017      	beq.n	129c <lsm6dso_gy_data_rate_set+0x9c>
+    1282:	b2db      	uxtb	r3, r3
+    1284:	2b01      	cmp	r3, #1
+    1286:	d017      	beq.n	12b8 <lsm6dso_gy_data_rate_set+0x9c>
     ret = lsm6dso_read_reg(ctx, LSM6DSO_CTRL2_G, (uint8_t *)&reg, 1);
-    126c:	2301      	movs	r3, #1
-    126e:	466a      	mov	r2, sp
-    1270:	2111      	movs	r1, #17
-    1272:	0020      	movs	r0, r4
-    1274:	4e1e      	ldr	r6, [pc, #120]	; (12f0 <lsm6dso_gy_data_rate_set+0xf0>)
-    1276:	47b0      	blx	r6
+    1288:	2301      	movs	r3, #1
+    128a:	466a      	mov	r2, sp
+    128c:	2111      	movs	r1, #17
+    128e:	0020      	movs	r0, r4
+    1290:	4e1e      	ldr	r6, [pc, #120]	; (130c <lsm6dso_gy_data_rate_set+0xf0>)
+    1292:	47b0      	blx	r6
   if (ret == 0)
-    1278:	2800      	cmp	r0, #0
-    127a:	d10d      	bne.n	1298 <lsm6dso_gy_data_rate_set+0x98>
+    1294:	2800      	cmp	r0, #0
+    1296:	d10d      	bne.n	12b4 <lsm6dso_gy_data_rate_set+0x98>
     reg.odr_g = (uint8_t) odr_gy;
-    127c:	012b      	lsls	r3, r5, #4
-    127e:	466a      	mov	r2, sp
-    1280:	7812      	ldrb	r2, [r2, #0]
-    1282:	250f      	movs	r5, #15
-    1284:	4015      	ands	r5, r2
-    1286:	431d      	orrs	r5, r3
-    1288:	466b      	mov	r3, sp
-    128a:	701d      	strb	r5, [r3, #0]
+    1298:	012b      	lsls	r3, r5, #4
+    129a:	466a      	mov	r2, sp
+    129c:	7812      	ldrb	r2, [r2, #0]
+    129e:	250f      	movs	r5, #15
+    12a0:	4015      	ands	r5, r2
+    12a2:	431d      	orrs	r5, r3
+    12a4:	466b      	mov	r3, sp
+    12a6:	701d      	strb	r5, [r3, #0]
     ret = lsm6dso_write_reg(ctx, LSM6DSO_CTRL2_G, (uint8_t *)&reg, 1);
-    128c:	2301      	movs	r3, #1
-    128e:	466a      	mov	r2, sp
-    1290:	2111      	movs	r1, #17
-    1292:	0020      	movs	r0, r4
-    1294:	4c17      	ldr	r4, [pc, #92]	; (12f4 <lsm6dso_gy_data_rate_set+0xf4>)
-    1296:	47a0      	blx	r4
+    12a8:	2301      	movs	r3, #1
+    12aa:	466a      	mov	r2, sp
+    12ac:	2111      	movs	r1, #17
+    12ae:	0020      	movs	r0, r4
+    12b0:	4c17      	ldr	r4, [pc, #92]	; (1310 <lsm6dso_gy_data_rate_set+0xf4>)
+    12b2:	47a0      	blx	r4
 }
-    1298:	b002      	add	sp, #8
-    129a:	bd70      	pop	{r4, r5, r6, pc}
+    12b4:	b002      	add	sp, #8
+    12b6:	bd70      	pop	{r4, r5, r6, pc}
       ret =  lsm6dso_fsm_data_rate_get(ctx, &fsm_odr);
-    129c:	466b      	mov	r3, sp
-    129e:	1cd9      	adds	r1, r3, #3
-    12a0:	0020      	movs	r0, r4
-    12a2:	4b15      	ldr	r3, [pc, #84]	; (12f8 <lsm6dso_gy_data_rate_set+0xf8>)
-    12a4:	4798      	blx	r3
+    12b8:	466b      	mov	r3, sp
+    12ba:	1cd9      	adds	r1, r3, #3
+    12bc:	0020      	movs	r0, r4
+    12be:	4b15      	ldr	r3, [pc, #84]	; (1314 <lsm6dso_gy_data_rate_set+0xf8>)
+    12c0:	4798      	blx	r3
       if (ret == 0)
-    12a6:	2800      	cmp	r0, #0
-    12a8:	d1f6      	bne.n	1298 <lsm6dso_gy_data_rate_set+0x98>
+    12c2:	2800      	cmp	r0, #0
+    12c4:	d1f6      	bne.n	12b4 <lsm6dso_gy_data_rate_set+0x98>
         switch (fsm_odr)
-    12aa:	466b      	mov	r3, sp
-    12ac:	3303      	adds	r3, #3
-    12ae:	781b      	ldrb	r3, [r3, #0]
-    12b0:	2b01      	cmp	r3, #1
-    12b2:	d00f      	beq.n	12d4 <lsm6dso_gy_data_rate_set+0xd4>
-    12b4:	2b00      	cmp	r3, #0
-    12b6:	d009      	beq.n	12cc <lsm6dso_gy_data_rate_set+0xcc>
-    12b8:	2b02      	cmp	r3, #2
-    12ba:	d011      	beq.n	12e0 <lsm6dso_gy_data_rate_set+0xe0>
-    12bc:	2b03      	cmp	r3, #3
-    12be:	d1d5      	bne.n	126c <lsm6dso_gy_data_rate_set+0x6c>
-    12c0:	1c2b      	adds	r3, r5, #0
-    12c2:	2d03      	cmp	r5, #3
-    12c4:	d800      	bhi.n	12c8 <lsm6dso_gy_data_rate_set+0xc8>
-    12c6:	2304      	movs	r3, #4
-    12c8:	b2dd      	uxtb	r5, r3
-    12ca:	e7cf      	b.n	126c <lsm6dso_gy_data_rate_set+0x6c>
+    12c6:	466b      	mov	r3, sp
+    12c8:	3303      	adds	r3, #3
+    12ca:	781b      	ldrb	r3, [r3, #0]
+    12cc:	2b01      	cmp	r3, #1
+    12ce:	d00f      	beq.n	12f0 <lsm6dso_gy_data_rate_set+0xd4>
+    12d0:	2b00      	cmp	r3, #0
+    12d2:	d009      	beq.n	12e8 <lsm6dso_gy_data_rate_set+0xcc>
+    12d4:	2b02      	cmp	r3, #2
+    12d6:	d011      	beq.n	12fc <lsm6dso_gy_data_rate_set+0xe0>
+    12d8:	2b03      	cmp	r3, #3
+    12da:	d1d5      	bne.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
+    12dc:	1c2b      	adds	r3, r5, #0
+    12de:	2d03      	cmp	r5, #3
+    12e0:	d800      	bhi.n	12e4 <lsm6dso_gy_data_rate_set+0xc8>
+    12e2:	2304      	movs	r3, #4
+    12e4:	b2dd      	uxtb	r5, r3
+    12e6:	e7cf      	b.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
             if (val == LSM6DSO_GY_ODR_OFF)
-    12cc:	2d00      	cmp	r5, #0
-    12ce:	d1cd      	bne.n	126c <lsm6dso_gy_data_rate_set+0x6c>
+    12e8:	2d00      	cmp	r5, #0
+    12ea:	d1cd      	bne.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
               odr_gy = LSM6DSO_GY_ODR_12Hz5;
+<<<<<<< HEAD
     12d0:	2501      	movs	r5, #1
     12d2:	e7cb      	b.n	126c <lsm6dso_gy_data_rate_set+0x6c>
     12d4:	1c2b      	adds	r3, r5, #0
@@ -4611,12 +4701,35 @@ static  int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t
 
 00001340 <GetImuStruct>:
 >>>>>>> Stashed changes
+=======
+    12ec:	2501      	movs	r5, #1
+    12ee:	e7cb      	b.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
+    12f0:	1c2b      	adds	r3, r5, #0
+    12f2:	2d01      	cmp	r5, #1
+    12f4:	d800      	bhi.n	12f8 <lsm6dso_gy_data_rate_set+0xdc>
+    12f6:	2302      	movs	r3, #2
+    12f8:	b2dd      	uxtb	r5, r3
+    12fa:	e7c5      	b.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
+    12fc:	1c2b      	adds	r3, r5, #0
+    12fe:	2d02      	cmp	r5, #2
+    1300:	d800      	bhi.n	1304 <lsm6dso_gy_data_rate_set+0xe8>
+    1302:	2303      	movs	r3, #3
+    1304:	b2dd      	uxtb	r5, r3
+    1306:	e7bf      	b.n	1288 <lsm6dso_gy_data_rate_set+0x6c>
+    1308:	0000107d 	.word	0x0000107d
+    130c:	00000d31 	.word	0x00000d31
+    1310:	00000d3d 	.word	0x00000d3d
+    1314:	000010b1 	.word	0x000010b1
+
+00001318 <GetImuStruct>:
+>>>>>>> parent of 79ffb95 (comment)
 
 
 stmdev_ctx_t * GetImuStruct(void)
 {
 return &dev_ctx;
 }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     12fc:	4800      	ldr	r0, [pc, #0]	; (1300 <GetImuStruct+0x4>)
     12fe:	4770      	bx	lr
@@ -4630,11 +4743,19 @@ return &dev_ctx;
 
 00001348 <InitImu>:
 >>>>>>> Stashed changes
+=======
+    1318:	4800      	ldr	r0, [pc, #0]	; (131c <GetImuStruct+0x4>)
+    131a:	4770      	bx	lr
+    131c:	20000000 	.word	0x20000000
+
+00001320 <InitImu>:
+>>>>>>> parent of 79ffb95 (comment)
 
 
 
 int32_t InitImu(void)
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     1304:	b5f0      	push	{r4, r5, r6, r7, lr}
     1306:	b083      	sub	sp, #12
@@ -4642,48 +4763,61 @@ int32_t InitImu(void)
     1348:	b5f0      	push	{r4, r5, r6, r7, lr}
     134a:	b083      	sub	sp, #12
 >>>>>>> Stashed changes
+=======
+    1320:	b5f0      	push	{r4, r5, r6, r7, lr}
+    1322:	b083      	sub	sp, #12
+>>>>>>> parent of 79ffb95 (comment)
 uint8_t rst;
 int32_t error = 0;
 /*
    * Restore default configuration
    */
   error = lsm6dso_reset_set(&dev_ctx, PROPERTY_ENABLE);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     1308:	2101      	movs	r1, #1
     130a:	481b      	ldr	r0, [pc, #108]	; (1378 <InitImu+0x74>)
     130c:	4b1b      	ldr	r3, [pc, #108]	; (137c <InitImu+0x78>)
     130e:	4798      	blx	r3
     1310:	0004      	movs	r4, r0
+=======
+    1324:	2101      	movs	r1, #1
+    1326:	481b      	ldr	r0, [pc, #108]	; (1394 <InitImu+0x74>)
+    1328:	4b1b      	ldr	r3, [pc, #108]	; (1398 <InitImu+0x78>)
+    132a:	4798      	blx	r3
+    132c:	0004      	movs	r4, r0
+>>>>>>> parent of 79ffb95 (comment)
   do {
     error |= lsm6dso_reset_get(&dev_ctx, &rst);
-    1312:	466b      	mov	r3, sp
-    1314:	1ddd      	adds	r5, r3, #7
-    1316:	4e18      	ldr	r6, [pc, #96]	; (1378 <InitImu+0x74>)
-    1318:	4f19      	ldr	r7, [pc, #100]	; (1380 <InitImu+0x7c>)
-    131a:	0029      	movs	r1, r5
-    131c:	0030      	movs	r0, r6
-    131e:	47b8      	blx	r7
-    1320:	4304      	orrs	r4, r0
+    132e:	466b      	mov	r3, sp
+    1330:	1ddd      	adds	r5, r3, #7
+    1332:	4e18      	ldr	r6, [pc, #96]	; (1394 <InitImu+0x74>)
+    1334:	4f19      	ldr	r7, [pc, #100]	; (139c <InitImu+0x7c>)
+    1336:	0029      	movs	r1, r5
+    1338:	0030      	movs	r0, r6
+    133a:	47b8      	blx	r7
+    133c:	4304      	orrs	r4, r0
   } while (rst);
-    1322:	782b      	ldrb	r3, [r5, #0]
-    1324:	2b00      	cmp	r3, #0
-    1326:	d1f8      	bne.n	131a <InitImu+0x16>
+    133e:	782b      	ldrb	r3, [r5, #0]
+    1340:	2b00      	cmp	r3, #0
+    1342:	d1f8      	bne.n	1336 <InitImu+0x16>
 
   /* Disable I3C interface */
   lsm6dso_i3c_disable_set(&dev_ctx, LSM6DSO_I3C_DISABLE);
-    1328:	4d13      	ldr	r5, [pc, #76]	; (1378 <InitImu+0x74>)
-    132a:	2180      	movs	r1, #128	; 0x80
-    132c:	0028      	movs	r0, r5
-    132e:	4b15      	ldr	r3, [pc, #84]	; (1384 <InitImu+0x80>)
-    1330:	4798      	blx	r3
+    1344:	4d13      	ldr	r5, [pc, #76]	; (1394 <InitImu+0x74>)
+    1346:	2180      	movs	r1, #128	; 0x80
+    1348:	0028      	movs	r0, r5
+    134a:	4b15      	ldr	r3, [pc, #84]	; (13a0 <InitImu+0x80>)
+    134c:	4798      	blx	r3
   /* Enable Block Data Update */
   lsm6dso_block_data_update_set(&dev_ctx, PROPERTY_ENABLE);
-    1332:	2101      	movs	r1, #1
-    1334:	0028      	movs	r0, r5
-    1336:	4b14      	ldr	r3, [pc, #80]	; (1388 <InitImu+0x84>)
-    1338:	4798      	blx	r3
+    134e:	2101      	movs	r1, #1
+    1350:	0028      	movs	r0, r5
+    1352:	4b14      	ldr	r3, [pc, #80]	; (13a4 <InitImu+0x84>)
+    1354:	4798      	blx	r3
   /* Weight of XL user offset to 2^(-10) g/LSB */
   lsm6dso_xl_offset_weight_set(&dev_ctx, LSM6DSO_LSb_1mg);
+<<<<<<< HEAD
     133a:	2100      	movs	r1, #0
     133c:	0028      	movs	r0, r5
     133e:	4b13      	ldr	r3, [pc, #76]	; (138c <InitImu+0x88>)
@@ -4729,48 +4863,62 @@ int32_t error = 0;
     1382:	4b13      	ldr	r3, [pc, #76]	; (13d0 <InitImu+0x88>)
     1384:	4798      	blx	r3
 >>>>>>> Stashed changes
+=======
+    1356:	2100      	movs	r1, #0
+    1358:	0028      	movs	r0, r5
+    135a:	4b13      	ldr	r3, [pc, #76]	; (13a8 <InitImu+0x88>)
+    135c:	4798      	blx	r3
+>>>>>>> parent of 79ffb95 (comment)
   /* Accelerometer X,Y,Z axis user offset correction expressed
    * in two’s complement. Set X to 48mg, Y tp 64 mg, Z to -127 mg
    */
 
   /* Set Output Data Rate */
   lsm6dso_xl_data_rate_set(&dev_ctx, LSM6DSO_XL_ODR_12Hz5);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     1342:	2101      	movs	r1, #1
     1344:	0028      	movs	r0, r5
     1346:	4b12      	ldr	r3, [pc, #72]	; (1390 <InitImu+0x8c>)
     1348:	4798      	blx	r3
+=======
+    135e:	2101      	movs	r1, #1
+    1360:	0028      	movs	r0, r5
+    1362:	4b12      	ldr	r3, [pc, #72]	; (13ac <InitImu+0x8c>)
+    1364:	4798      	blx	r3
+>>>>>>> parent of 79ffb95 (comment)
   lsm6dso_gy_data_rate_set(&dev_ctx, LSM6DSO_GY_ODR_12Hz5);
-    134a:	2101      	movs	r1, #1
-    134c:	0028      	movs	r0, r5
-    134e:	4b11      	ldr	r3, [pc, #68]	; (1394 <InitImu+0x90>)
-    1350:	4798      	blx	r3
+    1366:	2101      	movs	r1, #1
+    1368:	0028      	movs	r0, r5
+    136a:	4b11      	ldr	r3, [pc, #68]	; (13b0 <InitImu+0x90>)
+    136c:	4798      	blx	r3
   /* Set full scale */
   lsm6dso_xl_full_scale_set(&dev_ctx, LSM6DSO_2g);
-    1352:	2100      	movs	r1, #0
-    1354:	0028      	movs	r0, r5
-    1356:	4b10      	ldr	r3, [pc, #64]	; (1398 <InitImu+0x94>)
-    1358:	4798      	blx	r3
+    136e:	2100      	movs	r1, #0
+    1370:	0028      	movs	r0, r5
+    1372:	4b10      	ldr	r3, [pc, #64]	; (13b4 <InitImu+0x94>)
+    1374:	4798      	blx	r3
   lsm6dso_gy_full_scale_set(&dev_ctx, LSM6DSO_2000dps);
-    135a:	2106      	movs	r1, #6
-    135c:	0028      	movs	r0, r5
-    135e:	4b0f      	ldr	r3, [pc, #60]	; (139c <InitImu+0x98>)
-    1360:	4798      	blx	r3
+    1376:	2106      	movs	r1, #6
+    1378:	0028      	movs	r0, r5
+    137a:	4b0f      	ldr	r3, [pc, #60]	; (13b8 <InitImu+0x98>)
+    137c:	4798      	blx	r3
   /* Configure filtering chain(No aux interface). */
   /* Accelerometer - LPF1 + LPF2 path */
   lsm6dso_xl_hp_path_on_out_set(&dev_ctx, LSM6DSO_LP_ODR_DIV_100);
-    1362:	2104      	movs	r1, #4
-    1364:	0028      	movs	r0, r5
-    1366:	4b0e      	ldr	r3, [pc, #56]	; (13a0 <InitImu+0x9c>)
-    1368:	4798      	blx	r3
+    137e:	2104      	movs	r1, #4
+    1380:	0028      	movs	r0, r5
+    1382:	4b0e      	ldr	r3, [pc, #56]	; (13bc <InitImu+0x9c>)
+    1384:	4798      	blx	r3
   lsm6dso_xl_filter_lp2_set(&dev_ctx, PROPERTY_ENABLE);
-    136a:	2101      	movs	r1, #1
-    136c:	0028      	movs	r0, r5
-    136e:	4b0d      	ldr	r3, [pc, #52]	; (13a4 <InitImu+0xa0>)
-    1370:	4798      	blx	r3
+    1386:	2101      	movs	r1, #1
+    1388:	0028      	movs	r0, r5
+    138a:	4b0d      	ldr	r3, [pc, #52]	; (13c0 <InitImu+0xa0>)
+    138c:	4798      	blx	r3
 
   return error;
 }
+<<<<<<< HEAD
     1372:	0020      	movs	r0, r4
     1374:	b003      	add	sp, #12
     1376:	bdf0      	pop	{r4, r5, r6, r7, pc}
@@ -4842,58 +4990,83 @@ int32_t error = 0;
 
 000013ec <SeesawActivateKey>:
 >>>>>>> Stashed changes
+=======
+    138e:	0020      	movs	r0, r4
+    1390:	b003      	add	sp, #12
+    1392:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    1394:	20000000 	.word	0x20000000
+    1398:	00000f15 	.word	0x00000f15
+    139c:	00000f51 	.word	0x00000f51
+    13a0:	0000100d 	.word	0x0000100d
+    13a4:	00000de5 	.word	0x00000de5
+    13a8:	00000e25 	.word	0x00000e25
+    13ac:	00001121 	.word	0x00001121
+    13b0:	0000121d 	.word	0x0000121d
+    13b4:	00000d65 	.word	0x00000d65
+    13b8:	00000da5 	.word	0x00000da5
+    13bc:	00000fb5 	.word	0x00000fb5
+    13c0:	00000f75 	.word	0x00000f75
+
+000013c4 <SeesawActivateKey>:
+>>>>>>> parent of 79ffb95 (comment)
                 				
 * @return		Returns zero if no I2C errors occurred. Other number in case of error
 * @note         
 *****************************************************************************/
 int32_t SeesawActivateKey(uint8_t key, uint8_t edge, bool enable)
 	{
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     13a8:	b510      	push	{r4, lr}
     13aa:	b082      	sub	sp, #8
+=======
+    13c4:	b510      	push	{r4, lr}
+    13c6:	b082      	sub	sp, #8
+>>>>>>> parent of 79ffb95 (comment)
 	union keyState ks;
 	ks.bit.STATE = enable;
-    13ac:	2401      	movs	r4, #1
+    13c8:	2401      	movs	r4, #1
 	ks.bit.ACTIVE = (1 << edge);
-    13ae:	0023      	movs	r3, r4
-    13b0:	408b      	lsls	r3, r1
-    13b2:	210f      	movs	r1, #15
-    13b4:	4019      	ands	r1, r3
-    13b6:	0049      	lsls	r1, r1, #1
-    13b8:	2301      	movs	r3, #1
-    13ba:	401a      	ands	r2, r3
-    13bc:	430a      	orrs	r2, r1
+    13ca:	0023      	movs	r3, r4
+    13cc:	408b      	lsls	r3, r1
+    13ce:	210f      	movs	r1, #15
+    13d0:	4019      	ands	r1, r3
+    13d2:	0049      	lsls	r1, r1, #1
+    13d4:	2301      	movs	r3, #1
+    13d6:	401a      	ands	r2, r3
+    13d8:	430a      	orrs	r2, r1
 	uint8_t cmd[] = {SEESAW_KEYPAD_BASE, SEESAW_KEYPAD_EVENT, key, ks.reg};
-    13be:	ab01      	add	r3, sp, #4
-    13c0:	2110      	movs	r1, #16
-    13c2:	7019      	strb	r1, [r3, #0]
-    13c4:	705c      	strb	r4, [r3, #1]
-    13c6:	7098      	strb	r0, [r3, #2]
-    13c8:	70da      	strb	r2, [r3, #3]
+    13da:	ab01      	add	r3, sp, #4
+    13dc:	2110      	movs	r1, #16
+    13de:	7019      	strb	r1, [r3, #0]
+    13e0:	705c      	strb	r4, [r3, #1]
+    13e2:	7098      	strb	r0, [r3, #2]
+    13e4:	70da      	strb	r2, [r3, #3]
 
 	seesawData.address = NEO_TRELLIS_ADDR;
-    13ca:	4806      	ldr	r0, [pc, #24]	; (13e4 <SeesawActivateKey+0x3c>)
-    13cc:	222e      	movs	r2, #46	; 0x2e
-    13ce:	7002      	strb	r2, [r0, #0]
+    13e6:	4806      	ldr	r0, [pc, #24]	; (1400 <SeesawActivateKey+0x3c>)
+    13e8:	222e      	movs	r2, #46	; 0x2e
+    13ea:	7002      	strb	r2, [r0, #0]
 	seesawData.msgOut = &cmd;
-    13d0:	6043      	str	r3, [r0, #4]
+    13ec:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(cmd);
-    13d2:	2304      	movs	r3, #4
-    13d4:	81c3      	strh	r3, [r0, #14]
+    13ee:	2304      	movs	r3, #4
+    13f0:	81c3      	strh	r3, [r0, #14]
 	seesawData.lenIn = 0;
-    13d6:	2300      	movs	r3, #0
-    13d8:	8183      	strh	r3, [r0, #12]
+    13f2:	2300      	movs	r3, #0
+    13f4:	8183      	strh	r3, [r0, #12]
 	int32_t error = I2cWriteDataWait(&seesawData, 100);
-    13da:	3154      	adds	r1, #84	; 0x54
-    13dc:	4b02      	ldr	r3, [pc, #8]	; (13e8 <SeesawActivateKey+0x40>)
-    13de:	4798      	blx	r3
+    13f6:	3154      	adds	r1, #84	; 0x54
+    13f8:	4b02      	ldr	r3, [pc, #8]	; (1404 <SeesawActivateKey+0x40>)
+    13fa:	4798      	blx	r3
 	return error;
 }
-    13e0:	b002      	add	sp, #8
-    13e2:	bd10      	pop	{r4, pc}
-    13e4:	200038f4 	.word	0x200038f4
-    13e8:	00000bc9 	.word	0x00000bc9
+    13fc:	b002      	add	sp, #8
+    13fe:	bd10      	pop	{r4, pc}
+    1400:	200038f4 	.word	0x200038f4
+    1404:	00000bc9 	.word	0x00000bc9
 
+<<<<<<< HEAD
 000013ec <SeesawSetLed>:
 =======
     13ec:	b510      	push	{r4, lr}
@@ -4943,53 +5116,62 @@ int32_t SeesawActivateKey(uint8_t key, uint8_t edge, bool enable)
 
 00001430 <SeesawSetLed>:
 >>>>>>> Stashed changes
+=======
+00001408 <SeesawSetLed>:
+>>>>>>> parent of 79ffb95 (comment)
 * @return		Returns zero if no I2C errors occurred. Other number in case of error
 * @note         Note that the LEDs wont turn on until you send a "SeesawOrderLedUpdate" command.
 	FOR ESE516 Board, please do not turn ALL the LEDs to maximum brightness (255,255,255)!
 *****************************************************************************/
 int32_t SeesawSetLed(uint8_t key, uint8_t red, uint8_t green, uint8_t blue)
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     13ec:	b530      	push	{r4, r5, lr}
     13ee:	b083      	sub	sp, #12
+=======
+    1408:	b530      	push	{r4, r5, lr}
+    140a:	b083      	sub	sp, #12
+>>>>>>> parent of 79ffb95 (comment)
 	uint8_t write_buffer1[7] = {SEESAW_NEOPIXEL_BASE, SEESAW_NEOPIXEL_BUF, 0, 0, green, red, blue};
-    13f0:	240e      	movs	r4, #14
-    13f2:	466d      	mov	r5, sp
-    13f4:	702c      	strb	r4, [r5, #0]
-    13f6:	3c0a      	subs	r4, #10
-    13f8:	706c      	strb	r4, [r5, #1]
-    13fa:	712a      	strb	r2, [r5, #4]
-    13fc:	7169      	strb	r1, [r5, #5]
-    13fe:	71ab      	strb	r3, [r5, #6]
+    140c:	240e      	movs	r4, #14
+    140e:	466d      	mov	r5, sp
+    1410:	702c      	strb	r4, [r5, #0]
+    1412:	3c0a      	subs	r4, #10
+    1414:	706c      	strb	r4, [r5, #1]
+    1416:	712a      	strb	r2, [r5, #4]
+    1418:	7169      	strb	r1, [r5, #5]
+    141a:	71ab      	strb	r3, [r5, #6]
 	uint8_t orderBuffer[2] = {SEESAW_NEOPIXEL_BASE, SEESAW_NEOPIXEL_SHOW};
 
 	uint16_t offset = 3 * key; //RGB LED
-    1400:	0043      	lsls	r3, r0, #1
-    1402:	18c0      	adds	r0, r0, r3
+    141c:	0043      	lsls	r3, r0, #1
+    141e:	18c0      	adds	r0, r0, r3
 	write_buffer1[2] = (offset >> 8);
-    1404:	0a03      	lsrs	r3, r0, #8
-    1406:	70ab      	strb	r3, [r5, #2]
+    1420:	0a03      	lsrs	r3, r0, #8
+    1422:	70ab      	strb	r3, [r5, #2]
 	write_buffer1[3] = (offset);
-    1408:	70e8      	strb	r0, [r5, #3]
+    1424:	70e8      	strb	r0, [r5, #3]
 
 	seesawData.msgOut = &write_buffer1;
-    140a:	4804      	ldr	r0, [pc, #16]	; (141c <SeesawSetLed+0x30>)
-    140c:	6045      	str	r5, [r0, #4]
+    1426:	4804      	ldr	r0, [pc, #16]	; (1438 <SeesawSetLed+0x30>)
+    1428:	6045      	str	r5, [r0, #4]
 	seesawData.lenOut = sizeof(write_buffer1);
-    140e:	2307      	movs	r3, #7
-    1410:	81c3      	strh	r3, [r0, #14]
+    142a:	2307      	movs	r3, #7
+    142c:	81c3      	strh	r3, [r0, #14]
 	int error = I2cWriteDataWait(&seesawData, 100);
-    1412:	2164      	movs	r1, #100	; 0x64
-    1414:	4b02      	ldr	r3, [pc, #8]	; (1420 <SeesawSetLed+0x34>)
-    1416:	4798      	blx	r3
+    142e:	2164      	movs	r1, #100	; 0x64
+    1430:	4b02      	ldr	r3, [pc, #8]	; (143c <SeesawSetLed+0x34>)
+    1432:	4798      	blx	r3
 	return error;
 
 }
-    1418:	b003      	add	sp, #12
-    141a:	bd30      	pop	{r4, r5, pc}
-    141c:	200038f4 	.word	0x200038f4
-    1420:	00000bc9 	.word	0x00000bc9
+    1434:	b003      	add	sp, #12
+    1436:	bd30      	pop	{r4, r5, pc}
+    1438:	200038f4 	.word	0x200038f4
+    143c:	00000bc9 	.word	0x00000bc9
 
+<<<<<<< HEAD
 00001424 <SeesawOrderLedUpdate>:
 =======
     1430:	b530      	push	{r4, r5, lr}
@@ -5034,145 +5216,142 @@ int32_t SeesawSetLed(uint8_t key, uint8_t red, uint8_t green, uint8_t blue)
 
 00001468 <SeesawOrderLedUpdate>:
 >>>>>>> Stashed changes
+=======
+00001440 <SeesawOrderLedUpdate>:
+>>>>>>> parent of 79ffb95 (comment)
 * @return		Returns zero if no I2C errors occurred. Other number in case of error
 * @note         Use "SeesawSetLed" to send LED Data. The data will not be use to update the display until this function has been called!
 
 *****************************************************************************/
 int32_t SeesawOrderLedUpdate(void)
 {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     1424:	b500      	push	{lr}
     1426:	b083      	sub	sp, #12
+=======
+    1440:	b500      	push	{lr}
+    1442:	b083      	sub	sp, #12
+>>>>>>> parent of 79ffb95 (comment)
 	uint8_t orderBuffer[2] = {SEESAW_NEOPIXEL_BASE, SEESAW_NEOPIXEL_SHOW};
-    1428:	ab01      	add	r3, sp, #4
-    142a:	4a06      	ldr	r2, [pc, #24]	; (1444 <SeesawOrderLedUpdate+0x20>)
-    142c:	8892      	ldrh	r2, [r2, #4]
-    142e:	801a      	strh	r2, [r3, #0]
+    1444:	ab01      	add	r3, sp, #4
+    1446:	4a06      	ldr	r2, [pc, #24]	; (1460 <SeesawOrderLedUpdate+0x20>)
+    1448:	8892      	ldrh	r2, [r2, #4]
+    144a:	801a      	strh	r2, [r3, #0]
 
 	seesawData.msgOut = &orderBuffer;
-    1430:	4805      	ldr	r0, [pc, #20]	; (1448 <SeesawOrderLedUpdate+0x24>)
-    1432:	6043      	str	r3, [r0, #4]
+    144c:	4805      	ldr	r0, [pc, #20]	; (1464 <SeesawOrderLedUpdate+0x24>)
+    144e:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(orderBuffer);
-    1434:	2302      	movs	r3, #2
-    1436:	81c3      	strh	r3, [r0, #14]
+    1450:	2302      	movs	r3, #2
+    1452:	81c3      	strh	r3, [r0, #14]
 	int error = I2cWriteDataWait(&seesawData, 100);
-    1438:	2164      	movs	r1, #100	; 0x64
-    143a:	4b04      	ldr	r3, [pc, #16]	; (144c <SeesawOrderLedUpdate+0x28>)
-    143c:	4798      	blx	r3
+    1454:	2164      	movs	r1, #100	; 0x64
+    1456:	4b04      	ldr	r3, [pc, #16]	; (1468 <SeesawOrderLedUpdate+0x28>)
+    1458:	4798      	blx	r3
 	return error;
 }
-    143e:	b003      	add	sp, #12
-    1440:	bd00      	pop	{pc}
-    1442:	46c0      	nop			; (mov r8, r8)
-    1444:	000098e0 	.word	0x000098e0
-    1448:	200038f4 	.word	0x200038f4
-    144c:	00000bc9 	.word	0x00000bc9
+    145a:	b003      	add	sp, #12
+    145c:	bd00      	pop	{pc}
+    145e:	46c0      	nop			; (mov r8, r8)
+    1460:	00009908 	.word	0x00009908
+    1464:	200038f4 	.word	0x200038f4
+    1468:	00000bc9 	.word	0x00000bc9
 
-00001450 <InitializeSeesaw>:
+0000146c <InitializeSeesaw>:
 {
-    1450:	b5f0      	push	{r4, r5, r6, r7, lr}
-    1452:	46ce      	mov	lr, r9
-    1454:	b500      	push	{lr}
-    1456:	b084      	sub	sp, #16
+    146c:	b5f0      	push	{r4, r5, r6, r7, lr}
+    146e:	46ce      	mov	lr, r9
+    1470:	b500      	push	{lr}
+    1472:	b084      	sub	sp, #16
 	seesawData.address = NEO_TRELLIS_ADDR;
-    1458:	4850      	ldr	r0, [pc, #320]	; (159c <InitializeSeesaw+0x14c>)
-    145a:	232e      	movs	r3, #46	; 0x2e
-    145c:	7003      	strb	r3, [r0, #0]
+    1474:	484b      	ldr	r0, [pc, #300]	; (15a4 <InitializeSeesaw+0x138>)
+    1476:	232e      	movs	r3, #46	; 0x2e
+    1478:	7003      	strb	r3, [r0, #0]
 	seesawData.msgOut = &msgBaseGetHWID;
-    145e:	4b50      	ldr	r3, [pc, #320]	; (15a0 <InitializeSeesaw+0x150>)
-    1460:	6043      	str	r3, [r0, #4]
+    147a:	4b4b      	ldr	r3, [pc, #300]	; (15a8 <InitializeSeesaw+0x13c>)
+    147c:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(msgBaseGetHWID);
-    1462:	2302      	movs	r3, #2
-    1464:	81c3      	strh	r3, [r0, #14]
+    147e:	2302      	movs	r3, #2
+    1480:	81c3      	strh	r3, [r0, #14]
 	seesawData.msgIn = &readData;
-    1466:	ab03      	add	r3, sp, #12
-    1468:	6083      	str	r3, [r0, #8]
+    1482:	ab03      	add	r3, sp, #12
+    1484:	6083      	str	r3, [r0, #8]
 	seesawData.lenIn = 1;
-    146a:	2301      	movs	r3, #1
-    146c:	8183      	strh	r3, [r0, #12]
+    1486:	2301      	movs	r3, #1
+    1488:	8183      	strh	r3, [r0, #12]
 	int error = I2cReadDataWait(&seesawData, 0, 100);
-    146e:	2264      	movs	r2, #100	; 0x64
-    1470:	2100      	movs	r1, #0
-    1472:	4b4c      	ldr	r3, [pc, #304]	; (15a4 <InitializeSeesaw+0x154>)
-    1474:	4798      	blx	r3
-    1476:	0004      	movs	r4, r0
-	SerialConsoleWriteString("what?\r\n");
-    1478:	484b      	ldr	r0, [pc, #300]	; (15a8 <InitializeSeesaw+0x158>)
-    147a:	4d4c      	ldr	r5, [pc, #304]	; (15ac <InitializeSeesaw+0x15c>)
-    147c:	47a8      	blx	r5
-	SerialConsoleWriteString((char)error);
-    147e:	20ff      	movs	r0, #255	; 0xff
-    1480:	4020      	ands	r0, r4
-    1482:	47a8      	blx	r5
+    148a:	2264      	movs	r2, #100	; 0x64
+    148c:	2100      	movs	r1, #0
+    148e:	4b47      	ldr	r3, [pc, #284]	; (15ac <InitializeSeesaw+0x140>)
+    1490:	4798      	blx	r3
 	if(ERROR_NONE != error)
-    1484:	2c00      	cmp	r4, #0
-    1486:	d10d      	bne.n	14a4 <InitializeSeesaw+0x54>
+    1492:	2800      	cmp	r0, #0
+    1494:	d10d      	bne.n	14b2 <InitializeSeesaw+0x46>
 		if(readData[0] != SEESAW_HW_ID_CODE )
-    1488:	ab03      	add	r3, sp, #12
-    148a:	781b      	ldrb	r3, [r3, #0]
-    148c:	2b2e      	cmp	r3, #46	; 0x2e
-    148e:	d051      	beq.n	1534 <InitializeSeesaw+0xe4>
+    1496:	ab03      	add	r3, sp, #12
+    1498:	781b      	ldrb	r3, [r3, #0]
+    149a:	2b55      	cmp	r3, #85	; 0x55
+    149c:	d04f      	beq.n	153e <InitializeSeesaw+0xd2>
 			SerialConsoleWriteString("Error/r/n");
-    1490:	4847      	ldr	r0, [pc, #284]	; (15b0 <InitializeSeesaw+0x160>)
-    1492:	4b46      	ldr	r3, [pc, #280]	; (15ac <InitializeSeesaw+0x15c>)
-    1494:	4798      	blx	r3
+    149e:	4844      	ldr	r0, [pc, #272]	; (15b0 <InitializeSeesaw+0x144>)
+    14a0:	4b44      	ldr	r3, [pc, #272]	; (15b4 <InitializeSeesaw+0x148>)
+    14a2:	4798      	blx	r3
 			return 1;
-    1496:	2301      	movs	r3, #1
-    1498:	9301      	str	r3, [sp, #4]
+    14a4:	2301      	movs	r3, #1
+    14a6:	9301      	str	r3, [sp, #4]
 }
-    149a:	9801      	ldr	r0, [sp, #4]
-    149c:	b004      	add	sp, #16
-    149e:	bc04      	pop	{r2}
-    14a0:	4691      	mov	r9, r2
-    14a2:	bdf0      	pop	{r4, r5, r6, r7, pc}
-		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
-    14a4:	4843      	ldr	r0, [pc, #268]	; (15b4 <InitializeSeesaw+0x164>)
-    14a6:	4c41      	ldr	r4, [pc, #260]	; (15ac <InitializeSeesaw+0x15c>)
-    14a8:	47a0      	blx	r4
-		SerialConsoleWriteString("I2cReadDataWait failed!\r\n");
-    14aa:	4843      	ldr	r0, [pc, #268]	; (15b8 <InitializeSeesaw+0x168>)
-    14ac:	47a0      	blx	r4
+    14a8:	9801      	ldr	r0, [sp, #4]
+    14aa:	b004      	add	sp, #16
+    14ac:	bc04      	pop	{r2}
+    14ae:	4691      	mov	r9, r2
+    14b0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+		SerialConsoleWriteString("Error initializing Seesaw!\r\n"); //here, error - Derek
+    14b2:	4841      	ldr	r0, [pc, #260]	; (15b8 <InitializeSeesaw+0x14c>)
+    14b4:	4b3f      	ldr	r3, [pc, #252]	; (15b4 <InitializeSeesaw+0x148>)
+    14b6:	4798      	blx	r3
 	seesawData.msgOut = &msgNeopixelPin;
-    14ae:	483b      	ldr	r0, [pc, #236]	; (159c <InitializeSeesaw+0x14c>)
-    14b0:	4b42      	ldr	r3, [pc, #264]	; (15bc <InitializeSeesaw+0x16c>)
-    14b2:	6043      	str	r3, [r0, #4]
+    14b8:	483a      	ldr	r0, [pc, #232]	; (15a4 <InitializeSeesaw+0x138>)
+    14ba:	4b40      	ldr	r3, [pc, #256]	; (15bc <InitializeSeesaw+0x150>)
+    14bc:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(msgNeopixelPin);
-    14b4:	2303      	movs	r3, #3
-    14b6:	81c3      	strh	r3, [r0, #14]
+    14be:	2303      	movs	r3, #3
+    14c0:	81c3      	strh	r3, [r0, #14]
 	error = I2cWriteDataWait(&seesawData, 100);
-    14b8:	2164      	movs	r1, #100	; 0x64
-    14ba:	4b41      	ldr	r3, [pc, #260]	; (15c0 <InitializeSeesaw+0x170>)
-    14bc:	4798      	blx	r3
+    14c2:	2164      	movs	r1, #100	; 0x64
+    14c4:	4b3e      	ldr	r3, [pc, #248]	; (15c0 <InitializeSeesaw+0x154>)
+    14c6:	4798      	blx	r3
 	if(ERROR_NONE != error)
-    14be:	2800      	cmp	r0, #0
-    14c0:	d13c      	bne.n	153c <InitializeSeesaw+0xec>
+    14c8:	2800      	cmp	r0, #0
+    14ca:	d13c      	bne.n	1546 <InitializeSeesaw+0xda>
 	seesawData.msgOut = &msgNeopixelSpeed;
-    14c2:	4836      	ldr	r0, [pc, #216]	; (159c <InitializeSeesaw+0x14c>)
-    14c4:	4b3f      	ldr	r3, [pc, #252]	; (15c4 <InitializeSeesaw+0x174>)
-    14c6:	6043      	str	r3, [r0, #4]
+    14cc:	4835      	ldr	r0, [pc, #212]	; (15a4 <InitializeSeesaw+0x138>)
+    14ce:	4b3d      	ldr	r3, [pc, #244]	; (15c4 <InitializeSeesaw+0x158>)
+    14d0:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(msgNeopixelSpeed);
-    14c8:	2303      	movs	r3, #3
-    14ca:	81c3      	strh	r3, [r0, #14]
+    14d2:	2303      	movs	r3, #3
+    14d4:	81c3      	strh	r3, [r0, #14]
 	error = I2cWriteDataWait(&seesawData, 100);
-    14cc:	2164      	movs	r1, #100	; 0x64
-    14ce:	4b3c      	ldr	r3, [pc, #240]	; (15c0 <InitializeSeesaw+0x170>)
-    14d0:	4798      	blx	r3
+    14d6:	2164      	movs	r1, #100	; 0x64
+    14d8:	4b39      	ldr	r3, [pc, #228]	; (15c0 <InitializeSeesaw+0x154>)
+    14da:	4798      	blx	r3
 	if(ERROR_NONE != error)
-    14d2:	2800      	cmp	r0, #0
-    14d4:	d136      	bne.n	1544 <InitializeSeesaw+0xf4>
+    14dc:	2800      	cmp	r0, #0
+    14de:	d136      	bne.n	154e <InitializeSeesaw+0xe2>
 	seesawData.msgOut = &msgNeopixelBufLength;
-    14d6:	4831      	ldr	r0, [pc, #196]	; (159c <InitializeSeesaw+0x14c>)
-    14d8:	4b3b      	ldr	r3, [pc, #236]	; (15c8 <InitializeSeesaw+0x178>)
-    14da:	6043      	str	r3, [r0, #4]
+    14e0:	4830      	ldr	r0, [pc, #192]	; (15a4 <InitializeSeesaw+0x138>)
+    14e2:	4b39      	ldr	r3, [pc, #228]	; (15c8 <InitializeSeesaw+0x15c>)
+    14e4:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(msgNeopixelBufLength);
-    14dc:	2304      	movs	r3, #4
-    14de:	81c3      	strh	r3, [r0, #14]
+    14e6:	2304      	movs	r3, #4
+    14e8:	81c3      	strh	r3, [r0, #14]
 	error = I2cWriteDataWait(&seesawData, 100);
-    14e0:	2164      	movs	r1, #100	; 0x64
-    14e2:	4b37      	ldr	r3, [pc, #220]	; (15c0 <InitializeSeesaw+0x170>)
-    14e4:	4798      	blx	r3
-    14e6:	9001      	str	r0, [sp, #4]
+    14ea:	2164      	movs	r1, #100	; 0x64
+    14ec:	4b34      	ldr	r3, [pc, #208]	; (15c0 <InitializeSeesaw+0x154>)
+    14ee:	4798      	blx	r3
+    14f0:	9001      	str	r0, [sp, #4]
 	if(ERROR_NONE != error)
+<<<<<<< HEAD
     14e8:	2800      	cmp	r0, #0
     14ea:	d12f      	bne.n	154c <InitializeSeesaw+0xfc>
 =======
@@ -5299,12 +5478,17 @@ int32_t SeesawOrderLedUpdate(void)
     151a:	2800      	cmp	r0, #0
     151c:	d12f      	bne.n	157e <InitializeSeesaw+0xea>
 >>>>>>> Stashed changes
+=======
+    14f2:	2800      	cmp	r0, #0
+    14f4:	d12f      	bne.n	1556 <InitializeSeesaw+0xea>
+>>>>>>> parent of 79ffb95 (comment)
 }
 
 
 static void SeesawTurnOnLedTest(void)
 {
 	SeesawSetLed(15, 255, 255, 255);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     14ec:	23ff      	movs	r3, #255	; 0xff
     14ee:	22ff      	movs	r2, #255	; 0xff
@@ -5312,133 +5496,138 @@ static void SeesawTurnOnLedTest(void)
     14f2:	200f      	movs	r0, #15
     14f4:	4e35      	ldr	r6, [pc, #212]	; (15cc <InitializeSeesaw+0x17c>)
     14f6:	47b0      	blx	r6
+=======
+    14f6:	23ff      	movs	r3, #255	; 0xff
+    14f8:	22ff      	movs	r2, #255	; 0xff
+    14fa:	21ff      	movs	r1, #255	; 0xff
+    14fc:	200f      	movs	r0, #15
+    14fe:	4e33      	ldr	r6, [pc, #204]	; (15cc <InitializeSeesaw+0x160>)
+    1500:	47b0      	blx	r6
+>>>>>>> parent of 79ffb95 (comment)
 	SeesawOrderLedUpdate();
-    14f8:	4c35      	ldr	r4, [pc, #212]	; (15d0 <InitializeSeesaw+0x180>)
-    14fa:	47a0      	blx	r4
+    1502:	4c33      	ldr	r4, [pc, #204]	; (15d0 <InitializeSeesaw+0x164>)
+    1504:	47a0      	blx	r4
 	vTaskDelay(400);
-    14fc:	20c8      	movs	r0, #200	; 0xc8
-    14fe:	0040      	lsls	r0, r0, #1
-    1500:	4b34      	ldr	r3, [pc, #208]	; (15d4 <InitializeSeesaw+0x184>)
-    1502:	4798      	blx	r3
+    1506:	20c8      	movs	r0, #200	; 0xc8
+    1508:	0040      	lsls	r0, r0, #1
+    150a:	4b32      	ldr	r3, [pc, #200]	; (15d4 <InitializeSeesaw+0x168>)
+    150c:	4798      	blx	r3
 
 	SeesawSetLed(15, 0, 0, 0);
-    1504:	2300      	movs	r3, #0
-    1506:	2200      	movs	r2, #0
-    1508:	2100      	movs	r1, #0
-    150a:	200f      	movs	r0, #15
-    150c:	47b0      	blx	r6
+    150e:	2300      	movs	r3, #0
+    1510:	2200      	movs	r2, #0
+    1512:	2100      	movs	r1, #0
+    1514:	200f      	movs	r0, #15
+    1516:	47b0      	blx	r6
 	SeesawOrderLedUpdate();
-    150e:	47a0      	blx	r4
+    1518:	47a0      	blx	r4
 	seesawData.address = NEO_TRELLIS_ADDR;
-    1510:	4822      	ldr	r0, [pc, #136]	; (159c <InitializeSeesaw+0x14c>)
-    1512:	232e      	movs	r3, #46	; 0x2e
-    1514:	7003      	strb	r3, [r0, #0]
+    151a:	4822      	ldr	r0, [pc, #136]	; (15a4 <InitializeSeesaw+0x138>)
+    151c:	232e      	movs	r3, #46	; 0x2e
+    151e:	7003      	strb	r3, [r0, #0]
 	seesawData.msgOut = &msgKeypadEnableInt;
-    1516:	4b30      	ldr	r3, [pc, #192]	; (15d8 <InitializeSeesaw+0x188>)
-    1518:	6043      	str	r3, [r0, #4]
+    1520:	4b2d      	ldr	r3, [pc, #180]	; (15d8 <InitializeSeesaw+0x16c>)
+    1522:	6043      	str	r3, [r0, #4]
 	seesawData.lenOut = sizeof(msgKeypadEnableInt);
-    151a:	2303      	movs	r3, #3
-    151c:	81c3      	strh	r3, [r0, #14]
+    1524:	2303      	movs	r3, #3
+    1526:	81c3      	strh	r3, [r0, #14]
 	seesawData.lenIn = 0;
-    151e:	2300      	movs	r3, #0
-    1520:	8183      	strh	r3, [r0, #12]
+    1528:	2300      	movs	r3, #0
+    152a:	8183      	strh	r3, [r0, #12]
 	int32_t error = I2cWriteDataWait(&seesawData, 100);
-    1522:	2164      	movs	r1, #100	; 0x64
-    1524:	4b26      	ldr	r3, [pc, #152]	; (15c0 <InitializeSeesaw+0x170>)
-    1526:	4798      	blx	r3
+    152c:	2164      	movs	r1, #100	; 0x64
+    152e:	4b24      	ldr	r3, [pc, #144]	; (15c0 <InitializeSeesaw+0x154>)
+    1530:	4798      	blx	r3
 	if(ERROR_NONE != error)
-    1528:	2800      	cmp	r0, #0
-    152a:	d113      	bne.n	1554 <InitializeSeesaw+0x104>
+    1532:	2800      	cmp	r0, #0
+    1534:	d113      	bne.n	155e <InitializeSeesaw+0xf2>
 {
-    152c:	2600      	movs	r6, #0
+    1536:	2600      	movs	r6, #0
 		error = SeesawActivateKey(NEO_TRELLIS_KEY(i), SEESAW_KEYPAD_EDGE_RISING, true);
-    152e:	2703      	movs	r7, #3
-    1530:	4d2a      	ldr	r5, [pc, #168]	; (15dc <InitializeSeesaw+0x18c>)
-    1532:	e016      	b.n	1562 <InitializeSeesaw+0x112>
-			SerialConsoleWriteString("Found Seesaw!/r/n");
-    1534:	482a      	ldr	r0, [pc, #168]	; (15e0 <InitializeSeesaw+0x190>)
-    1536:	4b1d      	ldr	r3, [pc, #116]	; (15ac <InitializeSeesaw+0x15c>)
-    1538:	4798      	blx	r3
-    153a:	e7b8      	b.n	14ae <InitializeSeesaw+0x5e>
+    1538:	2703      	movs	r7, #3
+    153a:	4d28      	ldr	r5, [pc, #160]	; (15dc <InitializeSeesaw+0x170>)
+    153c:	e016      	b.n	156c <InitializeSeesaw+0x100>
+		SerialConsoleWriteString("Found Seesaw!/r/n");
+    153e:	4828      	ldr	r0, [pc, #160]	; (15e0 <InitializeSeesaw+0x174>)
+    1540:	4b1c      	ldr	r3, [pc, #112]	; (15b4 <InitializeSeesaw+0x148>)
+    1542:	4798      	blx	r3
+    1544:	e7b8      	b.n	14b8 <InitializeSeesaw+0x4c>
 		SerialConsoleWriteString("Could not write Seesaw pin!/r/n");
-    153c:	4829      	ldr	r0, [pc, #164]	; (15e4 <InitializeSeesaw+0x194>)
-    153e:	4b1b      	ldr	r3, [pc, #108]	; (15ac <InitializeSeesaw+0x15c>)
-    1540:	4798      	blx	r3
-    1542:	e7be      	b.n	14c2 <InitializeSeesaw+0x72>
+    1546:	4827      	ldr	r0, [pc, #156]	; (15e4 <InitializeSeesaw+0x178>)
+    1548:	4b1a      	ldr	r3, [pc, #104]	; (15b4 <InitializeSeesaw+0x148>)
+    154a:	4798      	blx	r3
+    154c:	e7be      	b.n	14cc <InitializeSeesaw+0x60>
 		SerialConsoleWriteString("Could not set seesaw Neopixel speed!/r/n");
-    1544:	4828      	ldr	r0, [pc, #160]	; (15e8 <InitializeSeesaw+0x198>)
-    1546:	4b19      	ldr	r3, [pc, #100]	; (15ac <InitializeSeesaw+0x15c>)
-    1548:	4798      	blx	r3
-    154a:	e7c4      	b.n	14d6 <InitializeSeesaw+0x86>
+    154e:	4826      	ldr	r0, [pc, #152]	; (15e8 <InitializeSeesaw+0x17c>)
+    1550:	4b18      	ldr	r3, [pc, #96]	; (15b4 <InitializeSeesaw+0x148>)
+    1552:	4798      	blx	r3
+    1554:	e7c4      	b.n	14e0 <InitializeSeesaw+0x74>
 		SerialConsoleWriteString("Could not set seesaw Neopixel number of devices/r/n");
-    154c:	4827      	ldr	r0, [pc, #156]	; (15ec <InitializeSeesaw+0x19c>)
-    154e:	4b17      	ldr	r3, [pc, #92]	; (15ac <InitializeSeesaw+0x15c>)
-    1550:	4798      	blx	r3
-    1552:	e7cb      	b.n	14ec <InitializeSeesaw+0x9c>
+    1556:	4825      	ldr	r0, [pc, #148]	; (15ec <InitializeSeesaw+0x180>)
+    1558:	4b16      	ldr	r3, [pc, #88]	; (15b4 <InitializeSeesaw+0x148>)
+    155a:	4798      	blx	r3
+    155c:	e7cb      	b.n	14f6 <InitializeSeesaw+0x8a>
 		SerialConsoleWriteString("Could not initialize Keypad!/r/n");
-    1554:	4826      	ldr	r0, [pc, #152]	; (15f0 <InitializeSeesaw+0x1a0>)
-    1556:	4b15      	ldr	r3, [pc, #84]	; (15ac <InitializeSeesaw+0x15c>)
-    1558:	4798      	blx	r3
-    155a:	e7e7      	b.n	152c <InitializeSeesaw+0xdc>
+    155e:	4824      	ldr	r0, [pc, #144]	; (15f0 <InitializeSeesaw+0x184>)
+    1560:	4b14      	ldr	r3, [pc, #80]	; (15b4 <InitializeSeesaw+0x148>)
+    1562:	4798      	blx	r3
+    1564:	e7e7      	b.n	1536 <InitializeSeesaw+0xca>
 	for(int i=0; i<16; i++){
-    155c:	3601      	adds	r6, #1
-    155e:	2e10      	cmp	r6, #16
-    1560:	d09b      	beq.n	149a <InitializeSeesaw+0x4a>
+    1566:	3601      	adds	r6, #1
+    1568:	2e10      	cmp	r6, #16
+    156a:	d09d      	beq.n	14a8 <InitializeSeesaw+0x3c>
 		error = SeesawActivateKey(NEO_TRELLIS_KEY(i), SEESAW_KEYPAD_EDGE_RISING, true);
-    1562:	17f2      	asrs	r2, r6, #31
-    1564:	003c      	movs	r4, r7
-    1566:	4014      	ands	r4, r2
-    1568:	19a4      	adds	r4, r4, r6
-    156a:	10a4      	asrs	r4, r4, #2
-    156c:	00e4      	lsls	r4, r4, #3
-    156e:	0f92      	lsrs	r2, r2, #30
-    1570:	18b3      	adds	r3, r6, r2
-    1572:	403b      	ands	r3, r7
-    1574:	1a9b      	subs	r3, r3, r2
-    1576:	18e4      	adds	r4, r4, r3
-    1578:	b2e4      	uxtb	r4, r4
-    157a:	2201      	movs	r2, #1
-    157c:	0039      	movs	r1, r7
-    157e:	0020      	movs	r0, r4
-    1580:	47a8      	blx	r5
-    1582:	4681      	mov	r9, r0
-		error |= SeesawActivateKey(NEO_TRELLIS_KEY(i), SEESAW_KEYPAD_EDGE_FALLING, true);
+    156c:	17f2      	asrs	r2, r6, #31
+    156e:	003c      	movs	r4, r7
+    1570:	4014      	ands	r4, r2
+    1572:	19a4      	adds	r4, r4, r6
+    1574:	10a4      	asrs	r4, r4, #2
+    1576:	00e4      	lsls	r4, r4, #3
+    1578:	0f92      	lsrs	r2, r2, #30
+    157a:	18b3      	adds	r3, r6, r2
+    157c:	403b      	ands	r3, r7
+    157e:	1a9b      	subs	r3, r3, r2
+    1580:	18e4      	adds	r4, r4, r3
+    1582:	b2e4      	uxtb	r4, r4
     1584:	2201      	movs	r2, #1
-    1586:	2102      	movs	r1, #2
+    1586:	0039      	movs	r1, r7
     1588:	0020      	movs	r0, r4
     158a:	47a8      	blx	r5
-    158c:	464b      	mov	r3, r9
-    158e:	4303      	orrs	r3, r0
+    158c:	4681      	mov	r9, r0
+		error |= SeesawActivateKey(NEO_TRELLIS_KEY(i), SEESAW_KEYPAD_EDGE_FALLING, true);
+    158e:	2201      	movs	r2, #1
+    1590:	2102      	movs	r1, #2
+    1592:	0020      	movs	r0, r4
+    1594:	47a8      	blx	r5
+    1596:	464b      	mov	r3, r9
+    1598:	4303      	orrs	r3, r0
 		if(ERROR_NONE != error)
-    1590:	d0e4      	beq.n	155c <InitializeSeesaw+0x10c>
+    159a:	d0e4      	beq.n	1566 <InitializeSeesaw+0xfa>
 			SerialConsoleWriteString("Could not initialize Keypad!/r/n");
-    1592:	4817      	ldr	r0, [pc, #92]	; (15f0 <InitializeSeesaw+0x1a0>)
-    1594:	4b05      	ldr	r3, [pc, #20]	; (15ac <InitializeSeesaw+0x15c>)
-    1596:	4798      	blx	r3
-    1598:	e7e0      	b.n	155c <InitializeSeesaw+0x10c>
-    159a:	46c0      	nop			; (mov r8, r8)
-    159c:	200038f4 	.word	0x200038f4
-    15a0:	000099f0 	.word	0x000099f0
-    15a4:	00000c29 	.word	0x00000c29
-    15a8:	000098e8 	.word	0x000098e8
-    15ac:	0000572d 	.word	0x0000572d
-    15b0:	0000992c 	.word	0x0000992c
-    15b4:	000098f0 	.word	0x000098f0
+    159c:	4814      	ldr	r0, [pc, #80]	; (15f0 <InitializeSeesaw+0x184>)
+    159e:	4b05      	ldr	r3, [pc, #20]	; (15b4 <InitializeSeesaw+0x148>)
+    15a0:	4798      	blx	r3
+    15a2:	e7e0      	b.n	1566 <InitializeSeesaw+0xfa>
+    15a4:	200038f4 	.word	0x200038f4
+    15a8:	000099f4 	.word	0x000099f4
+    15ac:	00000c29 	.word	0x00000c29
+    15b0:	00009930 	.word	0x00009930
+    15b4:	0000572d 	.word	0x0000572d
     15b8:	00009910 	.word	0x00009910
-    15bc:	000099fc 	.word	0x000099fc
+    15bc:	00009a00 	.word	0x00009a00
     15c0:	00000bc9 	.word	0x00000bc9
-    15c4:	00009a00 	.word	0x00009a00
-    15c8:	000099f8 	.word	0x000099f8
-    15cc:	000013ed 	.word	0x000013ed
-    15d0:	00001425 	.word	0x00001425
+    15c4:	00009a04 	.word	0x00009a04
+    15c8:	000099fc 	.word	0x000099fc
+    15cc:	00001409 	.word	0x00001409
+    15d0:	00001441 	.word	0x00001441
     15d4:	00004909 	.word	0x00004909
-    15d8:	000099f4 	.word	0x000099f4
-    15dc:	000013a9 	.word	0x000013a9
-    15e0:	00009938 	.word	0x00009938
-    15e4:	0000994c 	.word	0x0000994c
-    15e8:	0000996c 	.word	0x0000996c
-    15ec:	00009998 	.word	0x00009998
-    15f0:	000099cc 	.word	0x000099cc
+    15d8:	000099f8 	.word	0x000099f8
+    15dc:	000013c5 	.word	0x000013c5
+    15e0:	0000993c 	.word	0x0000993c
+    15e4:	00009950 	.word	0x00009950
+    15e8:	00009970 	.word	0x00009970
+    15ec:	0000999c 	.word	0x0000999c
+    15f0:	000099d0 	.word	0x000099d0
 
 000015f4 <vUiHandlerTask>:
 =======
@@ -5615,7 +5804,7 @@ uiState = UI_STATE_HANDLE_BUTTONS;
 		break;
 <<<<<<< Updated upstream
     1616:	e7f7      	b.n	1608 <vUiHandlerTask+0x14>
-    1618:	00009a04 	.word	0x00009a04
+    1618:	00009a08 	.word	0x00009a08
     161c:	0000572d 	.word	0x0000572d
     1620:	20003904 	.word	0x20003904
     1624:	00004909 	.word	0x00004909
@@ -6806,9 +6995,9 @@ BaseType_t xLastCharacterWasSpace = pdFALSE;
     1c30:	20000010 	.word	0x20000010
     1c34:	00008f7d 	.word	0x00008f7d
     1c38:	00008f8b 	.word	0x00008f8b
-    1c3c:	00009a18 	.word	0x00009a18
+    1c3c:	00009a1c 	.word	0x00009a1c
     1c40:	00008fad 	.word	0x00008fad
-    1c44:	00009a70 	.word	0x00009a70
+    1c44:	00009a74 	.word	0x00009a74
 
 00001c48 <prvTraceGetQueueType>:
 =======
@@ -7056,9 +7245,9 @@ void vTraceEnable(int startOption)
     1d52:	e7f3      	b.n	1d3c <vTraceEnable+0x14>
     1d54:	00001f4d 	.word	0x00001f4d
     1d58:	00002d2d 	.word	0x00002d2d
-    1d5c:	00009e2c 	.word	0x00009e2c
+    1d5c:	00009e30 	.word	0x00009e30
     1d60:	00002125 	.word	0x00002125
-    1d64:	00009e6c 	.word	0x00009e6c
+    1d64:	00009e70 	.word	0x00009e70
 
 00001d68 <vTraceInitObjectPropertyTable>:
 =======
@@ -7351,17 +7540,17 @@ const char* pszTraceGetErrorNotEnoughHandles(traceObjectClass objectclass)
 }
 <<<<<<< Updated upstream
     1ed6:	4770      	bx	lr
-    1ed8:	00009b08 	.word	0x00009b08
-    1edc:	00009b74 	.word	0x00009b74
-    1ee0:	00009bbc 	.word	0x00009bbc
-    1ee4:	00009c10 	.word	0x00009c10
-    1ee8:	00009c5c 	.word	0x00009c5c
-    1eec:	00009ca8 	.word	0x00009ca8
-    1ef0:	00009cf4 	.word	0x00009cf4
-    1ef4:	00009d48 	.word	0x00009d48
-    1ef8:	00009da0 	.word	0x00009da0
-    1efc:	00009dfc 	.word	0x00009dfc
-    1f00:	00009b2c 	.word	0x00009b2c
+    1ed8:	00009b0c 	.word	0x00009b0c
+    1edc:	00009b78 	.word	0x00009b78
+    1ee0:	00009bc0 	.word	0x00009bc0
+    1ee4:	00009c14 	.word	0x00009c14
+    1ee8:	00009c60 	.word	0x00009c60
+    1eec:	00009cac 	.word	0x00009cac
+    1ef0:	00009cf8 	.word	0x00009cf8
+    1ef4:	00009d4c 	.word	0x00009d4c
+    1ef8:	00009da4 	.word	0x00009da4
+    1efc:	00009e00 	.word	0x00009e00
+    1f00:	00009b30 	.word	0x00009b30
 
 00001f04 <prvStrncpy>:
 =======
@@ -7676,7 +7865,7 @@ static void prvStrncpy(char* dst, const char* src, uint32_t maxLength)
     20c8:	00000564 	.word	0x00000564
     20cc:	f2f2f2f2 	.word	0xf2f2f2f2
     20d0:	00000914 	.word	0x00000914
-    20d4:	0000a06c 	.word	0x0000a06c
+    20d4:	0000a070 	.word	0x0000a070
     20d8:	00001f05 	.word	0x00001f05
     20dc:	f3f3f3f3 	.word	0xf3f3f3f3
     20e0:	00000964 	.word	0x00000964
@@ -7840,7 +8029,7 @@ void prvTraceError(const char* msg)
     21aa:	e7f7      	b.n	219c <prvTraceNextFreeEventBufferSlot+0x20>
     21ac:	20000334 	.word	0x20000334
     21b0:	00000968 	.word	0x00000968
-    21b4:	0000a080 	.word	0x0000a080
+    21b4:	0000a084 	.word	0x0000a084
     21b8:	00002125 	.word	0x00002125
 
 000021bc <prvCheckDataToBeOverwrittenForMultiEntryEvents>:
@@ -7971,7 +8160,7 @@ void prvCheckDataToBeOverwrittenForMultiEntryEvents(uint8_t nofEntriesToCheck)
     2258:	e7c4      	b.n	21e4 <prvCheckDataToBeOverwrittenForMultiEntryEvents+0x28>
     225a:	46c0      	nop			; (mov r8, r8)
     225c:	20000334 	.word	0x20000334
-    2260:	00009ea0 	.word	0x00009ea0
+    2260:	00009ea4 	.word	0x00009ea4
     2264:	00002125 	.word	0x00002125
     2268:	00000968 	.word	0x00000968
     226c:	00008d13 	.word	0x00008d13
@@ -8097,7 +8286,7 @@ void prvTraceUpdateCounters(void)
     22e4:	4025      	ands	r5, r4
     22e6:	e7e9      	b.n	22bc <prvTraceGetParam+0x14>
     22e8:	0000ffff 	.word	0x0000ffff
-    22ec:	00009fa4 	.word	0x00009fa4
+    22ec:	00009fa8 	.word	0x00009fa8
     22f0:	00002125 	.word	0x00002125
     22f4:	0000217d 	.word	0x0000217d
     22f8:	00002271 	.word	0x00002271
@@ -8160,8 +8349,9 @@ void prvTraceUpdateCounters(void)
 <<<<<<< Updated upstream
     233e:	bd10      	pop	{r4, pc}
     2340:	20000334 	.word	0x20000334
-    2344:	0000a634 	.word	0x0000a634
+    2344:	0000a638 	.word	0x0000a638
     2348:	00002125 	.word	0x00002125
+<<<<<<< HEAD
     234c:	0000a674 	.word	0x0000a674
 =======
     2366:	bd10      	pop	{r4, pc}
@@ -8172,6 +8362,11 @@ void prvTraceUpdateCounters(void)
 >>>>>>> Stashed changes
 
 00002378 <prvMarkObjectAsUsed>:
+=======
+    234c:	0000a678 	.word	0x0000a678
+
+00002350 <prvMarkObjectAsUsed>:
+>>>>>>> parent of 79ffb95 (comment)
 {
     2378:	b510      	push	{r4, lr}
     237a:	000b      	movs	r3, r1
@@ -8238,9 +8433,9 @@ void prvTraceUpdateCounters(void)
     23b6:	e7f6      	b.n	23a6 <prvTraceSetPriorityProperty+0x32>
     23b8:	20000334 	.word	0x20000334
     23bc:	000022fd 	.word	0x000022fd
-    23c0:	0000a1bc 	.word	0x0000a1bc
+    23c0:	0000a1c0 	.word	0x0000a1c0
     23c4:	00002125 	.word	0x00002125
-    23c8:	0000a208 	.word	0x0000a208
+    23c8:	0000a20c 	.word	0x0000a20c
 
 000023cc <prvTraceGetPriorityProperty>:
 =======
@@ -8302,9 +8497,9 @@ void prvTraceUpdateCounters(void)
     2412:	46c0      	nop			; (mov r8, r8)
     2414:	20000334 	.word	0x20000334
     2418:	000022fd 	.word	0x000022fd
-    241c:	00009fe0 	.word	0x00009fe0
+    241c:	00009fe4 	.word	0x00009fe4
     2420:	00002125 	.word	0x00002125
-    2424:	0000a02c 	.word	0x0000a02c
+    2424:	0000a030 	.word	0x0000a030
 
 00002428 <prvTraceSetObjectState>:
 =======
@@ -8366,9 +8561,9 @@ void prvTraceUpdateCounters(void)
     246a:	e7f6      	b.n	245a <prvTraceSetObjectState+0x32>
     246c:	20000334 	.word	0x20000334
     2470:	000022fd 	.word	0x000022fd
-    2474:	0000a13c 	.word	0x0000a13c
+    2474:	0000a140 	.word	0x0000a140
     2478:	00002125 	.word	0x00002125
-    247c:	0000a180 	.word	0x0000a180
+    247c:	0000a184 	.word	0x0000a184
 
 00002480 <prvTraceSetTaskInstanceFinished>:
 =======
@@ -8416,7 +8611,7 @@ void prvTraceUpdateCounters(void)
     24ae:	e7fa      	b.n	24a6 <prvTraceSetTaskInstanceFinished+0x26>
     24b0:	20000334 	.word	0x20000334
     24b4:	000022fd 	.word	0x000022fd
-    24b8:	0000a248 	.word	0x0000a248
+    24b8:	0000a24c 	.word	0x0000a24c
     24bc:	00002125 	.word	0x00002125
 
 000024c0 <prvTraceGetObjectHandle>:
@@ -8565,9 +8760,9 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PRIMASK(uint32_t p
     2578:	20000334 	.word	0x20000334
     257c:	200003e4 	.word	0x200003e4
     2580:	20000350 	.word	0x20000350
-    2584:	0000a738 	.word	0x0000a738
+    2584:	0000a73c 	.word	0x0000a73c
     2588:	00002125 	.word	0x00002125
-    258c:	00009f5c 	.word	0x00009f5c
+    258c:	00009f60 	.word	0x00009f60
     2590:	00001ea5 	.word	0x00001ea5
 
 00002594 <prvTraceSetObjectName>:
@@ -8659,10 +8854,10 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PRIMASK(uint32_t p
     2600:	20000334 	.word	0x20000334
     2604:	000022fd 	.word	0x000022fd
     2608:	200003ec 	.word	0x200003ec
-    260c:	0000a0a8 	.word	0x0000a0a8
+    260c:	0000a0ac 	.word	0x0000a0ac
     2610:	00002125 	.word	0x00002125
-    2614:	0000a0dc 	.word	0x0000a0dc
-    2618:	0000a10c 	.word	0x0000a10c
+    2614:	0000a0e0 	.word	0x0000a0e0
+    2618:	0000a110 	.word	0x0000a110
     261c:	00001ea5 	.word	0x00001ea5
     2620:	00001f05 	.word	0x00001f05
 
@@ -8984,13 +9179,13 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     27c0:	200003e0 	.word	0x200003e0
     27c4:	00006f51 	.word	0x00006f51
     27c8:	0000705d 	.word	0x0000705d
-    27cc:	00009ef8 	.word	0x00009ef8
+    27cc:	00009efc 	.word	0x00009efc
     27d0:	00002125 	.word	0x00002125
     27d4:	e000e018 	.word	0xe000e018
     27d8:	200048cc 	.word	0x200048cc
     27dc:	000068d5 	.word	0x000068d5
     27e0:	0000217d 	.word	0x0000217d
-    27e4:	00009f38 	.word	0x00009f38
+    27e4:	00009f3c 	.word	0x00009f3c
     27e8:	00002271 	.word	0x00002271
 
 000027ec <prvTraceStoreTaskReady>:
@@ -9097,9 +9292,9 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     2860:	20000024 	.word	0x20000024
     2864:	200003e4 	.word	0x200003e4
     2868:	20000334 	.word	0x20000334
-    286c:	0000a538 	.word	0x0000a538
+    286c:	0000a53c 	.word	0x0000a53c
     2870:	00002125 	.word	0x00002125
-    2874:	0000a578 	.word	0x0000a578
+    2874:	0000a57c 	.word	0x0000a57c
     2878:	0000ffff 	.word	0x0000ffff
     287c:	000026bd 	.word	0x000026bd
     2880:	0000217d 	.word	0x0000217d
@@ -9344,11 +9539,11 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     29e8:	20000334 	.word	0x20000334
     29ec:	200003e4 	.word	0x200003e4
     29f0:	20000338 	.word	0x20000338
-    29f4:	0000a290 	.word	0x0000a290
+    29f4:	0000a294 	.word	0x0000a294
     29f8:	00002125 	.word	0x00002125
-    29fc:	0000a2c8 	.word	0x0000a2c8
-    2a00:	0000a310 	.word	0x0000a310
-    2a04:	0000a358 	.word	0x0000a358
+    29fc:	0000a2cc 	.word	0x0000a2cc
+    2a00:	0000a314 	.word	0x0000a314
+    2a04:	0000a35c 	.word	0x0000a35c
     2a08:	0000ffff 	.word	0x0000ffff
     2a0c:	000026bd 	.word	0x000026bd
     2a10:	0000217d 	.word	0x0000217d
@@ -9485,11 +9680,11 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     2ac0:	20000334 	.word	0x20000334
     2ac4:	200003e4 	.word	0x200003e4
     2ac8:	20000338 	.word	0x20000338
-    2acc:	0000a420 	.word	0x0000a420
+    2acc:	0000a424 	.word	0x0000a424
     2ad0:	00002125 	.word	0x00002125
-    2ad4:	0000a460 	.word	0x0000a460
-    2ad8:	0000a4b0 	.word	0x0000a4b0
-    2adc:	0000a500 	.word	0x0000a500
+    2ad4:	0000a464 	.word	0x0000a464
+    2ad8:	0000a4b4 	.word	0x0000a4b4
+    2adc:	0000a504 	.word	0x0000a504
     2ae0:	000026bd 	.word	0x000026bd
     2ae4:	000022a9 	.word	0x000022a9
     2ae8:	0000217d 	.word	0x0000217d
@@ -9598,9 +9793,9 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     2b6c:	200003e4 	.word	0x200003e4
     2b70:	20000334 	.word	0x20000334
     2b74:	20000338 	.word	0x20000338
-    2b78:	0000a390 	.word	0x0000a390
+    2b78:	0000a394 	.word	0x0000a394
     2b7c:	00002125 	.word	0x00002125
-    2b80:	0000a3e8 	.word	0x0000a3e8
+    2b80:	0000a3ec 	.word	0x0000a3ec
     2b84:	000026bd 	.word	0x000026bd
     2b88:	0000ffff 	.word	0x0000ffff
     2b8c:	000022a9 	.word	0x000022a9
@@ -9739,14 +9934,14 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     2c44:	200003e4 	.word	0x200003e4
     2c48:	20000338 	.word	0x20000338
     2c4c:	20000334 	.word	0x20000334
-    2c50:	0000a5b0 	.word	0x0000a5b0
+    2c50:	0000a5b4 	.word	0x0000a5b4
     2c54:	00002125 	.word	0x00002125
     2c58:	20000340 	.word	0x20000340
     2c5c:	0000ffff 	.word	0x0000ffff
     2c60:	000026bd 	.word	0x000026bd
     2c64:	0000217d 	.word	0x0000217d
     2c68:	000022fd 	.word	0x000022fd
-    2c6c:	0000a5f8 	.word	0x0000a5f8
+    2c6c:	0000a5fc 	.word	0x0000a5fc
     2c70:	00002429 	.word	0x00002429
     2c74:	00002271 	.word	0x00002271
 
@@ -9855,14 +10050,14 @@ void prvTracePortGetTimeStamp(uint32_t *pTimestamp)
     2cfa:	e7e5      	b.n	2cc8 <uiTraceStart+0x50>
     2cfc:	20000334 	.word	0x20000334
     2d00:	200003ec 	.word	0x200003ec
-    2d04:	0000a6b4 	.word	0x0000a6b4
+    2d04:	0000a6b8 	.word	0x0000a6b8
     2d08:	00002125 	.word	0x00002125
     2d0c:	200003e4 	.word	0x200003e4
     2d10:	00001d1d 	.word	0x00001d1d
     2d14:	00001c55 	.word	0x00001c55
     2d18:	00002b99 	.word	0x00002b99
     2d1c:	000024c1 	.word	0x000024c1
-    2d20:	0000a6f8 	.word	0x0000a6f8
+    2d20:	0000a6fc 	.word	0x0000a6fc
     2d24:	00002595 	.word	0x00002595
     2d28:	00002375 	.word	0x00002375
 
@@ -13754,7 +13949,7 @@ const TickType_t xConstTickCount = xTickCount;
     460c:	b672      	cpsid	i
     460e:	e7fe      	b.n	460e <vTaskStartScheduler+0x4a>
     4610:	20003780 	.word	0x20003780
-    4614:	0000a77c 	.word	0x0000a77c
+    4614:	0000a780 	.word	0x0000a780
     4618:	00004219 	.word	0x00004219
     461c:	00004321 	.word	0x00004321
     4620:	000051e9 	.word	0x000051e9
@@ -15507,7 +15702,7 @@ static void prvCheckForValidListAndQueue( void )
     5218:	00005189 	.word	0x00005189
     521c:	20003808 	.word	0x20003808
     5220:	2000380c 	.word	0x2000380c
-    5224:	0000a7ac 	.word	0x0000a7ac
+    5224:	0000a7b0 	.word	0x0000a7b0
     5228:	00005355 	.word	0x00005355
     522c:	00004321 	.word	0x00004321
 
@@ -15926,7 +16121,7 @@ Timer_t * const pxTimer = ( Timer_t * ) listGET_OWNER_OF_HEAD_ENTRY( pxCurrentTi
     54c4:	0000418d 	.word	0x0000418d
     54c8:	000047dd 	.word	0x000047dd
     54cc:	00003b21 	.word	0x00003b21
-    54d0:	0000a784 	.word	0x0000a784
+    54d0:	0000a788 	.word	0x0000a788
     54d4:	00005141 	.word	0x00005141
     54d8:	00005231 	.word	0x00005231
     54dc:	00002ec1 	.word	0x00002ec1
@@ -17550,12 +17745,16 @@ uint8_t _sercom_get_sercom_inst_index(
 <<<<<<< Updated upstream
     5d70:	b2d8      	uxtb	r0, r3
     5d72:	e7fa      	b.n	5d6a <_sercom_get_sercom_inst_index+0x2a>
+<<<<<<< HEAD
     5d74:	0000a7b4 	.word	0x0000a7b4
 =======
     5d90:	b2d8      	uxtb	r0, r3
     5d92:	e7fa      	b.n	5d8a <_sercom_get_sercom_inst_index+0x2a>
     5d94:	0000a7e4 	.word	0x0000a7e4
 >>>>>>> Stashed changes
+=======
+    5d74:	0000a7b8 	.word	0x0000a7b8
+>>>>>>> parent of 79ffb95 (comment)
 
 00005d98 <_sercom_default_handler>:
  */
@@ -19050,7 +19249,7 @@ uint32_t system_clock_source_get_hz(
 <<<<<<< Updated upstream
     6498:	bd10      	pop	{r4, pc}
     649a:	46c0      	nop			; (mov r8, r8)
-    649c:	0000a7cc 	.word	0x0000a7cc
+    649c:	0000a7d0 	.word	0x0000a7d0
     64a0:	20003838 	.word	0x20003838
     64a4:	40000800 	.word	0x40000800
     64a8:	007a1200 	.word	0x007a1200
@@ -19374,7 +19573,7 @@ enum status_code system_clock_source_enable(
 }
 <<<<<<< Updated upstream
     662e:	4770      	bx	lr
-    6630:	0000a7f0 	.word	0x0000a7f0
+    6630:	0000a7f4 	.word	0x0000a7f4
     6634:	40000800 	.word	0x40000800
     6638:	20003838 	.word	0x20003838
 =======
@@ -20610,7 +20809,7 @@ void _tcc_interrupt_handler(
     6bb4:	bdf0      	pop	{r4, r5, r6, r7, pc}
     6bb6:	46c0      	nop			; (mov r8, r8)
     6bb8:	20004df4 	.word	0x20004df4
-    6bbc:	0000a814 	.word	0x0000a814
+    6bbc:	0000a818 	.word	0x0000a818
 
 00006bc0 <TCC0_Handler>:
 =======
@@ -20786,7 +20985,7 @@ void Dummy_Handler(void)
     6cb2:	4b0e      	ldr	r3, [pc, #56]	; (6cec <Reset_Handler+0xe0>)
     6cb4:	4798      	blx	r3
     6cb6:	e7fe      	b.n	6cb6 <Reset_Handler+0xaa>
-    6cb8:	0000ac74 	.word	0x0000ac74
+    6cb8:	0000ac78 	.word	0x0000ac78
     6cbc:	20000000 	.word	0x20000000
     6cc0:	20000200 	.word	0x20000200
     6cc4:	20000004 	.word	0x20000004
@@ -21020,8 +21219,12 @@ SerialConsoleWriteString("\r\n\r\nInitialize HW...\r\n");
     6de0:	2800      	cmp	r0, #0
     6de2:	d05e      	beq.n	6ea2 <vApplicationDaemonTaskStartupHook+0xe2>
 	{
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 		SerialConsoleWriteString("Error initializing Seesaw!\r\n"); //we have this error - Derek
+=======
+		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
+>>>>>>> parent of 79ffb95 (comment)
     6dc4:	483e      	ldr	r0, [pc, #248]	; (6ec0 <vApplicationDaemonTaskStartupHook+0x120>)
     6dc6:	4b39      	ldr	r3, [pc, #228]	; (6eac <vApplicationDaemonTaskStartupHook+0x10c>)
     6dc8:	4798      	blx	r3
@@ -21186,38 +21389,38 @@ SerialConsoleWriteString(bufferPrint);
     6ea2:	4b02      	ldr	r3, [pc, #8]	; (6eac <vApplicationDaemonTaskStartupHook+0x10c>)
     6ea4:	4798      	blx	r3
     6ea6:	e79f      	b.n	6de8 <vApplicationDaemonTaskStartupHook+0x48>
-    6ea8:	0000a844 	.word	0x0000a844
+    6ea8:	0000a848 	.word	0x0000a848
     6eac:	0000572d 	.word	0x0000572d
-    6eb0:	0000a868 	.word	0x0000a868
+    6eb0:	0000a86c 	.word	0x0000a86c
     6eb4:	000009d1 	.word	0x000009d1
-    6eb8:	0000a880 	.word	0x0000a880
-    6ebc:	00001451 	.word	0x00001451
-    6ec0:	000098f0 	.word	0x000098f0
-    6ec4:	000012fd 	.word	0x000012fd
-    6ec8:	00000ee5 	.word	0x00000ee5
-    6ecc:	0000a8d8 	.word	0x0000a8d8
+    6eb8:	0000a884 	.word	0x0000a884
+    6ebc:	0000146d 	.word	0x0000146d
+    6ec0:	00009910 	.word	0x00009910
+    6ec4:	00001319 	.word	0x00001319
+    6ec8:	00000f01 	.word	0x00000f01
+    6ecc:	0000a8dc 	.word	0x0000a8dc
     6ed0:	00003031 	.word	0x00003031
     6ed4:	20004f00 	.word	0x20004f00
-    6ed8:	0000a92c 	.word	0x0000a92c
+    6ed8:	0000a930 	.word	0x0000a930
     6edc:	00008e99 	.word	0x00008e99
     6ee0:	20003854 	.word	0x20003854
-    6ee4:	0000a950 	.word	0x0000a950
+    6ee4:	0000a954 	.word	0x0000a954
     6ee8:	0000066d 	.word	0x0000066d
     6eec:	00004321 	.word	0x00004321
-    6ef0:	0000a95c 	.word	0x0000a95c
-    6ef4:	0000a988 	.word	0x0000a988
+    6ef0:	0000a960 	.word	0x0000a960
+    6ef4:	0000a98c 	.word	0x0000a98c
     6ef8:	20003858 	.word	0x20003858
-    6efc:	0000a9a8 	.word	0x0000a9a8
+    6efc:	0000a9ac 	.word	0x0000a9ac
     6f00:	000015f5 	.word	0x000015f5
-    6f04:	0000a9b0 	.word	0x0000a9b0
-    6f08:	0000a9dc 	.word	0x0000a9dc
+    6f04:	0000a9b4 	.word	0x0000a9b4
+    6f08:	0000a9e0 	.word	0x0000a9e0
     6f0c:	00004aa9 	.word	0x00004aa9
-    6f10:	0000a8a4 	.word	0x0000a8a4
-    6f14:	0000a8c0 	.word	0x0000a8c0
-    6f18:	0000a8ec 	.word	0x0000a8ec
-    6f1c:	00001305 	.word	0x00001305
-    6f20:	0000a910 	.word	0x0000a910
-    6f24:	0000a8fc 	.word	0x0000a8fc
+    6f10:	0000a8a8 	.word	0x0000a8a8
+    6f14:	0000a8c4 	.word	0x0000a8c4
+    6f18:	0000a8f0 	.word	0x0000a8f0
+    6f1c:	00001321 	.word	0x00001321
+    6f20:	0000a914 	.word	0x0000a914
+    6f24:	0000a900 	.word	0x0000a900
 
 00006f28 <vApplicationMallocFailedHook>:
 =======
@@ -21274,7 +21477,7 @@ SerialConsoleWriteString("Error on memory allocation on FREERTOS!\r\n");
     6f2e:	4798      	blx	r3
     6f30:	e7fe      	b.n	6f30 <vApplicationMallocFailedHook+0x8>
     6f32:	46c0      	nop			; (mov r8, r8)
-    6f34:	0000aa00 	.word	0x0000aa00
+    6f34:	0000aa04 	.word	0x0000aa04
     6f38:	0000572d 	.word	0x0000572d
 
 00006f3c <vApplicationStackOverflowHook>:
@@ -21302,7 +21505,7 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     6f42:	4798      	blx	r3
     6f44:	e7fe      	b.n	6f44 <vApplicationStackOverflowHook+0x8>
     6f46:	46c0      	nop			; (mov r8, r8)
-    6f48:	0000aa2c 	.word	0x0000aa2c
+    6f48:	0000aa30 	.word	0x0000aa30
     6f4c:	0000572d 	.word	0x0000572d
 
 00006f50 <__udivsi3>:
@@ -21777,7 +21980,7 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     72ee:	22ff      	movs	r2, #255	; 0xff
     72f0:	e72e      	b.n	7150 <__aeabi_fmul+0x94>
     72f2:	46c0      	nop			; (mov r8, r8)
-    72f4:	0000aa54 	.word	0x0000aa54
+    72f4:	0000aa58 	.word	0x0000aa58
     72f8:	f7ffffff 	.word	0xf7ffffff
 
 000072fc <__aeabi_f2iz>:
@@ -23449,7 +23652,7 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     7bde:	e7db      	b.n	7b98 <__aeabi_ddiv+0x19c>
     7be0:	000007ff 	.word	0x000007ff
     7be4:	fffffc01 	.word	0xfffffc01
-    7be8:	0000aa94 	.word	0x0000aa94
+    7be8:	0000aa98 	.word	0x0000aa98
     7bec:	fffffc0d 	.word	0xfffffc0d
     7bf0:	800fffff 	.word	0x800fffff
     7bf4:	45d9      	cmp	r9, fp
@@ -24564,7 +24767,7 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     823e:	46c0      	nop			; (mov r8, r8)
     8240:	000007ff 	.word	0x000007ff
     8244:	fffffc01 	.word	0xfffffc01
-    8248:	0000aad4 	.word	0x0000aad4
+    8248:	0000aad8 	.word	0x0000aad8
     824c:	800fffff 	.word	0x800fffff
     8250:	fffffc0d 	.word	0xfffffc0d
     8254:	464a      	mov	r2, r9
@@ -26002,7 +26205,7 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     8cb0:	42a6      	cmp	r6, r4
     8cb2:	d109      	bne.n	8cc8 <__libc_init_array+0x24>
     8cb4:	2600      	movs	r6, #0
-    8cb6:	f001 ffcd 	bl	ac54 <_init>
+    8cb6:	f001 ffcf 	bl	ac58 <_init>
     8cba:	4d0a      	ldr	r5, [pc, #40]	; (8ce4 <__libc_init_array+0x40>)
     8cbc:	4c0a      	ldr	r4, [pc, #40]	; (8ce8 <__libc_init_array+0x44>)
     8cbe:	1b64      	subs	r4, r4, r5
@@ -26020,10 +26223,10 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     8cd6:	4798      	blx	r3
     8cd8:	3601      	adds	r6, #1
     8cda:	e7f2      	b.n	8cc2 <__libc_init_array+0x1e>
-    8cdc:	0000ac60 	.word	0x0000ac60
-    8ce0:	0000ac60 	.word	0x0000ac60
-    8ce4:	0000ac60 	.word	0x0000ac60
-    8ce8:	0000ac64 	.word	0x0000ac64
+    8cdc:	0000ac64 	.word	0x0000ac64
+    8ce0:	0000ac64 	.word	0x0000ac64
+    8ce4:	0000ac64 	.word	0x0000ac64
+    8ce8:	0000ac68 	.word	0x0000ac68
 
 00008cec <malloc>:
     8cec:	b510      	push	{r4, lr}
@@ -26886,9 +27089,9 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     9338:	f000 f87a 	bl	9430 <_printf_i>
     933c:	e7ea      	b.n	9314 <_svfiprintf_r+0x1c8>
     933e:	46c0      	nop			; (mov r8, r8)
-    9340:	0000ab1e 	.word	0x0000ab1e
-    9344:	0000ab24 	.word	0x0000ab24
-    9348:	0000ab28 	.word	0x0000ab28
+    9340:	0000ab22 	.word	0x0000ab22
+    9344:	0000ab28 	.word	0x0000ab28
+    9348:	0000ab2c 	.word	0x0000ab2c
     934c:	00000000 	.word	0x00000000
     9350:	00009089 	.word	0x00009089
 
@@ -27479,8 +27682,8 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
     9656:	4240      	negs	r0, r0
     9658:	b00b      	add	sp, #44	; 0x2c
     965a:	bdf0      	pop	{r4, r5, r6, r7, pc}
-    965c:	0000ab40 	.word	0x0000ab40
-    9660:	0000ab2f 	.word	0x0000ab2f
+    965c:	0000ab44 	.word	0x0000ab44
+    9660:	0000ab33 	.word	0x0000ab33
 
 00009664 <__ascii_wctomb>:
     9664:	1e0b      	subs	r3, r1, #0
@@ -27683,332 +27886,334 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
 
 000098d0 <xResetCommand>:
     98d0:	000097dc 000097e4 00000561 00000000     ........a.......
-    98e0:	00001010 0000050e 74616877 000a0d3f     ........what?...
-    98f0:	6f727245 6e692072 61697469 697a696c     Error initializi
-    9900:	5320676e 61736565 0a0d2177 00000000     ng Seesaw!......
-    9910:	52633249 44646165 57617461 20746961     I2cReadDataWait 
-    9920:	6c696166 0d216465 0000000a 6f727245     failed!.....Erro
-    9930:	2f722f72 0000006e 6e756f46 65532064     r/r/n...Found Se
-    9940:	77617365 2f722f21 0000006e 6c756f43     esaw!/r/n...Coul
-    9950:	6f6e2064 72772074 20657469 73656553     d not write Sees
-    9960:	70207761 2f216e69 006e2f72 6c756f43     aw pin!/r/n.Coul
-    9970:	6f6e2064 65732074 65732074 77617365     d not set seesaw
-    9980:	6f654e20 65786970 7073206c 21646565      Neopixel speed!
-    9990:	6e2f722f 00000000 6c756f43 6f6e2064     /r/n....Could no
-    99a0:	65732074 65732074 77617365 6f654e20     t set seesaw Neo
-    99b0:	65786970 756e206c 7265626d 20666f20     pixel number of 
-    99c0:	69766564 2f736563 006e2f72 6c756f43     devices/r/n.Coul
-    99d0:	6f6e2064 6e692074 61697469 657a696c     d not initialize
-    99e0:	79654b20 21646170 6e2f722f 00000000      Keypad!/r/n....
+    98e0:	76657270 73756f69 20736920 646f6f67     previous is good
+    98f0:	00000a0d 74616877 74207327 64206568     ....what's the d
+    9900:	65637565 000a0d3f 00001010 0000050e     euce?...........
+    9910:	6f727245 6e692072 61697469 697a696c     Error initializi
+    9920:	5320676e 61736565 0a0d2177 00000000     ng Seesaw!......
+    9930:	6f727245 2f722f72 0000006e 6e756f46     Error/r/n...Foun
+    9940:	65532064 77617365 2f722f21 0000006e     d Seesaw!/r/n...
+    9950:	6c756f43 6f6e2064 72772074 20657469     Could not write 
+    9960:	73656553 70207761 2f216e69 006e2f72     Seesaw pin!/r/n.
+    9970:	6c756f43 6f6e2064 65732074 65732074     Could not set se
+    9980:	77617365 6f654e20 65786970 7073206c     esaw Neopixel sp
+    9990:	21646565 6e2f722f 00000000 6c756f43     eed!/r/n....Coul
+    99a0:	6f6e2064 65732074 65732074 77617365     d not set seesaw
+    99b0:	6f654e20 65786970 756e206c 7265626d      Neopixel number
+    99c0:	20666f20 69766564 2f736563 006e2f72      of devices/r/n.
+    99d0:	6c756f43 6f6e2064 6e692074 61697469     Could not initia
+    99e0:	657a696c 79654b20 21646170 6e2f722f     lize Keypad!/r/n
+    99f0:	00000000                                ....
 
-000099f0 <msgBaseGetHWID>:
-    99f0:	00000100                                ....
+000099f4 <msgBaseGetHWID>:
+    99f4:	00000100                                ....
 
-000099f4 <msgKeypadEnableInt>:
-    99f4:	00010210                                ....
+000099f8 <msgKeypadEnableInt>:
+    99f8:	00010210                                ....
 
-000099f8 <msgNeopixelBufLength>:
-    99f8:	3000030e                                ...0
+000099fc <msgNeopixelBufLength>:
+    99fc:	3000030e                                ...0
 
-000099fc <msgNeopixelPin>:
-    99fc:	0003010e                                ....
+00009a00 <msgNeopixelPin>:
+    9a00:	0003010e                                ....
 
-00009a00 <msgNeopixelSpeed>:
-    9a00:	0001020e 54204955 206b7361 72617453     ....UI Task Star
-    9a10:	21646574 00000000 6f636e49 63657272     ted!....Incorrec
-    9a20:	6f632074 6e616d6d 61702064 656d6172     t command parame
-    9a30:	28726574 202e2973 746e4520 22207265     ter(s).  Enter "
-    9a40:	706c6568 6f742022 65697620 20612077     help" to view a 
-    9a50:	7473696c 20666f20 69617661 6c62616c     list of availabl
-    9a60:	6f632065 6e616d6d 0d2e7364 000a0d0a     e commands......
-    9a70:	6d6d6f43 20646e61 20746f6e 6f636572     Command not reco
-    9a80:	73696e67 202e6465 746e4520 27207265     gnised.  Enter '
-    9a90:	706c6568 6f742027 65697620 20612077     help' to view a 
-    9aa0:	7473696c 20666f20 69617661 6c62616c     list of availabl
-    9ab0:	6f632065 6e616d6d 0d2e7364 000a0d0a     e commands......
-    9ac0:	706c6568 00000000 65680a0d 0d3a706c     help......help:.
-    9ad0:	694c200a 20737473 206c6c61 20656874     . Lists all the 
-    9ae0:	69676572 72657473 63206465 616d6d6f     registered comma
-    9af0:	0d73646e 000a0d0a                       nds.....
+00009a04 <msgNeopixelSpeed>:
+    9a04:	0001020e 54204955 206b7361 72617453     ....UI Task Star
+    9a14:	21646574 00000000 6f636e49 63657272     ted!....Incorrec
+    9a24:	6f632074 6e616d6d 61702064 656d6172     t command parame
+    9a34:	28726574 202e2973 746e4520 22207265     ter(s).  Enter "
+    9a44:	706c6568 6f742022 65697620 20612077     help" to view a 
+    9a54:	7473696c 20666f20 69617661 6c62616c     list of availabl
+    9a64:	6f632065 6e616d6d 0d2e7364 000a0d0a     e commands......
+    9a74:	6d6d6f43 20646e61 20746f6e 6f636572     Command not reco
+    9a84:	73696e67 202e6465 746e4520 27207265     gnised.  Enter '
+    9a94:	706c6568 6f742027 65697620 20612077     help' to view a 
+    9aa4:	7473696c 20666f20 69617661 6c62616c     list of availabl
+    9ab4:	6f632065 6e616d6d 0d2e7364 000a0d0a     e commands......
+    9ac4:	706c6568 00000000 65680a0d 0d3a706c     help......help:.
+    9ad4:	694c200a 20737473 206c6c61 20656874     . Lists all the 
+    9ae4:	69676572 72657473 63206465 616d6d6f     registered comma
+    9af4:	0d73646e 000a0d0a                       nds.....
 
-00009af8 <xHelpCommand>:
-    9af8:	00009ac0 00009ac8 00001ab5 00000000     ................
-    9b08:	00001ebc 00001eb4 00001eb8 00001ed4     ................
-    9b18:	00001eb0 00001ec0 00001ec4 00001ec8     ................
-    9b28:	00001ecc 20746f4e 756f6e65 54206867     ....Not enough T
-    9b38:	204b5341 646e6168 2073656c 6e69202d     ASK handles - in
-    9b48:	61657263 54206573 435f4352 4e5f4746     crease TRC_CFG_N
-    9b58:	4b534154 206e6920 53637274 7370616e     TASK in trcSnaps
-    9b68:	43746f68 69666e6f 00682e67 20746f4e     hotConfig.h.Not 
-    9b78:	756f6e65 49206867 68205253 6c646e61     enough ISR handl
-    9b88:	2d207365 636e6920 73616572 52542065     es - increase TR
-    9b98:	46435f43 494e5f47 69205253 7274206e     C_CFG_NISR in tr
-    9ba8:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
-    9bb8:	00000068 20746f4e 756f6e65 53206867     h...Not enough S
-    9bc8:	50414d45 45524f48 6e616820 73656c64     EMAPHORE handles
-    9bd8:	69202d20 6572636e 20657361 5f435254      - increase TRC_
-    9be8:	5f474643 4d45534e 4f485041 69204552     CFG_NSEMAPHORE i
-    9bf8:	7274206e 616e5363 6f687370 6e6f4374     n trcSnapshotCon
-    9c08:	2e676966 00000068 20746f4e 756f6e65     fig.h...Not enou
-    9c18:	4d206867 58455455 6e616820 73656c64     gh MUTEX handles
-    9c28:	69202d20 6572636e 20657361 5f435254      - increase TRC_
-    9c38:	5f474643 54554d4e 69205845 7274206e     CFG_NMUTEX in tr
-    9c48:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
-    9c58:	00000068 20746f4e 756f6e65 51206867     h...Not enough Q
-    9c68:	45554555 6e616820 73656c64 69202d20     UEUE handles - i
-    9c78:	6572636e 20657361 5f435254 5f474643     ncrease TRC_CFG_
-    9c88:	4555514e 69204555 7274206e 616e5363     NQUEUE in trcSna
-    9c98:	6f687370 6e6f4374 2e676966 00000068     pshotConfig.h...
-    9ca8:	20746f4e 756f6e65 54206867 52454d49     Not enough TIMER
-    9cb8:	6e616820 73656c64 69202d20 6572636e      handles - incre
-    9cc8:	20657361 5f435254 5f474643 4d49544e     ase TRC_CFG_NTIM
-    9cd8:	69205245 7274206e 616e5363 6f687370     ER in trcSnapsho
-    9ce8:	6e6f4374 2e676966 00000068 20746f4e     tConfig.h...Not 
-    9cf8:	756f6e65 45206867 544e4556 554f5247     enough EVENTGROU
-    9d08:	61682050 656c646e 202d2073 72636e69     P handles - incr
-    9d18:	65736165 43525420 4746435f 56454e5f     ease TRC_CFG_NEV
-    9d28:	47544e45 50554f52 206e6920 53637274     ENTGROUP in trcS
-    9d38:	7370616e 43746f68 69666e6f 00682e67     napshotConfig.h.
-    9d48:	20746f4e 756f6e65 53206867 41455254     Not enough STREA
-    9d58:	4655424d 20524546 646e6168 2073656c     MBUFFER handles 
-    9d68:	6e69202d 61657263 54206573 435f4352     - increase TRC_C
-    9d78:	4e5f4746 45525453 55424d41 52454646     FG_NSTREAMBUFFER
-    9d88:	206e6920 53637274 7370616e 43746f68      in trcSnapshotC
-    9d98:	69666e6f 00682e67 20746f4e 756f6e65     onfig.h.Not enou
-    9da8:	4d206867 41535345 55424547 52454646     gh MESSAGEBUFFER
-    9db8:	6e616820 73656c64 69202d20 6572636e      handles - incre
-    9dc8:	20657361 5f435254 5f474643 53454d4e     ase TRC_CFG_NMES
-    9dd8:	45474153 46465542 69205245 7274206e     SAGEBUFFER in tr
-    9de8:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
-    9df8:	00000068 547a7370 65636172 45746547     h...pszTraceGetE
-    9e08:	726f7272 646e6148 3a73656c 766e4920     rrorHandles: Inv
-    9e18:	64696c61 6a626f20 63746365 7373616c     alid objectclass
-    9e28:	00000021 61725476 6e456563 656c6261     !...vTraceEnable
-    9e38:	43525428 4154535f 415f5452 54494157     (TRC_START_AWAIT
-    9e48:	534f485f 6e202954 6120746f 776f6c6c     _HOST) not allow
-    9e58:	69206465 6e53206e 68737061 6d20746f     ed in Snapshot m
-    9e68:	0065646f 78656e55 74636570 61206465     ode.Unexpected a
-    9e78:	6d756772 20746e65 76206f74 63617254     rgument to vTrac
-    9e88:	616e4565 20656c62 616e7328 6f687370     eEnable (snapsho
-    9e98:	6f6d2074 00296564 43415254 53415f45     t mode).TRACE_AS
-    9ea8:	54524553 7270203a 65684376 61446b63     SERT: prvCheckDa
-    9eb8:	6f546174 764f6542 72777265 65747469     taToBeOverwritte
-    9ec8:	726f466e 746c754d 746e4569 76457972     nForMultiEntryEv
-    9ed8:	73746e65 6f6e203a 746e4566 73656972     ents: nofEntries
-    9ee8:	68436f54 206b6365 30203d3d 00000000     ToCheck == 0....
-    9ef8:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    9f08:	61725476 65476563 53544474 6e49203a     vTraceGetDTS: In
-    9f18:	696c6176 61762064 2065756c 20726f66     valid value for 
-    9f28:	61726170 616d5f6d 53544478 00000000     param_maxDTS....
-    9f38:	20646142 61726170 616d5f6d 53544478     Bad param_maxDTS
-    9f48:	206e6920 54767270 65636172 44746547      in prvTraceGetD
-    9f58:	00005354 43415254 53415f45 54524553     TS..TRACE_ASSERT
-    9f68:	7270203a 61725476 65476563 6a624f74     : prvTraceGetObj
-    9f78:	48746365 6c646e61 49203a65 6c61766e     ectHandle: Inval
-    9f88:	76206469 65756c61 726f6620 6a626f20     id value for obj
-    9f98:	63746365 7373616c 00000000 43415254     ectclass....TRAC
-    9fa8:	53415f45 54524553 7270203a 61725476     E_ASSERT: prvTra
-    9fb8:	65476563 72615074 203a6d61 61766e49     ceGetParam: Inva
-    9fc8:	2064696c 756c6176 6f662065 61702072     lid value for pa
-    9fd8:	5f6d6172 0078616d 43415254 53415f45     ram_max.TRACE_AS
-    9fe8:	54524553 7270203a 61725476 65476563     SERT: prvTraceGe
-    9ff8:	69725074 7469726f 6f725079 74726570     tPriorityPropert
-    a008:	6f203a79 63656a62 616c6374 3e207373     y: objectclass >
-    a018:	5254203d 5f454341 414c434e 53455353     = TRACE_NCLASSES
-    a028:	00000000 43415254 53415f45 54524553     ....TRACE_ASSERT
-    a038:	7270203a 61725476 65476563 69725074     : prvTraceGetPri
-    a048:	7469726f 6f725079 74726570 49203a79     orityProperty: I
-    a058:	6c61766e 76206469 65756c61 726f6620     nvalid value for
-    a068:	00646920 63617254 65522065 64726f63      id.Trace Record
-    a078:	44207265 006f6d65 65747441 2074706d     er Demo.Attempt 
-    a088:	69206f74 7865646e 74756f20 65646973     to index outside
-    a098:	65766520 6220746e 65666675 00002172      event buffer!..
-    a0a8:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a0b8:	61725476 65536563 6a624f74 4e746365     vTraceSetObjectN
-    a0c8:	3a656d61 6d616e20 3d3d2065 4c554e20     ame: name == NUL
-    a0d8:	0000004c 656c6c49 206c6167 656a626f     L...Illegal obje
-    a0e8:	63207463 7373616c 206e6920 54767270     ct class in prvT
-    a0f8:	65636172 4f746553 63656a62 6d614e74     raceSetObjectNam
-    a108:	00000065 656c6c49 206c6167 646e6168     e...Illegal hand
-    a118:	2820656c 69202930 7270206e 61725476     le (0) in prvTra
-    a128:	65536563 6a624f74 4e746365 2e656d61     ceSetObjectName.
-    a138:	00000000 43415254 53415f45 54524553     ....TRACE_ASSERT
-    a148:	7270203a 61725476 65536563 6a624f74     : prvTraceSetObj
-    a158:	53746365 65746174 626f203a 7463656a     ectState: object
-    a168:	73616c63 3d3e2073 41525420 4e5f4543     class >= TRACE_N
-    a178:	53414c43 00534553 43415254 53415f45     CLASSES.TRACE_AS
-    a188:	54524553 7270203a 61725476 65536563     SERT: prvTraceSe
-    a198:	6a624f74 53746365 65746174 6e49203a     tObjectState: In
-    a1a8:	696c6176 61762064 2065756c 20726f66     valid value for 
-    a1b8:	00006469 43415254 53415f45 54524553     id..TRACE_ASSERT
-    a1c8:	7270203a 61725476 65536563 69725074     : prvTraceSetPri
-    a1d8:	7469726f 6f725079 74726570 6f203a79     orityProperty: o
-    a1e8:	63656a62 616c6374 3e207373 5254203d     bjectclass >= TR
-    a1f8:	5f454341 414c434e 53455353 00000000     ACE_NCLASSES....
-    a208:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a218:	61725476 65536563 69725074 7469726f     vTraceSetPriorit
-    a228:	6f725079 74726570 49203a79 6c61766e     yProperty: Inval
-    a238:	76206469 65756c61 726f6620 00646920     id value for id.
-    a248:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a258:	61725476 65536563 73615474 736e496b     vTraceSetTaskIns
-    a268:	636e6174 6e694665 65687369 49203a64     tanceFinished: I
-    a278:	6c61766e 76206469 65756c61 726f6620     nvalid value for
-    a288:	6e616820 00656c64 43415254 53415f45      handle.TRACE_AS
-    a298:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a2a8:	4b65726f 656e7265 6c61436c 65203a6c     oreKernelCall: e
-    a2b8:	65646f63 203d3e20 46467830 00000000     code >= 0xFF....
-    a2c8:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a2d8:	61725476 74536563 4b65726f 656e7265     vTraceStoreKerne
-    a2e8:	6c61436c 6f203a6c 63656a62 616c4374     lCall: objectCla
-    a2f8:	3e207373 5254203d 5f454341 414c434e     ss >= TRACE_NCLA
-    a308:	53455353 00000000 43415254 53415f45     SSES....TRACE_AS
-    a318:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a328:	4b65726f 656e7265 6c61436c 49203a6c     oreKernelCall: I
-    a338:	6c61766e 76206469 65756c61 726f6620     nvalid value for
-    a348:	6a626f20 4e746365 65626d75 00000072      objectNumber...
-    a358:	6f636552 72656472 73756220 202d2079     Recorder busy - 
-    a368:	68676968 69727020 7469726f 53492079     high priority IS
-    a378:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
-    a388:	29322820 00000000 43415254 53415f45      (2)....TRACE_AS
-    a398:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a3a8:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
-    a3b8:	6d754e68 63697265 61726150 6c6e4f6d     hNumericParamOnl
-    a3c8:	49203a79 6c61766e 76206469 65756c61     y: Invalid value
-    a3d8:	726f6620 74766520 65646f63 00000000      for evtcode....
-    a3e8:	6f636552 72656472 73756220 202d2079     Recorder busy - 
-    a3f8:	68676968 69727020 7469726f 53492079     high priority IS
-    a408:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
-    a418:	29342820 00000000 43415254 53415f45      (4)....TRACE_AS
-    a428:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a438:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
-    a448:	72615068 203a6d61 63747665 2065646f     hParam: evtcode 
-    a458:	30203d3e 00464678 43415254 53415f45     >= 0xFF.TRACE_AS
-    a468:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a478:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
-    a488:	72615068 203a6d61 656a626f 6c437463     hParam: objectCl
-    a498:	20737361 54203d3e 45434152 4c434e5f     ass >= TRACE_NCL
-    a4a8:	45535341 00000053 43415254 53415f45     ASSES...TRACE_AS
-    a4b8:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a4c8:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
-    a4d8:	72615068 203a6d61 61766e49 2064696c     hParam: Invalid 
-    a4e8:	756c6176 6f662065 626f2072 7463656a     value for object
-    a4f8:	626d754e 00007265 6f636552 72656472     Number..Recorder
-    a508:	73756220 202d2079 68676968 69727020      busy - high pri
-    a518:	7469726f 53492079 73752052 20676e69     ority ISR using 
-    a528:	63737973 3f6c6c61 29332820 00000000     syscall? (3)....
-    a538:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a548:	61725476 74536563 5465726f 526b7361     vTraceStoreTaskR
-    a558:	79646165 6e49203a 696c6176 61762064     eady: Invalid va
-    a568:	2065756c 20726f66 646e6168 0000656c     lue for handle..
-    a578:	6f636552 72656472 73756220 202d2079     Recorder busy - 
-    a588:	68676968 69727020 7469726f 53492079     high priority IS
-    a598:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
-    a5a8:	29312820 00000000 43415254 53415f45      (1)....TRACE_AS
-    a5b8:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
-    a5c8:	5465726f 736b7361 63746977 49203a68     oreTaskswitch: I
-    a5d8:	6c61766e 76206469 65756c61 726f6620     nvalid value for
-    a5e8:	73617420 61685f6b 656c646e 00000000      task_handle....
-    a5f8:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
-    a608:	61725476 65476563 6a624f74 53746365     vTraceGetObjectS
-    a618:	65746174 6e49203a 696c6176 61762064     tate: Invalid va
-    a628:	2065756c 20726f66 00006469 43415254     lue for id..TRAC
-    a638:	53415f45 54524553 6975203a 65646e49     E_ASSERT: uiInde
-    a648:	4f664f78 63656a62 49203a74 6c61766e     xOfObject: Inval
-    a658:	76206469 65756c61 726f6620 6a626f20     id value for obj
-    a668:	63746365 7373616c 00000000 43415254     ectclass....TRAC
-    a678:	53415f45 54524553 6975203a 65646e49     E_ASSERT: uiInde
-    a688:	4f664f78 63656a62 49203a74 6c61766e     xOfObject: Inval
-    a698:	76206469 65756c61 726f6620 6a626f20     id value for obj
-    a6a8:	68746365 6c646e61 00000065 43415254     ecthandle...TRAC
-    a6b8:	53415f45 54524553 6552203a 64726f63     E_ASSERT: Record
-    a6c8:	6e207265 6920746f 6974696e 7a696c61     er not initializ
-    a6d8:	202e6465 20657355 61725476 6e456563     ed. Use vTraceEn
-    a6e8:	656c6261 69202928 6574736e 00216461     able() instead!.
-    a6f8:	61747328 70757472 00000029 43415254     (startup)...TRAC
-    a708:	53415f45 54524553 5478203a 65636172     E_ASSERT: xTrace
-    a718:	69676552 72657473 69727453 203a676e     RegisterString: 
-    a728:	6562616c 3d3d206c 4c554e20 0000004c     label == NULL...
-    a738:	43415254 53415f45 54524553 6552203a     TRACE_ASSERT: Re
-    a748:	64726f63 6e207265 6920746f 6974696e     corder not initi
-    a758:	7a696c61 202c6465 6c6c6163 72547620     alized, call vTr
-    a768:	45656361 6c62616e 20292865 73726966     aceEnable() firs
-    a778:	00002174 454c4449 00000000 00005444     t!..IDLE....DT..
-    a788:	00005444 00005444 000053bc 00005486     DT..DT...S...T..
-    a798:	000054a0 00005444 00005444 000053bc     .T..DT..DT...S..
-    a7a8:	00005486 20726d54 00637653 42000800     .T..Tmr Svc....B
-    a7b8:	42000c00 42001000 42001400 42001800     ...B...B...B...B
-    a7c8:	42001c00 00006432 0000642e 0000642e     ...B2d...d...d..
-    a7d8:	00006494 00006494 00006446 00006438     .d...d..Fd..8d..
-    a7e8:	0000644c 00006482 000065c0 000065a0     Ld...d...e...e..
-    a7f8:	000065a0 0000662c 000065b2 000065ce     .e..,f...e...e..
-    a808:	000065a4 000065dc 0000661c              .e...e...f..
+00009afc <xHelpCommand>:
+    9afc:	00009ac4 00009acc 00001ab5 00000000     ................
+    9b0c:	00001ebc 00001eb4 00001eb8 00001ed4     ................
+    9b1c:	00001eb0 00001ec0 00001ec4 00001ec8     ................
+    9b2c:	00001ecc 20746f4e 756f6e65 54206867     ....Not enough T
+    9b3c:	204b5341 646e6168 2073656c 6e69202d     ASK handles - in
+    9b4c:	61657263 54206573 435f4352 4e5f4746     crease TRC_CFG_N
+    9b5c:	4b534154 206e6920 53637274 7370616e     TASK in trcSnaps
+    9b6c:	43746f68 69666e6f 00682e67 20746f4e     hotConfig.h.Not 
+    9b7c:	756f6e65 49206867 68205253 6c646e61     enough ISR handl
+    9b8c:	2d207365 636e6920 73616572 52542065     es - increase TR
+    9b9c:	46435f43 494e5f47 69205253 7274206e     C_CFG_NISR in tr
+    9bac:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
+    9bbc:	00000068 20746f4e 756f6e65 53206867     h...Not enough S
+    9bcc:	50414d45 45524f48 6e616820 73656c64     EMAPHORE handles
+    9bdc:	69202d20 6572636e 20657361 5f435254      - increase TRC_
+    9bec:	5f474643 4d45534e 4f485041 69204552     CFG_NSEMAPHORE i
+    9bfc:	7274206e 616e5363 6f687370 6e6f4374     n trcSnapshotCon
+    9c0c:	2e676966 00000068 20746f4e 756f6e65     fig.h...Not enou
+    9c1c:	4d206867 58455455 6e616820 73656c64     gh MUTEX handles
+    9c2c:	69202d20 6572636e 20657361 5f435254      - increase TRC_
+    9c3c:	5f474643 54554d4e 69205845 7274206e     CFG_NMUTEX in tr
+    9c4c:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
+    9c5c:	00000068 20746f4e 756f6e65 51206867     h...Not enough Q
+    9c6c:	45554555 6e616820 73656c64 69202d20     UEUE handles - i
+    9c7c:	6572636e 20657361 5f435254 5f474643     ncrease TRC_CFG_
+    9c8c:	4555514e 69204555 7274206e 616e5363     NQUEUE in trcSna
+    9c9c:	6f687370 6e6f4374 2e676966 00000068     pshotConfig.h...
+    9cac:	20746f4e 756f6e65 54206867 52454d49     Not enough TIMER
+    9cbc:	6e616820 73656c64 69202d20 6572636e      handles - incre
+    9ccc:	20657361 5f435254 5f474643 4d49544e     ase TRC_CFG_NTIM
+    9cdc:	69205245 7274206e 616e5363 6f687370     ER in trcSnapsho
+    9cec:	6e6f4374 2e676966 00000068 20746f4e     tConfig.h...Not 
+    9cfc:	756f6e65 45206867 544e4556 554f5247     enough EVENTGROU
+    9d0c:	61682050 656c646e 202d2073 72636e69     P handles - incr
+    9d1c:	65736165 43525420 4746435f 56454e5f     ease TRC_CFG_NEV
+    9d2c:	47544e45 50554f52 206e6920 53637274     ENTGROUP in trcS
+    9d3c:	7370616e 43746f68 69666e6f 00682e67     napshotConfig.h.
+    9d4c:	20746f4e 756f6e65 53206867 41455254     Not enough STREA
+    9d5c:	4655424d 20524546 646e6168 2073656c     MBUFFER handles 
+    9d6c:	6e69202d 61657263 54206573 435f4352     - increase TRC_C
+    9d7c:	4e5f4746 45525453 55424d41 52454646     FG_NSTREAMBUFFER
+    9d8c:	206e6920 53637274 7370616e 43746f68      in trcSnapshotC
+    9d9c:	69666e6f 00682e67 20746f4e 756f6e65     onfig.h.Not enou
+    9dac:	4d206867 41535345 55424547 52454646     gh MESSAGEBUFFER
+    9dbc:	6e616820 73656c64 69202d20 6572636e      handles - incre
+    9dcc:	20657361 5f435254 5f474643 53454d4e     ase TRC_CFG_NMES
+    9ddc:	45474153 46465542 69205245 7274206e     SAGEBUFFER in tr
+    9dec:	616e5363 6f687370 6e6f4374 2e676966     cSnapshotConfig.
+    9dfc:	00000068 547a7370 65636172 45746547     h...pszTraceGetE
+    9e0c:	726f7272 646e6148 3a73656c 766e4920     rrorHandles: Inv
+    9e1c:	64696c61 6a626f20 63746365 7373616c     alid objectclass
+    9e2c:	00000021 61725476 6e456563 656c6261     !...vTraceEnable
+    9e3c:	43525428 4154535f 415f5452 54494157     (TRC_START_AWAIT
+    9e4c:	534f485f 6e202954 6120746f 776f6c6c     _HOST) not allow
+    9e5c:	69206465 6e53206e 68737061 6d20746f     ed in Snapshot m
+    9e6c:	0065646f 78656e55 74636570 61206465     ode.Unexpected a
+    9e7c:	6d756772 20746e65 76206f74 63617254     rgument to vTrac
+    9e8c:	616e4565 20656c62 616e7328 6f687370     eEnable (snapsho
+    9e9c:	6f6d2074 00296564 43415254 53415f45     t mode).TRACE_AS
+    9eac:	54524553 7270203a 65684376 61446b63     SERT: prvCheckDa
+    9ebc:	6f546174 764f6542 72777265 65747469     taToBeOverwritte
+    9ecc:	726f466e 746c754d 746e4569 76457972     nForMultiEntryEv
+    9edc:	73746e65 6f6e203a 746e4566 73656972     ents: nofEntries
+    9eec:	68436f54 206b6365 30203d3d 00000000     ToCheck == 0....
+    9efc:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    9f0c:	61725476 65476563 53544474 6e49203a     vTraceGetDTS: In
+    9f1c:	696c6176 61762064 2065756c 20726f66     valid value for 
+    9f2c:	61726170 616d5f6d 53544478 00000000     param_maxDTS....
+    9f3c:	20646142 61726170 616d5f6d 53544478     Bad param_maxDTS
+    9f4c:	206e6920 54767270 65636172 44746547      in prvTraceGetD
+    9f5c:	00005354 43415254 53415f45 54524553     TS..TRACE_ASSERT
+    9f6c:	7270203a 61725476 65476563 6a624f74     : prvTraceGetObj
+    9f7c:	48746365 6c646e61 49203a65 6c61766e     ectHandle: Inval
+    9f8c:	76206469 65756c61 726f6620 6a626f20     id value for obj
+    9f9c:	63746365 7373616c 00000000 43415254     ectclass....TRAC
+    9fac:	53415f45 54524553 7270203a 61725476     E_ASSERT: prvTra
+    9fbc:	65476563 72615074 203a6d61 61766e49     ceGetParam: Inva
+    9fcc:	2064696c 756c6176 6f662065 61702072     lid value for pa
+    9fdc:	5f6d6172 0078616d 43415254 53415f45     ram_max.TRACE_AS
+    9fec:	54524553 7270203a 61725476 65476563     SERT: prvTraceGe
+    9ffc:	69725074 7469726f 6f725079 74726570     tPriorityPropert
+    a00c:	6f203a79 63656a62 616c6374 3e207373     y: objectclass >
+    a01c:	5254203d 5f454341 414c434e 53455353     = TRACE_NCLASSES
+    a02c:	00000000 43415254 53415f45 54524553     ....TRACE_ASSERT
+    a03c:	7270203a 61725476 65476563 69725074     : prvTraceGetPri
+    a04c:	7469726f 6f725079 74726570 49203a79     orityProperty: I
+    a05c:	6c61766e 76206469 65756c61 726f6620     nvalid value for
+    a06c:	00646920 63617254 65522065 64726f63      id.Trace Record
+    a07c:	44207265 006f6d65 65747441 2074706d     er Demo.Attempt 
+    a08c:	69206f74 7865646e 74756f20 65646973     to index outside
+    a09c:	65766520 6220746e 65666675 00002172      event buffer!..
+    a0ac:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a0bc:	61725476 65536563 6a624f74 4e746365     vTraceSetObjectN
+    a0cc:	3a656d61 6d616e20 3d3d2065 4c554e20     ame: name == NUL
+    a0dc:	0000004c 656c6c49 206c6167 656a626f     L...Illegal obje
+    a0ec:	63207463 7373616c 206e6920 54767270     ct class in prvT
+    a0fc:	65636172 4f746553 63656a62 6d614e74     raceSetObjectNam
+    a10c:	00000065 656c6c49 206c6167 646e6168     e...Illegal hand
+    a11c:	2820656c 69202930 7270206e 61725476     le (0) in prvTra
+    a12c:	65536563 6a624f74 4e746365 2e656d61     ceSetObjectName.
+    a13c:	00000000 43415254 53415f45 54524553     ....TRACE_ASSERT
+    a14c:	7270203a 61725476 65536563 6a624f74     : prvTraceSetObj
+    a15c:	53746365 65746174 626f203a 7463656a     ectState: object
+    a16c:	73616c63 3d3e2073 41525420 4e5f4543     class >= TRACE_N
+    a17c:	53414c43 00534553 43415254 53415f45     CLASSES.TRACE_AS
+    a18c:	54524553 7270203a 61725476 65536563     SERT: prvTraceSe
+    a19c:	6a624f74 53746365 65746174 6e49203a     tObjectState: In
+    a1ac:	696c6176 61762064 2065756c 20726f66     valid value for 
+    a1bc:	00006469 43415254 53415f45 54524553     id..TRACE_ASSERT
+    a1cc:	7270203a 61725476 65536563 69725074     : prvTraceSetPri
+    a1dc:	7469726f 6f725079 74726570 6f203a79     orityProperty: o
+    a1ec:	63656a62 616c6374 3e207373 5254203d     bjectclass >= TR
+    a1fc:	5f454341 414c434e 53455353 00000000     ACE_NCLASSES....
+    a20c:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a21c:	61725476 65536563 69725074 7469726f     vTraceSetPriorit
+    a22c:	6f725079 74726570 49203a79 6c61766e     yProperty: Inval
+    a23c:	76206469 65756c61 726f6620 00646920     id value for id.
+    a24c:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a25c:	61725476 65536563 73615474 736e496b     vTraceSetTaskIns
+    a26c:	636e6174 6e694665 65687369 49203a64     tanceFinished: I
+    a27c:	6c61766e 76206469 65756c61 726f6620     nvalid value for
+    a28c:	6e616820 00656c64 43415254 53415f45      handle.TRACE_AS
+    a29c:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a2ac:	4b65726f 656e7265 6c61436c 65203a6c     oreKernelCall: e
+    a2bc:	65646f63 203d3e20 46467830 00000000     code >= 0xFF....
+    a2cc:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a2dc:	61725476 74536563 4b65726f 656e7265     vTraceStoreKerne
+    a2ec:	6c61436c 6f203a6c 63656a62 616c4374     lCall: objectCla
+    a2fc:	3e207373 5254203d 5f454341 414c434e     ss >= TRACE_NCLA
+    a30c:	53455353 00000000 43415254 53415f45     SSES....TRACE_AS
+    a31c:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a32c:	4b65726f 656e7265 6c61436c 49203a6c     oreKernelCall: I
+    a33c:	6c61766e 76206469 65756c61 726f6620     nvalid value for
+    a34c:	6a626f20 4e746365 65626d75 00000072      objectNumber...
+    a35c:	6f636552 72656472 73756220 202d2079     Recorder busy - 
+    a36c:	68676968 69727020 7469726f 53492079     high priority IS
+    a37c:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
+    a38c:	29322820 00000000 43415254 53415f45      (2)....TRACE_AS
+    a39c:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a3ac:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
+    a3bc:	6d754e68 63697265 61726150 6c6e4f6d     hNumericParamOnl
+    a3cc:	49203a79 6c61766e 76206469 65756c61     y: Invalid value
+    a3dc:	726f6620 74766520 65646f63 00000000      for evtcode....
+    a3ec:	6f636552 72656472 73756220 202d2079     Recorder busy - 
+    a3fc:	68676968 69727020 7469726f 53492079     high priority IS
+    a40c:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
+    a41c:	29342820 00000000 43415254 53415f45      (4)....TRACE_AS
+    a42c:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a43c:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
+    a44c:	72615068 203a6d61 63747665 2065646f     hParam: evtcode 
+    a45c:	30203d3e 00464678 43415254 53415f45     >= 0xFF.TRACE_AS
+    a46c:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a47c:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
+    a48c:	72615068 203a6d61 656a626f 6c437463     hParam: objectCl
+    a49c:	20737361 54203d3e 45434152 4c434e5f     ass >= TRACE_NCL
+    a4ac:	45535341 00000053 43415254 53415f45     ASSES...TRACE_AS
+    a4bc:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a4cc:	4b65726f 656e7265 6c61436c 7469576c     oreKernelCallWit
+    a4dc:	72615068 203a6d61 61766e49 2064696c     hParam: Invalid 
+    a4ec:	756c6176 6f662065 626f2072 7463656a     value for object
+    a4fc:	626d754e 00007265 6f636552 72656472     Number..Recorder
+    a50c:	73756220 202d2079 68676968 69727020      busy - high pri
+    a51c:	7469726f 53492079 73752052 20676e69     ority ISR using 
+    a52c:	63737973 3f6c6c61 29332820 00000000     syscall? (3)....
+    a53c:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a54c:	61725476 74536563 5465726f 526b7361     vTraceStoreTaskR
+    a55c:	79646165 6e49203a 696c6176 61762064     eady: Invalid va
+    a56c:	2065756c 20726f66 646e6168 0000656c     lue for handle..
+    a57c:	6f636552 72656472 73756220 202d2079     Recorder busy - 
+    a58c:	68676968 69727020 7469726f 53492079     high priority IS
+    a59c:	73752052 20676e69 63737973 3f6c6c61     R using syscall?
+    a5ac:	29312820 00000000 43415254 53415f45      (1)....TRACE_AS
+    a5bc:	54524553 7270203a 61725476 74536563     SERT: prvTraceSt
+    a5cc:	5465726f 736b7361 63746977 49203a68     oreTaskswitch: I
+    a5dc:	6c61766e 76206469 65756c61 726f6620     nvalid value for
+    a5ec:	73617420 61685f6b 656c646e 00000000      task_handle....
+    a5fc:	43415254 53415f45 54524553 7270203a     TRACE_ASSERT: pr
+    a60c:	61725476 65476563 6a624f74 53746365     vTraceGetObjectS
+    a61c:	65746174 6e49203a 696c6176 61762064     tate: Invalid va
+    a62c:	2065756c 20726f66 00006469 43415254     lue for id..TRAC
+    a63c:	53415f45 54524553 6975203a 65646e49     E_ASSERT: uiInde
+    a64c:	4f664f78 63656a62 49203a74 6c61766e     xOfObject: Inval
+    a65c:	76206469 65756c61 726f6620 6a626f20     id value for obj
+    a66c:	63746365 7373616c 00000000 43415254     ectclass....TRAC
+    a67c:	53415f45 54524553 6975203a 65646e49     E_ASSERT: uiInde
+    a68c:	4f664f78 63656a62 49203a74 6c61766e     xOfObject: Inval
+    a69c:	76206469 65756c61 726f6620 6a626f20     id value for obj
+    a6ac:	68746365 6c646e61 00000065 43415254     ecthandle...TRAC
+    a6bc:	53415f45 54524553 6552203a 64726f63     E_ASSERT: Record
+    a6cc:	6e207265 6920746f 6974696e 7a696c61     er not initializ
+    a6dc:	202e6465 20657355 61725476 6e456563     ed. Use vTraceEn
+    a6ec:	656c6261 69202928 6574736e 00216461     able() instead!.
+    a6fc:	61747328 70757472 00000029 43415254     (startup)...TRAC
+    a70c:	53415f45 54524553 5478203a 65636172     E_ASSERT: xTrace
+    a71c:	69676552 72657473 69727453 203a676e     RegisterString: 
+    a72c:	6562616c 3d3d206c 4c554e20 0000004c     label == NULL...
+    a73c:	43415254 53415f45 54524553 6552203a     TRACE_ASSERT: Re
+    a74c:	64726f63 6e207265 6920746f 6974696e     corder not initi
+    a75c:	7a696c61 202c6465 6c6c6163 72547620     alized, call vTr
+    a76c:	45656361 6c62616e 20292865 73726966     aceEnable() firs
+    a77c:	00002174 454c4449 00000000 00005444     t!..IDLE....DT..
+    a78c:	00005444 00005444 000053bc 00005486     DT..DT...S...T..
+    a79c:	000054a0 00005444 00005444 000053bc     .T..DT..DT...S..
+    a7ac:	00005486 20726d54 00637653 42000800     .T..Tmr Svc....B
+    a7bc:	42000c00 42001000 42001400 42001800     ...B...B...B...B
+    a7cc:	42001c00 00006432 0000642e 0000642e     ...B2d...d...d..
+    a7dc:	00006494 00006494 00006446 00006438     .d...d..Fd..8d..
+    a7ec:	0000644c 00006482 000065c0 000065a0     Ld...d...e...e..
+    a7fc:	000065a0 0000662c 000065b2 000065ce     .e..,f...e...e..
+    a80c:	000065a4 000065dc 0000661c              .e...e...f..
 
-0000a814 <_tcc_intflag>:
-    a814:	00000001 00000002 00000004 00000008     ................
-    a824:	00001000 00002000 00004000 00008000     ..... ...@......
-    a834:	00010000 00020000 00040000 00080000     ................
-    a844:	0a0d0a0d 2d2d2d2d 4553452d 20363135     ....-----ESE516 
-    a854:	6e69614d 6f725020 6d617267 2d2d2d2d     Main Program----
-    a864:	000a0d2d 0a0d0a0d 74696e49 696c6169     -.......Initiali
-    a874:	4820657a 2e2e2e57 00000a0d 6f727245     ze HW.......Erro
-    a884:	6e692072 61697469 697a696c 4920676e     r initializing I
-    a894:	44204332 65766972 0a0d2172 00000000     2C Driver!......
-    a8a4:	74696e49 696c6169 2064657a 20433249     Initialized I2C 
-    a8b4:	76697244 0d217265 0000000a 74696e49     Driver!.....Init
-    a8c4:	696c6169 2064657a 73656553 0d217761     ialized Seesaw!.
-    a8d4:	0000000a 6e6e6143 6620746f 20646e69     ....Cannot find 
-    a8e4:	21554d49 00000a0d 20554d49 6e756f66     IMU!....IMU foun
-    a8f4:	0a0d2164 00000000 20554d49 74696e69     d!......IMU init
-    a904:	696c6169 2164657a 00000a0d 6c756f43     ialized!....Coul
-    a914:	6f6e2064 6e692074 61697469 657a696c     d not initialize
-    a924:	554d4920 00000a0d 70616548 66656220      IMU....Heap bef
-    a934:	2065726f 72617473 676e6974 73617420     ore starting tas
-    a944:	203a736b 0a0d6425 00000000 5f494c43     ks: %d......CLI_
-    a954:	4b534154 00000000 3a525245 494c4320     TASK....ERR: CLI
-    a964:	73617420 6f63206b 20646c75 20746f6e      task could not 
-    a974:	69206562 6974696e 7a696c61 0d216465     be initialized!.
-    a984:	0000000a 70616548 74666120 73207265     ....Heap after s
-    a994:	74726174 20676e69 3a494c43 0d642520     tarting CLI: %d.
-    a9a4:	0000000a 54204955 006b7361 3a525245     ....UI Task.ERR:
-    a9b4:	20495520 6b736174 756f6320 6e20646c      UI task could n
-    a9c4:	6220746f 6e692065 61697469 657a696c     ot be initialize
-    a9d4:	0a0d2164 00000000 70616548 74666120     d!......Heap aft
-    a9e4:	73207265 74726174 20676e69 54204955     er starting UI T
-    a9f4:	3a6b7361 0d642520 0000000a 6f727245     ask: %d.....Erro
-    aa04:	6e6f2072 6d656d20 2079726f 6f6c6c61     r on memory allo
-    aa14:	69746163 6f206e6f 5246206e 54524545     cation on FREERT
-    aa24:	0d21534f 0000000a 6f727245 6e6f2072     OS!.....Error on
-    aa34:	61747320 6f206b63 66726576 20776f6c      stack overflow 
-    aa44:	46206e6f 52454552 21534f54 00000a0d     on FREERTOS!....
-    aa54:	000071e8 00007138 00007138 00007136     .q..8q..8q..6q..
-    aa64:	000071da 000071da 000071d0 00007136     .q...q...q..6q..
-    aa74:	000071da 000071d0 000071da 00007136     .q...q...q..6q..
-    aa84:	000071e0 000071e0 000071e0 00007270     .q...q...q..pr..
-    aa94:	00007bf4 00007bd6 00007b90 00007aae     .{...{...{...z..
-    aaa4:	00007b90 00007bc8 00007b90 00007aae     .{...{...{...z..
-    aab4:	00007bd6 00007bd6 00007bc8 00007aae     .{...{...{...z..
-    aac4:	00007aa6 00007aa6 00007aa6 00007e0c     .z...z...z...~..
-    aad4:	00008254 00008114 00008114 00008110     T...............
-    aae4:	0000822c 0000822c 0000821e 00008110     ,...,...........
-    aaf4:	0000822c 0000821e 0000822c 00008110     ,.......,.......
-    ab04:	00008234 00008234 00008234 00008438     4...4...4...8...
-    ab14:	4f500043 00584953 2d23002e 00202b30     C.POSIX...#-0+ .
-    ab24:	004c6c68 45676665 30004746 34333231     hlL.efgEFG.01234
-    ab34:	38373635 43424139 00464544 33323130     56789ABCDEF.0123
-    ab44:	37363534 62613938 66656463 20200000              456789abcdef.
+0000a818 <_tcc_intflag>:
+    a818:	00000001 00000002 00000004 00000008     ................
+    a828:	00001000 00002000 00004000 00008000     ..... ...@......
+    a838:	00010000 00020000 00040000 00080000     ................
+    a848:	0a0d0a0d 2d2d2d2d 4553452d 20363135     ....-----ESE516 
+    a858:	6e69614d 6f725020 6d617267 2d2d2d2d     Main Program----
+    a868:	000a0d2d 0a0d0a0d 74696e49 696c6169     -.......Initiali
+    a878:	4820657a 2e2e2e57 00000a0d 6f727245     ze HW.......Erro
+    a888:	6e692072 61697469 697a696c 4920676e     r initializing I
+    a898:	44204332 65766972 0a0d2172 00000000     2C Driver!......
+    a8a8:	74696e49 696c6169 2064657a 20433249     Initialized I2C 
+    a8b8:	76697244 0d217265 0000000a 74696e49     Driver!.....Init
+    a8c8:	696c6169 2064657a 73656553 0d217761     ialized Seesaw!.
+    a8d8:	0000000a 6e6e6143 6620746f 20646e69     ....Cannot find 
+    a8e8:	21554d49 00000a0d 20554d49 6e756f66     IMU!....IMU foun
+    a8f8:	0a0d2164 00000000 20554d49 74696e69     d!......IMU init
+    a908:	696c6169 2164657a 00000a0d 6c756f43     ialized!....Coul
+    a918:	6f6e2064 6e692074 61697469 657a696c     d not initialize
+    a928:	554d4920 00000a0d 70616548 66656220      IMU....Heap bef
+    a938:	2065726f 72617473 676e6974 73617420     ore starting tas
+    a948:	203a736b 0a0d6425 00000000 5f494c43     ks: %d......CLI_
+    a958:	4b534154 00000000 3a525245 494c4320     TASK....ERR: CLI
+    a968:	73617420 6f63206b 20646c75 20746f6e      task could not 
+    a978:	69206562 6974696e 7a696c61 0d216465     be initialized!.
+    a988:	0000000a 70616548 74666120 73207265     ....Heap after s
+    a998:	74726174 20676e69 3a494c43 0d642520     tarting CLI: %d.
+    a9a8:	0000000a 54204955 006b7361 3a525245     ....UI Task.ERR:
+    a9b8:	20495520 6b736174 756f6320 6e20646c      UI task could n
+    a9c8:	6220746f 6e692065 61697469 657a696c     ot be initialize
+    a9d8:	0a0d2164 00000000 70616548 74666120     d!......Heap aft
+    a9e8:	73207265 74726174 20676e69 54204955     er starting UI T
+    a9f8:	3a6b7361 0d642520 0000000a 6f727245     ask: %d.....Erro
+    aa08:	6e6f2072 6d656d20 2079726f 6f6c6c61     r on memory allo
+    aa18:	69746163 6f206e6f 5246206e 54524545     cation on FREERT
+    aa28:	0d21534f 0000000a 6f727245 6e6f2072     OS!.....Error on
+    aa38:	61747320 6f206b63 66726576 20776f6c      stack overflow 
+    aa48:	46206e6f 52454552 21534f54 00000a0d     on FREERTOS!....
+    aa58:	000071e8 00007138 00007138 00007136     .q..8q..8q..6q..
+    aa68:	000071da 000071da 000071d0 00007136     .q...q...q..6q..
+    aa78:	000071da 000071d0 000071da 00007136     .q...q...q..6q..
+    aa88:	000071e0 000071e0 000071e0 00007270     .q...q...q..pr..
+    aa98:	00007bf4 00007bd6 00007b90 00007aae     .{...{...{...z..
+    aaa8:	00007b90 00007bc8 00007b90 00007aae     .{...{...{...z..
+    aab8:	00007bd6 00007bd6 00007bc8 00007aae     .{...{...{...z..
+    aac8:	00007aa6 00007aa6 00007aa6 00007e0c     .z...z...z...~..
+    aad8:	00008254 00008114 00008114 00008110     T...............
+    aae8:	0000822c 0000822c 0000821e 00008110     ,...,...........
+    aaf8:	0000822c 0000821e 0000822c 00008110     ,.......,.......
+    ab08:	00008234 00008234 00008234 00008438     4...4...4...8...
+    ab18:	4f500043 00584953 2d23002e 00202b30     C.POSIX...#-0+ .
+    ab28:	004c6c68 45676665 30004746 34333231     hlL.efgEFG.01234
+    ab38:	38373635 43424139 00464544 33323130     56789ABCDEF.0123
+    ab48:	37363534 62613938 66656463 20200000              456789abcdef.
 
-0000ab51 <_ctype_>:
-    ab51:	20202000 20202020 28282020 20282828     .         ((((( 
-    ab61:	20202020 20202020 20202020 20202020                     
-    ab71:	10108820 10101010 10101010 10101010      ...............
-    ab81:	04040410 04040404 10040404 10101010     ................
-    ab91:	41411010 41414141 01010101 01010101     ..AAAAAA........
-    aba1:	01010101 01010101 01010101 10101010     ................
-    abb1:	42421010 42424242 02020202 02020202     ..BBBBBB........
-    abc1:	02020202 02020202 02020202 10101010     ................
-    abd1:	00000020 00000000 00000000 00000000      ...............
+0000ab55 <_ctype_>:
+    ab55:	20202000 20202020 28282020 20282828     .         ((((( 
+    ab65:	20202020 20202020 20202020 20202020                     
+    ab75:	10108820 10101010 10101010 10101010      ...............
+    ab85:	04040410 04040404 10040404 10101010     ................
+    ab95:	41411010 41414141 01010101 01010101     ..AAAAAA........
+    aba5:	01010101 01010101 01010101 10101010     ................
+    abb5:	42421010 42424242 02020202 02020202     ..BBBBBB........
+    abc5:	02020202 02020202 02020202 10101010     ................
+    abd5:	00000020 00000000 00000000 00000000      ...............
 	...
 
+<<<<<<< HEAD
 0000ac54 <_init>:
     ac54:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
     ac56:	46c0      	nop			; (mov r8, r8)
@@ -28680,3 +28885,26 @@ SerialConsoleWriteString("Error on stack overflow on FREERTOS!\r\n");
 0000aca0 <__fini_array_start>:
     aca0:	000000b5 	.word	0x000000b5
 >>>>>>> Stashed changes
+=======
+0000ac58 <_init>:
+    ac58:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    ac5a:	46c0      	nop			; (mov r8, r8)
+    ac5c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    ac5e:	bc08      	pop	{r3}
+    ac60:	469e      	mov	lr, r3
+    ac62:	4770      	bx	lr
+
+0000ac64 <__init_array_start>:
+    ac64:	000000dd 	.word	0x000000dd
+
+0000ac68 <_fini>:
+    ac68:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    ac6a:	46c0      	nop			; (mov r8, r8)
+    ac6c:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    ac6e:	bc08      	pop	{r3}
+    ac70:	469e      	mov	lr, r3
+    ac72:	4770      	bx	lr
+
+0000ac74 <__fini_array_start>:
+    ac74:	000000b5 	.word	0x000000b5
+>>>>>>> parent of 79ffb95 (comment)

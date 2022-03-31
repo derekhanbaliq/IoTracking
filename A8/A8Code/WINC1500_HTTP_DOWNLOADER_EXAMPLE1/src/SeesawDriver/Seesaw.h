@@ -102,8 +102,7 @@
 #define NEO_KHZ400 0x0100 // 400 KHz datastream
 
 
-//#define SEESAW_HW_ID_CODE 0x55 ///< seesaw HW ID code
-#define SEESAW_HW_ID_CODE 0x2E
+#define SEESAW_HW_ID_CODE 0x55 ///< seesaw HW ID code
 
 enum {
   SEESAW_STATUS_BASE = 0x00,
