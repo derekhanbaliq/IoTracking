@@ -285,8 +285,13 @@ int32_t I2cReadData(I2C_Data *data){
  *****************************************************************************/
 int32_t I2cFreeMutex(void){
 	int32_t error = ERROR_NONE;
-	
-	//students to fill out. Check what the function has to return
+
+	if(pdTRUE != xSemaphoreGive(sensorI2cMutexHandle))
+		{
+			error = ERROR_NOT_INITIALIZED;
+		}
+	return error;
+	/*//students to fill out. Check what the function has to return
 	
 	if(I2cSensorBusState.i2cState == I2C_BUS_READY)
 	{
@@ -305,7 +310,7 @@ int32_t I2cFreeMutex(void){
 	}
 	//snprintf(checkerPrint, 64, "Our error inside I2cFreeMutex is: %d\r\n", error);
 	//SerialConsoleWriteString(checkerPrint);
-	return error;
+	return error;*/
 }
 
 
@@ -320,15 +325,20 @@ int32_t I2cFreeMutex(void){
 int32_t I2cGetMutex(TickType_t waitTime){
 	
 	int32_t error = ERROR_NONE;
-	
-	//students to fill out. Check what the function has to return
+	if(xSemaphoreTake(sensorI2cMutexHandle, waitTime) != pdTRUE)
+		{
+			error = ERROR_NOT_READY;
+		}
+	return error;
+	/*//students to fill out. Check what the function has to return
 	
 	if(xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY) != pdTRUE)
 	{
 		error = ERROR_NOT_READY;
 	}
 	
-	return error;
+	return error;*/
+	
 }
 
 static int32_t I2cGetSemaphoreHandle(SemaphoreHandle_t *handle){
