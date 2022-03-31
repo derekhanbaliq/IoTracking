@@ -286,7 +286,7 @@ int32_t I2cReadData(I2C_Data *data){
 int32_t I2cFreeMutex(void){
 	int32_t error = ERROR_NONE;
 
-	if(pdTRUE != xSemaphoreGive(sensorI2cMutexHandle))
+	if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
 		{
 			error = ERROR_NOT_INITIALIZED;
 		}
