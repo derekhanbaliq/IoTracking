@@ -13,6 +13,9 @@
 #include "CliThread.h"
 #include "IMU\lsm6dso_reg.h"
 #include "SeesawDriver/Seesaw.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 /******************************************************************************
 * Defines
@@ -337,7 +340,13 @@ BaseType_t xCliClearTerminalScreen( char *pcWriteBuffer,size_t xWriteBufferLen,c
 //Example CLI Command. Resets system.
 BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
+	for (int i = 0; i<=15; i++) {
+		SeesawSetLed(i, 0, 0, 0);
+		SeesawOrderLedUpdate();
+	}
 	system_reset();
+	//remove all on LEDs
+	
 	return pdFALSE;
 }
 
@@ -355,16 +364,71 @@ Example 3
 				for more information on how to use the FreeRTOS CLI.
 
 *****************************************************************************/
+char stringCheckbuffer[64]; //command message holder
+char checkerprint[64]; //error message holder
+//init variable to hold our parameters
+int ledID;
+int Rval;
+int Gval;
+int Bval;
+//int array to hold the ints from the command
+int arr[10];
 BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
-	snprintf(pcWriteBuffer,xWriteBufferLen, "Students to fill out!");
-	SerialConsoleWriteString(pcWriteBuffer);
-	snprintf(pcWriteBuffer, xWriteBufferLen, "the thing is: %s \r\n", pcCommandString);
-	SerialConsoleWriteString(pcWriteBuffer);
-	//Check code SeesawSetLed and SeesawSetLed
-	//How do you get parameters? check link in comments!
-	//Check that the input is sanitized: Key between 0-15, RGB between 0-255. Print if there is an error!
-	//return pdFalse to tell the FreeRTOS CLI your call is done and does not need to call again.
-	//This function expects 4 arguments inside pcCommandString: key, R, G, B.
+	//snprintf(pcWriteBuffer,xWriteBufferLen, "Students to fill out!");
+	//SerialConsoleWriteString(pcWriteBuffer);
+	//add string to check buffer to get commands
+	snprintf(stringCheckbuffer, xWriteBufferLen, "%s\r\n", pcCommandString);
+	SerialConsoleWriteString(stringCheckbuffer);
+
+	char *p = stringCheckbuffer;
+	int i=0;
+	//loop through char p to get all ints
+	while (*p) {
+		if (isdigit(*p)) {
+			//extract int from string
+			int val = strtol(p, &p, 10);
+			arr[i] = val;
+			i++;
+			snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
+			SerialConsoleWriteString(checkerprint);
+			} 
+		else {
+			p++;
+			snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
+			SerialConsoleWriteString(checkerprint);
+		}
+	}
+	//save extracted ints into respective vars
+	ledID = arr[0];
+	Rval = arr[1];
+	Gval = arr[2];
+	Bval = arr[3];
+	snprintf(checkerprint,64, "the saved param is: %i %i %i %i\r\n", ledID, Rval, Gval, Bval);
+	SerialConsoleWriteString(checkerprint);
+	//do checker to see if any of the ints are out of bounds
+	if (ledID < 0 && ledID > 15) {
+		snprintf(pcWriteBuffer,xWriteBufferLen, "LED ID (int) out of bounds! Need to be 0 to 15. \r\n");
+		SerialConsoleWriteString(pcWriteBuffer);
+	}
+	else if (Rval < 0 && Rval > 255) {
+		snprintf(pcWriteBuffer,xWriteBufferLen, "R value (int) out of bounds! Need to be 0 to 255. \r\n");
+		SerialConsoleWriteString(pcWriteBuffer);
+	}
+	else if (Gval < 0 && Gval > 255) {
+		snprintf(pcWriteBuffer,xWriteBufferLen, "G value (int) out of bounds! Need to be 0 to 255. \r\n");
+		SerialConsoleWriteString(pcWriteBuffer);
+	}
+	else if (Bval < 0 && Bval > 255) {
+		snprintf(pcWriteBuffer,xWriteBufferLen, "B value (int) out of bounds! Need to be 0 to 255. \r\n");
+		SerialConsoleWriteString(pcWriteBuffer);
+	}
+	//if not out of bounds, set the LED accordingly
+	else {
+		SeesawSetLed(ledID, Rval, Gval, Bval);
+		SeesawOrderLedUpdate();
+	}
+
+
 	return pdFALSE;
 }

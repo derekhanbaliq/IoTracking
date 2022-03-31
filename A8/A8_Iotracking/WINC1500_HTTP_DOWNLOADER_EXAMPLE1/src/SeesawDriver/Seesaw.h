@@ -270,4 +270,6 @@ int InitializeSeesaw(void);
 uint8_t SeesawGetKeypadCount(void);
 int32_t SeesawReadKeypad(uint8_t *buffer, uint8_t count);
 int32_t SeesawActivateKey(uint8_t key, uint8_t edge, bool enable);
+int32_t SeesawSetLed(uint8_t key, uint8_t red, uint8_t green, uint8_t blue);
+int32_t SeesawOrderLedUpdate(void);
 #endif

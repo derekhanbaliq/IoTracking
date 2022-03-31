@@ -214,7 +214,8 @@ src/CliThread/CliThread.d src/CliThread/CliThread.o: \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h \
  ../src/IMU\lsm6dso_reg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
- ../src/SeesawDriver/Seesaw.h ../src/I2cDriver/I2cDriver.h
+ ../src/SeesawDriver/Seesaw.h ../src/I2cDriver/I2cDriver.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h
 
 ../src/CliThread/CliThread.h:
 
@@ -665,3 +666,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/SeesawDriver/Seesaw.h:
 
 ../src/I2cDriver/I2cDriver.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\ctype.h:
