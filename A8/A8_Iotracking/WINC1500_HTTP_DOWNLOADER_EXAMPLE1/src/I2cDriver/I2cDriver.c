@@ -462,8 +462,7 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	}
 
 	//---1. Get Semaphore Handle
-	error = 0;
-	I2cGetSemaphoreHandle(&semHandle);
+	error = 0;I2cGetSemaphoreHandle(&semHandle);
 	if(ERROR_NONE != error) 
 	{
 		goto exit;

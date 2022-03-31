@@ -24,6 +24,7 @@
 * Variables
 ******************************************************************************/
 I2C_Data seesawData; ///<Global variable to use for I2C communications with the Seesaw Device
+char seesawPrint[64];
 /******************************************************************************
 * Forward Declarations
 ******************************************************************************/
@@ -69,6 +70,8 @@ int InitializeSeesaw(void)
 	if(ERROR_NONE != error)
 	{
 		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
+		snprintf(seesawPrint, 64, "Our error inside seesaw is: %d\r\n", error);
+		SerialConsoleWriteString(seesawPrint);
 	}
 	else
 	{
