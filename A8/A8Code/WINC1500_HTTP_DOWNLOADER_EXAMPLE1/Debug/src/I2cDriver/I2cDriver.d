@@ -211,8 +211,7 @@ src/I2cDriver/I2cDriver.d src/I2cDriver/I2cDriver.o: \
  ../src/ASF/sam0/drivers/tc/tc_interrupt.h \
  ../src/ASF/sam0/drivers/tc/tc.h ../src/ASF/sam0/drivers/tcc/tcc.h \
  ../src/ASF/sam0/drivers/tcc/tcc_callback.h \
- ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/SerialConsole.h \
- ../src/SerialConsole/circular_buffer.h
+ ../src/ASF/sam0/drivers/tcc/tcc.h
 
 ../src/I2cDriver/I2cDriver.h:
 
@@ -649,7 +648,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-no
 ../src/ASF/sam0/drivers/tcc/tcc_callback.h:
 
 ../src/ASF/sam0/drivers/tcc/tcc.h:
-
-../src/SerialConsole/SerialConsole.h:
-
-../src/SerialConsole/circular_buffer.h:

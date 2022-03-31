@@ -11,7 +11,6 @@
 * Includes
 ******************************************************************************/
 #include "I2cDriver.h"
-#include "SerialConsole.h"
 
 /******************************************************************************
 * Defines
@@ -290,12 +289,16 @@ int32_t I2cFreeMutex(void){
 	
 	if(I2cSensorBusState.i2cState == I2C_BUS_READY)
 	{
+<<<<<<< HEAD
 		if(xSemaphoreGive(sensorI2cMutexHandle) != pdTRUE)
 		{
 			error = ERROR_FAILURE; //whatever - Derek
 			SerialConsoleWriteString("failed in semaphoregive");
 			SerialConsoleWriteString(error);
 		}
+=======
+		xSemaphoreGive(sensorI2cMutexHandle);
+>>>>>>> parent of 0346873 (Q1)
 	}
 	else
 	{
@@ -320,6 +323,8 @@ int32_t I2cGetMutex(TickType_t waitTime){
 	int32_t error = ERROR_NONE;
 	
 	//students to fill out. Check what the function has to return
+	
+	xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY);
 	
 	if(xSemaphoreTake(sensorI2cMutexHandle, portMAX_DELAY) != pdTRUE)
 	{
@@ -468,19 +473,13 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	}
 	
 	//---2. Initiate sending data
-	//I think the comment here is just copying directly from I2cWrite, useless
-
-	//---2. Wait for binary semaphore to tell us that we are done!
-	//I think the comment here is just copying directly from I2cWrite, useless
-	
-	//---6. Initiate Read data //TIP: SEE "I2cReadData", which is analogous to "I2cWriteData"
 	error = I2cReadData(data);
 	if (ERROR_NONE != error)
 	{
 		goto exitError0;
 	}
 
-	//---7. Wait for notification
+	//---2. Wait for binary semaphore to tell us that we are done!
 	if( xSemaphoreTake( semHandle, xMaxBlockTime ) == pdTRUE ){
 		/* The transmission ended as expected. We now delay until the I2C sensor is finished */
 		if(I2cGetTaskErrorStatus()){
@@ -498,6 +497,7 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 		goto exitError0;
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 	//---8. Release Mutex
@@ -518,12 +518,24 @@ int32_t I2cReadDataWait(I2C_Data *data, const TickType_t delay, const TickType_t
 	error |= I2cFreeMutex();
 	SerialConsoleWriteString("what's the deuce?\r\n");
 >>>>>>> parent of 79ffb95 (comment)
+=======
+	//---6. Initiate Read data //TIP: SEE "I2cReadData", which is analogous to "I2cWriteData"
+	error = I2cReadData(&data);
+
+	//---7. Wait for notification
+	
+	//---8. Release Mutex
+	error |= I2cFreeMutex();
+>>>>>>> parent of 0346873 (Q1)
 
 	exit:
 	return error;
 
 	exitError0:
 	error = I2cFreeMutex();
+
 	return error;
+
+	
 }
 
