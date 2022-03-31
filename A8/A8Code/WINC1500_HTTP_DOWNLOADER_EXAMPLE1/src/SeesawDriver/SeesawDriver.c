@@ -68,7 +68,7 @@ int InitializeSeesaw(void)
 
 	if(ERROR_NONE != error)
 	{
-		SerialConsoleWriteString("Error initializing Seesaw!\r\n");
+		SerialConsoleWriteString("Error initializing Seesaw!\r\n"); //here, error - Derek
 	}
 	else
 	{
