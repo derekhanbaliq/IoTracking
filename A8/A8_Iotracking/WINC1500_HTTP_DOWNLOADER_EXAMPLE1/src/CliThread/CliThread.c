@@ -358,6 +358,9 @@ Example 3
 BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
 	snprintf(pcWriteBuffer,xWriteBufferLen, "Students to fill out!");
+	SerialConsoleWriteString(pcWriteBuffer);
+	snprintf(pcWriteBuffer, xWriteBufferLen, "the thing is: %s \r\n", pcCommandString);
+	SerialConsoleWriteString(pcWriteBuffer);
 	//Check code SeesawSetLed and SeesawSetLed
 	//How do you get parameters? check link in comments!
 	//Check that the input is sanitized: Key between 0-15, RGB between 0-255. Print if there is an error!
