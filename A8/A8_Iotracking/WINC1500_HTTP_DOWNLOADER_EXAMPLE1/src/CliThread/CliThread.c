@@ -419,28 +419,23 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
 	if (ledID > 15) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "LED ID (int) out of bounds! Need to be 0 to 15. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
-		//return pdFALSE;
 	}
 	else if (Rval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "R value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
-		//return pdFALSE;
 	}
 	else if (Gval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "G value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
-		//return pdFALSE;
 	}
 	else if (Bval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "B value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
-		//return pdFALSE;
 	}
 	//if not out of bounds, set the LED accordingly
 	else {
 		SeesawSetLed(ledID, Rval, Gval, Bval);
 		SeesawOrderLedUpdate();
-		//return pdFALSE;
 	}
 
 
