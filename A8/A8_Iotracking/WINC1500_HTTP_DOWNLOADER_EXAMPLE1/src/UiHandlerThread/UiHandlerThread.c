@@ -100,7 +100,7 @@ void vUiHandlerTask( void *pvParameters )
 							uint8_t press = byte & 0b00000011; //get last 2 bits
 							
 							int real_num = NEO_TRELLIS_SEESAW_KEY(num);
-							snprintf(UiPrintBuf, 64, "real key number is: %04x\r\n", real_num);
+							snprintf(UiPrintBuf, 64, "real key number is: %i\r\n", real_num);
 							SerialConsoleWriteString(UiPrintBuf);
 							
 							if(press == 0b11)
