@@ -379,10 +379,19 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
 	//SerialConsoleWriteString(pcWriteBuffer);
 	//add string to check buffer to get commands
 	snprintf(stringCheckbuffer, xWriteBufferLen, "%s\r\n", pcCommandString);
-	SerialConsoleWriteString(stringCheckbuffer);
+	SerialConsoleWriteString(stringCheckbuffer); //to display it
 
 	char *p = stringCheckbuffer;
 	int i=0;
+	//loop through pcCommandString in stringCheckbuffer to check for negatives first
+	for (int j=0; j<30; j++) {
+		//snprintf(checkerprint,64, "current char is %s\r\n", stringCheckbuffer[j]);
+		//SerialConsoleWriteString(checkerprint);
+		if (stringCheckbuffer[j] == '-') {
+			SerialConsoleWriteString("Cannot have negative values!\r\n");
+			return pdFALSE;
+		}
+	}
 	//loop through char p to get all ints
 	while (*p) {
 		if (isdigit(*p)) {
@@ -390,13 +399,13 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
 			int val = strtol(p, &p, 10);
 			arr[i] = val;
 			i++;
-			snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
-			SerialConsoleWriteString(checkerprint);
+			//snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
+			//SerialConsoleWriteString(checkerprint);
 			} 
 		else {
 			p++;
-			snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
-			SerialConsoleWriteString(checkerprint);
+			//snprintf(checkerprint,64, "current p pointer #: %i\r\n", p);
+			//SerialConsoleWriteString(checkerprint);
 		}
 	}
 	//save extracted ints into respective vars
@@ -404,29 +413,34 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
 	Rval = arr[1];
 	Gval = arr[2];
 	Bval = arr[3];
-	snprintf(checkerprint,64, "the saved param is: %i %i %i %i\r\n", ledID, Rval, Gval, Bval);
-	SerialConsoleWriteString(checkerprint);
+	//snprintf(checkerprint,64, "the saved param is: %i %i %i %i\r\n", ledID, Rval, Gval, Bval);
+	//SerialConsoleWriteString(checkerprint);
 	//do checker to see if any of the ints are out of bounds
-	if (ledID < 0 && ledID > 15) {
+	if (ledID > 15) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "LED ID (int) out of bounds! Need to be 0 to 15. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
+		//return pdFALSE;
 	}
-	else if (Rval < 0 && Rval > 255) {
+	else if (Rval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "R value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
+		//return pdFALSE;
 	}
-	else if (Gval < 0 && Gval > 255) {
+	else if (Gval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "G value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
+		//return pdFALSE;
 	}
-	else if (Bval < 0 && Bval > 255) {
+	else if (Bval > 255) {
 		snprintf(pcWriteBuffer,xWriteBufferLen, "B value (int) out of bounds! Need to be 0 to 255. \r\n");
 		SerialConsoleWriteString(pcWriteBuffer);
+		//return pdFALSE;
 	}
 	//if not out of bounds, set the LED accordingly
 	else {
 		SeesawSetLed(ledID, Rval, Gval, Bval);
 		SeesawOrderLedUpdate();
+		//return pdFALSE;
 	}
 
 
