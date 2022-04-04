@@ -27,11 +27,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_macro  00012f82  00000000  00000000  000b658e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   00024dfb  00000000  00000000  000c9510  2**0
+ 12 .debug_line   000241cb  00000000  00000000  000c9510  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    000ae9a7  00000000  00000000  000ee30b  2**0
+ 13 .debug_str    000ae977  00000000  00000000  000ed6db  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  000079bc  00000000  00000000  0019ccb4  2**2
+ 14 .debug_frame  000079bc  00000000  00000000  0019c054  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2488,7 +2488,7 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
      dea:	4854      	ldr	r0, [pc, #336]	; (f3c <CLI_NeotrellisSetLed+0x164>)
      dec:	4c54      	ldr	r4, [pc, #336]	; (f40 <CLI_NeotrellisSetLed+0x168>)
      dee:	47a0      	blx	r4
-	SerialConsoleWriteString(stringCheckbuffer);
+	SerialConsoleWriteString(stringCheckbuffer); //to display it
      df0:	4b52      	ldr	r3, [pc, #328]	; (f3c <CLI_NeotrellisSetLed+0x164>)
      df2:	0018      	movs	r0, r3
      df4:	4b53      	ldr	r3, [pc, #332]	; (f44 <CLI_NeotrellisSetLed+0x16c>)
@@ -2628,7 +2628,6 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
      eae:	4b25      	ldr	r3, [pc, #148]	; (f44 <CLI_NeotrellisSetLed+0x16c>)
      eb0:	4798      	blx	r3
      eb2:	e03c      	b.n	f2e <CLI_NeotrellisSetLed+0x156>
-		//return pdFALSE;
 	}
 	else if (Rval > 255) {
      eb4:	4b29      	ldr	r3, [pc, #164]	; (f5c <CLI_NeotrellisSetLed+0x184>)
@@ -2648,7 +2647,6 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
      ecc:	4b1d      	ldr	r3, [pc, #116]	; (f44 <CLI_NeotrellisSetLed+0x16c>)
      ece:	4798      	blx	r3
      ed0:	e02d      	b.n	f2e <CLI_NeotrellisSetLed+0x156>
-		//return pdFALSE;
 	}
 	else if (Gval > 255) {
      ed2:	4b23      	ldr	r3, [pc, #140]	; (f60 <CLI_NeotrellisSetLed+0x188>)
@@ -2668,7 +2666,6 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
      eea:	4b16      	ldr	r3, [pc, #88]	; (f44 <CLI_NeotrellisSetLed+0x16c>)
      eec:	4798      	blx	r3
      eee:	e01e      	b.n	f2e <CLI_NeotrellisSetLed+0x156>
-		//return pdFALSE;
 	}
 	else if (Bval > 255) {
      ef0:	4b1c      	ldr	r3, [pc, #112]	; (f64 <CLI_NeotrellisSetLed+0x18c>)
@@ -2688,7 +2685,6 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
      f08:	4b0e      	ldr	r3, [pc, #56]	; (f44 <CLI_NeotrellisSetLed+0x16c>)
      f0a:	4798      	blx	r3
      f0c:	e00f      	b.n	f2e <CLI_NeotrellisSetLed+0x156>
-		//return pdFALSE;
 	}
 	//if not out of bounds, set the LED accordingly
 	else {
@@ -2710,7 +2706,6 @@ BaseType_t CLI_NeotrellisSetLed( int8_t *pcWriteBuffer,size_t xWriteBufferLen,co
 		SeesawOrderLedUpdate();
      f2a:	4b14      	ldr	r3, [pc, #80]	; (f7c <CLI_NeotrellisSetLed+0x1a4>)
      f2c:	4798      	blx	r3
-		//return pdFALSE;
 	}
 
 
