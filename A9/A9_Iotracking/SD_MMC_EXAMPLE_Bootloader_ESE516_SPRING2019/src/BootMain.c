@@ -31,7 +31,7 @@
 ******************************************************************************/
 #define APP_START_ADDRESS  ((uint32_t)0x12000) ///<Start of main application. Must be address of start of main application
 #define APP_START_RESET_VEC_ADDRESS (APP_START_ADDRESS+(uint32_t)0x04) ///< Main application reset vector address
-//#define MEM_EXAMPLE 1 //COMMENT ME TO REMOVE THE MEMORY WRITE EXAMPLE BELOW
+#define MEM_EXAMPLE 1 //COMMENT ME TO REMOVE THE MEMORY WRITE EXAMPLE BELOW
 
 /******************************************************************************
 * Structures and Enumerations
@@ -210,7 +210,8 @@ int main(void)
 	*((volatile unsigned int*) 0x41007058) &= ~0x30000UL;
 
 	//CRC of SD Card
-	uint32_t resultCrcSd = 0;
+	resultCrcSd = 0;
+	//uint32_t resultCrcSd = 0;
 	enum status_code crcres = dsu_crc32_cal	(readBuffer	,256, &resultCrcSd); //Instructor note: Was it the third parameter used for? Please check how you can use the third parameter to do the CRC of a long data stream in chunks - you will need it!
 	
 	//Errata Part 2 - To be done after RAM CRC
