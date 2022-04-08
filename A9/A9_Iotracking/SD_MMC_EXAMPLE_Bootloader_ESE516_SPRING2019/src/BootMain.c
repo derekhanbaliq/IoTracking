@@ -45,7 +45,7 @@ struct usart_module cdc_uart_module; ///< Structure for UART module connected to
 static void jumpToApplication(void);
 static bool StartFilesystemAndTest(void);
 static void configure_nvm(void);
-void install_firmware(bool isTaskA);
+void install_firmware(void);
 
 /******************************************************************************
 * Global Variables
@@ -54,12 +54,13 @@ void install_firmware(bool isTaskA);
 char test_file_name[] = "0:sd_mmc_test.txt";	///<Test TEXT File name
 char test_bin_file[] = "0:sd_binary.bin";	///<Test BINARY File name
 char testA_file_name[] = "0:FlagA.txt"; //test A file name txt
-char testb_file_name[] = "0:FlagB.txt"; //test B file name txt
+char testB_file_name[] = "0:FlagB.txt"; //test B file name txt
 char testA_bin_file[] = "0:TestA.bin"; //test A file name bin
 char testB_bin_file[] = "0:TestB.bin"; //test A file name bin
 bool isTaskA = true; 
 Ctrl_status status; ///<Holds the status of a system initialization
 FRESULT res; //Holds the result of the FATFS functions done on the SD CARD TEST
+FRESULT restxt; //Holds the result of the FATFS functions done on the SD CARD TEST
 FATFS fs; //Holds the File System of the SD CARD
 FIL file_object; //FILE OBJECT used on main for the SD Card Test
 
@@ -128,20 +129,6 @@ int main(void)
 
 	//define #MEM EXAMPLE
 #ifdef TEST_AB
-//	install_firmware(isTaskA);
-// 	int unpressed = 1;
-// 	while(unpressed) {
-// 		bool checkpin = port_pin_get_input_level(BUTTON_0_PIN); //needs to be false for it to be "pressed"
-// 		if (!checkpin) {
-// 			unpressed = 0;
-// 			SerialConsoleWriteString("SW0 Button is pressed\r\n");
-// 		}
-// 		else {
-// 			SerialConsoleWriteString("Waiting for SW0 button press\r\n");
-// 			delay_ms(1000);
-// 		}
-// 	}
-
 		//We will ask the NVM driver for information on the MCU (SAMD21)
 		struct nvm_parameters parameters;
 		char helpStr[64]; //Used to help print values
@@ -186,6 +173,16 @@ int main(void)
 		//test_bin_file[0] = LUN_ID_SD_MMC_0_MEM + '0';
 		//char testingbinFile[64];
 		SerialConsoleWriteString("hello about to do isTaskA \r\n");
+		testA_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+		restxt = f_open(&file_object, (char const *)testA_file_name, FA_READ);
+		if (restxt == FR_OK) {
+			isTaskA = true;
+			SerialConsoleWriteString("flagA.txt is in SD card, we are doing testA\r\n");
+		}
+		else {
+			isTaskA = false;
+			SerialConsoleWriteString("flagA.txt is not in SD card, we are doing testB\r\n");
+		}
 		res = !FR_OK;
 		if (isTaskA) {
 			testA_bin_file[0] = LUN_ID_SD_MMC_0_MEM + '0';
@@ -564,7 +561,7 @@ static void configure_nvm(void)
 *				
 * @return
 ******************************************************************************/
-void install_firmware(bool isTaskA) {
+void install_firmware(void) {
 	//We will ask the NVM driver for information on the MCU (SAMD21)
 	struct nvm_parameters parameters;
 	char helpStr[64]; //Used to help print values

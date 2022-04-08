@@ -47,7 +47,8 @@ static TaskHandle_t daemonTaskHandle    = NULL; //!< Daemon task handle
 static TaskHandle_t wifiTaskHandle    = NULL; //!< CLI task handle
 
 char bufferPrint[64]; //Buffer for daemon task
-
+bool taskAflag;
+FIL file_object;
 /**
  * \brief Main application function.
  *
@@ -106,7 +107,18 @@ static void TestA(void)
 		{
 			delay_ms(1000);
 			if(port_pin_get_input_level(BUTTON_0_PIN) == false)
-			{
+			{	
+				taskAflag = false;
+				char delete_name[] = "0:FlagA.txt";
+				//delete_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+				FRESULT resdel = f_unlink((char const *)delete_name);
+				if (resdel != FR_OK) {
+					SerialConsoleWriteString("Failed at deleting flagA\r\n");
+				}
+				else {
+					SerialConsoleWriteString("deleted flagA\r\n");
+				}
+				delay_ms(1000);
 				system_reset();
 			}
 		}
@@ -120,22 +132,22 @@ static void TestB(void)
 	SerialConsoleWriteString("Test Program B - LED Toggles every 100 ms second\r\n");
 
 	FIL file_object; //FILE OBJECT used on main for the SD Card Test
-	char test_file_name[] = "0:FlagB.txt";
+	char test_file_name[] = "0:FlagA.txt";
 	test_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
 	FRESULT res = f_open(&file_object,
 	(char const *)test_file_name,
 	FA_CREATE_ALWAYS | FA_WRITE);
-
+	
 	if (res != FR_OK)
 	{
 		LogMessage(LOG_INFO_LVL ,"[FAIL] res %d\r\n", res);
 	}
 	else
 	{
-		SerialConsoleWriteString("FlagB.txt added! Hold button pressed to reset device!\r\n");
+		SerialConsoleWriteString("FlagA.txt added! Hold button pressed to reset device!\r\n");
 	}
 	f_close(&file_object); //Close file
-
+	
 	while(1)
 	{
 		port_pin_set_output_level(LED_0_PIN, LED_0_INACTIVE);
@@ -146,7 +158,19 @@ static void TestB(void)
 		{
 			delay_ms(1000);
 			if(port_pin_get_input_level(BUTTON_0_PIN) == false)
-			{
+			{	
+				taskAflag = true;
+				char delete_name[] = "0:FlagB.txt";
+				//delete_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+				FRESULT resdel = f_unlink((char const *)delete_name);
+				if (resdel != FR_OK) {
+					SerialConsoleWriteString("Failed at deleting flagB\r\n");
+				}
+				else {
+					SerialConsoleWriteString("deleted flagB\r\n");
+				}
+
+				delay_ms(1000);
 				system_reset();
 			}
 			
@@ -167,9 +191,27 @@ static void TestB(void)
 
 void vApplicationDaemonTaskStartupHook(void)
 {
-#ifdef BOOT_TEST
-	TestA(); //Comment me for Test B
-	//TestB(); //Comment me for Test A
+#ifdef BOOT_TEST	
+	init_storage();
+	FIL file_object; //FILE OBJECT used on main for the SD Card Test
+	char testA_file_name[] = "0:FlagA.txt";
+	testA_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+	FRESULT restxt = f_open(&file_object, (char const *)testA_file_name, FA_READ);
+	snprintf(bufferPrint, 64, "restxt is %i\r\n", restxt);
+	SerialConsoleWriteString(bufferPrint);
+	if (restxt == FR_OK) {
+		taskAflag = true;
+		SerialConsoleWriteString("flagA.txt is in SD card, do testA \r\n");
+		//SerialConsoleWriteString("run testA\r\n");
+		TestA(); //run taskA if taskAflag is true
+	}
+	else {
+		taskAflag = false;
+		SerialConsoleWriteString("flagA.txt is not in SD card, do testB \r\n");
+		//SerialConsoleWriteString("run testB\r\n");
+		TestB(); //run taskB if taskAflag is false
+	}
+
 #endif
 	StartTasks();
 
