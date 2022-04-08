@@ -111,6 +111,7 @@ static void TestA(void)
 				taskAflag = false;
 				char delete_name[] = "0:FlagA.txt";
 				//delete_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+				//remove previous flag
 				FRESULT resdel = f_unlink((char const *)delete_name);
 				if (resdel != FR_OK) {
 					SerialConsoleWriteString("Failed at deleting flagA\r\n");
@@ -162,6 +163,7 @@ static void TestB(void)
 				taskAflag = true;
 				char delete_name[] = "0:FlagB.txt";
 				//delete_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
+				//remove previous flag
 				FRESULT resdel = f_unlink((char const *)delete_name);
 				if (resdel != FR_OK) {
 					SerialConsoleWriteString("Failed at deleting flagB\r\n");
@@ -192,19 +194,22 @@ static void TestB(void)
 void vApplicationDaemonTaskStartupHook(void)
 {
 #ifdef BOOT_TEST	
-	init_storage();
+	init_storage(); //start using sd card
 	FIL file_object; //FILE OBJECT used on main for the SD Card Test
+	//check for flagA
 	char testA_file_name[] = "0:FlagA.txt";
 	testA_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
 	FRESULT restxt = f_open(&file_object, (char const *)testA_file_name, FA_READ);
 	snprintf(bufferPrint, 64, "restxt is %i\r\n", restxt);
 	SerialConsoleWriteString(bufferPrint);
+	//if flagA exists, activate testA
 	if (restxt == FR_OK) {
 		taskAflag = true;
 		SerialConsoleWriteString("flagA.txt is in SD card, do testA \r\n");
 		//SerialConsoleWriteString("run testA\r\n");
 		TestA(); //run taskA if taskAflag is true
 	}
+	//if flagA does not exist, we assume flagB exists, so we do testB
 	else {
 		taskAflag = false;
 		SerialConsoleWriteString("flagA.txt is not in SD card, do testB \r\n");

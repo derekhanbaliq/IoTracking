@@ -170,9 +170,8 @@ int main(void)
 
 		//Read SD Card File
 		
-		//test_bin_file[0] = LUN_ID_SD_MMC_0_MEM + '0';
-		//char testingbinFile[64];
 		SerialConsoleWriteString("hello about to do isTaskA \r\n");
+		//check if flagA.txt exists
 		testA_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
 		restxt = f_open(&file_object, (char const *)testA_file_name, FA_READ);
 		if (restxt == FR_OK) {
@@ -183,6 +182,7 @@ int main(void)
 			isTaskA = false;
 			SerialConsoleWriteString("flagA.txt is not in SD card, we are doing testB\r\n");
 		}
+		//now write in which bin file to use
 		res = !FR_OK;
 		if (isTaskA) {
 			testA_bin_file[0] = LUN_ID_SD_MMC_0_MEM + '0';
