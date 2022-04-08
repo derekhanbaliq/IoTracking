@@ -64,7 +64,7 @@ int main(void)
 
 	/* Initialize the UART console. */
 	InitializeSerialConsole();
-
+	SerialConsoleWriteString("we are now in MAIN\r\n");
     // Start FreeRTOS scheduler
     vTaskStartScheduler();
 
@@ -120,7 +120,7 @@ static void TestB(void)
 	SerialConsoleWriteString("Test Program B - LED Toggles every 100 ms second\r\n");
 
 	FIL file_object; //FILE OBJECT used on main for the SD Card Test
-	char test_file_name[] = "0:FlagA.txt";
+	char test_file_name[] = "0:FlagB.txt";
 	test_file_name[0] = LUN_ID_SD_MMC_0_MEM + '0';
 	FRESULT res = f_open(&file_object,
 	(char const *)test_file_name,
@@ -132,7 +132,7 @@ static void TestB(void)
 	}
 	else
 	{
-		SerialConsoleWriteString("FlagA.txt added! Hold button pressed to reset device!\r\n");
+		SerialConsoleWriteString("FlagB.txt added! Hold button pressed to reset device!\r\n");
 	}
 	f_close(&file_object); //Close file
 
