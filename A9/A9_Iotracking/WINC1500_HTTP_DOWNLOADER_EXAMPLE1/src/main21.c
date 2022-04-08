@@ -30,7 +30,7 @@
 ******************************************************************************/
 #define APP_TASK_ID 0 /**< @brief ID for the application task */
 #define CLI_TASK_ID 1 /**< @brief ID for the command line interface task */
-//#define BOOT_TEST	1 //Uncomment me to compile boot test.
+#define BOOT_TEST	1 //Uncomment me to compile boot test.
 
 /******************************************************************************
 * Local Function Declaration
@@ -160,7 +160,7 @@ static void TestB(void)
 * function          vApplicationDaemonTaskStartupHook
 * @brief            Initialization code for all subsystems that require FreeRToS
 * @details			This function is called from the FreeRToS timer task. Any code
-*					here will be called before other tasks are initilized.
+*					here will be called before other tasks are initialized.
 * @param[in]        None
 * @return           None
 *****************************************************************************/
@@ -168,7 +168,7 @@ static void TestB(void)
 void vApplicationDaemonTaskStartupHook(void)
 {
 #ifdef BOOT_TEST
-	//TestA(); //Comment me for Test B
+	TestA(); //Comment me for Test B
 	//TestB(); //Comment me for Test A
 #endif
 	StartTasks();
