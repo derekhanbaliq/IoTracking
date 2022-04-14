@@ -395,17 +395,6 @@
       </ToolNumber>
       <ToolName>Custom Programming Tool</ToolName>
     </custom>
-    <com_atmel_avrdbg_tool_samice>
-      <ToolOptions>
-        <InterfaceProperties>
-          <SwdClock>4000000</SwdClock>
-        </InterfaceProperties>
-        <InterfaceName>SWD</InterfaceName>
-      </ToolOptions>
-      <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
-      <ToolNumber>682513178</ToolNumber>
-      <ToolName>J-Link</ToolName>
-    </com_atmel_avrdbg_tool_samice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -670,6 +659,7 @@
       <Value>../src/ASF/sam0/drivers/sercom/i2c/i2c_sam0</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
   <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
   <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
   <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>

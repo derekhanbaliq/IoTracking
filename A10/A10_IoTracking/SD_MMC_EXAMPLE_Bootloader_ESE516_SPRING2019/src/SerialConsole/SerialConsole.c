@@ -81,7 +81,7 @@ void InitializeSerialConsole()
 
 	//Initialize circular buffers for RX and TX
 	cbufRx = circular_buf_init((uint8_t*)rxCharacterBuffer, RX_BUFFER_SIZE);
-	cbufTx = circular_buf_init((uint8_t*)txCharacterBuffer, TX_BUFFER_SIZE);
+	cbufTx = circular_buf_init((uint8_t*)txCharacterBuffer, RX_BUFFER_SIZE);
 
 	//Configure USART and Callbacks
 	configure_usart();
@@ -104,7 +104,7 @@ void DeinitializeSerialConsole()
 * @details		Uses the ringbuffer 'cbufTx', which in turn uses the array 'txCharacterBuffer'
 * @note			Use to send a string of characters to the user via UART
 *****************************************************************************/
-void SerialConsoleWriteString(char * string)
+void SerialConsoleWriteString(const char * string)
 {
 	if(string != NULL)
 	{
@@ -258,7 +258,7 @@ void usart_read_callback(struct usart_module *const usart_module)
 	char a[3];
 	a[0] = 0x20;
 	a[1]= 0x08;
-	SerialConsoleWriteString(&a);
+	SerialConsoleWriteString((const char*)&a);
 	}
 	circular_buf_put(cbufRx, (uint8_t) latestRx); //Add the latest read character into the RX circular Buffer
 
