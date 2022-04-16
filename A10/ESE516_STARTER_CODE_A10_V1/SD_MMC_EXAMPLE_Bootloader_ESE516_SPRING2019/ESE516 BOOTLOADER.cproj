@@ -894,6 +894,9 @@
     <Compile Include="src\Systick\Systick.h">
       <SubType>compile</SubType>
     </Compile>
+    <None Include=".clang-format">
+      <SubType>compile</SubType>
+    </None>
     <None Include="src\ASF\common2\services\delay\sam0\systick_counter.h">
       <SubType>compile</SubType>
     </None>
