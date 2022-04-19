@@ -297,6 +297,8 @@ BaseType_t xCliClearTerminalScreen(char *pcWriteBuffer, size_t xWriteBufferLen, 
 BaseType_t CLI_OTAU(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
     WifiHandlerSetState(WIFI_DOWNLOAD_INIT);
+	//WifiHandlerSetState(WIFI_DOWNLOAD_HANDLE);
+	//system_reset(); //finally reset
 
     return pdFALSE;
 }
