@@ -57,7 +57,7 @@ enum eDebugLogLevels {
 * Global Function Declarations
 ******************************************************************************/
 void InitializeSerialConsole(void);
-void SerialConsoleWriteString(const char * string);
+void SerialConsoleWriteString(char * string);
 int SerialConsoleReadCharacter(uint8_t *rxChar);
 void LogMessage(enum eDebugLogLevels level, const char *format, ...);
 void setLogLevel(enum eDebugLogLevels debugLevel);
