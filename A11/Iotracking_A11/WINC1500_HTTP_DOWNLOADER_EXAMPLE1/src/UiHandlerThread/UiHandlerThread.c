@@ -70,12 +70,12 @@ void vUiHandlerTask(void *pvParameters)
     uiState = UI_STATE_IGNORE_PRESSES;  // Initial state
 
     // Graphics Test - Students to uncomment to test out the OLED driver if you are using it! 
-	/*
+	
     gfx_mono_init();
     gfx_mono_draw_line(0, 0, 64, 48, GFX_PIXEL_SET);
     gfx_mono_draw_filled_circle(54, 24, 10, GFX_PIXEL_SET, GFX_WHOLE);
 	gfx_mono_draw_string("ESE516",0,0, &sysfont);
-	*/
+	
 
     // Here we start the loop for the UI State Machine
     while (1) {
