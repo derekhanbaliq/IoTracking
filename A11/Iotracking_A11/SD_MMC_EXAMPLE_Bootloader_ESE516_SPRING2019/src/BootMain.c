@@ -22,10 +22,6 @@
 #include "SerialConsole/SerialConsole.h"
 #include "ASF/sam0/drivers/dsu/crc32/crc32.h"
 
-
-
-
-
 /******************************************************************************
 * Defines
 ******************************************************************************/
@@ -36,7 +32,6 @@
 /******************************************************************************
 * Structures and Enumerations
 ******************************************************************************/
-
 struct usart_module cdc_uart_module; ///< Structure for UART module connected to EDBG (used for unit test output)
 
 /******************************************************************************
@@ -45,7 +40,6 @@ struct usart_module cdc_uart_module; ///< Structure for UART module connected to
 static void jumpToApplication(void);
 static bool StartFilesystemAndTest(void);
 static void configure_nvm(void);
-
 
 /******************************************************************************
 * Global Variables
@@ -57,7 +51,6 @@ Ctrl_status status; ///<Holds the status of a system initialization
 FRESULT res; //Holds the result of the FATFS functions done on the SD CARD TEST
 FATFS fs; //Holds the File System of the SD CARD
 FIL file_object; //FILE OBJECT used on main for the SD Card Test
-
 
 
 /******************************************************************************
@@ -92,7 +85,8 @@ int main(void)
 	//Configure CRC32
 	dsu_crc32_init();
 
-	SerialConsoleWriteString("ESE516 - ENTER BOOTLOADER");	//Order to add string to TX Buffer
+	SerialConsoleWriteString("\r\n\r\n------ESE516 Bootloader------\r\n\r\n");
+	//SerialConsoleWriteString("\r\nESE516 - ENTER BOOTLOADER\r\n");	//Order to add string to TX Buffer
 
 	/*END SYSTEM PERIPHERALS INITIALIZATION*/
 
@@ -101,52 +95,47 @@ int main(void)
 
 	//EXAMPLE CODE ON MOUNTING THE SD CARD AND WRITING TO A FILE
 	//See function inside to see how to open a file
-	SerialConsoleWriteString("\x0C\n\r-- SD/MMC Card Example on FatFs --\n\r");
-
-	if(StartFilesystemAndTest() == false)
-	{
-		SerialConsoleWriteString("SD CARD failed! Check your connections. System will restart in 5 seconds...");
-		delay_cycles_ms(5000);
-		system_reset();
-	}
-	else
-	{
-		SerialConsoleWriteString("SD CARD mount success! Filesystem also mounted. \r\n");
-	}
+	
+	//commented by Derek
+	//SerialConsoleWriteString("\x0C\n\r-- SD/MMC Card Example on FatFs --\n\r");
+//
+	//if(StartFilesystemAndTest() == false)
+	//{
+		//SerialConsoleWriteString("SD CARD failed! Check your connections. System will restart in 5 seconds...");
+		//delay_cycles_ms(5000);
+		//system_reset();
+	//}
+	//else
+	//{
+		//SerialConsoleWriteString("SD CARD mount success! File system also mounted. \r\n");
+	//}
+	SerialConsoleWriteString("Firmware doesn't need to be updated currently...\r\n");
 
 	/*END SIMPLE SD CARD MOUNTING AND TEST!*/
 
 
 	/*3.) STARTS BOOTLOADER HERE!*/
-
-
+	
 
 	//4.) DEINITIALIZE HW AND JUMP TO MAIN APPLICATION!
-	SerialConsoleWriteString("ESE516 - EXIT BOOTLOADER");	//Order to add string to TX Buffer
+	//SerialConsoleWriteString("ESE516 - EXIT BOOTLOADER");	//Order to add string to TX Buffer
 	delay_cycles_ms(100); //Delay to allow print
 		
-		//Deinitialize HW - deinitialize started HW here!
-		DeinitializeSerialConsole(); //Deinitializes UART
-		sd_mmc_deinit(); //Deinitialize SD CARD
+	//Deinitialize HW - deinitialize started HW here!
+	DeinitializeSerialConsole(); //Deinitializes UART
+	sd_mmc_deinit(); //Deinitialize SD CARD
 
 
-		//Jump to application
-		jumpToApplication();
+	//Jump to application
+	jumpToApplication();
 
-		//Should not reach here! The device should have jumped to the main FW.
+	//Should not reach here! The device should have jumped to the main FW.
 	
 }
-
-
-
-
-
-
 
 /******************************************************************************
 * Static Functions
 ******************************************************************************/
-
 
 
 /**************************************************************************//**
@@ -260,8 +249,6 @@ static bool StartFilesystemAndTest(void)
 	return sdCardPass;
 }
 
-
-
 /**************************************************************************//**
 * function      static void jumpToApplication(void)
 * @brief        Jumps to main application
@@ -289,8 +276,6 @@ applicationCodeEntry =
 applicationCodeEntry();
 }
 
-
-
 /**************************************************************************//**
 * function      static void configure_nvm(void)
 * @brief        Configures the NVM driver
@@ -304,6 +289,3 @@ static void configure_nvm(void)
     config_nvm.manual_page_write = false;
     nvm_set_config(&config_nvm);
 }
-
-
-

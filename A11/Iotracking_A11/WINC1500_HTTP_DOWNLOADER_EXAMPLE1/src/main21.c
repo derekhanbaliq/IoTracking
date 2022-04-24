@@ -89,21 +89,22 @@ int main(void)
  */
 void vApplicationDaemonTaskStartupHook(void)
 {
-    SerialConsoleWriteString("\r\n\r\n-----ESE516 Main Program-----\r\n");
+    SerialConsoleWriteString("\r\n-----ESE516 Main Program-----\r\n");
 
     // Initialize HW that needs FreeRTOS Initialization
-    SerialConsoleWriteString("\r\n\r\nInitialize HW...\r\n");
+    SerialConsoleWriteString("\r\nInitialize HW...\r\n");
     if (I2cInitializeDriver() != STATUS_OK) {
         SerialConsoleWriteString("Error initializing I2C Driver!\r\n");
     } else {
         SerialConsoleWriteString("Initialized I2C Driver!\r\n");
     }
 
-    if (0 != InitializeSeesaw()) {
-        SerialConsoleWriteString("Error initializing Seesaw!\r\n");
-    } else {
-        SerialConsoleWriteString("Initialized Seesaw!\r\n");
-    }
+	//commented by Derek
+    //if (0 != InitializeSeesaw()) {
+        //SerialConsoleWriteString("Error initializing Seesaw!\r\n");
+    //} else {
+        //SerialConsoleWriteString("Initialized Seesaw!\r\n");
+    //}
 
     uint8_t whoamI = 0;
     (lsm6dso_device_id_get(GetImuStruct(), &whoamI));
@@ -119,11 +120,10 @@ void vApplicationDaemonTaskStartupHook(void)
         }
     }
 
-/*
-    SerialConsoleWriteString("Initializing distance sensor\r\n");
-    InitializeDistanceSensor();
-    SerialConsoleWriteString("Distance sensor initialized\r\n");
-	*/
+	//commented by Derek
+    //SerialConsoleWriteString("Initializing distance sensor\r\n");
+    //InitializeDistanceSensor();
+    //SerialConsoleWriteString("Distance sensor initialized\r\n");
 
     StartTasks();
 
@@ -139,7 +139,7 @@ void vApplicationDaemonTaskStartupHook(void)
  */
 static void StartTasks(void)
 {
-    snprintf(bufferPrint, 64, "Heap before starting tasks: %d\r\n", xPortGetFreeHeapSize());
+    snprintf(bufferPrint, 64, "Heap before starting tasks: %d\r\n\r\n", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
 
     // Initialize Tasks here
@@ -147,28 +147,26 @@ static void StartTasks(void)
     if (xTaskCreate(vCommandConsoleTask, "CLI_TASK", CLI_TASK_SIZE, NULL, CLI_PRIORITY, &cliTaskHandle) != pdPASS) {
         SerialConsoleWriteString("ERR: CLI task could not be initialized!\r\n");
     }
-
-    snprintf(bufferPrint, 64, "Heap after starting CLI: %d\r\n", xPortGetFreeHeapSize());
-    SerialConsoleWriteString(bufferPrint);
-
-    if (xTaskCreate(vWifiTask, "WIFI_TASK", WIFI_TASK_SIZE, NULL, WIFI_PRIORITY, &wifiTaskHandle) != pdPASS) {
-        SerialConsoleWriteString("ERR: WIFI task could not be initialized!\r\n");
-    }
-    snprintf(bufferPrint, 64, "Heap after starting WIFI: %d\r\n", xPortGetFreeHeapSize());
+    snprintf(bufferPrint, 64, "Heap after starting CLI: %d\r\n\r\n", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
 
     if (xTaskCreate(vUiHandlerTask, "UI Task", UI_TASK_SIZE, NULL, UI_TASK_PRIORITY, &uiTaskHandle) != pdPASS) {
         SerialConsoleWriteString("ERR: UI task could not be initialized!\r\n");
     }
-
-    snprintf(bufferPrint, 64, "Heap after starting UI Task: %d\r\n", xPortGetFreeHeapSize());
+    snprintf(bufferPrint, 64, "Heap after starting UI Task: %d\r\n\r\n", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
 
     if (xTaskCreate(vControlHandlerTask, "Control Task", CONTROL_TASK_SIZE, NULL, CONTROL_TASK_PRIORITY, &controlTaskHandle) != pdPASS) {
         SerialConsoleWriteString("ERR: Control task could not be initialized!\r\n");
     }
-    snprintf(bufferPrint, 64, "Heap after starting Control Task: %d\r\n", xPortGetFreeHeapSize());
+    snprintf(bufferPrint, 64, "Heap after starting Control Task: %d\r\n\r\n", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
+	
+	if (xTaskCreate(vWifiTask, "WIFI_TASK", WIFI_TASK_SIZE, NULL, WIFI_PRIORITY, &wifiTaskHandle) != pdPASS) {
+		SerialConsoleWriteString("ERR: WIFI task could not be initialized!\r\n");
+	}
+	snprintf(bufferPrint, 64, "Heap after starting WIFI: %d\r\n", xPortGetFreeHeapSize());
+	SerialConsoleWriteString(bufferPrint);
 }
 
 

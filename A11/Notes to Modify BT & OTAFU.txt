@@ -1,0 +1,20 @@
+
+1. based on A9 Reference Bootloader:
+
+BT:
+if flag==0, then do nothing
+if flag==1, which is you find FlagA.txt and delete FlagA.txt, then update iotrackingTestCode.bin, be careful about BOOT_TEST in main21.c, don't go in while(1), but to go the later start etc. 
+if flag==2, ...
+
+OTA:
+input CLI fw, then it download FlagA.txt, and auto reset to go through BT to update firmware
+
+
+
+2. based on A11 current BT:
+
+don't use BT
+
+OTA also seems to be useless..
+
+

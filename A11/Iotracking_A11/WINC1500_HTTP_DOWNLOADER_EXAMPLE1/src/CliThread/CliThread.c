@@ -31,30 +31,31 @@ static const CLI_Command_Definition_t xOTAUCommand = {"fw", "fw: Download a file
 
 static const CLI_Command_Definition_t xResetCommand = {"reset", "reset: Resets the device\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_ResetDevice, 0};
 
-static const CLI_Command_Definition_t xNeotrellisTurnLEDCommand = {"led",
-                                                                   "led [keynum][R][G][B]: Sets the given LED to the given R,G,B values.\r\n",
-                                                                   (const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellisSetLed,
-                                                                   4};
+//static const CLI_Command_Definition_t xNeotrellisTurnLEDCommand = {"led",
+                                                                   //"led [keynum][R][G][B]: Sets the given LED to the given R,G,B values.\r\n",
+                                                                   //(const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellisSetLed,
+                                                                   //4};
 
-static const CLI_Command_Definition_t xNeotrellisProcessButtonCommand = {"getbutton",
-                                                                         "getbutton: Processes and prints the FIFO button buffer from the seesaw.\r\n",
-                                                                         (const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellProcessButtonBuffer,
-                                                                         0};
+//static const CLI_Command_Definition_t xNeotrellisProcessButtonCommand = {"getbutton",
+                                                                         //"getbutton: Processes and prints the FIFO button buffer from the seesaw.\r\n",
+                                                                         //(const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellProcessButtonBuffer,
+                                                                         //0};
 
-static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
-                                                                    "getdistance: Returns the distance from the US-100 Sensor.\r\n",
-                                                                    (const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
-                                                                    0};
+//static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
+                                                                    //"getdistance: Returns the distance from the US-100 Sensor.\r\n",
+                                                                    //(const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
+                                                                    //0};
 
-static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
+//static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
+
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};	
-	
-	
-	
-	
+
+// get GPS data
+static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns a value from the GPS\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
 
 // Clear screen command
 const CLI_Command_Definition_t xClearScreen = {CLI_COMMAND_CLEAR_SCREEN, CLI_HELP_CLEAR_SCREEN, CLI_CALLBACK_CLEAR_SCREEN, CLI_PARAMS_CLEAR_SCREEN};
+
 
 SemaphoreHandle_t cliCharReadySemaphore;  ///< Semaphore to indicate that a character has been received
 
@@ -77,12 +78,13 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xImuGetCommand);
     FreeRTOS_CLIRegisterCommand(&xClearScreen);
     FreeRTOS_CLIRegisterCommand(&xResetCommand);
-    FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
-    FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
-    FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
-    FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
+    //FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
+    //FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
+    //FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
+    //FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
-
+	FreeRTOS_CLIRegisterCommand(&xGpsGetCommand); //added by Derek
+	
     char cRxedChar[2];
     unsigned char cInputIndex = 0;
     BaseType_t xMoreDataToFollow;
@@ -516,4 +518,12 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
             SerialConsoleWriteString( "\r\n");
 			return pdFALSE;
 
+}
+
+// CLI Command added by Derek. Reads from the GPS and returns data.
+BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
+{
+	SerialConsoleWriteString("Added by Derek, TBD!\r\n");
+	
+	return pdFALSE;
 }

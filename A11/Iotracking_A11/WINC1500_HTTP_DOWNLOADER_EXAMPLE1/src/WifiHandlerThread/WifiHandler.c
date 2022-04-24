@@ -682,8 +682,8 @@ void SubscribeHandlerGameTopic(MessageData *msgData)
 
 void SubscribeHandlerImuTopic(MessageData *msgData)
 {
-	LogMessage(LOG_DEBUG_LVL, "\r\nIMU topic received!\r\n");
-    LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+	LogMessage(LOG_DEBUG_LVL, "IMU topic received! -"); //changed by Derek
+    LogMessage(LOG_DEBUG_LVL, "%.*s \r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
 void SubscribeHandlerDistanceTopic(MessageData *msgData)
@@ -917,7 +917,7 @@ static void MQTT_InitRoutine(void)
     }
 
     if (mqtt_inst.isConnected) {
-        LogMessage(LOG_DEBUG_LVL, "Connected to MQTT Broker!\r\n");
+        LogMessage(LOG_DEBUG_LVL, "Connected to MQTT Broker!\r\n\r\n");
     }
     wifiStateMachine = WIFI_MQTT_HANDLE;
 }
