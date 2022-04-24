@@ -7855,7 +7855,7 @@ void vUiHandlerTask( void *pvParameters )
     2c62:	400b      	ands	r3, r1
     2c64:	18d3      	adds	r3, r2, r3
     2c66:	60fb      	str	r3, [r7, #12]
-							snprintf(UiPrintBuf, 64, "real key number is: %04x\r\n", real_num);
+							snprintf(UiPrintBuf, 64, "real key number is: %i\r\n", real_num);
     2c68:	68fb      	ldr	r3, [r7, #12]
     2c6a:	4a2e      	ldr	r2, [pc, #184]	; (2d24 <vUiHandlerTask+0x17c>)
     2c6c:	482e      	ldr	r0, [pc, #184]	; (2d28 <vUiHandlerTask+0x180>)
@@ -39903,8 +39903,8 @@ while(1);
     f098:	61697469 657a696c 79654b20 21646170     itialize Keypad!
     f0a8:	00000a0d 54204955 206b7361 72617453     ....UI Task Star
     f0b8:	21646574 00000000 6c616572 79656b20     ted!....real key
-    f0c8:	6d756e20 20726562 203a7369 78343025      number is: %04x
-    f0d8:	00000a0d 73657270 21646573 0a0d2121     ....pressed!!!..
+    f0c8:	6d756e20 20726562 203a7369 0a0d6925      number is: %i..
+    f0d8:	00000000 73657270 21646573 0a0d2121     ....pressed!!!..
     f0e8:	00000000 72706e75 65737365 21212164     ....unpressed!!!
     f0f8:	00000a0d 74616857 65687420 75656420     ....What the deu
     f108:	0d3f6563 0000000a 706c6568 00000000     ce?.....help....

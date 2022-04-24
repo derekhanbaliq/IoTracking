@@ -27,11 +27,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_macro  00020e2a  00000000  00000000  00077e2a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   0001850a  00000000  00000000  00098c54  2**0
+ 12 .debug_line   00017b96  00000000  00000000  00098c54  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00093bc3  00000000  00000000  000b115e  2**0
+ 13 .debug_str    00093c1f  00000000  00000000  000b07ea  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  00003c14  00000000  00000000  00144d24  2**2
+ 14 .debug_frame  00003c14  00000000  00000000  0014440c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -781,37 +781,23 @@ enum status_code nvm_set_config(
      4a0:	200000b4 	.word	0x200000b4
 
 000004a4 <SdCard_Initiate>:
-* @return		Returns CTRL_GOOD if the SDS card was mounted incorrectly - other status otherwise
-* @note         
-*****************************************************************************/
-
-Ctrl_status SdCard_Initiate(void)
-{
      4a4:	b590      	push	{r4, r7, lr}
      4a6:	b083      	sub	sp, #12
      4a8:	af00      	add	r7, sp, #0
-	Ctrl_status status;
-	uint32_t timeStart = GetSystick();
      4aa:	4b16      	ldr	r3, [pc, #88]	; (504 <SdCard_Initiate+0x60>)
      4ac:	4798      	blx	r3
      4ae:	0003      	movs	r3, r0
      4b0:	603b      	str	r3, [r7, #0]
-
-/* Wait card present and ready */
-do {
-	status = sd_mmc_test_unit_ready(0);
      4b2:	1dfc      	adds	r4, r7, #7
      4b4:	2000      	movs	r0, #0
      4b6:	4b14      	ldr	r3, [pc, #80]	; (508 <SdCard_Initiate+0x64>)
      4b8:	4798      	blx	r3
      4ba:	0003      	movs	r3, r0
      4bc:	7023      	strb	r3, [r4, #0]
-	if (CTRL_FAIL == status) {
      4be:	1dfb      	adds	r3, r7, #7
      4c0:	781b      	ldrb	r3, [r3, #0]
      4c2:	2b01      	cmp	r3, #1
      4c4:	d106      	bne.n	4d4 <SdCard_Initiate+0x30>
-		while (CTRL_NO_PRESENT != sd_mmc_check(0)) {
      4c6:	46c0      	nop			; (mov r8, r8)
      4c8:	2000      	movs	r0, #0
      4ca:	4b10      	ldr	r3, [pc, #64]	; (50c <SdCard_Initiate+0x68>)
@@ -819,10 +805,6 @@ do {
      4ce:	0003      	movs	r3, r0
      4d0:	2b02      	cmp	r3, #2
      4d2:	d1f9      	bne.n	4c8 <SdCard_Initiate+0x24>
-		}
-	}
-
-	if (GetSystick() - timeStart > SD_CARD_TIMEOUT)
      4d4:	4b0b      	ldr	r3, [pc, #44]	; (504 <SdCard_Initiate+0x60>)
      4d6:	4798      	blx	r3
      4d8:	0002      	movs	r2, r0
@@ -832,24 +814,16 @@ do {
      4e0:	005b      	lsls	r3, r3, #1
      4e2:	429a      	cmp	r2, r3
      4e4:	d903      	bls.n	4ee <SdCard_Initiate+0x4a>
-	{
-		status = CTRL_FAIL;
      4e6:	1dfb      	adds	r3, r7, #7
      4e8:	2201      	movs	r2, #1
      4ea:	701a      	strb	r2, [r3, #0]
-		break;
      4ec:	e003      	b.n	4f6 <SdCard_Initiate+0x52>
-	}
-} while (CTRL_GOOD != status );
      4ee:	1dfb      	adds	r3, r7, #7
      4f0:	781b      	ldrb	r3, [r3, #0]
      4f2:	2b00      	cmp	r3, #0
      4f4:	d1dd      	bne.n	4b2 <SdCard_Initiate+0xe>
-
-return status;
      4f6:	1dfb      	adds	r3, r7, #7
      4f8:	781b      	ldrb	r3, [r3, #0]
-}
      4fa:	0018      	movs	r0, r3
      4fc:	46bd      	mov	sp, r7
      4fe:	b003      	add	sp, #12
@@ -27387,12 +27361,6 @@ int f_puts (
     9d10:	00009c81 	.word	0x00009c81
 
 00009d14 <ff_convert>:
-
-WCHAR ff_convert (	/* Converted character, Returns zero on error */
-	WCHAR	src,	/* Character code to be converted */
-	UINT	dir		/* 0: Unicode to OEMCP, 1: OEMCP to Unicode */
-)
-{
     9d14:	b580      	push	{r7, lr}
     9d16:	b084      	sub	sp, #16
     9d18:	af00      	add	r7, sp, #0
@@ -27400,28 +27368,19 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9d1c:	6039      	str	r1, [r7, #0]
     9d1e:	1dbb      	adds	r3, r7, #6
     9d20:	801a      	strh	r2, [r3, #0]
-	WCHAR c;
-
-
-	if (src < 0x80) {	/* ASCII */
     9d22:	1dbb      	adds	r3, r7, #6
     9d24:	881b      	ldrh	r3, [r3, #0]
     9d26:	2b7f      	cmp	r3, #127	; 0x7f
     9d28:	d805      	bhi.n	9d36 <ff_convert+0x22>
-		c = src;
     9d2a:	230e      	movs	r3, #14
     9d2c:	18fb      	adds	r3, r7, r3
     9d2e:	1dba      	adds	r2, r7, #6
     9d30:	8812      	ldrh	r2, [r2, #0]
     9d32:	801a      	strh	r2, [r3, #0]
     9d34:	e03a      	b.n	9dac <ff_convert+0x98>
-
-	} else {
-		if (dir) {		/* OEMCP to Unicode */
     9d36:	683b      	ldr	r3, [r7, #0]
     9d38:	2b00      	cmp	r3, #0
     9d3a:	d010      	beq.n	9d5e <ff_convert+0x4a>
-			c = (src >= 0x100) ? 0 : Tbl[src - 0x80];
     9d3c:	1dbb      	adds	r3, r7, #6
     9d3e:	881b      	ldrh	r3, [r3, #0]
     9d40:	2bff      	cmp	r3, #255	; 0xff
@@ -27439,15 +27398,11 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9d58:	18fb      	adds	r3, r7, r3
     9d5a:	801a      	strh	r2, [r3, #0]
     9d5c:	e026      	b.n	9dac <ff_convert+0x98>
-
-		} else {		/* Unicode to OEMCP */
-			for (c = 0; c < 0x80; c++) {
     9d5e:	230e      	movs	r3, #14
     9d60:	18fb      	adds	r3, r7, r3
     9d62:	2200      	movs	r2, #0
     9d64:	801a      	strh	r2, [r3, #0]
     9d66:	e010      	b.n	9d8a <ff_convert+0x76>
-				if (src == Tbl[c]) break;
     9d68:	230e      	movs	r3, #14
     9d6a:	18fb      	adds	r3, r7, r3
     9d6c:	881a      	ldrh	r2, [r3, #0]
@@ -27458,7 +27413,6 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9d76:	8812      	ldrh	r2, [r2, #0]
     9d78:	429a      	cmp	r2, r3
     9d7a:	d00c      	beq.n	9d96 <ff_convert+0x82>
-			for (c = 0; c < 0x80; c++) {
     9d7c:	230e      	movs	r3, #14
     9d7e:	18fb      	adds	r3, r7, r3
     9d80:	881a      	ldrh	r2, [r3, #0]
@@ -27472,10 +27426,7 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9d90:	2b7f      	cmp	r3, #127	; 0x7f
     9d92:	d9e9      	bls.n	9d68 <ff_convert+0x54>
     9d94:	e000      	b.n	9d98 <ff_convert+0x84>
-				if (src == Tbl[c]) break;
     9d96:	46c0      	nop			; (mov r8, r8)
-			}
-			c = (c + 0x80) & 0xFF;
     9d98:	230e      	movs	r3, #14
     9d9a:	18fb      	adds	r3, r7, r3
     9d9c:	881b      	ldrh	r3, [r3, #0]
@@ -27486,14 +27437,9 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9da6:	21ff      	movs	r1, #255	; 0xff
     9da8:	400a      	ands	r2, r1
     9daa:	801a      	strh	r2, [r3, #0]
-		}
-	}
-
-	return c;
     9dac:	230e      	movs	r3, #14
     9dae:	18fb      	adds	r3, r7, r3
     9db0:	881b      	ldrh	r3, [r3, #0]
-}
     9db2:	0018      	movs	r0, r3
     9db4:	46bd      	mov	sp, r7
     9db6:	b004      	add	sp, #16
@@ -27502,24 +27448,12 @@ WCHAR ff_convert (	/* Converted character, Returns zero on error */
     9dbc:	0000b0bc 	.word	0x0000b0bc
 
 00009dc0 <ff_wtoupper>:
-
-
-WCHAR ff_wtoupper (	/* Upper converted character */
-	WCHAR chr		/* Input character */
-)
-{
     9dc0:	b580      	push	{r7, lr}
     9dc2:	b084      	sub	sp, #16
     9dc4:	af00      	add	r7, sp, #0
     9dc6:	0002      	movs	r2, r0
     9dc8:	1dbb      	adds	r3, r7, #6
     9dca:	801a      	strh	r2, [r3, #0]
-	static const WCHAR tbl_lower[] = { 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6E, 0x6F, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0xA1, 0x00A2, 0x00A3, 0x00A5, 0x00AC, 0x00AF, 0xE0, 0xE1, 0xE2, 0xE3, 0xE4, 0xE5, 0xE6, 0xE7, 0xE8, 0xE9, 0xEA, 0xEB, 0xEC, 0xED, 0xEE, 0xEF, 0xF0, 0xF1, 0xF2, 0xF3, 0xF4, 0xF5, 0xF6, 0xF8, 0xF9, 0xFA, 0xFB, 0xFC, 0xFD, 0xFE, 0x0FF, 0x101, 0x103, 0x105, 0x107, 0x109, 0x10B, 0x10D, 0x10F, 0x111, 0x113, 0x115, 0x117, 0x119, 0x11B, 0x11D, 0x11F, 0x121, 0x123, 0x125, 0x127, 0x129, 0x12B, 0x12D, 0x12F, 0x131, 0x133, 0x135, 0x137, 0x13A, 0x13C, 0x13E, 0x140, 0x142, 0x144, 0x146, 0x148, 0x14B, 0x14D, 0x14F, 0x151, 0x153, 0x155, 0x157, 0x159, 0x15B, 0x15D, 0x15F, 0x161, 0x163, 0x165, 0x167, 0x169, 0x16B, 0x16D, 0x16F, 0x171, 0x173, 0x175, 0x177, 0x17A, 0x17C, 0x17E, 0x192, 0x3B1, 0x3B2, 0x3B3, 0x3B4, 0x3B5, 0x3B6, 0x3B7, 0x3B8, 0x3B9, 0x3BA, 0x3BB, 0x3BC, 0x3BD, 0x3BE, 0x3BF, 0x3C0, 0x3C1, 0x3C3, 0x3C4, 0x3C5, 0x3C6, 0x3C7, 0x3C8, 0x3C9, 0x3CA, 0x430, 0x431, 0x432, 0x433, 0x434, 0x435, 0x436, 0x437, 0x438, 0x439, 0x43A, 0x43B, 0x43C, 0x43D, 0x43E, 0x43F, 0x440, 0x441, 0x442, 0x443, 0x444, 0x445, 0x446, 0x447, 0x448, 0x449, 0x44A, 0x44B, 0x44C, 0x44D, 0x44E, 0x44F, 0x451, 0x452, 0x453, 0x454, 0x455, 0x456, 0x457, 0x458, 0x459, 0x45A, 0x45B, 0x45C, 0x45E, 0x45F, 0x2170, 0x2171, 0x2172, 0x2173, 0x2174, 0x2175, 0x2176, 0x2177, 0x2178, 0x2179, 0x217A, 0x217B, 0x217C, 0x217D, 0x217E, 0x217F, 0xFF41, 0xFF42, 0xFF43, 0xFF44, 0xFF45, 0xFF46, 0xFF47, 0xFF48, 0xFF49, 0xFF4A, 0xFF4B, 0xFF4C, 0xFF4D, 0xFF4E, 0xFF4F, 0xFF50, 0xFF51, 0xFF52, 0xFF53, 0xFF54, 0xFF55, 0xFF56, 0xFF57, 0xFF58, 0xFF59, 0xFF5A, 0 };
-	static const WCHAR tbl_upper[] = { 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x21, 0xFFE0, 0xFFE1, 0xFFE5, 0xFFE2, 0xFFE3, 0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6, 0xC7, 0xC8, 0xC9, 0xCA, 0xCB, 0xCC, 0xCD, 0xCE, 0xCF, 0xD0, 0xD1, 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0xD8, 0xD9, 0xDA, 0xDB, 0xDC, 0xDD, 0xDE, 0x178, 0x100, 0x102, 0x104, 0x106, 0x108, 0x10A, 0x10C, 0x10E, 0x110, 0x112, 0x114, 0x116, 0x118, 0x11A, 0x11C, 0x11E, 0x120, 0x122, 0x124, 0x126, 0x128, 0x12A, 0x12C, 0x12E, 0x130, 0x132, 0x134, 0x136, 0x139, 0x13B, 0x13D, 0x13F, 0x141, 0x143, 0x145, 0x147, 0x14A, 0x14C, 0x14E, 0x150, 0x152, 0x154, 0x156, 0x158, 0x15A, 0x15C, 0x15E, 0x160, 0x162, 0x164, 0x166, 0x168, 0x16A, 0x16C, 0x16E, 0x170, 0x172, 0x174, 0x176, 0x179, 0x17B, 0x17D, 0x191, 0x391, 0x392, 0x393, 0x394, 0x395, 0x396, 0x397, 0x398, 0x399, 0x39A, 0x39B, 0x39C, 0x39D, 0x39E, 0x39F, 0x3A0, 0x3A1, 0x3A3, 0x3A4, 0x3A5, 0x3A6, 0x3A7, 0x3A8, 0x3A9, 0x3AA, 0x410, 0x411, 0x412, 0x413, 0x414, 0x415, 0x416, 0x417, 0x418, 0x419, 0x41A, 0x41B, 0x41C, 0x41D, 0x41E, 0x41F, 0x420, 0x421, 0x422, 0x423, 0x424, 0x425, 0x426, 0x427, 0x428, 0x429, 0x42A, 0x42B, 0x42C, 0x42D, 0x42E, 0x42F, 0x401, 0x402, 0x403, 0x404, 0x405, 0x406, 0x407, 0x408, 0x409, 0x40A, 0x40B, 0x40C, 0x40E, 0x40F, 0x2160, 0x2161, 0x2162, 0x2163, 0x2164, 0x2165, 0x2166, 0x2167, 0x2168, 0x2169, 0x216A, 0x216B, 0x216C, 0x216D, 0x216E, 0x216F, 0xFF21, 0xFF22, 0xFF23, 0xFF24, 0xFF25, 0xFF26, 0xFF27, 0xFF28, 0xFF29, 0xFF2A, 0xFF2B, 0xFF2C, 0xFF2D, 0xFF2E, 0xFF2F, 0xFF30, 0xFF31, 0xFF32, 0xFF33, 0xFF34, 0xFF35, 0xFF36, 0xFF37, 0xFF38, 0xFF39, 0xFF3A, 0 };
-	int i;
-
-
-	for (i = 0; tbl_lower[i] && chr != tbl_lower[i]; i++) ;
     9dcc:	2300      	movs	r3, #0
     9dce:	60fb      	str	r3, [r7, #12]
     9dd0:	e002      	b.n	9dd8 <ff_wtoupper+0x18>
@@ -27540,8 +27474,6 @@ WCHAR ff_wtoupper (	/* Upper converted character */
     9dee:	8812      	ldrh	r2, [r2, #0]
     9df0:	429a      	cmp	r2, r3
     9df2:	d1ee      	bne.n	9dd2 <ff_wtoupper+0x12>
-
-	return tbl_lower[i] ? tbl_upper[i] : chr;
     9df4:	4b08      	ldr	r3, [pc, #32]	; (9e18 <ff_wtoupper+0x58>)
     9df6:	68fa      	ldr	r2, [r7, #12]
     9df8:	0052      	lsls	r2, r2, #1
@@ -27555,7 +27487,6 @@ WCHAR ff_wtoupper (	/* Upper converted character */
     9e08:	e001      	b.n	9e0e <ff_wtoupper+0x4e>
     9e0a:	1dbb      	adds	r3, r7, #6
     9e0c:	881b      	ldrh	r3, [r3, #0]
-}
     9e0e:	0018      	movs	r0, r3
     9e10:	46bd      	mov	sp, r7
     9e12:	b004      	add	sp, #16

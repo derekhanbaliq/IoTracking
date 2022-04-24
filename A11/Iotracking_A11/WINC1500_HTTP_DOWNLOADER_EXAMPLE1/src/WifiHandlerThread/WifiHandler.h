@@ -104,21 +104,21 @@ struct RgbColorPacket {
 
 #ifdef PLAYER1
 /* Chat MQTT topic. */
-#define LED_TOPIC "P1_LED_ESE516_T0"            // Students to change to an unique identifier for each device! LED Data
-#define GAME_TOPIC_IN "P1_GAME_ESE516_T0"       // Students to change to an unique identifier for each device! Game Data
-#define GAME_TOPIC_OUT "P2_GAME_ESE516_T0"      // Students to change to an unique identifier for each device! Game Data
-#define IMU_TOPIC "P1_IMU_ESE516_T0"            // Students to change to an unique identifier for each device! IMU Data
-#define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T0"  // Students to change to an unique identifier for each device! Distance Data
-#define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T0" // Students to change to an unique identifier for each device! Distance Data
+#define LED_TOPIC "P1_LED_ESE516_T6"            // Students to change to an unique identifier for each device! LED Data
+#define GAME_TOPIC_IN "P1_GAME_ESE516_T6"       // Students to change to an unique identifier for each device! Game Data
+#define GAME_TOPIC_OUT "P2_GAME_ESE516_T6"      // Students to change to an unique identifier for each device! Game Data
+#define IMU_TOPIC "Iotracking_IMU_T6"            // Students to change to an unique identifier for each device! IMU Data
+#define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T6"  // Students to change to an unique identifier for each device! Distance Data
+#define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T6" // Students to change to an unique identifier for each device! Distance Data
 
 #else
 /* Chat MQTT topic. */
-#define LED_TOPIC "P2_LED_ESE516_T0"            // Students to change to an unique identifier for each device! LED Data
-#define GAME_TOPIC_IN "P2_GAME_ESE516_T0"       // Students to change to an unique identifier for each device! Game Data
-#define GAME_TOPIC_OUT "P1_GAME_ESE516_T0"      // Students to change to an unique identifier for each device! Game Data
-#define IMU_TOPIC "P2_IMU_ESE516_T0"            // Students to change to an unique identifier for each device! IMU Data
-#define DISTANCE_TOPIC "P2_DISTANCE_ESE516_T0"  // Students to change to an unique identifier for each device! Distance Data
-#define TEMPERATURE_TOPIC "P2_TEMPERATURE_ESE516_T0" // Students to change to an unique identifier for each device! Distance Data
+#define LED_TOPIC "P2_LED_ESE516_T6"            // Students to change to an unique identifier for each device! LED Data
+#define GAME_TOPIC_IN "P2_GAME_ESE516_T6"       // Students to change to an unique identifier for each device! Game Data
+#define GAME_TOPIC_OUT "P1_GAME_ESE516_T6"      // Students to change to an unique identifier for each device! Game Data
+#define IMU_TOPIC "Iotracking_IMU_T6"            // Students to change to an unique identifier for each device! IMU Data
+#define DISTANCE_TOPIC "P2_DISTANCE_ESE516_T6"  // Students to change to an unique identifier for each device! Distance Data
+#define TEMPERATURE_TOPIC "P2_TEMPERATURE_ESE516_T6" // Students to change to an unique identifier for each device! Distance Data
 
 #endif
 
