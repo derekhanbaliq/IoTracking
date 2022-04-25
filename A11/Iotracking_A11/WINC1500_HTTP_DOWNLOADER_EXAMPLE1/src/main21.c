@@ -139,7 +139,7 @@ void vApplicationDaemonTaskStartupHook(void)
  */
 static void StartTasks(void)
 {
-    snprintf(bufferPrint, 64, "Heap before starting tasks: %d\r\n\r\n", xPortGetFreeHeapSize());
+    snprintf(bufferPrint, 64, "Heap before starting tasks: %d", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
 
     // Initialize Tasks here

@@ -36632,171 +36632,171 @@ LOAD d:/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none
  .rodata.main_mqtt_broker
                 0x00036bac       0x12 src/WifiHandlerThread/WifiHandler.o
  *fill*         0x00036bbe        0x2 
- .rodata        0x00036bc0      0x99f src/WifiHandlerThread/WifiHandler.o
- *fill*         0x0003755f        0x1 
+ .rodata        0x00036bc0      0x9a3 src/WifiHandlerThread/WifiHandler.o
+ *fill*         0x00037563        0x1 
  .rodata.http_client_callback
-                0x00037560       0x14 src/WifiHandlerThread/WifiHandler.o
- .rodata        0x00037574       0xe0 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o
+                0x00037564       0x14 src/WifiHandlerThread/WifiHandler.o
+ .rodata        0x00037578       0xe0 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o
  .rodata.xHelpCommand
-                0x00037654       0x10 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o
- .rodata        0x00037664      0x37a src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcKernelPort.o
- *fill*         0x000379de        0x2 
+                0x00037658       0x10 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.o
+ .rodata        0x00037668      0x37a src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcKernelPort.o
+ *fill*         0x000379e2        0x2 
  .rodata.pszTraceGetErrorNotEnoughHandles
-                0x000379e0       0x24 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcKernelPort.o
- .rodata        0x00037a04     0x107b src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcSnapshotRecorder.o
- *fill*         0x00038a7f        0x1 
- .rodata        0x00038a80        0x5 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/tasks.o
- *fill*         0x00038a85        0x3 
- .rodata        0x00038a88        0x8 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/timers.o
+                0x000379e4       0x24 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcKernelPort.o
+ .rodata        0x00037a08     0x107b src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-Trace/trcSnapshotRecorder.o
+ *fill*         0x00038a83        0x1 
+ .rodata        0x00038a84        0x5 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/tasks.o
+ *fill*         0x00038a89        0x3 
+ .rodata        0x00038a8c        0x8 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/timers.o
  .rodata.prvProcessReceivedCommands
-                0x00038a90       0x28 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/timers.o
+                0x00038a94       0x28 src/ASF/thirdparty/freertos/freertos-10.0.0/Source/timers.o
  .rodata.sd_mmc_trans_units
-                0x00038ab8       0x1c src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
-                0x00038ab8                sd_mmc_trans_units
+                0x00038abc       0x1c src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
+                0x00038abc                sd_mmc_trans_units
  .rodata.sd_trans_multipliers
-                0x00038ad4       0x40 src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
-                0x00038ad4                sd_trans_multipliers
+                0x00038ad8       0x40 src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
+                0x00038ad8                sd_trans_multipliers
  .rodata.mmc_trans_multipliers
-                0x00038b14       0x40 src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
-                0x00038b14                mmc_trans_multipliers
- .rodata        0x00038b54       0x2a src/ASF/common/components/wifi/winc1500/bus_wrapper/source/nm_bus_wrapper_samd21.o
- *fill*         0x00038b7e        0x2 
+                0x00038b18       0x40 src/ASF/common2/components/memory/sd_mmc/sd_mmc.o
+                0x00038b18                mmc_trans_multipliers
+ .rodata        0x00038b58       0x2a src/ASF/common/components/wifi/winc1500/bus_wrapper/source/nm_bus_wrapper_samd21.o
+ *fill*         0x00038b82        0x2 
  .rodata.__FUNCTION__.17099
-                0x00038b80        0xd src/ASF/common/components/wifi/winc1500/bus_wrapper/source/nm_bus_wrapper_samd21.o
- *fill*         0x00038b8d        0x3 
- .rodata        0x00038b90      0x306 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
- *fill*         0x00038e96        0x2 
+                0x00038b84        0xd src/ASF/common/components/wifi/winc1500/bus_wrapper/source/nm_bus_wrapper_samd21.o
+ *fill*         0x00038b91        0x3 
+ .rodata        0x00038b94      0x306 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+ *fill*         0x00038e9a        0x2 
  .rodata.hif_register_cb
-                0x00038e98       0x20 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+                0x00038e9c       0x20 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
  .rodata.__FUNCTION__.17967
-                0x00038eb8        0x9 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
- *fill*         0x00038ec1        0x3 
+                0x00038ebc        0x9 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+ *fill*         0x00038ec5        0x3 
  .rodata.__FUNCTION__.17977
-                0x00038ec4        0x8 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+                0x00038ec8        0x8 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
  .rodata.__FUNCTION__.17986
-                0x00038ecc        0xf src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
- *fill*         0x00038edb        0x1 
+                0x00038ed0        0xf src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+ *fill*         0x00038edf        0x1 
  .rodata.__FUNCTION__.17998
-                0x00038edc        0xc src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+                0x00038ee0        0xc src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
  .rodata.__FUNCTION__.18014
-                0x00038ee8       0x10 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
- .rodata        0x00038ef8      0x31d src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
- *fill*         0x00039215        0x3 
+                0x00038eec       0x10 src/ASF/common/components/wifi/winc1500/driver/source/m2m_hif.o
+ .rodata        0x00038efc      0x31d src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
+ *fill*         0x00039219        0x3 
  .rodata.__FUNCTION__.17949
-                0x00039218        0xc src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
+                0x0003921c        0xc src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
  .rodata.__FUNCTION__.17978
-                0x00039224        0xe src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
- *fill*         0x00039232        0x2 
+                0x00039228        0xe src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
+ *fill*         0x00039236        0x2 
  .rodata.__FUNCTION__.18009
-                0x00039234       0x14 src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
- .rodata        0x00039248       0x89 src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
- *fill*         0x000392d1        0x3 
+                0x00039238       0x14 src/ASF/common/components/wifi/winc1500/driver/source/m2m_wifi.o
+ .rodata        0x0003924c       0x89 src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
+ *fill*         0x000392d5        0x3 
  .rodata.__FUNCTION__.17806
-                0x000392d4        0xa src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
- *fill*         0x000392de        0x2 
+                0x000392d8        0xa src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
+ *fill*         0x000392e2        0x2 
  .rodata.__FUNCTION__.17855
-                0x000392e0        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
- .rodata        0x000392ec       0xcf src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
- *fill*         0x000393bb        0x1 
+                0x000392e4        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmasic.o
+ .rodata        0x000392f0       0xcf src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
+ *fill*         0x000393bf        0x1 
  .rodata.__FUNCTION__.17853
-                0x000393bc        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
+                0x000393c0        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
  .rodata.__FUNCTION__.17860
-                0x000393c8        0xe src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
- *fill*         0x000393d6        0x2 
+                0x000393cc        0xe src/ASF/common/components/wifi/winc1500/driver/source/nmdrv.o
+ *fill*         0x000393da        0x2 
  .rodata.crc7_syndrome_table
-                0x000393d8      0x100 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- .rodata        0x000394d8      0x575 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039a4d        0x3 
+                0x000393dc      0x100 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ .rodata        0x000394dc      0x575 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039a51        0x3 
  .rodata.spi_cmd
-                0x00039a50       0x3c src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+                0x00039a54       0x3c src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
  .rodata.spi_cmd_complete
-                0x00039a8c       0x3c src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+                0x00039a90       0x3c src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
  .rodata.__FUNCTION__.17128
-                0x00039ac8        0x8 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+                0x00039acc        0x8 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
  .rodata.__FUNCTION__.17135
-                0x00039ad0        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039add        0x3 
+                0x00039ad4        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039ae1        0x3 
  .rodata.__FUNCTION__.17144
-                0x00039ae0        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+                0x00039ae4        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
  .rodata.__FUNCTION__.17177
-                0x00039aec       0x11 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039afd        0x3 
+                0x00039af0       0x11 src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039b01        0x3 
  .rodata.__FUNCTION__.17223
-                0x00039b00        0xf src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039b0f        0x1 
+                0x00039b04        0xf src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039b13        0x1 
  .rodata.__FUNCTION__.17235
-                0x00039b10        0xe src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039b1e        0x2 
+                0x00039b14        0xe src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039b22        0x2 
  .rodata.__FUNCTION__.17246
-                0x00039b20        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039b2d        0x3 
+                0x00039b24        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039b31        0x3 
  .rodata.__FUNCTION__.17258
-                0x00039b30        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- *fill*         0x00039b3d        0x3 
+                0x00039b34        0xd src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ *fill*         0x00039b41        0x3 
  .rodata.__FUNCTION__.17269
-                0x00039b40        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+                0x00039b44        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
  .rodata.__FUNCTION__.17290
-                0x00039b4c        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
- .rodata        0x00039b58       0xb4 src/ASF/common/components/wifi/winc1500/socket/source/socket.o
- .rodata        0x00039c0c       0x15 src/ASF/common/services/storage/ctrl_access/ctrl_access.o
- *fill*         0x00039c21        0x3 
+                0x00039b50        0xc src/ASF/common/components/wifi/winc1500/driver/source/nmspi.o
+ .rodata        0x00039b5c       0xb4 src/ASF/common/components/wifi/winc1500/socket/source/socket.o
+ .rodata        0x00039c10       0x15 src/ASF/common/services/storage/ctrl_access/ctrl_access.o
+ *fill*         0x00039c25        0x3 
  .rodata.lun_desc
-                0x00039c24       0x20 src/ASF/common/services/storage/ctrl_access/ctrl_access.o
- .rodata        0x00039c44       0x18 src/ASF/sam0/drivers/sercom/sercom.o
- .rodata        0x00039c5c        0x6 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
- *fill*         0x00039c62        0x2 
+                0x00039c28       0x20 src/ASF/common/services/storage/ctrl_access/ctrl_access.o
+ .rodata        0x00039c48       0x18 src/ASF/sam0/drivers/sercom/sercom.o
+ .rodata        0x00039c60        0x6 src/ASF/sam0/drivers/sercom/sercom_interrupt.o
+ *fill*         0x00039c66        0x2 
  .rodata.system_clock_source_get_hz
-                0x00039c64       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
+                0x00039c68       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
  .rodata.system_clock_source_enable
-                0x00039c88       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
+                0x00039c8c       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
  .rodata.system_clock_source_is_ready
-                0x00039cac       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
+                0x00039cb0       0x24 src/ASF/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.o
  .rodata.tcc_modules
-                0x00039cd0        0xc src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039cd0                tcc_modules
+                0x00039cd4        0xc src/ASF/sam0/drivers/tcc/tcc.o
+                0x00039cd4                tcc_modules
  .rodata._tcc_gclk_ids
-                0x00039cdc        0x3 src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039cdc                _tcc_gclk_ids
- *fill*         0x00039cdf        0x1 
+                0x00039ce0        0x3 src/ASF/sam0/drivers/tcc/tcc.o
+                0x00039ce0                _tcc_gclk_ids
+ *fill*         0x00039ce3        0x1 
  .rodata._tcc_apbcmasks
-                0x00039ce0        0xc src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039ce0                _tcc_apbcmasks
+                0x00039ce4        0xc src/ASF/sam0/drivers/tcc/tcc.o
+                0x00039ce4                _tcc_apbcmasks
  .rodata._tcc_maxs
-                0x00039cec        0xc src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039cec                _tcc_maxs
+                0x00039cf0        0xc src/ASF/sam0/drivers/tcc/tcc.o
+                0x00039cf0                _tcc_maxs
  .rodata._tcc_cc_nums
-                0x00039cf8        0x3 src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039cf8                _tcc_cc_nums
- *fill*         0x00039cfb        0x1 
- .rodata._tcc_ow_nums
                 0x00039cfc        0x3 src/ASF/sam0/drivers/tcc/tcc.o
-                0x00039cfc                _tcc_ow_nums
+                0x00039cfc                _tcc_cc_nums
  *fill*         0x00039cff        0x1 
+ .rodata._tcc_ow_nums
+                0x00039d00        0x3 src/ASF/sam0/drivers/tcc/tcc.o
+                0x00039d00                _tcc_ow_nums
+ *fill*         0x00039d03        0x1 
  .rodata._tcc_intflag
-                0x00039d00       0x30 src/ASF/sam0/drivers/tcc/tcc_callback.o
-                0x00039d00                _tcc_intflag
+                0x00039d04       0x30 src/ASF/sam0/drivers/tcc/tcc_callback.o
+                0x00039d04                _tcc_intflag
  .rodata.LfnOfs
-                0x00039d30        0xd src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
- *fill*         0x00039d3d        0x3 
- .rodata        0x00039d40       0x48 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
+                0x00039d34        0xd src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
+ *fill*         0x00039d41        0x3 
+ .rodata        0x00039d44       0x48 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
  .rodata.excvt.4558
-                0x00039d88       0x80 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
- .rodata.Tbl    0x00039e08      0x100 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
+                0x00039d8c       0x80 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/ff.o
+ .rodata.Tbl    0x00039e0c      0x100 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
  .rodata.tbl_lower.4308
-                0x00039f08      0x1e0 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
+                0x00039f0c      0x1e0 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
  .rodata.tbl_upper.4309
-                0x0003a0e8      0x1e0 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
- .rodata.cycle  0x0003a2c8       0x38 src/ASF/thirdparty/pahomqtt/MQTTClient/MQTTClient.o
- .rodata        0x0003a300       0x58 src/ASF/thirdparty/pahomqtt/MQTTClient/MQTTClient.o
- .rodata        0x0003a358       0x58 src/ASF/thirdparty/pahomqtt/MQTTClient/Wrapper/mqtt.o
- .rodata        0x0003a3b0        0xf src/ASF/thirdparty/pahomqtt/MQTTPacket/MQTTConnectClient.o
- *fill*         0x0003a3bf        0x1 
- .rodata        0x0003a3c0      0x13b src/iot/http/http_client.o
- *fill*         0x0003a4fb        0x1 
+                0x0003a0ec      0x1e0 src/ASF/thirdparty/fatfs/fatfs-r0.09/src/option/ccsbcs.o
+ .rodata.cycle  0x0003a2cc       0x38 src/ASF/thirdparty/pahomqtt/MQTTClient/MQTTClient.o
+ .rodata        0x0003a304       0x58 src/ASF/thirdparty/pahomqtt/MQTTClient/MQTTClient.o
+ .rodata        0x0003a35c       0x58 src/ASF/thirdparty/pahomqtt/MQTTClient/Wrapper/mqtt.o
+ .rodata        0x0003a3b4        0xf src/ASF/thirdparty/pahomqtt/MQTTPacket/MQTTConnectClient.o
+ *fill*         0x0003a3c3        0x1 
+ .rodata        0x0003a3c4      0x13b src/iot/http/http_client.o
+ *fill*         0x0003a4ff        0x1 
  .rodata._hwerr_to_stderr
-                0x0003a4fc       0x3c src/iot/http/http_client.o
- .rodata        0x0003a538        0xc src/iot/sw_timer.o
- .rodata        0x0003a544      0x2bb src/main21.o
+                0x0003a500       0x3c src/iot/http/http_client.o
+ .rodata        0x0003a53c        0xc src/iot/sw_timer.o
+ .rodata        0x0003a548      0x2b7 src/main21.o
  *fill*         0x0003a7ff        0x1 
  .rodata        0x0003a800       0x40 d:/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(mulsf3.o)
  .rodata        0x0003a840       0x40 d:/atmel/studio/7.0/toolchain/arm/arm-gnu-toolchain/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v6-m\libgcc.a(divdf3.o)

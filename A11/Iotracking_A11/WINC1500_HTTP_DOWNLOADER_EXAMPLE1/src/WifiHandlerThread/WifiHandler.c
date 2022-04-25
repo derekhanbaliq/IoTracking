@@ -737,7 +737,7 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 if (0 != mqtt_connect_broker(module_inst, 1, CLOUDMQTT_USER_ID, CLOUDMQTT_USER_PASSWORD, CLOUDMQTT_USER_ID, NULL, NULL, 0, 0, 0)) {
                     LogMessage(LOG_DEBUG_LVL, "MQTT  Error - NOT Connected to broker\r\n");
                 } else {
-                    LogMessage(LOG_DEBUG_LVL, "MQTT Connected to broker\r\n");
+                    LogMessage(LOG_DEBUG_LVL, "MQTT Connected to broker\r\n\r\n");
                 }
             } else {
                 LogMessage(LOG_DEBUG_LVL, "Connect fail to server(%s)! retry it automatically.\r\n", main_mqtt_broker);
