@@ -1,0 +1,2 @@
+if found flagA.txt in SD card, then delete it and update testA.bin (blinking forever) in SD card
+if not, then go normally

@@ -1,0 +1,2 @@
+if found testA.bin (blinking forever) in SD card, update it and then delete it
+if not, then go normally
