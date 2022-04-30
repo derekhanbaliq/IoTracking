@@ -524,6 +524,27 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
 	SerialConsoleWriteString("Added by Derek, TBD!\r\n");
+	/*
+	struct GpsDataPacket gpsPacket;
+	static float lat, lon;
 	
+	lat = getGpsLat();
+	lon = getGpsLon();
+	
+	if (lat != NULL && lon != NULL)
+	{
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", lat, lon);
+		gpsPacket.lat = lat;
+		gpsPacket.lon = lon;
+		WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	else
+	{
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Sending dummy data \r\n");
+		gpsPacket.lat = 0;
+		gpsPacket.lon = 0;
+		WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	*/
 	return pdFALSE;
 }
