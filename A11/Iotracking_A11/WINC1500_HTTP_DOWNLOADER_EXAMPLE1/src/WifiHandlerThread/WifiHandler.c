@@ -685,7 +685,7 @@ void SubscribeHandlerGameTopic(MessageData *msgData)
 void SubscribeHandlerImuTopic(MessageData *msgData)
 {
 	LogMessage(LOG_DEBUG_LVL, "IMU topic received! -"); //changed by Derek
-    LogMessage(LOG_DEBUG_LVL, "%.*s \r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+    LogMessage(LOG_DEBUG_LVL, "%.*s \r\n\r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
 void SubscribeHandlerDistanceTopic(MessageData *msgData)
@@ -694,7 +694,7 @@ void SubscribeHandlerDistanceTopic(MessageData *msgData)
 	LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
-void SubscribeHandlerGpsTopic(MessageData *msgData) //Derek-GPS
+void SubscribeHandlerGpsTopic(MessageData *msgData) //Derek-GPS, used in mqtt_callback()
 {
 	LogMessage(LOG_DEBUG_LVL, "GPS topic received! -");
 	LogMessage(LOG_DEBUG_LVL, "%.*s \r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
@@ -759,6 +759,7 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
                 mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
+				mqtt_subscribe(module_inst, GPS_TOPIC, 2, SubscribeHandlerGpsTopic); //Derek-GPS
                 /* Enable USART receiving callback. */
 
                 LogMessage(LOG_DEBUG_LVL, "MQTT Connected\r\n");
@@ -945,6 +946,7 @@ static void MQTT_HandleTransactions(void)
     // Check if data has to be sent!
     MQTT_HandleGameMessages();
     MQTT_HandleImuMessages();
+	MQTT_HandleGpsMessages(); //Derek-GPS
 
     // Handle MQTT messages
     if (mqtt_inst.isConnected) mqtt_yield(&mqtt_inst, 100);
@@ -959,7 +961,7 @@ static void MQTT_HandleImuMessages(void)
     }
 }
 
-static void MQTT_HandleGpsMessages(void) //Derek-GPS
+static void MQTT_HandleGpsMessages(void) //Derek-GPS, used in MQTT_HandleTransactions()
 {
 	struct GpsDataPacket gpsDataVar;
 	if (pdPASS == xQueueReceive(xQueueImuBuffer, &gpsDataVar, 0)) {
