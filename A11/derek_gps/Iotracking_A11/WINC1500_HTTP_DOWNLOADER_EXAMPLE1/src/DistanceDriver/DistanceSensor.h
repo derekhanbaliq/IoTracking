@@ -42,7 +42,7 @@
 void InitializeDistanceSensor(void);
 void DeinitializeDistanceSerial(void);
 
-int32_t DistanceSensorGetDistance(uint16_t *distance, const TickType_t xMaxBlockTime);
+int32_t DistanceSensorGetDistance(char *distance, const TickType_t xMaxBlockTime);
 void distUsartWritecallback(struct usart_module *const usart_module);
 void distUsartReadcallback(struct usart_module *const usart_module);
 

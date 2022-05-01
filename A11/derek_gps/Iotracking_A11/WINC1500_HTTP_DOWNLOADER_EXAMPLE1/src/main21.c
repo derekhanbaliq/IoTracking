@@ -18,7 +18,6 @@
 #include "CliThread/CliThread.h"
 #include "ControlThread\ControlThread.h"
 #include "DistanceDriver\DistanceSensor.h"
-//#include "GPSDriver\GPSSensor.h"
 #include "FreeRTOS.h"
 #include "IMU\lsm6dso_reg.h"
 #include "SeesawDriver/Seesaw.h"
@@ -125,7 +124,6 @@ void vApplicationDaemonTaskStartupHook(void)
     SerialConsoleWriteString("Initializing distance sensor\r\n");
     InitializeDistanceSensor();
     SerialConsoleWriteString("Distance sensor initialized\r\n");
-	//InitializeGPSSensor();
 
     StartTasks();
 
@@ -158,11 +156,12 @@ static void StartTasks(void)
     snprintf(bufferPrint, 64, "Heap after starting UI Task: %d\r\n\r\n", xPortGetFreeHeapSize());
     SerialConsoleWriteString(bufferPrint);
 
-    if (xTaskCreate(vControlHandlerTask, "Control Task", CONTROL_TASK_SIZE, NULL, CONTROL_TASK_PRIORITY, &controlTaskHandle) != pdPASS) {
-        SerialConsoleWriteString("ERR: Control task could not be initialized!\r\n");
-    }
-    snprintf(bufferPrint, 64, "Heap after starting Control Task: %d\r\n\r\n", xPortGetFreeHeapSize());
-    SerialConsoleWriteString(bufferPrint);
+	//this is Simon Game's code, please ignore this
+    //if (xTaskCreate(vControlHandlerTask, "Control Task", CONTROL_TASK_SIZE, NULL, CONTROL_TASK_PRIORITY, &controlTaskHandle) != pdPASS) {
+        //SerialConsoleWriteString("ERR: Control task could not be initialized!\r\n");
+    //}
+    //snprintf(bufferPrint, 64, "Heap after starting Control Task: %d\r\n\r\n", xPortGetFreeHeapSize());
+    //SerialConsoleWriteString(bufferPrint);
 	
 	if (xTaskCreate(vWifiTask, "WIFI_TASK", WIFI_TASK_SIZE, NULL, WIFI_PRIORITY, &wifiTaskHandle) != pdPASS) {
 		SerialConsoleWriteString("ERR: WIFI task could not be initialized!\r\n");

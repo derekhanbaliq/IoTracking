@@ -10,7 +10,7 @@
  * Includes
  ******************************************************************************/
 #include "CliThread.h"
-#include "GPSDriver\GPSSensor.h"
+
 #include "DistanceDriver/DistanceSensor.h"
 #include "IMU\lsm6dso_reg.h"
 #include "SeesawDriver/Seesaw.h"
@@ -25,7 +25,7 @@
  ******************************************************************************/
 static const char pcWelcomeMessage[]  = "FreeRTOS CLI.\r\nType Help to view a list of registered commands.\r\n";
 
-static const CLI_Command_Definition_t xImuGetCommand = {"imu", "imu: Returns a value from the IMU\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetImuData, 0};
+static const CLI_Command_Definition_t xImuGetCommand = {"imu", "imu: Returns current x, y, z acceleration from the IMU\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetImuData, 0};
 
 static const CLI_Command_Definition_t xOTAUCommand = {"fw", "fw: Download a file and perform an FW update\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_OTAU, 0};
 
@@ -51,7 +51,7 @@ static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};	
 
 // get GPS data
-static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns a value from the GPS\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
+static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns current latitude and longitude from the GPS\r\n\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
 
 // Clear screen command
 const CLI_Command_Definition_t xClearScreen = {CLI_COMMAND_CLEAR_SCREEN, CLI_HELP_CLEAR_SCREEN, CLI_CALLBACK_CLEAR_SCREEN, CLI_PARAMS_CLEAR_SCREEN};
@@ -414,8 +414,8 @@ BaseType_t CLI_NeotrellProcessButtonBuffer(int8_t *pcWriteBuffer, size_t xWriteB
  */
 BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
-    uint16_t distance = 0;
-    int error = DistanceSensorGetDistance(&distance, 100);
+    char distance = 0;
+    int error = DistanceSensorGetDistance(&distance, 1000);
     if (0 != error) {
         snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
     } else {
@@ -521,24 +521,30 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 }
 
 // CLI Command added by Derek. Reads from the GPS and returns data.
-
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
-	SerialConsoleWriteString("Testing running GPS call \r\n");
+	SerialConsoleWriteString("Added by Derek, TBD!\r\n\r\n");
+	/*
+	struct GpsDataPacket gpsPacket;
+	static float lat, lon;
 	
-	//char gps[64];
-	//int error = GPSSensorRead(&gps, 100);
-	//if (0 != error) {
-		//snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
-		//} else {
-		//snprintf((char *) pcWriteBuffer, xWriteBufferLen, gps);
-	//}
-//
-	//error = WifiAddDistanceDataToQueue(&gps);
-	//if (error == pdTRUE) {
-		//strcat((char *) pcWriteBuffer, "gps Data MQTT Post\r\n");
-	//}
-	return pdFALSE;
+	lat = getGpsLat();
+	lon = getGpsLon();
 	
+	if (lat != NULL && lon != NULL)
+	{
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", lat, lon);
+		gpsPacket.lat = lat;
+		gpsPacket.lon = lon;
+		WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	else
+	{
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Sending dummy data \r\n");
+		gpsPacket.lat = 0;
+		gpsPacket.lon = 0;
+		WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	*/
 	return pdFALSE;
 }

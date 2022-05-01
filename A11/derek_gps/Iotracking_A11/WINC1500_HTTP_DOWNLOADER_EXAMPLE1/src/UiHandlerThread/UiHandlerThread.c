@@ -2,8 +2,8 @@
 * @file      UiHandlerThread.c
 * @brief     File that contains the task code and supporting code for the UI
 Thread for ESE516 Spring (Online) Edition
-* @author    You! :)
-* @date      2020-04-09
+* @author    Derek Zhou
+* @date      2022-04-30
 
 ******************************************************************************/
 
@@ -72,10 +72,12 @@ void vUiHandlerTask(void *pvParameters)
     // Graphics Test - Students to uncomment to test out the OLED driver if you are using it! 
 	
     gfx_mono_init();
-    gfx_mono_draw_line(0, 0, 64, 48, GFX_PIXEL_SET);
-    gfx_mono_draw_filled_circle(54, 24, 10, GFX_PIXEL_SET, GFX_WHOLE);
-	gfx_mono_draw_string("ESE516",0,0, &sysfont);
-	
+    //gfx_mono_draw_line(0, 0, 64, 48, GFX_PIXEL_SET);
+    //gfx_mono_draw_filled_circle(54, 24, 10, GFX_PIXEL_SET, GFX_WHOLE);
+	gfx_mono_draw_string("ESE516", 0, 8, &sysfont);
+	gfx_mono_draw_string("IoTracking", 0, 18, &sysfont);
+	gfx_mono_draw_string("Derek Zhou", 0, 28, &sysfont);
+	gfx_mono_draw_string("Weihao H.", 0, 38, &sysfont);
 
     // Here we start the loop for the UI State Machine
     while (1) {

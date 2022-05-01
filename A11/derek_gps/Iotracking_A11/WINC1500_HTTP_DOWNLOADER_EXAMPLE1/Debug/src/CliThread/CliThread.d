@@ -236,8 +236,7 @@ src/CliThread/CliThread.d src/CliThread/CliThread.o: \
  ../src/ASF/sam0/drivers/tcc/tcc.h ../src/SerialConsole/SerialConsole.h \
  ../src/SerialConsole/circular_buffer.h \
  ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h \
- ../src/GPSDriver\GPSSensor.h ../src/DistanceDriver/DistanceSensor.h \
- ../src/IMU\lsm6dso_reg.h \
+ ../src/DistanceDriver/DistanceSensor.h ../src/IMU\lsm6dso_reg.h \
  d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\math.h \
  ../src/SeesawDriver/Seesaw.h ../src/I2cDriver/I2cDriver.h \
  ../src/WifiHandlerThread/WifiHandler.h \
@@ -762,8 +761,6 @@ d:\atmel\studio\7.0\toolchain\arm\arm-gnu-toolchain\arm-none-eabi\include\sys\st
 ../src/SerialConsole/circular_buffer.h:
 
 ../src/ASF/thirdparty/freertos/freertos-10.0.0/Source/FreeRTOS-Plus-CLI/FreeRTOS_CLI.h:
-
-../src/GPSDriver\GPSSensor.h:
 
 ../src/DistanceDriver/DistanceSensor.h:
 

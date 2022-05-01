@@ -18,7 +18,7 @@ extern "C" {
 /******************************************************************************
  * Defines
  ******************************************************************************/
-#define CONTROL_TASK_SIZE 256  //<Size of stack to assign to the UI thread. In words
+#define CONTROL_TASK_SIZE 300  //<Size of stack to assign to the UI thread. Modified by Derek from 256 to 300, or it may overflow!
 #define CONTROL_TASK_PRIORITY (configMAX_PRIORITIES - 1)
 typedef enum controlStateMachine_state {
     CONTROL_WAIT_FOR_GAME = 0,  ///< State used to WAIT FOR A GAME COMMAND

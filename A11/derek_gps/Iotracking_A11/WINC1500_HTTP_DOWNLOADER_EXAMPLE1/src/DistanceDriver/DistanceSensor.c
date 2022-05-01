@@ -79,8 +79,8 @@ static int32_t DistanceSensorGetMutex(TickType_t waitTime);
  */
 
 void InitializeDistanceSensor(void)
-{	
-	// Configure USART and Callbacks
+{
+    // Configure USART and Callbacks
     configure_usart();
     configure_usart_callbacks();
 
@@ -103,11 +103,11 @@ void DeinitializeDistanceSerial(void)
 }
 
 /**
- * @fn			int32_t DistanceSensorGetDistance (uint16_t *distance)
+ * @fn			int32_t DistanceSensorGetDistance (char *distance)
  * @brief		Gets the distance from the distance sensor.
  * @note			Returns 0 if successful. -1 if an error occurred
  */
-int32_t DistanceSensorGetDistance(uint16_t *distance, const TickType_t xMaxBlockTime)
+int32_t DistanceSensorGetDistance(char *distance, const TickType_t xMaxBlockTime)
 {
     int error = ERROR_NONE;
 
@@ -132,13 +132,18 @@ int32_t DistanceSensorGetDistance(uint16_t *distance, const TickType_t xMaxBlock
     }
 
     // 4. Initiate an rx job - usart_read_buffer_job - to read two characters. Read into variable latestRxDistance
-    usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, 2);  // Kicks off constant reading of characters
-
+    //usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, 2);  // Kicks off constant reading of characters
+	usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, 1);
+	
     //---7. Wait for notification
     if (xSemaphoreTake(sensorDistanceSemaphoreHandle, xMaxBlockTime) == pdTRUE) {
         /* The transmission ended as expected. We now delay until the I2C sensor is finished */
-        *distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
-		
+        //*distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
+		*distance = latestRxDistance[0]; //Derek-@628
+		if (latestRxDistance[0] == '\n')
+		{
+			SerialConsoleWriteString("hi");
+		}
     } else {
         /* The call to ulTaskNotifyTake() timed out. */
         error = ERR_TIMEOUT;
@@ -161,27 +166,16 @@ static void configure_usart(void)
 {
     struct usart_config config_usart;
     usart_get_config_defaults(&config_usart);
-	
-	SerialConsoleWriteString("hihi\r\n");
 
     config_usart.baudrate = 9600;
     config_usart.mux_setting = USART_RX_1_TX_0_XCK_1;
-    config_usart.pinmux_pad0 = PINMUX_PB02D_SERCOM5_PAD0; //TX
-    config_usart.pinmux_pad1 = PINMUX_PB03D_SERCOM5_PAD1; //RX
+    config_usart.pinmux_pad0 = PINMUX_PB02D_SERCOM5_PAD0;
+    config_usart.pinmux_pad1 = PINMUX_PB03D_SERCOM5_PAD1;
     config_usart.pinmux_pad2 = PINMUX_UNUSED;
     config_usart.pinmux_pad3 = PINMUX_UNUSED;
-	//config_usart.mux_setting = USART_RX_3_TX_2_XCK_3;
-	//config_usart.pinmux_pad0 = PINMUX_UNUSED;
-	//config_usart.pinmux_pad1 = PINMUX_UNUSED;
-	//config_usart.pinmux_pad2 = PINMUX_PA10D_SERCOM2_PAD2; //TX
-	//config_usart.pinmux_pad3 = PINMUX_PA11D_SERCOM2_PAD3; //RX
-
-	SerialConsoleWriteString("qqq\r\n");
 
     while (usart_init(&usart_instance_dist, SERCOM5, &config_usart) != STATUS_OK) {
     }
-	//while (usart_init(&usart_instance_dist, SERCOM2, &config_usart) != STATUS_OK) {
-	//}
 
     usart_enable(&usart_instance_dist);
 }

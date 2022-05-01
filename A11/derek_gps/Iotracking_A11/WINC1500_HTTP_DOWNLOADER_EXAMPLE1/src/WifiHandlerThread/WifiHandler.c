@@ -30,6 +30,7 @@ int8_t wifiStateMachine = WIFI_MQTT_INIT;   ///< Global variable that determines
 QueueHandle_t xQueueWifiState = NULL;       ///< Queue to determine the Wifi state from other threads.
 QueueHandle_t xQueueGameBuffer = NULL;      ///< Queue to send the next play to the cloud
 QueueHandle_t xQueueImuBuffer = NULL;       ///< Queue to send IMU data to the cloud
+QueueHandle_t xQueueGpsBuffer = NULL;       ///< Queue to send GPS data to the cloud Derek-GPS
 QueueHandle_t xQueueDistanceBuffer = NULL;  ///< Queue to send the distance to the cloud
 
 /*HTTP DOWNLOAD RELATED DEFINES AND VARIABLES*/
@@ -75,6 +76,7 @@ static unsigned char mqtt_send_buffer[MAIN_MQTT_BUFFER_SIZE];
 static void MQTT_InitRoutine(void);
 static void MQTT_HandleGameMessages(void);
 static void MQTT_HandleImuMessages(void);
+static void MQTT_HandleGpsMessages(void); //Derek-GPS
 static void HTTP_DownloadFileInit(void);
 static void HTTP_DownloadFileTransaction(void);
 /******************************************************************************
@@ -683,13 +685,19 @@ void SubscribeHandlerGameTopic(MessageData *msgData)
 void SubscribeHandlerImuTopic(MessageData *msgData)
 {
 	LogMessage(LOG_DEBUG_LVL, "IMU topic received! -"); //changed by Derek
-    LogMessage(LOG_DEBUG_LVL, "%.*s \r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+    LogMessage(LOG_DEBUG_LVL, "%.*s \r\n\r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
 void SubscribeHandlerDistanceTopic(MessageData *msgData)
 {
 	LogMessage(LOG_DEBUG_LVL, "\r\nDistance topic received!\r\n");
-    LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+	LogMessage(LOG_DEBUG_LVL, "\r\n %.*s", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
+}
+
+void SubscribeHandlerGpsTopic(MessageData *msgData) //Derek-GPS, used in mqtt_callback()
+{
+	LogMessage(LOG_DEBUG_LVL, "GPS topic received! -");
+	LogMessage(LOG_DEBUG_LVL, "%.*s \r\n", msgData->topicName->lenstring.len, msgData->topicName->lenstring.data);
 }
 
 void SubscribeHandler(MessageData *msgData)
@@ -751,6 +759,7 @@ static void mqtt_callback(struct mqtt_module *module_inst, int type, union mqtt_
                 mqtt_subscribe(module_inst, GAME_TOPIC_IN, 2, SubscribeHandlerGameTopic);
                 mqtt_subscribe(module_inst, LED_TOPIC, 2, SubscribeHandlerLedTopic);
                 mqtt_subscribe(module_inst, IMU_TOPIC, 2, SubscribeHandlerImuTopic);
+				mqtt_subscribe(module_inst, GPS_TOPIC, 2, SubscribeHandlerGpsTopic); //Derek-GPS
                 /* Enable USART receiving callback. */
 
                 LogMessage(LOG_DEBUG_LVL, "MQTT Connected\r\n");
@@ -937,6 +946,7 @@ static void MQTT_HandleTransactions(void)
     // Check if data has to be sent!
     MQTT_HandleGameMessages();
     MQTT_HandleImuMessages();
+	MQTT_HandleGpsMessages(); //Derek-GPS
 
     // Handle MQTT messages
     if (mqtt_inst.isConnected) mqtt_yield(&mqtt_inst, 100);
@@ -949,6 +959,15 @@ static void MQTT_HandleImuMessages(void)
         snprintf(mqtt_msg, 63, "{\"imux\":%d, \"imuy\": %d, \"imuz\": %d}", imuDataVar.xmg, imuDataVar.ymg, imuDataVar.zmg);
         mqtt_publish(&mqtt_inst, IMU_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
     }
+}
+
+static void MQTT_HandleGpsMessages(void) //Derek-GPS, used in MQTT_HandleTransactions()
+{
+	struct GpsDataPacket gpsDataVar;
+	if (pdPASS == xQueueReceive(xQueueImuBuffer, &gpsDataVar, 0)) {
+		snprintf(mqtt_msg, 63, "{\"name\":\"derek\", \"lat\": %f, \"lon\": %f}", gpsDataVar.lat, gpsDataVar.lon);
+		mqtt_publish(&mqtt_inst, GPS_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
+	}
 }
 
 static void MQTT_HandleGameMessages(void)
@@ -1127,8 +1146,8 @@ int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket)
 */
 int WifiAddDistanceDataToQueue(uint16_t *distance)
 {
-    int error = xQueueSend(xQueueDistanceBuffer, distance, (TickType_t)10);
-    return error;
+	int error = xQueueSend(xQueueDistanceBuffer, distance, (TickType_t)10);
+	return error;
 }
 
 /**
@@ -1144,4 +1163,11 @@ int WifiAddGameDataToQueue(struct GameDataPacket *game)
 {
     int error = xQueueSend(xQueueGameBuffer, game, (TickType_t)10);
     return error;
+}
+
+//Derek-GPS
+int WifiAddGpsDataToQueue(struct GpsDataPacket *gpsPacket)
+{
+	int error = xQueueSend(xQueueGpsBuffer, gpsPacket, (TickType_t)10);
+	return error;
 }
