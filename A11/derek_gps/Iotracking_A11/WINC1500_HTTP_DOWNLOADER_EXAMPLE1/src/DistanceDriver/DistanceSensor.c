@@ -32,7 +32,7 @@ SemaphoreHandle_t sensorDistanceSemaphoreHandle;  ///< Binary semaphore to notif
  * Structures and Enumerations
  ******************************************************************************/
 uint8_t distTx;
-uint8_t latestRxDistance[2];
+char latestRxDistance[80];
 /******************************************************************************
  *  Callback Declaration
  ******************************************************************************/
@@ -107,7 +107,7 @@ void DeinitializeDistanceSerial(void)
  * @brief		Gets the distance from the distance sensor.
  * @note			Returns 0 if successful. -1 if an error occurred
  */
-int32_t DistanceSensorGetDistance(char *distance, const TickType_t xMaxBlockTime)
+int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTime)
 {
     int error = ERROR_NONE;
 
@@ -133,16 +133,24 @@ int32_t DistanceSensorGetDistance(char *distance, const TickType_t xMaxBlockTime
 
     // 4. Initiate an rx job - usart_read_buffer_job - to read two characters. Read into variable latestRxDistance
     //usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, 2);  // Kicks off constant reading of characters
-	usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, 1);
+	
+	int len = sizeof(latestRxDistance) / sizeof(char);
+	usart_read_buffer_job(&usart_instance_dist, (uint8_t *)&latestRxDistance, len);
 	
     //---7. Wait for notification
     if (xSemaphoreTake(sensorDistanceSemaphoreHandle, xMaxBlockTime) == pdTRUE) {
         /* The transmission ended as expected. We now delay until the I2C sensor is finished */
-        //*distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
-		*distance = latestRxDistance[0]; //Derek-@628
-		if (latestRxDistance[0] == '\n')
+        
+		//*distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
+		//*distance = (float)latestRxDistance[0]; //Derek-@628
+		
+		for (int i = 0; i < len; i++)
 		{
-			SerialConsoleWriteString("hi");
+			SerialConsoleWriteString(latestRxDistance[i]);
+			//if (latestRxDistance[i] == 10)
+			//{
+				//break;
+			//}
 		}
     } else {
         /* The call to ulTaskNotifyTake() timed out. */
