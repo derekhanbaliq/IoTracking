@@ -419,7 +419,8 @@ BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBuf
     if (0 != error) {
         snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
     } else {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+        //snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "\r\nGPS outputted \r\n");
     }
 
     error = WifiAddDistanceDataToQueue(&distance);

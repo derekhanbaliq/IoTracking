@@ -107,6 +107,9 @@ void DeinitializeDistanceSerial(void)
  * @brief		Gets the distance from the distance sensor.
  * @note			Returns 0 if successful. -1 if an error occurred
  */
+
+char checkerprint[64];
+
 int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTime)
 {
     int error = ERROR_NONE;
@@ -145,8 +148,13 @@ int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTim
 		//*distance = (float)latestRxDistance[0]; //Derek-@628
 		
 		for (int i = 0; i < len; i++)
-		{
-			SerialConsoleWriteString(latestRxDistance[i]);
+		{	
+			//SerialConsoleWriteString("what is this \r\n");
+			//SerialConsoleWriteString(latestRxDistance[i]);
+			char convertedText = latestRxDistance[i];
+			//snprintf(checkerprint, 64, "%i\r\n", latestRxDistance[i]);
+			snprintf(checkerprint, 64, "%c", convertedText);
+			SerialConsoleWriteString(checkerprint); //to display it
 			//if (latestRxDistance[i] == 10)
 			//{
 				//break;
