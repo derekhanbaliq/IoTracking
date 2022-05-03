@@ -102,14 +102,31 @@ void DeinitializeDistanceSerial(void)
     usart_disable(&usart_instance_dist);
 }
 
+
+
+
+/**
+ * @fn			char parseGPRMC(char stringtocheck)
+ * @brief		returns the reading from the NMEA's GPRMC line
+ * @note		Does a serialconsolewritestring directly with the gprmc while saving the stringtocheck to a previously defined char var
+ */
+char fullgps[64];
+char rmcoutput[64];
+char* parseGPRMC(char stringtocheck) {
+	//checks the string to find the index of "C" char (since it is unique), loop until it finds the ending $ char
+	SerialConsoleWriteString(stringtocheck);
+	SerialConsoleWriteString("\r\nstring parsed \r\n");
+	//rmcoutput = stringtocheck;
+	//return rmcoutput;
+}
+
 /**
  * @fn			int32_t DistanceSensorGetDistance (char *distance)
  * @brief		Gets the distance from the distance sensor.
  * @note			Returns 0 if successful. -1 if an error occurred
  */
-
 char checkerprint[64];
-
+char checkerprint2[];
 int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTime)
 {
     int error = ERROR_NONE;
@@ -149,23 +166,32 @@ int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTim
 		
 		for (int i = 0; i < len; i++)
 		{	
-			//SerialConsoleWriteString("what is this \r\n");
 			//SerialConsoleWriteString(latestRxDistance[i]);
 			char convertedText = latestRxDistance[i];
-			//snprintf(checkerprint, 64, "%i\r\n", latestRxDistance[i]);
 			snprintf(checkerprint, 64, "%c", convertedText);
 			SerialConsoleWriteString(checkerprint); //to display it
+			if (convertedText == 'C') {
+				snprintf(checkerprint2, 64, "\r\nfound GPRMC line at index i = %i \r\n", i);
+				SerialConsoleWriteString(checkerprint2); //to display it
+			}
 			//if (latestRxDistance[i] == 10)
 			//{
 				//break;
 			//}
 		}
-    } else {
+// 		SerialConsoleWriteString("\r\nprinting full thing out from string fullgps\r\n");
+// 		snprintf(checkerprint2, 64, "\r\n%s \r\n", fullgps);
+// 		SerialConsoleWriteString(checkerprint2);
+		//parsing the code for JUST the GPRMC part
+		//SerialConsoleWriteString(fullgps);
+		//rmsoutput = parseGPRMC(fullgps);
+
+		} else {
         /* The call to ulTaskNotifyTake() timed out. */
         error = ERR_TIMEOUT;
         goto exitf;
-    }
-
+		}
+	
 exitf:
     // Release mutex and return error
     DistanceSensorFreeMutex();

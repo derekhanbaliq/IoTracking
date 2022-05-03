@@ -41,7 +41,7 @@
  ******************************************************************************/
 void InitializeDistanceSensor(void);
 void DeinitializeDistanceSerial(void);
-
+char* parseGPRMC(char stringtocheck);
 int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTime); //Derek-@628
 void distUsartWritecallback(struct usart_module *const usart_module);
 void distUsartReadcallback(struct usart_module *const usart_module);
