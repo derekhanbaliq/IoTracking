@@ -521,31 +521,37 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 
 }
 
+extern float gps_latitude;
+extern float gps_longitude;
+
 // CLI Command added by Derek. Reads from the GPS and returns data.
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
-	SerialConsoleWriteString("Added by Derek, TBD!\r\n\r\n");
-	/*
+	char distance = 0;
 	struct GpsDataPacket gpsPacket;
-	static float lat, lon;
+	int error = DistanceSensorGetDistance(&distance, 1000);
 	
-	lat = getGpsLat();
-	lon = getGpsLon();
+	if (0 != error) {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS Error %d!\r\n", error);
+		} else {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS outputted!\r\n");
+	}
 	
-	if (lat != NULL && lon != NULL)
+	if (gps_latitude != 0 && gps_longitude != 0)
 	{
-		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", lat, lon);
-		gpsPacket.lat = lat;
-		gpsPacket.lon = lon;
+		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
+		gpsPacket.lat = (int)gps_latitude;
+		gpsPacket.lon = (int)gps_longitude;
 		WifiAddGpsDataToQueue(&gpsPacket);
 	}
 	else
 	{
-		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Sending dummy data \r\n");
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Don't send data! \r\n");
 		gpsPacket.lat = 0;
 		gpsPacket.lon = 0;
-		WifiAddGpsDataToQueue(&gpsPacket);
+		//WifiAddGpsDataToQueue(&gpsPacket);
 	}
-	*/
+	
 	return pdFALSE;
 }

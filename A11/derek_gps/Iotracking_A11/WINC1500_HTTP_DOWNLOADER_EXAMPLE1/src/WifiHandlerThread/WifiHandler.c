@@ -964,8 +964,8 @@ static void MQTT_HandleImuMessages(void)
 static void MQTT_HandleGpsMessages(void) //Derek-GPS, used in MQTT_HandleTransactions()
 {
 	struct GpsDataPacket gpsDataVar;
-	if (pdPASS == xQueueReceive(xQueueImuBuffer, &gpsDataVar, 0)) {
-		snprintf(mqtt_msg, 63, "{\"name\":\"derek\", \"lat\": %f, \"lon\": %f}", gpsDataVar.lat, gpsDataVar.lon);
+	if (pdPASS == xQueueReceive(xQueueGpsBuffer, &gpsDataVar, 0)) {
+		snprintf(mqtt_msg, 63, "{\"name\":\"derek\", \"lat\": %i, \"lon\": %i}", gpsDataVar.lat, gpsDataVar.lon);
 		mqtt_publish(&mqtt_inst, GPS_TOPIC, mqtt_msg, strlen(mqtt_msg), 1, 0);
 	}
 }
@@ -1012,8 +1012,9 @@ void vWifiTask(void *pvParameters)
     xQueueImuBuffer = xQueueCreate(5, sizeof(struct ImuDataPacket));
     xQueueGameBuffer = xQueueCreate(2, sizeof(struct GameDataPacket));
     xQueueDistanceBuffer = xQueueCreate(5, sizeof(uint16_t));
+	xQueueGpsBuffer = xQueueCreate(5, sizeof(struct GpsDataPacket));
 
-    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL) {
+    if (xQueueWifiState == NULL || xQueueImuBuffer == NULL || xQueueGameBuffer == NULL || xQueueDistanceBuffer == NULL || xQueueGpsBuffer == NULL) {
         SerialConsoleWriteString("ERROR Initializing Wifi Data queues!\r\n");
     }
 
@@ -1168,6 +1169,6 @@ int WifiAddGameDataToQueue(struct GameDataPacket *game)
 //Derek-GPS
 int WifiAddGpsDataToQueue(struct GpsDataPacket *gpsPacket)
 {
-	int error = xQueueSend(xQueueGpsBuffer, gpsPacket, (TickType_t)10);
+	int error = xQueueSend(xQueueGpsBuffer, gpsPacket, (TickType_t)1000);
 	return error;
 }
