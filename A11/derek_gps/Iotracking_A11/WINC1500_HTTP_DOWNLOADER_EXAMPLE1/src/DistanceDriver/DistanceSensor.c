@@ -18,6 +18,9 @@
 
 #include "I2cDriver/I2cDriver.h"
 #include "SerialConsole/SerialConsole.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /******************************************************************************
  * Variables
@@ -106,18 +109,108 @@ void DeinitializeDistanceSerial(void)
 
 
 /**
- * @fn			char parseGPRMC(char stringtocheck)
- * @brief		returns the reading from the NMEA's GPRMC line
- * @note		Does a serialconsolewritestring directly with the gprmc while saving the stringtocheck to a previously defined char var
+ * @fn			int parseGPRMC_lat(char stringtocheck)
+ * @brief		returns the reading from the NMEA's GPRMC line for the GPS latitude
+ * @note		outputs a double to use for later commands directly
  */
-char fullgps[64];
-char rmcoutput[64];
-char* parseGPRMC(char stringtocheck) {
-	//checks the string to find the index of "C" char (since it is unique), loop until it finds the ending $ char
-	SerialConsoleWriteString(stringtocheck);
-	SerialConsoleWriteString("\r\nstring parsed \r\n");
+double gps_latitude = 0;
+int testd = 0;
+double gps_longitude = 0;
+char checkerprint3[64];
+char latchar[12];
+char lontchar[12];
+char *eptr;
+
+double parseGPRMC_lat(char stringtocheck[]) {
+	//checks string to find A, then goes into the numbers bounded by , and ,
+	//take out the latitude number
+	int gpsgood = 0;
+	int latcnt = 0;
+	double curr_lat = 0.0;
+ 	for (int i = 0; i < 64; i++) {
+ 		//SerialConsoleWriteString("printing here in gps func \r\n");
+		 
+		if (stringtocheck[i] == 'A') { //A existed
+			gpsgood = 1;
+			SerialConsoleWriteString("\r\nGPS is connected \r\n");
+		}
+
+		if (gpsgood) { //doing manual indexing
+			for (int j = 14; j < 24; j++) {
+				snprintf(checkerprint3, 64, "%c", stringtocheck[j]);
+				SerialConsoleWriteString(checkerprint3);
+				latchar[latcnt] = stringtocheck[j];
+				latcnt++;
+			}
+			//gpsgood = 0; //done with the latitude
+			break;
+		}
+		else {
+			gpsgood = 0;
+			//SerialConsoleWriteString("\r\nGPS is not good\r\n");
+			//break;
+		}
+		
+ 		//snprintf(checkerprint3, 64, "\r\n%c\r\n", stringtocheck[i]);
+ 		//SerialConsoleWriteString(checkerprint3);
+ 	}
+  	//gps_latitude = strtod(latchar, &eptr);
+	//sscanf(latchar, "%f", &gps_latitude);
+	curr_lat = atof(latchar);
+	//printf("floatvalue %f", gps_latitude);
+//   	snprintf(checkerprint3, 64, "\r\nGPS latitude is %lf\r\n", curr_lat);
+//   	SerialConsoleWriteString(checkerprint3);
+//  	SerialConsoleWriteString("\r\nstring parsed \r\n");
 	//rmcoutput = stringtocheck;
-	//return rmcoutput;
+	return curr_lat;
+}
+/**
+ * @fn			double parseGPRMC_long(char stringtocheck)
+ * @brief		returns the reading from the NMEA's GPRMC line for the GPS longitude
+ * @note		outputs a double to use for later commands directly
+ */
+double parseGPRMC_long(char stringtocheck[]) {
+	//checks string to find A, then goes into the numbers bounded by , and ,
+	//take out the latitude number
+	int gpsgood = 0;
+	int lontcnt = 0;
+	double curr_lont = 0.0;
+	for (int i = 0; i < 64; i++) {
+		//SerialConsoleWriteString("printing here in gps func \r\n");
+		
+		if (stringtocheck[i] == 'A') { //A existed
+			gpsgood = 1;
+			SerialConsoleWriteString("\r\nGPS is connected \r\n");
+		}
+
+		if (gpsgood) { //doing manual indexing
+			for (int j = 27; j < 38; j++) {
+				snprintf(checkerprint3, 64, "%c", stringtocheck[j]);
+				SerialConsoleWriteString(checkerprint3);
+				lontchar[lontcnt] = stringtocheck[j];
+				lontcnt++;
+			}
+			//gpsgood = 0; //done with the latitude
+			break;
+		}
+		else {
+			gpsgood = 0;
+			//SerialConsoleWriteString("\r\nGPS is not good\r\n");
+			//break;
+		}
+		
+		//snprintf(checkerprint3, 64, "\r\n%c\r\n", stringtocheck[i]);
+		//SerialConsoleWriteString(checkerprint3);
+	}
+	//gps_latitude = strtod(latchar, &eptr);
+	//sscanf(latchar, "%f", &gps_latitude);
+	curr_lont = atof(latchar);
+	//printf("floatvalue %f", gps_latitude);
+// 	snprintf(checkerprint3, 64, "\r\nGPS longitude is %lf\r\n", curr_lont);
+// 	SerialConsoleWriteString(checkerprint3);
+// 	SerialConsoleWriteString("\r\nstring parsed \r\n");
+	//rmcoutput = stringtocheck;
+	return curr_lont;
 }
 
 /**
@@ -126,7 +219,11 @@ char* parseGPRMC(char stringtocheck) {
  * @note			Returns 0 if successful. -1 if an error occurred
  */
 char checkerprint[64];
-char checkerprint2[];
+char checkerprint2[64];
+char stringHolderRMC[64];
+
+//memset(dataHolder, 0, sizeof(dataHolder));
+
 int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTime)
 {
     int error = ERROR_NONE;
@@ -163,29 +260,40 @@ int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTim
         
 		//*distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
 		//*distance = (float)latestRxDistance[0]; //Derek-@628
-		
+		int inRMC = 0;
+		int fillint = 0;
 		for (int i = 0; i < len; i++)
 		{	
 			//SerialConsoleWriteString(latestRxDistance[i]);
 			char convertedText = latestRxDistance[i];
-			snprintf(checkerprint, 64, "%c", convertedText);
-			SerialConsoleWriteString(checkerprint); //to display it
-			if (convertedText == 'C') {
-				snprintf(checkerprint2, 64, "\r\nfound GPRMC line at index i = %i \r\n", i);
-				SerialConsoleWriteString(checkerprint2); //to display it
+			//snprintf(checkerprint, 64, "%c", convertedText);
+			//SerialConsoleWriteString(checkerprint); //to display it
+			if (convertedText == 'C') { //we are in GPRMC line
+				inRMC = 1;
+				//snprintf(checkerprint2, 64, "\r\nfound GPRMC line at index i = %i \r\n", i);
+				//SerialConsoleWriteString(checkerprint2); //to display it
 			}
-			//if (latestRxDistance[i] == 10)
-			//{
-				//break;
-			//}
+			if (inRMC && convertedText != '$')
+			{
+				stringHolderRMC[fillint] = convertedText;
+				fillint++;
+			}
+			else {
+				inRMC = 0;
+			}
 		}
-// 		SerialConsoleWriteString("\r\nprinting full thing out from string fullgps\r\n");
-// 		snprintf(checkerprint2, 64, "\r\n%s \r\n", fullgps);
-// 		SerialConsoleWriteString(checkerprint2);
-		//parsing the code for JUST the GPRMC part
-		//SerialConsoleWriteString(fullgps);
-		//rmsoutput = parseGPRMC(fullgps);
+		//stringHolderRMC[fillint++] = '\0';
+		SerialConsoleWriteString("printing saved RMC\r\n");
+		snprintf(checkerprint2, 64, "%s\r\n", (char *) stringHolderRMC);
+		SerialConsoleWriteString(checkerprint2);
 
+		gps_latitude = parseGPRMC_lat(stringHolderRMC);
+		gps_longitude = parseGPRMC_long(stringHolderRMC);
+
+		snprintf(checkerprint2, 64, "\r\nGPS Latitude = %f \r\n", gps_latitude);
+		SerialConsoleWriteString(checkerprint2);
+		snprintf(checkerprint2, 64, "\r\nGPS Longitude = %f \r\n", gps_longitude);
+		SerialConsoleWriteString(checkerprint2);
 		} else {
         /* The call to ulTaskNotifyTake() timed out. */
         error = ERR_TIMEOUT;
