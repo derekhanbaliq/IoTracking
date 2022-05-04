@@ -263,6 +263,16 @@ void CliCharReadySemaphoreGiveFromISR(void)
  ******************************************************************************/
 
 // Example CLI Command. Reads from the IMU and returns data.
+float deltaT = 0.60; //in terms of s (600 ms)
+int oldaccX;
+int oldaccY;
+int oldaccZ;
+int oldVx;
+int oldVy;
+int oldVz;
+int newVx;
+int newVy;
+int newVz;
 BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
     static int16_t data_raw_acceleration[3];
@@ -280,11 +290,39 @@ BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
         acceleration_mg[0] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[0]);
         acceleration_mg[1] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[1]);
         acceleration_mg[2] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[2]);
-
+		double curraccX = (acceleration_mg[0] / 1000.0) * 9.81; //gives acc in m/s^2
+		double curraccY = (acceleration_mg[1] / 1000.0) * 9.81; //gives acc in m/s^2
+		double curraccZ = ((acceleration_mg[2] / 1000.0) * 9.81) - 9.81 ; //gives acc in m/s^2
+		oldaccX = (int)(curraccX * 1000);
+		oldaccY = (int)(curraccY * 1000);
+		oldaccZ = (int)(curraccZ * 1000);
+		
         snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [mg]:X %d\tY %d\tZ %d\r\n", (int)acceleration_mg[0], (int)acceleration_mg[1], (int)acceleration_mg[2]);
-		imuPacket.xmg = (int)acceleration_mg[0];
-		imuPacket.ymg = (int)acceleration_mg[1];
-		imuPacket.zmg = (int)acceleration_mg[2];
+		SerialConsoleWriteString(pcWriteBuffer);
+		
+		 snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [x1000 m/s^2]:X %d\tY %d\tZ %d\r\n", oldaccX, oldaccY, oldaccZ);
+		 SerialConsoleWriteString(pcWriteBuffer);
+		//calculate velocity
+		double currVx = curraccX*deltaT;
+		double currVy = curraccY*deltaT;
+		double currVz = curraccZ*deltaT;
+		newVx = (int)(currVx * 1000);
+		newVy = (int)(currVy * 1000);
+		newVz = (int)(currVz * 1000);
+// 		newVx = oldVx + oldaccX*deltaT;
+// 		newVy = oldVy + oldaccY*deltaT;
+// 		newVz = oldVz + oldaccZ*deltaT;
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Velocity [x1000 m/s]: X %d\tY %d\tZ %d\r\n", (int)newVx, (int)newVy, (int)newVz);
+// 		imuPacket.xmg = (int)acceleration_mg[0];
+// 		imuPacket.ymg = (int)acceleration_mg[1];
+// 		imuPacket.zmg = (int)acceleration_mg[2];
+		imuPacket.xmg = (int)newVx;
+		imuPacket.ymg = (int)newVy;
+		imuPacket.zmg = (int)newVz;
+		//save current as old
+		oldVx = newVx;
+		oldVy = newVy;
+		oldVz = newVz;
 		WifiAddImuDataToQueue(&imuPacket);
     } else {
         snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No data ready! Sending dummy data \r\n");
@@ -567,7 +605,9 @@ BaseType_t CLI_GetLoopData(int8_t *pcWriteBuffer,size_t xWriteBufferLen,const in
 	while(1)
 	{
 		CLI_GetImuData(pcWriteBuffer, xWriteBufferLen, pcCommandString);
-		CLI_GetGpsData(pcWriteBuffer, xWriteBufferLen, pcCommandString);		
+		vTaskDelay((TickType_t)300);
+		CLI_GetGpsData(pcWriteBuffer, xWriteBufferLen, pcCommandString);
+		vTaskDelay((TickType_t)300);		
 	}
 	
 	return pdFALSE;
