@@ -153,8 +153,14 @@ float parseGPRMC_lat(char stringtocheck[]) {
 			for (int j = 14; j < 24; j++) {
 				//snprintf(checkerprint3, 64, "%c", stringtocheck[j]);
 				//SerialConsoleWriteString(checkerprint3);
+				if (stringtocheck[j] == 46) {
+					//printf("found comma\r\n");
+					continue;
+				}
+				else {
 				latchar[latcnt] = stringtocheck[j];
 				latcnt++;
+				}
 			}
 			//gpsgood = 0; //done with the latitude
 			break;
@@ -209,8 +215,14 @@ float parseGPRMC_long(char stringtocheck[]) {
 			for (int j = 27; j < 38; j++) {
 				//snprintf(checkerprint3, 64, "%c", stringtocheck[j]);
 				//SerialConsoleWriteString(checkerprint3);
+				if (stringtocheck[j] == 46) {
+					//printf("found comma\r\n");
+					continue;
+				}
+				else {
 				lontchar[lontcnt] = stringtocheck[j];
 				lontcnt++;
+				}
 			}
 			//gpsgood = 0; //done with the latitude
 			break;

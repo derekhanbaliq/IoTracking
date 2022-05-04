@@ -1169,6 +1169,6 @@ int WifiAddGameDataToQueue(struct GameDataPacket *game)
 //Derek-GPS
 int WifiAddGpsDataToQueue(struct GpsDataPacket *gpsPacket)
 {
-	int error = xQueueSend(xQueueGpsBuffer, gpsPacket, (TickType_t)1000);
+	int error = xQueueSend(xQueueGpsBuffer, gpsPacket, (TickType_t)10);
 	return error;
 }

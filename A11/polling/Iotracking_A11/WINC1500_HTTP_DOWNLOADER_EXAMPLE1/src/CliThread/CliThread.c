@@ -546,8 +546,8 @@ BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const in
 	{
 		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
 		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
-		gpsPacket.lat = (int)gps_latitude * latdir;
-		gpsPacket.lon = (int)gps_longitude * longdir;
+		gpsPacket.lat = (int32_t)gps_latitude * latdir;
+		gpsPacket.lon = (int32_t)gps_longitude * longdir;
 		WifiAddGpsDataToQueue(&gpsPacket);
 	}
 	else

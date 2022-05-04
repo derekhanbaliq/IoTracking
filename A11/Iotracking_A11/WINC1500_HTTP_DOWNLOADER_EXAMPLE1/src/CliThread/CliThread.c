@@ -51,7 +51,10 @@ static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};	
 
 // get GPS data
-static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns current latitude and longitude from the GPS\r\n\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
+static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns current latitude and longitude from the GPS\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
+
+// forever loop
+static const CLI_Command_Definition_t xLoopCommand = {"loop", "loop: get the IMU data & GPS data periodically\r\n\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetLoopData, 0};
 
 // Clear screen command
 const CLI_Command_Definition_t xClearScreen = {CLI_COMMAND_CLEAR_SCREEN, CLI_HELP_CLEAR_SCREEN, CLI_CALLBACK_CLEAR_SCREEN, CLI_PARAMS_CLEAR_SCREEN};
@@ -84,6 +87,7 @@ void vCommandConsoleTask(void *pvParameters)
     //FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 	FreeRTOS_CLIRegisterCommand(&xGpsGetCommand); //added by Derek
+	FreeRTOS_CLIRegisterCommand(&xLoopCommand); //added by Derek
 	
     char cRxedChar[2];
     unsigned char cInputIndex = 0;
@@ -542,16 +546,28 @@ BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const in
 	{
 		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
 		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
-		gpsPacket.lat = (int)gps_latitude * latdir;
-		gpsPacket.lon = (int)gps_longitude * longdir;
+		gpsPacket.lat = (int32_t)gps_latitude * latdir;
+		gpsPacket.lon = (int32_t)gps_longitude * longdir;
 		WifiAddGpsDataToQueue(&gpsPacket);
 	}
 	else
 	{
-		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Don't send data! \r\n");
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Won't send data! \r\n");
 		gpsPacket.lat = 0;
 		gpsPacket.lon = 0;
 		//WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	
+	return pdFALSE;
+}
+
+// CLI Command added by Derek. Polling IMU data & GPS data.
+BaseType_t CLI_GetLoopData(int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString)
+{
+	while(1)
+	{
+		CLI_GetImuData(pcWriteBuffer, xWriteBufferLen, pcCommandString);
+		CLI_GetGpsData(pcWriteBuffer, xWriteBufferLen, pcCommandString);		
 	}
 	
 	return pdFALSE;

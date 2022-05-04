@@ -79,8 +79,8 @@ struct ImuDataPacket {
 // Structure definition that holds GPS data
 struct GpsDataPacket { //Derek-GPS
     //char[] name; //regard this is easier
-	int16_t lat;
-	int16_t lon;
+	int32_t lat;
+	int32_t lon;
 };
 
 // Structure to hold a game packet

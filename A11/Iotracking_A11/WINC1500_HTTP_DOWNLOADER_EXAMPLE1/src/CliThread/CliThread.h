@@ -51,3 +51,4 @@ BaseType_t CLI_ResetDevice( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const i
 //BaseType_t CLI_SendDummyGameData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
 BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString);
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString); //add by Derek
+BaseType_t CLI_GetLoopData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString); //add by Derek
