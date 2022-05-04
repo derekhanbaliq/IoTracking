@@ -121,9 +121,9 @@ void vApplicationDaemonTaskStartupHook(void)
     }
 
 	//commented by Derek
-    //SerialConsoleWriteString("Initializing distance sensor\r\n");
-    //InitializeDistanceSensor();
-    //SerialConsoleWriteString("Distance sensor initialized\r\n");
+    SerialConsoleWriteString("Initializing distance sensor\r\n");
+    InitializeDistanceSensor();
+    SerialConsoleWriteString("Distance sensor initialized\r\n");
 
     StartTasks();
 

@@ -1,6 +1,0 @@
-All are cpp sadly..
-
-1 is the link Weihao find but its for sparkfun dev board, cpp
-2 is a bit more cpp, including os and vector, difficult
-3 is easier from decoding USART data, Derek prefer this 
-4 is professor provided, piazza @14, but a different type: https://learn.adafruit.com/adafruit-ultimate-gps/resources

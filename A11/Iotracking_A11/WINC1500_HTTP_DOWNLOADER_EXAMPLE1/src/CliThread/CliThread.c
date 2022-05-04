@@ -41,10 +41,10 @@ static const CLI_Command_Definition_t xResetCommand = {"reset", "reset: Resets t
                                                                          //(const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellProcessButtonBuffer,
                                                                          //0};
 
-//static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
-                                                                    //"getdistance: Returns the distance from the US-100 Sensor.\r\n",
-                                                                    //(const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
-                                                                    //0};
+static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
+                                                                    "getdistance: Returns the distance from the US-100 Sensor.\r\n",
+                                                                    (const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
+                                                                    0};
 
 //static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
 
@@ -80,7 +80,7 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xResetCommand);
     //FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
     //FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
-    //FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
+    FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
     //FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 	FreeRTOS_CLIRegisterCommand(&xGpsGetCommand); //added by Derek
@@ -414,12 +414,13 @@ BaseType_t CLI_NeotrellProcessButtonBuffer(int8_t *pcWriteBuffer, size_t xWriteB
  */
 BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
-    uint16_t distance = 0;
-    int error = DistanceSensorGetDistance(&distance, 100);
+    char distance = 0;
+    int error = DistanceSensorGetDistance(&distance, 1000);
     if (0 != error) {
         snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
     } else {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+        //snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "\r\nGPS outputted \r\n");
     }
 
     error = WifiAddDistanceDataToQueue(&distance);
@@ -520,31 +521,38 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 
 }
 
+extern float gps_latitude;
+extern float gps_longitude;
+extern int latdir;
+extern int longdir;
 // CLI Command added by Derek. Reads from the GPS and returns data.
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
-	SerialConsoleWriteString("Added by Derek, TBD!\r\n\r\n");
-	/*
+	char distance = 0;
 	struct GpsDataPacket gpsPacket;
-	static float lat, lon;
+	int error = DistanceSensorGetDistance(&distance, 1000);
 	
-	lat = getGpsLat();
-	lon = getGpsLon();
+	if (0 != error) {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS Error %d!\r\n", error);
+		} else {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS outputted!\r\n");
+	}
 	
-	if (lat != NULL && lon != NULL)
+	if (gps_latitude != 0 && gps_longitude != 0)
 	{
-		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", lat, lon);
-		gpsPacket.lat = lat;
-		gpsPacket.lon = lon;
+		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
+		gpsPacket.lat = (int)gps_latitude * latdir;
+		gpsPacket.lon = (int)gps_longitude * longdir;
 		WifiAddGpsDataToQueue(&gpsPacket);
 	}
 	else
 	{
-		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Sending dummy data \r\n");
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Don't send data! \r\n");
 		gpsPacket.lat = 0;
 		gpsPacket.lon = 0;
-		WifiAddGpsDataToQueue(&gpsPacket);
+		//WifiAddGpsDataToQueue(&gpsPacket);
 	}
-	*/
+	
 	return pdFALSE;
 }

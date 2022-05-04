@@ -39,9 +39,9 @@ extern "C" {
 #define WIFI_PRIORITY (configMAX_PRIORITIES - 2)
 
 /** Wi-Fi AP Settings. */
-#define MAIN_WLAN_SSID "derek"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_SSID "Yeet"             /**< Destination SSID. Change to your WIFI SSID */
 #define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "19971105"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
+#define MAIN_WLAN_PSK "testing123"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
@@ -79,8 +79,8 @@ struct ImuDataPacket {
 // Structure definition that holds GPS data
 struct GpsDataPacket { //Derek-GPS
     //char[] name; //regard this is easier
-	float lat;
-	float lon;
+	int16_t lat;
+	int16_t lon;
 };
 
 // Structure to hold a game packet
