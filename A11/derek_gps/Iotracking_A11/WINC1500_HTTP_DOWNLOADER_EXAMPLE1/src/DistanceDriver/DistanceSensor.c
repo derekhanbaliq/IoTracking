@@ -131,11 +131,11 @@ float parseGPRMC_lat(char stringtocheck[]) {
 	for (int k = 23; k < 26; k++) {
 		if (stringtocheck[k] == 'N') {
 			latdir = 1;
-			SerialConsoleWriteString("found N");
+			//SerialConsoleWriteString("found N");
 		}
 		else if (stringtocheck[k] == 'S') {
 			latdir = -1;
-			SerialConsoleWriteString("found S");
+			//SerialConsoleWriteString("found S");
 		}
 		else {
 			//latdir = 1;
@@ -187,11 +187,11 @@ float parseGPRMC_long(char stringtocheck[]) {
 	for (int k = 38; k< 41; k++) {
 		if (stringtocheck[k] == 'E') {
 			longdir = 1;
-			SerialConsoleWriteString("found E");
+			//SerialConsoleWriteString("found E");
 		}
 		else if (stringtocheck[k] == 'W') {
 			longdir = -1;
-			SerialConsoleWriteString("found W");
+			//SerialConsoleWriteString("found W");
 		}
 		else {
 			//longdir = 1;
