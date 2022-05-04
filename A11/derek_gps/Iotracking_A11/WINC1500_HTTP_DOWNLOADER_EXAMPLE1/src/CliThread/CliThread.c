@@ -523,7 +523,8 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 
 extern float gps_latitude;
 extern float gps_longitude;
-
+extern int latdir;
+extern int longdir;
 // CLI Command added by Derek. Reads from the GPS and returns data.
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
@@ -541,8 +542,8 @@ BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const in
 	{
 		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
 		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
-		gpsPacket.lat = (int)gps_latitude;
-		gpsPacket.lon = (int)gps_longitude;
+		gpsPacket.lat = (int)gps_latitude * latdir;
+		gpsPacket.lon = (int)gps_longitude * longdir;
 		WifiAddGpsDataToQueue(&gpsPacket);
 	}
 	else

@@ -120,13 +120,27 @@ char checkerprint3[64];
 char latchar[12];
 char lontchar[12];
 char *eptr;
-
+int latdir = 1; //default 1 for North, -1 for South
 float parseGPRMC_lat(char stringtocheck[]) {
 	//checks string to find A, then goes into the numbers bounded by , and ,
 	//take out the latitude number
 	int gpsgood = 0;
 	int latcnt = 0;
+	
 	float curr_lat = 0.0;
+	for (int k = 23; k < 26; k++) {
+		if (stringtocheck[k] == 'N') {
+			latdir = 1;
+			SerialConsoleWriteString("found N");
+		}
+		else if (stringtocheck[k] == 'S') {
+			latdir = -1;
+			SerialConsoleWriteString("found S");
+		}
+		else {
+			//latdir = 1;
+		}
+	}
  	for (int i = 0; i < 64; i++) {
  		//SerialConsoleWriteString("printing here in gps func \r\n");
 		 
@@ -154,14 +168,7 @@ float parseGPRMC_lat(char stringtocheck[]) {
  		//snprintf(checkerprint3, 64, "\r\n%c\r\n", stringtocheck[i]);
  		//SerialConsoleWriteString(checkerprint3);
  	}
-  	//gps_latitude = strtod(latchar, &eptr);
-	//sscanf(latchar, "%f", &gps_latitude);
 	curr_lat = atof(latchar);
-	//printf("floatvalue %f", gps_latitude);
-//   	snprintf(checkerprint3, 64, "\r\nGPS latitude is %lf\r\n", curr_lat);
-//   	SerialConsoleWriteString(checkerprint3);
-//  	SerialConsoleWriteString("\r\nstring parsed \r\n");
-	//rmcoutput = stringtocheck;
 	return curr_lat;
 }
 /**
@@ -169,12 +176,27 @@ float parseGPRMC_lat(char stringtocheck[]) {
  * @brief		returns the reading from the NMEA's GPRMC line for the GPS longitude
  * @note		outputs a double to use for later commands directly
  */
+int longdir = 1; //default 1 for East, -1 for West
 float parseGPRMC_long(char stringtocheck[]) {
 	//checks string to find A, then goes into the numbers bounded by , and ,
 	//take out the latitude number
 	int gpsgood = 0;
 	int lontcnt = 0;
+	
 	float curr_lont = 0.0;
+	for (int k = 38; k< 41; k++) {
+		if (stringtocheck[k] == 'E') {
+			longdir = 1;
+			SerialConsoleWriteString("found E");
+		}
+		else if (stringtocheck[k] == 'W') {
+			longdir = -1;
+			SerialConsoleWriteString("found W");
+		}
+		else {
+			//longdir = 1;
+		}
+	}
 	for (int i = 0; i < 64; i++) {
 		//SerialConsoleWriteString("printing here in gps func \r\n");
 		
@@ -202,14 +224,7 @@ float parseGPRMC_long(char stringtocheck[]) {
 		//snprintf(checkerprint3, 64, "\r\n%c\r\n", stringtocheck[i]);
 		//SerialConsoleWriteString(checkerprint3);
 	}
-	//gps_latitude = strtod(latchar, &eptr);
-	//sscanf(latchar, "%f", &gps_latitude);
 	curr_lont = atof(lontchar);
-	//printf("floatvalue %f", gps_latitude);
-// 	snprintf(checkerprint3, 64, "\r\nGPS longitude is %lf\r\n", curr_lont);
-// 	SerialConsoleWriteString(checkerprint3);
-// 	SerialConsoleWriteString("\r\nstring parsed \r\n");
-	//rmcoutput = stringtocheck;
 	return curr_lont;
 }
 
@@ -257,9 +272,7 @@ int32_t DistanceSensorGetDistance(float *distance, const TickType_t xMaxBlockTim
     //---7. Wait for notification
     if (xSemaphoreTake(sensorDistanceSemaphoreHandle, xMaxBlockTime) == pdTRUE) {
         /* The transmission ended as expected. We now delay until the I2C sensor is finished */
-        
-		//*distance = (latestRxDistance[0] << 8) + latestRxDistance[1];
-		//*distance = (float)latestRxDistance[0]; //Derek-@628
+
 		int inRMC = 0;
 		int fillint = 0;
 		for (int i = 0; i < len; i++)
