@@ -39,15 +39,15 @@ extern "C" {
 #define WIFI_PRIORITY (configMAX_PRIORITIES - 2)
 
 /** Wi-Fi AP Settings. */
-#define MAIN_WLAN_SSID "derek"             /**< Destination SSID. Change to your WIFI SSID */
+#define MAIN_WLAN_SSID "Yeet"             /**< Destination SSID. Change to your WIFI SSID */
 #define MAIN_WLAN_AUTH M2M_WIFI_SEC_WPA_PSK /**< Security manner */
-#define MAIN_WLAN_PSK "19971105"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
+#define MAIN_WLAN_PSK "testing123"            /**< Password for Destination SSID. Change to your password. Please dont hack my WiFi router */
 
 /** IP address parsing. */
 #define IPV4_BYTE(val, index) ((val >> (index * 8)) & 0xFF)
 
 /** Content URI for download. */
-#define MAIN_HTTP_FILE_URL "https://www.seas.upenn.edu/~derekzmy/testA.bin"  ///< Change me to the URL to download your OTAU binary file from!
+#define MAIN_HTTP_FILE_URL "https://www.seas.upenn.edu/~derekzmy/Capture.PNG"  ///< Change me to the URL to download your OTAU binary file from!
 
 /** Maximum size for packet buffer. */
 #define MAIN_BUFFER_MAX_SIZE (512)
@@ -74,6 +74,13 @@ struct ImuDataPacket {
     int16_t xmg;
     int16_t ymg;
     int16_t zmg;
+};
+
+// Structure definition that holds GPS data
+struct GpsDataPacket { //Derek-GPS
+    //char[] name; //regard this is easier
+	int32_t lat;
+	int32_t lon;
 };
 
 // Structure to hold a game packet
@@ -108,6 +115,7 @@ struct RgbColorPacket {
 #define GAME_TOPIC_IN "P1_GAME_ESE516_T6"       // Students to change to an unique identifier for each device! Game Data
 #define GAME_TOPIC_OUT "P2_GAME_ESE516_T6"      // Students to change to an unique identifier for each device! Game Data
 #define IMU_TOPIC "Iotracking_IMU_T6"            // Students to change to an unique identifier for each device! IMU Data
+#define GPS_TOPIC "Iotracking_GPS_T6"            // Students to change to an unique identifier for each device! GPS Data
 #define DISTANCE_TOPIC "P1_DISTANCE_ESE516_T6"  // Students to change to an unique identifier for each device! Distance Data
 #define TEMPERATURE_TOPIC "P1_TEMPERATURE_ESE516_T6" // Students to change to an unique identifier for each device! Distance Data
 
@@ -117,6 +125,7 @@ struct RgbColorPacket {
 #define GAME_TOPIC_IN "P2_GAME_ESE516_T6"       // Students to change to an unique identifier for each device! Game Data
 #define GAME_TOPIC_OUT "P1_GAME_ESE516_T6"      // Students to change to an unique identifier for each device! Game Data
 #define IMU_TOPIC "Iotracking_IMU_T6"            // Students to change to an unique identifier for each device! IMU Data
+#define GPS_TOPIC "Iotracking_GPS_T6"            // Students to change to an unique identifier for each device! GPS Data
 #define DISTANCE_TOPIC "P2_DISTANCE_ESE516_T6"  // Students to change to an unique identifier for each device! Distance Data
 #define TEMPERATURE_TOPIC "P2_TEMPERATURE_ESE516_T6" // Students to change to an unique identifier for each device! Distance Data
 
@@ -158,11 +167,13 @@ void init_storage(void);
 void WifiHandlerSetState(uint8_t state);
 int WifiAddDistanceDataToQueue(uint16_t *distance);
 int WifiAddImuDataToQueue(struct ImuDataPacket *imuPacket);
-int WifiAddGameDataToQueue(struct GameDataPacket *game);
+int WifiAddGameDataToQueue(struct GameDataPacket *game); //Derek-GPS
+int WifiAddGpsDataToQueue(struct GpsDataPacket *gpsPacket);
 void SubscribeHandlerLedTopic(MessageData *msgData);
 void SubscribeHandlerGameTopic(MessageData *msgData);
 void SubscribeHandlerImuTopic(MessageData *msgData);
 void SubscribeHandlerDistanceTopic(MessageData *msgData);
+void SubscribeHandlerGpsTopic(MessageData *msgData); //Derek-GPS
 void configure_extint_channel(void);
 void configure_extint_callbacks(void);
 
