@@ -3,13 +3,13 @@ ESE516 BOOTLOADER.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00007af4  00000000  00000000  00010000  2**2
+  0 .text         00007b10  00000000  00000000  00010000  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .relocate     000000a0  20000000  00007af4  00020000  2**2
+  1 .relocate     000000a0  20000000  00007b10  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000c24  200000a0  00007b94  000200a0  2**2
+  2 .bss          00000c24  200000a0  00007bb0  000200a0  2**2
                   ALLOC
-  3 .stack        00002004  20000cc4  000087b8  000200a0  2**0
+  3 .stack        00002004  20000cc4  000087d4  000200a0  2**0
                   ALLOC
   4 .ARM.attributes 00000028  00000000  00000000  000200a0  2**0
                   CONTENTS, READONLY
@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_line   00018783  00000000  00000000  000a6345  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00093c8d  00000000  00000000  000beac8  2**0
+ 13 .debug_str    00093ca1  00000000  00000000  000beac8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_frame  0000266c  00000000  00000000  00152758  2**2
+ 14 .debug_frame  0000266c  00000000  00000000  0015276c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -66,7 +66,7 @@ Disassembly of section .text:
       ce:	bd10      	pop	{r4, pc}
       d0:	200000a0 	.word	0x200000a0
       d4:	00000000 	.word	0x00000000
-      d8:	00007af4 	.word	0x00007af4
+      d8:	00007b10 	.word	0x00007b10
 
 000000dc <frame_dummy>:
       dc:	4b08      	ldr	r3, [pc, #32]	; (100 <frame_dummy+0x24>)
@@ -89,8 +89,8 @@ Disassembly of section .text:
       fe:	e7f9      	b.n	f4 <frame_dummy+0x18>
      100:	00000000 	.word	0x00000000
      104:	200000a4 	.word	0x200000a4
-     108:	00007af4 	.word	0x00007af4
-     10c:	00007af4 	.word	0x00007af4
+     108:	00007b10 	.word	0x00007b10
+     10c:	00007b10 	.word	0x00007b10
      110:	00000000 	.word	0x00000000
 
 00000114 <delay_init>:
@@ -6874,7 +6874,7 @@ Disassembly of section .text:
     37a6:	4b0e      	ldr	r3, [pc, #56]	; (37e0 <Reset_Handler+0xe0>)
     37a8:	4798      	blx	r3
     37aa:	e7fe      	b.n	37aa <Reset_Handler+0xaa>
-    37ac:	00007af4 	.word	0x00007af4
+    37ac:	00007b10 	.word	0x00007b10
     37b0:	20000000 	.word	0x20000000
     37b4:	200000a0 	.word	0x200000a0
     37b8:	20000004 	.word	0x20000004
@@ -10978,12 +10978,12 @@ int check_flag(void)
 	if (res == FR_OK)
     5850:	2800      	cmp	r0, #0
     5852:	d004      	beq.n	585e <check_flag+0x1e>
-		SerialConsoleWriteString("detect bin A!\r\n");
+		SerialConsoleWriteString("Detected bin A!\r\n");
 		flag = 1;
 	}
 	else if (res != FR_OK)
 	{
-		SerialConsoleWriteString("no bin A!\r\n");
+		SerialConsoleWriteString("Failed to open bin A! No bin A!\r\n");
     5854:	4808      	ldr	r0, [pc, #32]	; (5878 <check_flag+0x38>)
     5856:	4b09      	ldr	r3, [pc, #36]	; (587c <check_flag+0x3c>)
     5858:	4798      	blx	r3
@@ -10994,7 +10994,7 @@ int check_flag(void)
 	return flag;
 };
     585c:	bd10      	pop	{r4, pc}
-		SerialConsoleWriteString("detect bin A!\r\n");
+		SerialConsoleWriteString("Detected bin A!\r\n");
     585e:	4808      	ldr	r0, [pc, #32]	; (5880 <check_flag+0x40>)
     5860:	4b06      	ldr	r3, [pc, #24]	; (587c <check_flag+0x3c>)
     5862:	4798      	blx	r3
@@ -11005,7 +11005,7 @@ int check_flag(void)
     586c:	20000c60 	.word	0x20000c60
     5870:	00005075 	.word	0x00005075
     5874:	20000cbc 	.word	0x20000cbc
-    5878:	000076d4 	.word	0x000076d4
+    5878:	000076d8 	.word	0x000076d8
     587c:	000008d1 	.word	0x000008d1
     5880:	000076c4 	.word	0x000076c4
 
@@ -11025,6 +11025,7 @@ void update_firmware(char* firmware_file_name)
     5890:	b0c5      	sub	sp, #276	; 0x114
     5892:	0001      	movs	r1, r0
 	char helpStr[64]; //Used to help print values
+	
 	res = f_open(&file_object, (char const *)firmware_file_name, FA_READ);
     5894:	2201      	movs	r2, #1
     5896:	484a      	ldr	r0, [pc, #296]	; (59c0 <update_firmware+0x13c>)
@@ -11032,6 +11033,7 @@ void update_firmware(char* firmware_file_name)
     589a:	4798      	blx	r3
     589c:	4b4a      	ldr	r3, [pc, #296]	; (59c8 <update_firmware+0x144>)
     589e:	7018      	strb	r0, [r3, #0]
+	
 	if (res == FR_OK)
     58a0:	2800      	cmp	r0, #0
     58a2:	d009      	beq.n	58b8 <update_firmware+0x34>
@@ -11219,19 +11221,19 @@ void update_firmware(char* firmware_file_name)
     59c0:	20000c60 	.word	0x20000c60
     59c4:	00005075 	.word	0x00005075
     59c8:	20000cbc 	.word	0x20000cbc
-    59cc:	00007a20 	.word	0x00007a20
+    59cc:	00007a3c 	.word	0x00007a3c
     59d0:	000008d1 	.word	0x000008d1
-    59d4:	00007998 	.word	0x00007998
+    59d4:	000079b4 	.word	0x000079b4
     59d8:	0000043d 	.word	0x0000043d
-    59dc:	000079b8 	.word	0x000079b8
-    59e0:	000079c4 	.word	0x000079c4
+    59dc:	000079d4 	.word	0x000079d4
+    59e0:	000079e0 	.word	0x000079e0
     59e4:	000051fd 	.word	0x000051fd
     59e8:	00000395 	.word	0x00000395
     59ec:	41007058 	.word	0x41007058
     59f0:	fffcffff 	.word	0xfffcffff
     59f4:	000001d5 	.word	0x000001d5
-    59f8:	000079e8 	.word	0x000079e8
-    59fc:	00007a04 	.word	0x00007a04
+    59f8:	00007a04 	.word	0x00007a04
+    59fc:	00007a20 	.word	0x00007a20
 
 00005a00 <main>:
 {
@@ -11538,10 +11540,10 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
 	int flag = check_flag();
     5ba4:	4b46      	ldr	r3, [pc, #280]	; (5cc0 <main+0x2c0>)
     5ba6:	4798      	blx	r3
-	if (flag == 0)//file doesn't exist
+	if (flag == 0) //bin doesn't exist
     5ba8:	2800      	cmp	r0, #0
     5baa:	d02a      	beq.n	5c02 <main+0x202>
-	else if (flag == 1) // A flag exists
+	else if (flag == 1) //bin exists
     5bac:	2801      	cmp	r0, #1
     5bae:	d02c      	beq.n	5c0a <main+0x20a>
 	SerialConsoleWriteString("ESE516 - EXIT BOOTLOADER");	//Order to add string to TX Buffer
@@ -11634,54 +11636,54 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     5c34:	41004000 	.word	0x41004000
     5c38:	0000026d 	.word	0x0000026d
     5c3c:	40000400 	.word	0x40000400
-    5c40:	000076e0 	.word	0x000076e0
+    5c40:	000076fc 	.word	0x000076fc
     5c44:	000008d1 	.word	0x000008d1
-    5c48:	000076fc 	.word	0x000076fc
+    5c48:	00007718 	.word	0x00007718
     5c4c:	000005b1 	.word	0x000005b1
-    5c50:	00007724 	.word	0x00007724
-    5c54:	00007744 	.word	0x00007744
+    5c50:	00007740 	.word	0x00007740
+    5c54:	00007760 	.word	0x00007760
     5c58:	20000a30 	.word	0x20000a30
     5c5c:	0000609d 	.word	0x0000609d
     5c60:	00005045 	.word	0x00005045
     5c64:	20000cbc 	.word	0x20000cbc
-    5c68:	00007770 	.word	0x00007770
-    5c6c:	00007778 	.word	0x00007778
+    5c68:	0000778c 	.word	0x0000778c
+    5c6c:	00007794 	.word	0x00007794
     5c70:	2000001c 	.word	0x2000001c
     5c74:	20000c60 	.word	0x20000c60
     5c78:	00005075 	.word	0x00005075
-    5c7c:	00007760 	.word	0x00007760
+    5c7c:	0000777c 	.word	0x0000777c
     5c80:	00000999 	.word	0x00000999
-    5c84:	00007834 	.word	0x00007834
-    5c88:	00007794 	.word	0x00007794
-    5c8c:	000077b8 	.word	0x000077b8
+    5c84:	00007850 	.word	0x00007850
+    5c88:	000077b0 	.word	0x000077b0
+    5c8c:	000077d4 	.word	0x000077d4
     5c90:	00005791 	.word	0x00005791
     5c94:	00005675 	.word	0x00005675
-    5c98:	000077cc 	.word	0x000077cc
-    5c9c:	000077d8 	.word	0x000077d8
+    5c98:	000077e8 	.word	0x000077e8
+    5c9c:	000077f4 	.word	0x000077f4
     5ca0:	2000000c 	.word	0x2000000c
-    5ca4:	000077f0 	.word	0x000077f0
-    5ca8:	00007810 	.word	0x00007810
+    5ca4:	0000780c 	.word	0x0000780c
+    5ca8:	0000782c 	.word	0x0000782c
     5cac:	000053b1 	.word	0x000053b1
-    5cb0:	00007844 	.word	0x00007844
+    5cb0:	00007860 	.word	0x00007860
     5cb4:	00000499 	.word	0x00000499
-    5cb8:	00007878 	.word	0x00007878
+    5cb8:	00007894 	.word	0x00007894
     5cbc:	0000638d 	.word	0x0000638d
     5cc0:	00005841 	.word	0x00005841
-    5cc4:	0000797c 	.word	0x0000797c
+    5cc4:	00007998 	.word	0x00007998
     5cc8:	00000155 	.word	0x00000155
     5ccc:	00000899 	.word	0x00000899
     5cd0:	00001549 	.word	0x00001549
     5cd4:	e000ed00 	.word	0xe000ed00
     5cd8:	00012004 	.word	0x00012004
-    5cdc:	000078b4 	.word	0x000078b4
-    5ce0:	000078e4 	.word	0x000078e4
+    5cdc:	000078d0 	.word	0x000078d0
+    5ce0:	00007900 	.word	0x00007900
     5ce4:	00001388 	.word	0x00001388
     5ce8:	05fa0004 	.word	0x05fa0004
-    5cec:	00007930 	.word	0x00007930
+    5cec:	0000794c 	.word	0x0000794c
     5cf0:	20000030 	.word	0x20000030
     5cf4:	00005885 	.word	0x00005885
     5cf8:	0000568d 	.word	0x0000568d
-    5cfc:	00007948 	.word	0x00007948
+    5cfc:	00007964 	.word	0x00007964
 
 00005d00 <__udivsi3>:
     5d00:	2200      	movs	r2, #0
@@ -12119,7 +12121,7 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     604c:	42a6      	cmp	r6, r4
     604e:	d109      	bne.n	6064 <__libc_init_array+0x24>
     6050:	2600      	movs	r6, #0
-    6052:	f001 fd3f 	bl	7ad4 <_init>
+    6052:	f001 fd4d 	bl	7af0 <_init>
     6056:	4d0a      	ldr	r5, [pc, #40]	; (6080 <__libc_init_array+0x40>)
     6058:	4c0a      	ldr	r4, [pc, #40]	; (6084 <__libc_init_array+0x44>)
     605a:	1b64      	subs	r4, r4, r5
@@ -12137,10 +12139,10 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     6072:	4798      	blx	r3
     6074:	3601      	adds	r6, #1
     6076:	e7f2      	b.n	605e <__libc_init_array+0x1e>
-    6078:	00007ae0 	.word	0x00007ae0
-    607c:	00007ae0 	.word	0x00007ae0
-    6080:	00007ae0 	.word	0x00007ae0
-    6084:	00007ae4 	.word	0x00007ae4
+    6078:	00007afc 	.word	0x00007afc
+    607c:	00007afc 	.word	0x00007afc
+    6080:	00007afc 	.word	0x00007afc
+    6084:	00007b00 	.word	0x00007b00
 
 00006088 <malloc>:
     6088:	b510      	push	{r4, lr}
@@ -12508,10 +12510,10 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     6374:	4240      	negs	r0, r0
     6376:	e7bf      	b.n	62f8 <setvbuf+0xc4>
     6378:	2000003c 	.word	0x2000003c
-    637c:	00007a60 	.word	0x00007a60
+    637c:	00007a7c 	.word	0x00007a7c
     6380:	fffff35c 	.word	0xfffff35c
-    6384:	00007a80 	.word	0x00007a80
-    6388:	00007a40 	.word	0x00007a40
+    6384:	00007a9c 	.word	0x00007a9c
+    6388:	00007a5c 	.word	0x00007a5c
 
 0000638c <sniprintf>:
     638c:	b40c      	push	{r2, r3}
@@ -12748,9 +12750,9 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     655a:	d1ee      	bne.n	653a <_fflush_r+0x26>
     655c:	68ec      	ldr	r4, [r5, #12]
     655e:	e7ec      	b.n	653a <_fflush_r+0x26>
-    6560:	00007a60 	.word	0x00007a60
-    6564:	00007a80 	.word	0x00007a80
-    6568:	00007a40 	.word	0x00007a40
+    6560:	00007a7c 	.word	0x00007a7c
+    6564:	00007a9c 	.word	0x00007a9c
+    6568:	00007a5c 	.word	0x00007a5c
 
 0000656c <_cleanup_r>:
     656c:	b510      	push	{r4, lr}
@@ -12858,7 +12860,7 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     664a:	61a3      	str	r3, [r4, #24]
     664c:	bd13      	pop	{r0, r1, r4, pc}
     664e:	46c0      	nop			; (mov r8, r8)
-    6650:	00007a3c 	.word	0x00007a3c
+    6650:	00007a58 	.word	0x00007a58
     6654:	0000656d 	.word	0x0000656d
 
 00006658 <__sfp>:
@@ -12921,7 +12923,7 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     66ce:	64e5      	str	r5, [r4, #76]	; 0x4c
     66d0:	e7e6      	b.n	66a0 <__sfp+0x48>
     66d2:	46c0      	nop			; (mov r8, r8)
-    66d4:	00007a3c 	.word	0x00007a3c
+    66d4:	00007a58 	.word	0x00007a58
 
 000066d8 <_fwalk_reent>:
     66d8:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
@@ -13344,9 +13346,9 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     6a20:	f000 f87a 	bl	6b18 <_printf_i>
     6a24:	e7ea      	b.n	69fc <_svfiprintf_r+0x1c8>
     6a26:	46c0      	nop			; (mov r8, r8)
-    6a28:	00007aa0 	.word	0x00007aa0
-    6a2c:	00007aa6 	.word	0x00007aa6
-    6a30:	00007aaa 	.word	0x00007aaa
+    6a28:	00007abc 	.word	0x00007abc
+    6a2c:	00007ac2 	.word	0x00007ac2
+    6a30:	00007ac6 	.word	0x00007ac6
     6a34:	00000000 	.word	0x00000000
     6a38:	00006771 	.word	0x00006771
 
@@ -13737,8 +13739,8 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     6d3e:	4240      	negs	r0, r0
     6d40:	b00b      	add	sp, #44	; 0x2c
     6d42:	bdf0      	pop	{r4, r5, r6, r7, pc}
-    6d44:	00007ac2 	.word	0x00007ac2
-    6d48:	00007ab1 	.word	0x00007ab1
+    6d44:	00007ade 	.word	0x00007ade
+    6d48:	00007acd 	.word	0x00007acd
 
 00006d4c <__sread>:
     6d4c:	b570      	push	{r4, r5, r6, lr}
@@ -14188,97 +14190,99 @@ __STATIC_INLINE void NVIC_SystemReset(void)
     7694:	ff25ff24 ff27ff26 ff29ff28 ff2bff2a     $.%.&.'.(.).*.+.
     76a4:	ff2dff2c ff2fff2e ff31ff30 ff33ff32     ,.-.../.0.1.2.3.
     76b4:	ff35ff34 ff37ff36 ff39ff38 0000ff3a     4.5.6.7.8.9.:...
-    76c4:	65746564 62207463 41206e69 000a0d21     detect bin A!...
-    76d4:	62206f6e 41206e69 000a0d21 35455345     no bin A!...ESE5
-    76e4:	2d203631 544e4520 42205245 4c544f4f     16 - ENTER BOOTL
-    76f4:	4544414f 00000052 2d0d0a0c 4453202d     OADER......-- SD
-    7704:	434d4d2f 72614320 78452064 6c706d61     /MMC Card Exampl
-    7714:	6e6f2065 74614620 2d207346 000d0a2d     e on FatFs --...
-    7724:	43204453 20647261 74696e69 65746169     SD Card initiate
-    7734:	6f632064 63657272 21796c74 00000d0a     d correctly!....
-    7744:	6e756f4d 69642074 28206b73 6f6d5f66     Mount disk (f_mo
-    7754:	29746e75 0d2e2e2e 0000000a 4941465b     unt)........[FAI
-    7764:	72205d4c 25207365 000a0d64 5d4b4f5b     L] res %d...[OK]
-    7774:	00000a0d 61657243 61206574 6c696620     ....Create a fil
-    7784:	66282065 65706f5f 2e2e296e 000a0d2e     e (f_open)......
-    7794:	74697257 6f742065 73657420 69662074     Write to test fi
-    77a4:	2820656c 75705f66 2e297374 0a0d2e2e     le (f_puts).....
-    77b4:	00000000 74736554 2f445320 20434d4d     ....Test SD/MMC 
-    77c4:	63617473 00000a6b 4941465b 0a0d5d4c     stack...[FAIL]..
-    77d4:	00000000 74736554 20736920 63637573     ....Test is succ
-    77e4:	66737365 0a2e6c75 0000000d 6c756f43     essful......Coul
-    77f4:	6f6e2064 706f2074 62206e65 72616e69     d not open binar
-    7804:	69662079 0d21656c 0000000a 74697257     y file!.....Writ
-    7814:	6f742065 73657420 69662074 2820656c     e to test file (
-    7824:	72775f66 29657469 0d2e2e2e 0000000a     f_write)........
-    7834:	20646e45 5420666f 2e747365 00000d0a     End of Test.....
-    7844:	43204453 20445241 6e756f6d 75732074     SD CARD mount su
-    7854:	73656363 46202173 20656c69 74737973     ccess! File syst
-    7864:	61206d65 206f736c 6e756f6d 2e646574     em also mounted.
-    7874:	000a0d20 204d564e 6f666e49 754e203a      ...NVM Info: Nu
-    7884:	7265626d 20666f20 65676150 64252073     mber of Pages %d
-    7894:	6953202e 6f20657a 20612066 65676170     . Size of a page
-    78a4:	6425203a 74796220 202e7365 00000a0d     : %d bytes. ....
-    78b4:	43204453 20647261 6c696166 69206465     SD Card failed i
-    78c4:	6974696e 6f697461 4320216e 6b636568     nitiation! Check
-    78d4:	6e6f6320 7463656e 736e6f69 000d0a21      connections!...
-    78e4:	43204453 20445241 6c696166 20216465     SD CARD failed! 
-    78f4:	63656843 6f79206b 63207275 656e6e6f     Check your conne
-    7904:	6f697463 202e736e 74737953 77206d65     ctions. System w
-    7914:	206c6c69 74736572 20747261 35206e69     ill restart in 5
-    7924:	63657320 73646e6f 002e2e2e 276e6f44      seconds....Don'
-    7934:	656e2074 74206465 7075206f 65746164     t need to update
-    7944:	000a0d21 61647055 20646574 65642026     !...Updated & de
-    7954:	6574656c 68742064 656e2065 69622077     leted the new bi
-    7964:	6966206e 7320656c 65636375 75667373     n file successfu
-    7974:	21796c6c 00000a0d 35455345 2d203631     lly!....ESE516 -
-    7984:	49584520 4f422054 4f4c544f 52454441      EXIT BOOTLOADER
-    7994:	00000000 6e65704f 65687420 6c696620     ....Open the fil
-    79a4:	75732065 73656363 6c756673 0d21796c     e successfully!.
-    79b4:	0000000a 73617245 72652065 00726f72     ....Erase error.
-    79c4:	6f727245 202d2072 74736574 67617020     Error - test pag
-    79d4:	73692065 746f6e20 61726520 21646573     e is not erased!
-    79e4:	00000000 74736554 69727720 74206574     ....Test write t
-    79f4:	564e206f 6166204d 64656c69 000a0d21     o NVM failed!...
-    7a04:	6c756f43 6f6e2064 61632074 6c75636c     Could not calcul
-    7a14:	20657461 21435243 000a0d21 6c756f43     ate CRC!!...Coul
-    7a24:	6f6e2064 706f2074 74206e65 20747365     d not open test 
-    7a34:	656c6966 000a0d21                       file!...
+    76c4:	65746544 64657463 6e696220 0d214120     Detected bin A!.
+    76d4:	0000000a 6c696146 74206465 706f206f     ....Failed to op
+    76e4:	62206e65 41206e69 6f4e2021 6e696220     en bin A! No bin
+    76f4:	0d214120 0000000a 35455345 2d203631      A!.....ESE516 -
+    7704:	544e4520 42205245 4c544f4f 4544414f      ENTER BOOTLOADE
+    7714:	00000052 2d0d0a0c 4453202d 434d4d2f     R......-- SD/MMC
+    7724:	72614320 78452064 6c706d61 6e6f2065      Card Example on
+    7734:	74614620 2d207346 000d0a2d 43204453      FatFs --...SD C
+    7744:	20647261 74696e69 65746169 6f632064     ard initiated co
+    7754:	63657272 21796c74 00000d0a 6e756f4d     rrectly!....Moun
+    7764:	69642074 28206b73 6f6d5f66 29746e75     t disk (f_mount)
+    7774:	0d2e2e2e 0000000a 4941465b 72205d4c     ........[FAIL] r
+    7784:	25207365 000a0d64 5d4b4f5b 00000a0d     es %d...[OK]....
+    7794:	61657243 61206574 6c696620 66282065     Create a file (f
+    77a4:	65706f5f 2e2e296e 000a0d2e 74697257     _open)......Writ
+    77b4:	6f742065 73657420 69662074 2820656c     e to test file (
+    77c4:	75705f66 2e297374 0a0d2e2e 00000000     f_puts).........
+    77d4:	74736554 2f445320 20434d4d 63617473     Test SD/MMC stac
+    77e4:	00000a6b 4941465b 0a0d5d4c 00000000     k...[FAIL]......
+    77f4:	74736554 20736920 63637573 66737365     Test is successf
+    7804:	0a2e6c75 0000000d 6c756f43 6f6e2064     ul......Could no
+    7814:	706f2074 62206e65 72616e69 69662079     t open binary fi
+    7824:	0d21656c 0000000a 74697257 6f742065     le!.....Write to
+    7834:	73657420 69662074 2820656c 72775f66      test file (f_wr
+    7844:	29657469 0d2e2e2e 0000000a 20646e45     ite)........End 
+    7854:	5420666f 2e747365 00000d0a 43204453     of Test.....SD C
+    7864:	20445241 6e756f6d 75732074 73656363     ARD mount succes
+    7874:	46202173 20656c69 74737973 61206d65     s! File system a
+    7884:	206f736c 6e756f6d 2e646574 000a0d20     lso mounted. ...
+    7894:	204d564e 6f666e49 754e203a 7265626d     NVM Info: Number
+    78a4:	20666f20 65676150 64252073 6953202e      of Pages %d. Si
+    78b4:	6f20657a 20612066 65676170 6425203a     ze of a page: %d
+    78c4:	74796220 202e7365 00000a0d 43204453      bytes. ....SD C
+    78d4:	20647261 6c696166 69206465 6974696e     ard failed initi
+    78e4:	6f697461 4320216e 6b636568 6e6f6320     ation! Check con
+    78f4:	7463656e 736e6f69 000d0a21 43204453     nections!...SD C
+    7904:	20445241 6c696166 20216465 63656843     ARD failed! Chec
+    7914:	6f79206b 63207275 656e6e6f 6f697463     k your connectio
+    7924:	202e736e 74737953 77206d65 206c6c69     ns. System will 
+    7934:	74736572 20747261 35206e69 63657320     restart in 5 sec
+    7944:	73646e6f 002e2e2e 276e6f44 656e2074     onds....Don't ne
+    7954:	74206465 7075206f 65746164 000a0d21     ed to update!...
+    7964:	61647055 20646574 65642026 6574656c     Updated & delete
+    7974:	68742064 656e2065 69622077 6966206e     d the new bin fi
+    7984:	7320656c 65636375 75667373 21796c6c     le successfully!
+    7994:	00000a0d 35455345 2d203631 49584520     ....ESE516 - EXI
+    79a4:	4f422054 4f4c544f 52454441 00000000     T BOOTLOADER....
+    79b4:	6e65704f 65687420 6c696620 75732065     Open the file su
+    79c4:	73656363 6c756673 0d21796c 0000000a     ccessfully!.....
+    79d4:	73617245 72652065 00726f72 6f727245     Erase error.Erro
+    79e4:	202d2072 74736574 67617020 73692065     r - test page is
+    79f4:	746f6e20 61726520 21646573 00000000      not erased!....
+    7a04:	74736554 69727720 74206574 564e206f     Test write to NV
+    7a14:	6166204d 64656c69 000a0d21 6c756f43     M failed!...Coul
+    7a24:	6f6e2064 61632074 6c75636c 20657461     d not calculate 
+    7a34:	21435243 000a0d21 6c756f43 6f6e2064     CRC!!...Could no
+    7a44:	706f2074 74206e65 20747365 656c6966     t open test file
+    7a54:	000a0d21                                !...
 
-00007a3c <_global_impure_ptr>:
-    7a3c:	20000040                                @.. 
+00007a58 <_global_impure_ptr>:
+    7a58:	20000040                                @.. 
 
-00007a40 <__sf_fake_stderr>:
+00007a5c <__sf_fake_stderr>:
 	...
 
-00007a60 <__sf_fake_stdin>:
+00007a7c <__sf_fake_stdin>:
 	...
 
-00007a80 <__sf_fake_stdout>:
+00007a9c <__sf_fake_stdout>:
 	...
-    7aa0:	2b302d23 6c680020 6665004c 47464567     #-0+ .hlL.efgEFG
-    7ab0:	32313000 36353433 41393837 45444342     .0123456789ABCDE
-    7ac0:	31300046 35343332 39383736 64636261     F.0123456789abcd
-    7ad0:	00006665                                ef..
+    7abc:	2b302d23 6c680020 6665004c 47464567     #-0+ .hlL.efgEFG
+    7acc:	32313000 36353433 41393837 45444342     .0123456789ABCDE
+    7adc:	31300046 35343332 39383736 64636261     F.0123456789abcd
+    7aec:	00006665                                ef..
 
-00007ad4 <_init>:
-    7ad4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-    7ad6:	46c0      	nop			; (mov r8, r8)
-    7ad8:	bcf8      	pop	{r3, r4, r5, r6, r7}
-    7ada:	bc08      	pop	{r3}
-    7adc:	469e      	mov	lr, r3
-    7ade:	4770      	bx	lr
+00007af0 <_init>:
+    7af0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    7af2:	46c0      	nop			; (mov r8, r8)
+    7af4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    7af6:	bc08      	pop	{r3}
+    7af8:	469e      	mov	lr, r3
+    7afa:	4770      	bx	lr
 
-00007ae0 <__init_array_start>:
-    7ae0:	000000dd 	.word	0x000000dd
+00007afc <__init_array_start>:
+    7afc:	000000dd 	.word	0x000000dd
 
-00007ae4 <_fini>:
-    7ae4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-    7ae6:	46c0      	nop			; (mov r8, r8)
-    7ae8:	bcf8      	pop	{r3, r4, r5, r6, r7}
-    7aea:	bc08      	pop	{r3}
-    7aec:	469e      	mov	lr, r3
-    7aee:	4770      	bx	lr
+00007b00 <_fini>:
+    7b00:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    7b02:	46c0      	nop			; (mov r8, r8)
+    7b04:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    7b06:	bc08      	pop	{r3}
+    7b08:	469e      	mov	lr, r3
+    7b0a:	4770      	bx	lr
 
-00007af0 <__fini_array_start>:
-    7af0:	000000b5 	.word	0x000000b5
+00007b0c <__fini_array_start>:
+    7b0c:	000000b5 	.word	0x000000b5

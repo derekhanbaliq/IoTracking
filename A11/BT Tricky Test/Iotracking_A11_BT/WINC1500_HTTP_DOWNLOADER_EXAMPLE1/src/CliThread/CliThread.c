@@ -25,7 +25,7 @@
  ******************************************************************************/
 static const char pcWelcomeMessage[]  = "FreeRTOS CLI.\r\nType Help to view a list of registered commands.\r\n";
 
-static const CLI_Command_Definition_t xImuGetCommand = {"imu", "imu: Returns a value from the IMU\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetImuData, 0};
+static const CLI_Command_Definition_t xImuGetCommand = {"imu", "imu: Returns current x, y, z acceleration from the IMU\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetImuData, 0};
 
 static const CLI_Command_Definition_t xOTAUCommand = {"fw", "fw: Download a file and perform an FW update\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_OTAU, 0};
 
@@ -41,17 +41,20 @@ static const CLI_Command_Definition_t xResetCommand = {"reset", "reset: Resets t
                                                                          //(const pdCOMMAND_LINE_CALLBACK)CLI_NeotrellProcessButtonBuffer,
                                                                          //0};
 
-//static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
-                                                                    //"getdistance: Returns the distance from the US-100 Sensor.\r\n",
-                                                                    //(const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
-                                                                    //0};
+static const CLI_Command_Definition_t xDistanceSensorGetDistance = {"getdistance",
+                                                                    "getdistance: Returns the distance from the US-100 Sensor.\r\n",
+                                                                    (const pdCOMMAND_LINE_CALLBACK)CLI_DistanceSensorGetDistance,
+                                                                    0};
 
 //static const CLI_Command_Definition_t xSendDummyGameData = {"game", "game: Sends dummy game data\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_SendDummyGameData, 0};
 
 static const CLI_Command_Definition_t xI2cScan = {"i2c", "i2c: Scans I2C bus\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_i2cScan, 0};	
 
 // get GPS data
-static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns a value from the GPS\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
+static const CLI_Command_Definition_t xGpsGetCommand = {"gps", "gps: Returns current latitude and longitude from the GPS\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetGpsData, 0};
+
+// forever loop
+static const CLI_Command_Definition_t xLoopCommand = {"loop", "loop: get the IMU data & GPS data periodically\r\n\r\n", (const pdCOMMAND_LINE_CALLBACK)CLI_GetLoopData, 0};
 
 // Clear screen command
 const CLI_Command_Definition_t xClearScreen = {CLI_COMMAND_CLEAR_SCREEN, CLI_HELP_CLEAR_SCREEN, CLI_CALLBACK_CLEAR_SCREEN, CLI_PARAMS_CLEAR_SCREEN};
@@ -80,10 +83,11 @@ void vCommandConsoleTask(void *pvParameters)
     FreeRTOS_CLIRegisterCommand(&xResetCommand);
     //FreeRTOS_CLIRegisterCommand(&xNeotrellisTurnLEDCommand);
     //FreeRTOS_CLIRegisterCommand(&xNeotrellisProcessButtonCommand);
-    //FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
+    FreeRTOS_CLIRegisterCommand(&xDistanceSensorGetDistance);
     //FreeRTOS_CLIRegisterCommand(&xSendDummyGameData);
 	FreeRTOS_CLIRegisterCommand(&xI2cScan);
 	FreeRTOS_CLIRegisterCommand(&xGpsGetCommand); //added by Derek
+	FreeRTOS_CLIRegisterCommand(&xLoopCommand); //added by Derek
 	
     char cRxedChar[2];
     unsigned char cInputIndex = 0;
@@ -259,6 +263,16 @@ void CliCharReadySemaphoreGiveFromISR(void)
  ******************************************************************************/
 
 // Example CLI Command. Reads from the IMU and returns data.
+float deltaT = 0.60; //in terms of s (600 ms)
+int oldaccX;
+int oldaccY;
+int oldaccZ;
+int oldVx;
+int oldVy;
+int oldVz;
+int newVx;
+int newVy;
+int newVz;
 BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
     static int16_t data_raw_acceleration[3];
@@ -276,11 +290,39 @@ BaseType_t CLI_GetImuData(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const i
         acceleration_mg[0] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[0]);
         acceleration_mg[1] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[1]);
         acceleration_mg[2] = lsm6dso_from_fs2_to_mg(data_raw_acceleration[2]);
-
+		double curraccX = (acceleration_mg[0] / 1000.0) * 9.81; //gives acc in m/s^2
+		double curraccY = (acceleration_mg[1] / 1000.0) * 9.81; //gives acc in m/s^2
+		double curraccZ = ((acceleration_mg[2] / 1000.0) * 9.81) - 9.81 ; //gives acc in m/s^2
+		oldaccX = (int)(curraccX * 1000);
+		oldaccY = (int)(curraccY * 1000);
+		oldaccZ = (int)(curraccZ * 1000);
+		
         snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [mg]:X %d\tY %d\tZ %d\r\n", (int)acceleration_mg[0], (int)acceleration_mg[1], (int)acceleration_mg[2]);
-		imuPacket.xmg = (int)acceleration_mg[0];
-		imuPacket.ymg = (int)acceleration_mg[1];
-		imuPacket.zmg = (int)acceleration_mg[2];
+		SerialConsoleWriteString(pcWriteBuffer);
+		
+		 snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Acceleration [x1000 m/s^2]:X %d\tY %d\tZ %d\r\n", oldaccX, oldaccY, oldaccZ);
+		 SerialConsoleWriteString(pcWriteBuffer);
+		//calculate velocity
+		double currVx = curraccX*deltaT;
+		double currVy = curraccY*deltaT;
+		double currVz = curraccZ*deltaT;
+		newVx = (int)(currVx * 1000);
+		newVy = (int)(currVy * 1000);
+		newVz = (int)(currVz * 1000);
+// 		newVx = oldVx + oldaccX*deltaT;
+// 		newVy = oldVy + oldaccY*deltaT;
+// 		newVz = oldVz + oldaccZ*deltaT;
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "Velocity [x1000 m/s]: X %d\tY %d\tZ %d\r\n", (int)newVx, (int)newVy, (int)newVz);
+// 		imuPacket.xmg = (int)acceleration_mg[0];
+// 		imuPacket.ymg = (int)acceleration_mg[1];
+// 		imuPacket.zmg = (int)acceleration_mg[2];
+		imuPacket.xmg = (int)newVx;
+		imuPacket.ymg = (int)newVy;
+		imuPacket.zmg = (int)newVz;
+		//save current as old
+		oldVx = newVx;
+		oldVy = newVy;
+		oldVz = newVz;
 		WifiAddImuDataToQueue(&imuPacket);
     } else {
         snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No data ready! Sending dummy data \r\n");
@@ -414,12 +456,13 @@ BaseType_t CLI_NeotrellProcessButtonBuffer(int8_t *pcWriteBuffer, size_t xWriteB
  */
 BaseType_t CLI_DistanceSensorGetDistance(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8_t *pcCommandString)
 {
-    uint16_t distance = 0;
-    int error = DistanceSensorGetDistance(&distance, 100);
+    char distance = 0;
+    int error = DistanceSensorGetDistance(&distance, 1000);
     if (0 != error) {
         snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Sensor Error %d!\r\n", error);
     } else {
-        snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+        //snprintf((char *) pcWriteBuffer, xWriteBufferLen, "Distance: %d mm\r\n", distance);
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "\r\nGPS outputted \r\n");
     }
 
     error = WifiAddDistanceDataToQueue(&distance);
@@ -520,10 +563,52 @@ BaseType_t CLI_i2cScan(int8_t *pcWriteBuffer, size_t xWriteBufferLen, const int8
 
 }
 
+extern float gps_latitude;
+extern float gps_longitude;
+extern int latdir;
+extern int longdir;
 // CLI Command added by Derek. Reads from the GPS and returns data.
 BaseType_t CLI_GetGpsData( int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString )
 {
-	SerialConsoleWriteString("Added by Derek, TBD!\r\n");
+	char distance = 0;
+	struct GpsDataPacket gpsPacket;
+	int error = DistanceSensorGetDistance(&distance, 1000);
+	
+	if (0 != error) {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS Error %d!\r\n", error);
+		} else {
+		snprintf((char *) pcWriteBuffer, xWriteBufferLen, "GPS outputted!\r\n");
+	}
+	
+	if (gps_latitude != 0 && gps_longitude != 0)
+	{
+		//snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude: %f°„N, longitude: %f°„E \r\n", gps_latitude, gps_longitude);
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "latitude & longitude got! \r\n");
+		gpsPacket.lat = (int32_t)gps_latitude * latdir;
+		gpsPacket.lon = (int32_t)gps_longitude * longdir;
+		WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	else
+	{
+		snprintf((char *)pcWriteBuffer, xWriteBufferLen, "No GPS data ready! Won't send data! \r\n");
+		gpsPacket.lat = 0;
+		gpsPacket.lon = 0;
+		//WifiAddGpsDataToQueue(&gpsPacket);
+	}
+	
+	return pdFALSE;
+}
+
+// CLI Command added by Derek. Polling IMU data & GPS data.
+BaseType_t CLI_GetLoopData(int8_t *pcWriteBuffer,size_t xWriteBufferLen,const int8_t *pcCommandString)
+{
+	while(1)
+	{
+		CLI_GetImuData(pcWriteBuffer, xWriteBufferLen, pcCommandString);
+		vTaskDelay((TickType_t)300);
+		CLI_GetGpsData(pcWriteBuffer, xWriteBufferLen, pcCommandString);
+		vTaskDelay((TickType_t)300);		
+	}
 	
 	return pdFALSE;
 }
